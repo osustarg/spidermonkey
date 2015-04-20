@@ -1,0 +1,1762 @@
+=============================
+DEFINED: JSInlineFrame
+DEPEND: ['JSStackFrame', 'void', 'void', 'JSVersion']
+typedef struct JSInlineFrame {
+    JSStackFrame    frame;          
+    void            *mark;          
+    void            *hookData;      
+    JSVersion       callerVersion;  
+} JSInlineFrame;
+
+=============================
+DEFINED: *object
+DEPEND: ['JSObject']
+typedef union JSPropertyCacheEntry {
+    struct {
+        JSObject        *object;        
+
+=============================
+DEFINED: JSPropertyCache
+DEPEND: ['JSPropertyCacheEntry', 'JSBool', 'JSBool', '#ifdef', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', '#', '#']
+typedef struct JSPropertyCache {
+    JSPropertyCacheEntry table[PROPERTY_CACHE_SIZE];
+    JSBool               empty;
+    JSBool               disabled;
+#ifdef JS_PROPERTY_CACHE_METERING
+    uint32               fills;
+    uint32               recycles;
+    uint32               tests;
+    uint32               misses;
+    uint32               flushes;
+# define PCMETER(x)      x
+#else
+# define PCMETER(x)      
+#endif
+} JSPropertyCache;
+
+=============================
+DEFINED: JSFatLock
+DEPEND: []
+typedef struct JSFatLock JSFatLock;
+
+=============================
+DEFINED: JSThinLock
+DEPEND: ['jsword', 'JSFatLock']
+typedef struct JSThinLock {
+    jsword      owner;
+    JSFatLock   *fat;
+} JSThinLock;
+
+=============================
+DEFINED: JSLock
+DEPEND: PRLock
+typedef PRLock JSLock;
+
+=============================
+DEFINED: JSFatLockTable
+DEPEND: ['JSFatLock', 'JSFatLock']
+typedef struct JSFatLockTable {
+    JSFatLock   *free;
+    JSFatLock   *taken;
+} JSFatLockTable;
+
+=============================
+DEFINED: uintn
+DEPEND: JSUintn
+typedef JSUintn uintn;
+
+=============================
+DEFINED: intn
+DEPEND: JSIntn
+typedef JSIntn intn;
+
+=============================
+DEFINED: uint
+DEPEND: JSUintn
+typedef JSUintn uint;
+
+=============================
+DEFINED: uintn
+DEPEND: JSUintn
+typedef JSUintn uintn;
+
+=============================
+DEFINED: uint64
+DEPEND: JSUint64
+typedef JSUint64 uint64;
+
+=============================
+DEFINED: uint32
+DEPEND: JSUint32
+typedef JSUint32 uint32;
+
+=============================
+DEFINED: uint32
+DEPEND: unsigned
+typedef unsigned long uint32;
+
+=============================
+DEFINED: uint16
+DEPEND: JSUint16
+typedef JSUint16 uint16;
+
+=============================
+DEFINED: uint8
+DEPEND: JSUint8
+typedef JSUint8 uint8;
+
+=============================
+DEFINED: intn
+DEPEND: JSIntn
+typedef JSIntn intn;
+
+=============================
+DEFINED: int64
+DEPEND: JSInt64
+typedef JSInt64 int64;
+
+=============================
+DEFINED: int32
+DEPEND: JSInt32
+typedef JSInt32 int32;
+
+=============================
+DEFINED: int32
+DEPEND: long
+typedef long int32;
+
+=============================
+DEFINED: int16
+DEPEND: JSInt16
+typedef JSInt16 int16;
+
+=============================
+DEFINED: int8
+DEPEND: JSInt8
+typedef JSInt8 int8;
+
+=============================
+DEFINED: float64
+DEPEND: JSFloat64
+typedef JSFloat64 float64;
+
+=============================
+DEFINED: JSHashNumber
+DEPEND: uint32
+typedef uint32 JSHashNumber;
+
+=============================
+DEFINED: JSHashEntry
+DEPEND: []
+typedef struct JSHashEntry JSHashEntry;
+
+=============================
+DEFINED: JSHashTable
+DEPEND: []
+typedef struct JSHashTable JSHashTable;
+
+=============================
+DEFINED: *key)
+DEPEND: JSHashNumber
+typedef JSHashNumber (* JS_DLL_CALLBACK JSHashFunction)(const void *key);
+
+=============================
+DEFINED: *v2)
+DEPEND: intN
+typedef intN (* JS_DLL_CALLBACK JSHashComparator)(const void *v1, const void *v2);
+
+=============================
+DEFINED: *arg)
+DEPEND: intN
+typedef intN (* JS_DLL_CALLBACK JSHashEnumerator)(JSHashEntry *he, intN i, void *arg);
+
+=============================
+DEFINED: JSHashAllocOps
+DEPEND: ['void', 'void', 'JSHashEntry', 'void']
+typedef struct JSHashAllocOps {
+    void *              (*allocTable)(void *pool, size_t size);
+    void                (*freeTable)(void *pool, void *item);
+    JSHashEntry *       (*allocEntry)(void *pool, const void *key);
+    void                (*freeEntry)(void *pool, JSHashEntry *he, uintN flag);
+} JSHashAllocOps;
+
+=============================
+DEFINED: JSCList
+DEPEND: ['struct', 'struct']
+typedef struct JSCListStr {
+    struct JSCListStr *next;
+    struct JSCListStr *prev;
+} JSCList;
+
+=============================
+DEFINED: JSTokenType
+DEPEND: []
+typedef enum JSTokenType {
+    TOK_ERROR = -1,                     
+    TOK_EOF = 0,                        
+    TOK_EOL = 1,                        
+    TOK_SEMI = 2,                       
+    TOK_COMMA = 3,                      
+    TOK_ASSIGN = 4,                     
+    TOK_HOOK = 5, TOK_COLON = 6,        
+    TOK_OR = 7,                         
+    TOK_AND = 8,                        
+    TOK_BITOR = 9,                      
+    TOK_BITXOR = 10,                    
+    TOK_BITAND = 11,                    
+    TOK_EQOP = 12,                      
+    TOK_RELOP = 13,                     
+    TOK_SHOP = 14,                      
+    TOK_PLUS = 15,                      
+    TOK_MINUS = 16,                     
+    TOK_STAR = 17, TOK_DIVOP = 18,      
+    TOK_UNARYOP = 19,                   
+    TOK_INC = 20, TOK_DEC = 21,         
+    TOK_DOT = 22,                       
+    TOK_LB = 23, TOK_RB = 24,           
+    TOK_LC = 25, TOK_RC = 26,           
+    TOK_LP = 27, TOK_RP = 28,           
+    TOK_NAME = 29,                      
+    TOK_NUMBER = 30,                    
+    TOK_STRING = 31,                    
+    TOK_OBJECT = 32,                    
+    TOK_PRIMARY = 33,                   
+    TOK_FUNCTION = 34,                  
+    TOK_EXPORT = 35,                    
+    TOK_IMPORT = 36,                    
+    TOK_IF = 37,                        
+    TOK_ELSE = 38,                      
+    TOK_SWITCH = 39,                    
+    TOK_CASE = 40,                      
+    TOK_DEFAULT = 41,                   
+    TOK_WHILE = 42,                     
+    TOK_DO = 43,                        
+    TOK_FOR = 44,                       
+    TOK_BREAK = 45,                     
+    TOK_CONTINUE = 46,                  
+    TOK_IN = 47,                        
+    TOK_VAR = 48,                       
+    TOK_WITH = 49,                      
+    TOK_RETURN = 50,                    
+    TOK_NEW = 51,                       
+    TOK_DELETE = 52,                    
+    TOK_DEFSHARP = 53,                  
+    TOK_USESHARP = 54,                  
+    TOK_TRY = 55,                       
+    TOK_CATCH = 56,                     
+    TOK_FINALLY = 57,                   
+    TOK_THROW = 58,                     
+    TOK_INSTANCEOF = 59,                
+    TOK_DEBUGGER = 60,                  
+    TOK_XMLSTAGO = 61,                  
+    TOK_XMLETAGO = 62,                  
+    TOK_XMLPTAGC = 63,                  
+    TOK_XMLTAGC = 64,                   
+    TOK_XMLNAME = 65,                   
+    TOK_XMLATTR = 66,                   
+    TOK_XMLSPACE = 67,                  
+    TOK_XMLTEXT = 68,                   
+    TOK_XMLCOMMENT = 69,                
+    TOK_XMLCDATA = 70,                  
+    TOK_XMLPI = 71,                     
+    TOK_AT = 72,                        
+    TOK_DBLCOLON = 73,                  
+    TOK_ANYNAME = 74,                   
+    TOK_DBLDOT = 75,                    
+    TOK_FILTER = 76,                    
+    TOK_XMLELEM = 77,                   
+    TOK_XMLLIST = 78,                   
+    TOK_RESERVED,                       
+    TOK_LIMIT                           
+} JSTokenType;
+
+=============================
+DEFINED: JSTokenBuf
+DEPEND: ['jschar', 'jschar', 'jschar']
+typedef struct JSTokenBuf {
+    jschar              *base;          
+    jschar              *limit;         
+    jschar              *ptr;           
+} JSTokenBuf;
+
+=============================
+DEFINED: JSPropertyDesc
+DEPEND: ['jsval', 'jsval', 'uint8', 'uint8', 'uint16', 'jsval']
+typedef struct JSPropertyDesc {
+    jsval           id;         
+    jsval           value;      
+    uint8           flags;      
+    uint8           spare;      
+    uint16          slot;       
+    jsval           alias;      
+} JSPropertyDesc;
+
+=============================
+DEFINED: JSPropertyDescArray
+DEPEND: ['uint32', 'JSPropertyDesc']
+typedef struct JSPropertyDescArray {
+    uint32          length;     
+    JSPropertyDesc  *array;     
+} JSPropertyDescArray;
+
+=============================
+DEFINED: hi
+DEPEND: ['#if', 'uint32']
+typedef union jsdpun {
+    struct {
+#if defined(IS_LITTLE_ENDIAN) && !defined(CPU_IS_ARM)
+        uint32 lo, hi;
+
+=============================
+DEFINED: JSStmtType
+DEPEND: []
+typedef enum JSStmtType {
+    STMT_BLOCK        = 0,      
+    STMT_LABEL        = 1,      
+    STMT_IF           = 2,      
+    STMT_ELSE         = 3,      
+    STMT_SWITCH       = 4,      
+    STMT_WITH         = 5,      
+    STMT_TRY          = 6,      
+    STMT_CATCH        = 7,      
+    STMT_FINALLY      = 8,      
+    STMT_SUBROUTINE   = 9,      
+    STMT_DO_LOOP      = 10,     
+    STMT_FOR_LOOP     = 11,     
+    STMT_FOR_IN_LOOP  = 12,     
+    STMT_WHILE_LOOP   = 13      
+} JSStmtType;
+
+=============================
+DEFINED: JSStmtInfo
+DEPEND: []
+typedef struct JSStmtInfo JSStmtInfo;
+
+=============================
+DEFINED: JSSpanDep
+DEPEND: []
+typedef struct JSSpanDep    JSSpanDep;
+
+=============================
+DEFINED: JSJumpTarget
+DEPEND: []
+typedef struct JSJumpTarget JSJumpTarget;
+
+=============================
+DEFINED: break
+DEPEND: []
+typedef enum JSSrcNoteType {
+    SRC_NULL        = 0,        
+    SRC_IF          = 1,        
+    SRC_IF_ELSE     = 2,        
+    SRC_WHILE       = 3,        
+    SRC_FOR         = 4,        
+    SRC_CONTINUE    = 5,        /* JSOP_GOTO is a continue, not a break;
+
+=============================
+DEFINED: JSSrcNoteSpec
+DEPEND: ['const', 'uint8', 'uint8', 'int8', '0']
+typedef struct JSSrcNoteSpec {
+    const char      *name;      
+    uint8           arity;      
+    uint8           offsetBias; 
+    int8            isSpanDep;  /* 1 or -1 if offsets could span extended ops,
+                                   0 otherwise; sign tells span direction */
+} JSSrcNoteSpec;
+
+=============================
+DEFINED: PRMJTime
+DEPEND: []
+typedef struct PRMJTime       PRMJTime;
+
+=============================
+DEFINED: JSArena
+DEPEND: []
+typedef struct JSArena JSArena;
+
+=============================
+DEFINED: JSArenaPool
+DEPEND: []
+typedef struct JSArenaPool JSArenaPool;
+
+=============================
+DEFINED: JSArenaStats
+DEPEND: []
+typedef struct JSArenaStats JSArenaStats;
+
+=============================
+DEFINED: JSDHashNumber
+DEPEND: uint32
+typedef uint32                  JSDHashNumber;
+
+=============================
+DEFINED: JSDHashEntryHdr
+DEPEND: []
+typedef struct JSDHashEntryHdr  JSDHashEntryHdr;
+
+=============================
+DEFINED: JSDHashEntryStub
+DEPEND: []
+typedef struct JSDHashEntryStub JSDHashEntryStub;
+
+=============================
+DEFINED: JSDHashTable
+DEPEND: []
+typedef struct JSDHashTable     JSDHashTable;
+
+=============================
+DEFINED: JSDHashTableOps
+DEPEND: []
+typedef struct JSDHashTableOps  JSDHashTableOps;
+
+=============================
+DEFINED: nbytes)
+DEPEND: void
+typedef void *
+(* JS_DLL_CALLBACK JSDHashAllocTable)(JSDHashTable *table, uint32 nbytes);
+
+=============================
+DEFINED: *ptr)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSDHashFreeTable) (JSDHashTable *table, void *ptr);
+
+=============================
+DEFINED: *entry)
+DEPEND: const
+typedef const void *
+(* JS_DLL_CALLBACK JSDHashGetKey)    (JSDHashTable *table,
+                                      JSDHashEntryHdr *entry);
+
+=============================
+DEFINED: *key)
+DEPEND: JSDHashNumber
+typedef JSDHashNumber
+(* JS_DLL_CALLBACK JSDHashHashKey)   (JSDHashTable *table, const void *key);
+
+=============================
+DEFINED: *key)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSDHashMatchEntry)(JSDHashTable *table,
+                                      const JSDHashEntryHdr *entry,
+                                      const void *key);
+
+=============================
+DEFINED: *to)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSDHashMoveEntry)(JSDHashTable *table,
+                                     const JSDHashEntryHdr *from,
+                                     JSDHashEntryHdr *to);
+
+=============================
+DEFINED: *entry)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSDHashClearEntry)(JSDHashTable *table,
+                                      JSDHashEntryHdr *entry);
+
+=============================
+DEFINED: *table)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSDHashFinalize)  (JSDHashTable *table);
+
+=============================
+DEFINED: *key)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSDHashInitEntry)(JSDHashTable *table,
+                                     JSDHashEntryHdr *entry,
+                                     const void *key);
+
+=============================
+DEFINED: JSDHashOperator
+DEPEND: []
+typedef enum JSDHashOperator {
+    JS_DHASH_LOOKUP = 0,        
+    JS_DHASH_ADD = 1,           
+    JS_DHASH_REMOVE = 2,        
+    JS_DHASH_NEXT = 0,          
+    JS_DHASH_STOP = 1           
+} JSDHashOperator;
+
+=============================
+DEFINED: *arg)
+DEPEND: JSDHashOperator
+typedef JSDHashOperator
+(* JS_DLL_CALLBACK JSDHashEnumerator)(JSDHashTable *table, JSDHashEntryHdr *hdr,
+                                      uint32 number, void *arg);
+
+=============================
+DEFINED: jsbytecode
+DEPEND: uint8
+typedef uint8  jsbytecode;
+
+=============================
+DEFINED: jssrcnote
+DEPEND: uint8
+typedef uint8  jssrcnote;
+
+=============================
+DEFINED: jsatomid
+DEPEND: uint32
+typedef uint32 jsatomid;
+
+=============================
+DEFINED: JSArgumentFormatMap
+DEPEND: []
+typedef struct JSArgumentFormatMap  JSArgumentFormatMap;
+
+=============================
+DEFINED: JSCodeGenerator
+DEPEND: []
+typedef struct JSCodeGenerator      JSCodeGenerator;
+
+=============================
+DEFINED: JSDependentString
+DEPEND: []
+typedef struct JSDependentString    JSDependentString;
+
+=============================
+DEFINED: JSGCLockHashEntry
+DEPEND: []
+typedef struct JSGCLockHashEntry    JSGCLockHashEntry;
+
+=============================
+DEFINED: JSGCRootHashEntry
+DEPEND: []
+typedef struct JSGCRootHashEntry    JSGCRootHashEntry;
+
+=============================
+DEFINED: JSGCThing
+DEPEND: []
+typedef struct JSGCThing            JSGCThing;
+
+=============================
+DEFINED: JSParseNode
+DEPEND: []
+typedef struct JSParseNode          JSParseNode;
+
+=============================
+DEFINED: JSSharpObjectMap
+DEPEND: []
+typedef struct JSSharpObjectMap     JSSharpObjectMap;
+
+=============================
+DEFINED: JSToken
+DEPEND: []
+typedef struct JSToken              JSToken;
+
+=============================
+DEFINED: JSTokenPos
+DEPEND: []
+typedef struct JSTokenPos           JSTokenPos;
+
+=============================
+DEFINED: JSTokenPtr
+DEPEND: []
+typedef struct JSTokenPtr           JSTokenPtr;
+
+=============================
+DEFINED: JSTokenStream
+DEPEND: []
+typedef struct JSTokenStream        JSTokenStream;
+
+=============================
+DEFINED: JSTreeContext
+DEPEND: []
+typedef struct JSTreeContext        JSTreeContext;
+
+=============================
+DEFINED: JSTryNote
+DEPEND: []
+typedef struct JSTryNote            JSTryNote;
+
+=============================
+DEFINED: JSAtom
+DEPEND: []
+typedef struct JSAtom               JSAtom;
+
+=============================
+DEFINED: JSAtomList
+DEPEND: []
+typedef struct JSAtomList           JSAtomList;
+
+=============================
+DEFINED: JSAtomListElement
+DEPEND: []
+typedef struct JSAtomListElement    JSAtomListElement;
+
+=============================
+DEFINED: JSAtomMap
+DEPEND: []
+typedef struct JSAtomMap            JSAtomMap;
+
+=============================
+DEFINED: JSAtomState
+DEPEND: []
+typedef struct JSAtomState          JSAtomState;
+
+=============================
+DEFINED: JSCodeSpec
+DEPEND: []
+typedef struct JSCodeSpec           JSCodeSpec;
+
+=============================
+DEFINED: JSPrinter
+DEPEND: []
+typedef struct JSPrinter            JSPrinter;
+
+=============================
+DEFINED: JSRegExp
+DEPEND: []
+typedef struct JSRegExp             JSRegExp;
+
+=============================
+DEFINED: JSRegExpStatics
+DEPEND: []
+typedef struct JSRegExpStatics      JSRegExpStatics;
+
+=============================
+DEFINED: JSScope
+DEPEND: []
+typedef struct JSScope              JSScope;
+
+=============================
+DEFINED: JSScopeOps
+DEPEND: []
+typedef struct JSScopeOps           JSScopeOps;
+
+=============================
+DEFINED: JSScopeProperty
+DEPEND: []
+typedef struct JSScopeProperty      JSScopeProperty;
+
+=============================
+DEFINED: JSStackFrame
+DEPEND: []
+typedef struct JSStackFrame         JSStackFrame;
+
+=============================
+DEFINED: JSStackHeader
+DEPEND: []
+typedef struct JSStackHeader        JSStackHeader;
+
+=============================
+DEFINED: JSStringBuffer
+DEPEND: []
+typedef struct JSStringBuffer       JSStringBuffer;
+
+=============================
+DEFINED: JSSubString
+DEPEND: []
+typedef struct JSSubString          JSSubString;
+
+=============================
+DEFINED: JSXML
+DEPEND: []
+typedef struct JSXML                JSXML;
+
+=============================
+DEFINED: JSXMLNamespace
+DEPEND: []
+typedef struct JSXMLNamespace       JSXMLNamespace;
+
+=============================
+DEFINED: JSXMLQName
+DEPEND: []
+typedef struct JSXMLQName           JSXMLQName;
+
+=============================
+DEFINED: JSXMLArray
+DEPEND: []
+typedef struct JSXMLArray           JSXMLArray;
+
+=============================
+DEFINED: JSXMLArrayCursor
+DEPEND: []
+typedef struct JSXMLArrayCursor     JSXMLArrayCursor;
+
+=============================
+DEFINED: JSTrapStatus
+DEPEND: []
+typedef enum JSTrapStatus {
+    JSTRAP_ERROR,
+    JSTRAP_CONTINUE,
+    JSTRAP_RETURN,
+    JSTRAP_THROW,
+    JSTRAP_LIMIT
+} JSTrapStatus;
+
+=============================
+DEFINED: *closure)
+DEPEND: JSTrapStatus
+typedef JSTrapStatus
+(* JS_DLL_CALLBACK JSTrapHandler)(JSContext *cx, JSScript *script,
+                                  jsbytecode *pc, jsval *rval, void *closure);
+
+=============================
+DEFINED: *closure)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSWatchPointHandler)(JSContext *cx, JSObject *obj, jsval id,
+                                        jsval old, jsval *newp, void *closure);
+
+=============================
+DEFINED: *callerdata)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSNewScriptHook)(JSContext  *cx,
+                                    const char *filename,  
+                                    uintN      lineno,     
+                                    JSScript   *script,
+                                    JSFunction *fun,
+                                    void       *callerdata);
+
+=============================
+DEFINED: *callerdata)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSDestroyScriptHook)(JSContext *cx,
+                                        JSScript  *script,
+                                        void      *callerdata);
+
+=============================
+DEFINED: *closure)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSSourceHandler)(const char *filename, uintN lineno,
+                                    jschar *str, size_t length,
+                                    void **listenerTSData, void *closure);
+
+=============================
+DEFINED: *closure)
+DEPEND: void
+typedef void *
+(* JS_DLL_CALLBACK JSInterpreterHook)(JSContext *cx, JSStackFrame *fp, JSBool before,
+                                      JSBool *ok, void *closure);
+
+=============================
+DEFINED: *closure)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSObjectHook)(JSContext *cx, JSObject *obj, JSBool isNew,
+                                 void *closure);
+
+=============================
+DEFINED: *closure)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSDebugErrorHook)(JSContext *cx, const char *message,
+                                     JSErrorReport *report, void *closure);
+
+=============================
+DEFINED: JSOp
+DEPEND: []
+typedef enum JSOp {
+#define OPDEF(op,val,name,token,length,nuses,ndefs,prec,format) \
+    op = val,
+#include "jsopcode.tbl"
+#undef OPDEF
+    JSOP_LIMIT
+} JSOp;
+
+=============================
+DEFINED: JSCallsite
+DEPEND: []
+typedef struct JSCallsite JSCallsite;
+
+=============================
+DEFINED: intN
+DEPEND: JSIntn
+typedef JSIntn intN;
+
+=============================
+DEFINED: uintN
+DEPEND: JSUintn
+typedef JSUintn uintN;
+
+=============================
+DEFINED: jsuword
+DEPEND: JSUword
+typedef JSUword jsuword;
+
+=============================
+DEFINED: jsword
+DEPEND: JSWord
+typedef JSWord jsword;
+
+=============================
+DEFINED: float32
+DEPEND: float
+typedef float float32;
+
+=============================
+DEFINED: slen)
+DEPEND: JSIntn
+typedef JSIntn (*JSStuffFunc)(void *arg, const char *s, JSUint32 slen);
+
+=============================
+DEFINED: JSCharType
+DEPEND: []
+typedef enum JSCharType {
+    JSCT_UNASSIGNED             = 0,
+    JSCT_UPPERCASE_LETTER       = 1,
+    JSCT_LOWERCASE_LETTER       = 2,
+    JSCT_TITLECASE_LETTER       = 3,
+    JSCT_MODIFIER_LETTER        = 4,
+    JSCT_OTHER_LETTER           = 5,
+    JSCT_NON_SPACING_MARK       = 6,
+    JSCT_ENCLOSING_MARK         = 7,
+    JSCT_COMBINING_SPACING_MARK = 8,
+    JSCT_DECIMAL_DIGIT_NUMBER   = 9,
+    JSCT_LETTER_NUMBER          = 10,
+    JSCT_OTHER_NUMBER           = 11,
+    JSCT_SPACE_SEPARATOR        = 12,
+    JSCT_LINE_SEPARATOR         = 13,
+    JSCT_PARAGRAPH_SEPARATOR    = 14,
+    JSCT_CONTROL                = 15,
+    JSCT_FORMAT                 = 16,
+    JSCT_PRIVATE_USE            = 18,
+    JSCT_SURROGATE              = 19,
+    JSCT_DASH_PUNCTUATION       = 20,
+    JSCT_START_PUNCTUATION      = 21,
+    JSCT_END_PUNCTUATION        = 22,
+    JSCT_CONNECTOR_PUNCTUATION  = 23,
+    JSCT_OTHER_PUNCTUATION      = 24,
+    JSCT_MATH_SYMBOL            = 25,
+    JSCT_CURRENCY_SYMBOL        = 26,
+    JSCT_MODIFIER_SYMBOL        = 27,
+    JSCT_OTHER_SYMBOL           = 28
+} JSCharType;
+
+=============================
+DEFINED: src
+DEPEND: ['JSPackedBool', 'JSPackedBool', 'uint16', 'uint8', 'size_t', 'size_t']
+typedef struct RECharSet {
+    JSPackedBool    converted;
+    JSPackedBool    sense;
+    uint16          length;
+    union {
+        uint8       *bits;
+        struct {
+            size_t  startIndex;
+            size_t  length;
+        } src;
+
+=============================
+DEFINED: RENode
+DEPEND: []
+typedef struct RENode RENode;
+
+=============================
+DEFINED: jschar
+DEPEND: uint16
+typedef uint16    jschar;
+
+=============================
+DEFINED: jsint
+DEPEND: int32
+typedef int32     jsint;
+
+=============================
+DEFINED: jsuint
+DEPEND: uint32
+typedef uint32    jsuint;
+
+=============================
+DEFINED: jsdouble
+DEPEND: float64
+typedef float64   jsdouble;
+
+=============================
+DEFINED: jsval
+DEPEND: jsword
+typedef jsword    jsval;
+
+=============================
+DEFINED: jsid
+DEPEND: jsword
+typedef jsword    jsid;
+
+=============================
+DEFINED: jsrefcount
+DEPEND: int32
+typedef int32     jsrefcount;   
+
+=============================
+DEFINED: JSVersion
+DEPEND: []
+typedef enum JSVersion {
+    JSVERSION_1_0     = 100,
+    JSVERSION_1_1     = 110,
+    JSVERSION_1_2     = 120,
+    JSVERSION_1_3     = 130,
+    JSVERSION_1_4     = 140,
+    JSVERSION_ECMA_3  = 148,
+    JSVERSION_1_5     = 150,
+    JSVERSION_1_6     = 160,
+    JSVERSION_DEFAULT = 0,
+    JSVERSION_UNKNOWN = -1
+} JSVersion;
+
+=============================
+DEFINED: JSType
+DEPEND: []
+typedef enum JSType {
+    JSTYPE_VOID,                
+    JSTYPE_OBJECT,              
+    JSTYPE_FUNCTION,            
+    JSTYPE_STRING,              
+    JSTYPE_NUMBER,              
+    JSTYPE_BOOLEAN,             
+    JSTYPE_NULL,                
+    JSTYPE_XML,                 
+    JSTYPE_LIMIT
+} JSType;
+
+=============================
+DEFINED: JSAccessMode
+DEPEND: []
+typedef enum JSAccessMode {
+    JSACC_PROTO  = 0,           
+    JSACC_PARENT = 1,           
+    JSACC_IMPORT = 2,           
+    JSACC_WATCH  = 3,           
+    JSACC_READ   = 4,           
+    JSACC_WRITE  = 8,           
+    JSACC_LIMIT
+} JSAccessMode;
+
+=============================
+DEFINED: JSIterateOp
+DEPEND: []
+typedef enum JSIterateOp {
+    JSENUMERATE_INIT,       
+    JSENUMERATE_NEXT,       
+    JSENUMERATE_DESTROY     
+} JSIterateOp;
+
+=============================
+DEFINED: JSClass
+DEPEND: []
+typedef struct JSClass           JSClass;
+
+=============================
+DEFINED: JSExtendedClass
+DEPEND: []
+typedef struct JSExtendedClass   JSExtendedClass;
+
+=============================
+DEFINED: JSConstDoubleSpec
+DEPEND: []
+typedef struct JSConstDoubleSpec JSConstDoubleSpec;
+
+=============================
+DEFINED: JSContext
+DEPEND: []
+typedef struct JSContext         JSContext;
+
+=============================
+DEFINED: JSErrorReport
+DEPEND: []
+typedef struct JSErrorReport     JSErrorReport;
+
+=============================
+DEFINED: JSFunction
+DEPEND: []
+typedef struct JSFunction        JSFunction;
+
+=============================
+DEFINED: JSFunctionSpec
+DEPEND: []
+typedef struct JSFunctionSpec    JSFunctionSpec;
+
+=============================
+DEFINED: JSIdArray
+DEPEND: []
+typedef struct JSIdArray         JSIdArray;
+
+=============================
+DEFINED: JSProperty
+DEPEND: []
+typedef struct JSProperty        JSProperty;
+
+=============================
+DEFINED: JSPropertySpec
+DEPEND: []
+typedef struct JSPropertySpec    JSPropertySpec;
+
+=============================
+DEFINED: JSObject
+DEPEND: []
+typedef struct JSObject          JSObject;
+
+=============================
+DEFINED: JSObjectMap
+DEPEND: []
+typedef struct JSObjectMap       JSObjectMap;
+
+=============================
+DEFINED: JSObjectOps
+DEPEND: []
+typedef struct JSObjectOps       JSObjectOps;
+
+=============================
+DEFINED: JSXMLObjectOps
+DEPEND: []
+typedef struct JSXMLObjectOps    JSXMLObjectOps;
+
+=============================
+DEFINED: JSRuntime
+DEPEND: []
+typedef struct JSRuntime         JSRuntime;
+
+=============================
+DEFINED: JSTaskState
+DEPEND: []
+typedef struct JSRuntime         JSTaskState;   
+
+=============================
+DEFINED: JSScript
+DEPEND: []
+typedef struct JSScript          JSScript;
+
+=============================
+DEFINED: JSString
+DEPEND: []
+typedef struct JSString          JSString;
+
+=============================
+DEFINED: JSXDRState
+DEPEND: []
+typedef struct JSXDRState        JSXDRState;
+
+=============================
+DEFINED: JSExceptionState
+DEPEND: []
+typedef struct JSExceptionState  JSExceptionState;
+
+=============================
+DEFINED: JSLocaleCallbacks
+DEPEND: []
+typedef struct JSLocaleCallbacks JSLocaleCallbacks;
+
+=============================
+DEFINED: *vp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSPropertyOp)(JSContext *cx, JSObject *obj, jsval id,
+                                 jsval *vp);
+
+=============================
+DEFINED: *idp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSNewEnumerateOp)(JSContext *cx, JSObject *obj,
+                                     JSIterateOp enum_op,
+                                     jsval *statep, jsid *idp);
+
+=============================
+DEFINED: *obj)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSEnumerateOp)(JSContext *cx, JSObject *obj);
+
+=============================
+DEFINED: id)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSResolveOp)(JSContext *cx, JSObject *obj, jsval id);
+
+=============================
+DEFINED: **objp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSNewResolveOp)(JSContext *cx, JSObject *obj, jsval id,
+                                   uintN flags, JSObject **objp);
+
+=============================
+DEFINED: *vp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSConvertOp)(JSContext *cx, JSObject *obj, JSType type,
+                                jsval *vp);
+
+=============================
+DEFINED: *obj)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSFinalizeOp)(JSContext *cx, JSObject *obj);
+
+=============================
+DEFINED: *str)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSStringFinalizeOp)(JSContext *cx, JSString *str);
+
+=============================
+DEFINED: *clasp)
+DEPEND: JSObjectOps
+typedef JSObjectOps *
+(* JS_DLL_CALLBACK JSGetObjectOps)(JSContext *cx, JSClass *clasp);
+
+=============================
+DEFINED: *vp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSCheckAccessOp)(JSContext *cx, JSObject *obj, jsval id,
+                                    JSAccessMode mode, jsval *vp);
+
+=============================
+DEFINED: **objp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSXDRObjectOp)(JSXDRState *xdr, JSObject **objp);
+
+=============================
+DEFINED: *bp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSHasInstanceOp)(JSContext *cx, JSObject *obj, jsval v,
+                                    JSBool *bp);
+
+=============================
+DEFINED: *arg)
+DEPEND: uint32
+typedef uint32
+(* JS_DLL_CALLBACK JSMarkOp)(JSContext *cx, JSObject *obj, void *arg);
+
+=============================
+DEFINED: *obj)
+DEPEND: uint32
+typedef uint32
+(* JS_DLL_CALLBACK JSReserveSlotsOp)(JSContext *cx, JSObject *obj);
+
+=============================
+DEFINED: *obj)
+DEPEND: JSObjectMap
+typedef JSObjectMap *
+(* JS_DLL_CALLBACK JSNewObjectMapOp)(JSContext *cx, jsrefcount nrefs,
+                                     JSObjectOps *ops, JSClass *clasp,
+                                     JSObject *obj);
+
+=============================
+DEFINED: *map)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSObjectMapOp)(JSContext *cx, JSObjectMap *map);
+
+=============================
+DEFINED: **propp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSLookupPropOp)(JSContext *cx, JSObject *obj, jsid id,
+                                   JSObject **objp, JSProperty **propp);
+
+=============================
+DEFINED: **propp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSDefinePropOp)(JSContext *cx, JSObject *obj,
+                                   jsid id, jsval value,
+                                   JSPropertyOp getter, JSPropertyOp setter,
+                                   uintN attrs, JSProperty **propp);
+
+=============================
+DEFINED: *vp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSPropertyIdOp)(JSContext *cx, JSObject *obj, jsid id,
+                                   jsval *vp);
+
+=============================
+DEFINED: *attrsp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSAttributesOp)(JSContext *cx, JSObject *obj, jsid id,
+                                   JSProperty *prop, uintN *attrsp);
+
+=============================
+DEFINED: *attrsp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSCheckAccessIdOp)(JSContext *cx, JSObject *obj, jsid id,
+                                      JSAccessMode mode, jsval *vp,
+                                      uintN *attrsp);
+
+=============================
+DEFINED: *obj)
+DEPEND: JSObject
+typedef JSObject *
+(* JS_DLL_CALLBACK JSObjectOp)(JSContext *cx, JSObject *obj);
+
+=============================
+DEFINED: *prop)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSPropertyRefOp)(JSContext *cx, JSObject *obj,
+                                    JSProperty *prop);
+
+=============================
+DEFINED: *pobj)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSSetObjectSlotOp)(JSContext *cx, JSObject *obj,
+                                      uint32 slot, JSObject *pobj);
+
+=============================
+DEFINED: slot)
+DEPEND: jsval
+typedef jsval
+(* JS_DLL_CALLBACK JSGetRequiredSlotOp)(JSContext *cx, JSObject *obj,
+                                        uint32 slot);
+
+=============================
+DEFINED: v)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSSetRequiredSlotOp)(JSContext *cx, JSObject *obj,
+                                        uint32 slot, jsval v);
+
+=============================
+DEFINED: *vp)
+DEPEND: JSObject
+typedef JSObject *
+(* JS_DLL_CALLBACK JSGetMethodOp)(JSContext *cx, JSObject *obj, jsid id,
+                                  jsval *vp);
+
+=============================
+DEFINED: *vp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSSetMethodOp)(JSContext *cx, JSObject *obj, jsid id,
+                                  jsval *vp);
+
+=============================
+DEFINED: *vp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSEnumerateValuesOp)(JSContext *cx, JSObject *obj,
+                                        JSIterateOp enum_op,
+                                        jsval *statep, jsid *idp, jsval *vp);
+
+=============================
+DEFINED: *bp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSEqualityOp)(JSContext *cx, JSObject *obj, jsval v,
+                                 JSBool *bp);
+
+=============================
+DEFINED: *vp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSConcatenateOp)(JSContext *cx, JSObject *obj, jsval v,
+                                    jsval *vp);
+
+=============================
+DEFINED: *rval)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSNative)(JSContext *cx, JSObject *obj, uintN argc,
+                             jsval *argv, jsval *rval);
+
+=============================
+DEFINED: JSGCStatus
+DEPEND: []
+typedef enum JSGCStatus {
+    JSGC_BEGIN,
+    JSGC_END,
+    JSGC_MARK_END,
+    JSGC_FINALIZE_END
+} JSGCStatus;
+
+=============================
+DEFINED: status)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSGCCallback)(JSContext *cx, JSGCStatus status);
+
+=============================
+DEFINED: *script)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSBranchCallback)(JSContext *cx, JSScript *script);
+
+=============================
+DEFINED: *report)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSErrorReporter)(JSContext *cx, const char *message,
+                                    JSErrorReport *report);
+
+=============================
+DEFINED: JSErrorFormatString
+DEPEND: ['const', 'uint16', 'int16']
+typedef struct JSErrorFormatString {
+    
+    const char *format;
+
+    
+    uint16 argCount;
+
+    
+    int16 exnType;
+} JSErrorFormatString;
+
+=============================
+DEFINED: errorNumber)
+DEPEND: const
+typedef const JSErrorFormatString *
+(* JS_DLL_CALLBACK JSErrorCallback)(void *userRef, const char *locale,
+                                    const uintN errorNumber);
+
+=============================
+DEFINED: *app)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSArgumentFormatter)(JSContext *cx, const char *format,
+                                        JSBool fromJS, jsval **vpp,
+                                        va_list *app);
+
+=============================
+DEFINED: *rval)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSLocaleToUpperCase)(JSContext *cx, JSString *src,
+                                        jsval *rval);
+
+=============================
+DEFINED: *rval)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSLocaleToLowerCase)(JSContext *cx, JSString *src,
+                                        jsval *rval);
+
+=============================
+DEFINED: *rval)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSLocaleCompare)(JSContext *cx,
+                                    JSString *src1, JSString *src2,
+                                    jsval *rval);
+
+=============================
+DEFINED: *rval)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSLocaleToUnicode)(JSContext *cx, char *src, jsval *rval);
+
+=============================
+DEFINED: JSPrincipals
+DEPEND: []
+typedef struct JSPrincipals JSPrincipals;
+
+=============================
+DEFINED: **principalsp)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSPrincipalsTranscoder)(JSXDRState *xdr,
+                                           JSPrincipals **principalsp);
+
+=============================
+DEFINED: *obj)
+DEPEND: JSPrincipals
+typedef JSPrincipals *
+(* JS_DLL_CALLBACK JSObjectPrincipalsFinder)(JSContext *cx, JSObject *obj);
+
+=============================
+DEFINED: JSXDRMode
+DEPEND: []
+typedef enum JSXDRMode {
+    JSXDR_ENCODE,
+    JSXDR_DECODE,
+    JSXDR_FREE
+} JSXDRMode;
+
+=============================
+DEFINED: JSXDRWhence
+DEPEND: []
+typedef enum JSXDRWhence {
+    JSXDR_SEEK_SET,
+    JSXDR_SEEK_CUR,
+    JSXDR_SEEK_END
+} JSXDRWhence;
+
+=============================
+DEFINED: JSXDROps
+DEPEND: ['JSBool', 'JSBool', 'JSBool', 'JSBool', 'void', 'JSBool', 'uint32', 'void']
+typedef struct JSXDROps {
+    JSBool      (*get32)(JSXDRState *, uint32 *);
+    JSBool      (*set32)(JSXDRState *, uint32 *);
+    JSBool      (*getbytes)(JSXDRState *, char *, uint32);
+    JSBool      (*setbytes)(JSXDRState *, char *, uint32);
+    void *      (*raw)(JSXDRState *, uint32);
+    JSBool      (*seek)(JSXDRState *, int32, JSXDRWhence);
+    uint32      (*tell)(JSXDRState *);
+    void        (*finalize)(JSXDRState *);
+} JSXDROps;
+
+=============================
+DEFINED: *data)
+DEPEND: void
+typedef void
+(*JSGCThingMarker)(void *thing, void *data);
+
+=============================
+DEFINED: JSUint8
+DEPEND: unsigned
+typedef unsigned char JSUint8;
+
+=============================
+DEFINED: JSInt8
+DEPEND: signed
+typedef signed char JSInt8;
+
+=============================
+DEFINED: JSUint16
+DEPEND: unsigned
+typedef unsigned short JSUint16;
+
+=============================
+DEFINED: JSInt16
+DEPEND: short
+typedef short JSInt16;
+
+=============================
+DEFINED: JSUint32
+DEPEND: unsigned
+typedef unsigned int JSUint32;
+
+=============================
+DEFINED: JSInt32
+DEPEND: int
+typedef int JSInt32;
+
+=============================
+DEFINED: JSUint32
+DEPEND: unsigned
+typedef unsigned long JSUint32;
+
+=============================
+DEFINED: JSInt32
+DEPEND: long
+typedef long JSInt32;
+
+=============================
+DEFINED: JSInt64
+DEPEND: long
+typedef long JSInt64;
+
+=============================
+DEFINED: JSUint64
+DEPEND: unsigned
+typedef unsigned long JSUint64;
+
+=============================
+DEFINED: JSInt64
+DEPEND: __int64
+typedef __int64 JSInt64;
+
+=============================
+DEFINED: JSUint64
+DEPEND: unsigned
+typedef unsigned __int64 JSUint64;
+
+=============================
+DEFINED: JSInt64
+DEPEND: __int64
+typedef __int64  JSInt64;
+
+=============================
+DEFINED: JSUint64
+DEPEND: unsigned
+typedef unsigned __int64 JSUint64;
+
+=============================
+DEFINED: JSInt64
+DEPEND: long
+typedef long long JSInt64;
+
+=============================
+DEFINED: JSUint64
+DEPEND: unsigned
+typedef unsigned long long JSUint64;
+
+=============================
+DEFINED: JSInt64
+DEPEND: ['#ifdef', 'JSUint32', 'JSUint32']
+typedef struct {
+#ifdef IS_LITTLE_ENDIAN
+    JSUint32 lo, hi;
+#else
+    JSUint32 hi, lo;
+#endif
+} JSInt64;
+
+=============================
+DEFINED: JSUint64
+DEPEND: JSInt64
+typedef JSInt64 JSUint64;
+
+=============================
+DEFINED: JSIntn
+DEPEND: int
+typedef int JSIntn;
+
+=============================
+DEFINED: JSUintn
+DEPEND: unsigned
+typedef unsigned int JSUintn;
+
+=============================
+DEFINED: JSFloat64
+DEPEND: double
+typedef double          JSFloat64;
+
+=============================
+DEFINED: JSSize
+DEPEND: size_t
+typedef size_t JSSize;
+
+=============================
+DEFINED: JSPtrdiff
+DEPEND: ptrdiff_t
+typedef ptrdiff_t JSPtrdiff;
+
+=============================
+DEFINED: JSUptrdiff
+DEPEND: unsigned
+typedef unsigned long JSUptrdiff;
+
+=============================
+DEFINED: JSBool
+DEPEND: JSIntn
+typedef JSIntn JSBool;
+
+=============================
+DEFINED: JSPackedBool
+DEPEND: JSUint8
+typedef JSUint8 JSPackedBool;
+
+=============================
+DEFINED: JSWord
+DEPEND: long
+typedef long JSWord;
+
+=============================
+DEFINED: JSUword
+DEPEND: unsigned
+typedef unsigned long JSUword;
+
+=============================
+DEFINED: JSDToStrMode
+DEPEND: []
+typedef enum JSDToStrMode {
+    DTOSTR_STANDARD,              
+    DTOSTR_STANDARD_EXPONENTIAL,  
+    DTOSTR_FIXED,                 
+    DTOSTR_EXPONENTIAL,           
+    DTOSTR_PRECISION              
+} JSDToStrMode;
+
+=============================
+DEFINED: *b)
+DEPEND: JSBool
+typedef JSBool
+(* JS_DLL_CALLBACK JSIdentityOp)(const void *a, const void *b);
+
+=============================
+DEFINED: JSXMLClass
+DEPEND: []
+typedef enum JSXMLClass {
+    JSXML_CLASS_LIST,
+    JSXML_CLASS_ELEMENT,
+    JSXML_CLASS_ATTRIBUTE,
+    JSXML_CLASS_PROCESSING_INSTRUCTION,
+    JSXML_CLASS_TEXT,
+    JSXML_CLASS_COMMENT,
+    JSXML_CLASS_LIMIT
+} JSXMLClass;
+
+=============================
+DEFINED: jsbitmap_t
+DEPEND: JSUword
+typedef JSUword     jsbitmap_t;     
+
+=============================
+DEFINED: jsbitmap
+DEPEND: jsbitmap_t
+typedef jsbitmap_t  jsbitmap;       
+
+=============================
+DEFINED: *data)
+DEPEND: intN
+typedef intN
+(* JS_DLL_CALLBACK JSGCRootMapFun)(void *rp, const char *name, void *data);
+
+=============================
+DEFINED: JSGCParamKey
+DEPEND: []
+typedef enum JSGCParamKey {
+    JSGC_MAX_BYTES        = 0,  
+    JSGC_MAX_MALLOC_BYTES = 1   
+} JSGCParamKey;
+
+=============================
+DEFINED: JSExecPart
+DEPEND: []
+typedef enum JSExecPart { JSEXEC_PROLOG, JSEXEC_MAIN } JSExecPart;
+
+=============================
+DEFINED: GCMarkNode
+DEPEND: []
+typedef struct GCMarkNode GCMarkNode;
+
+=============================
+DEFINED: JSGCStats
+DEPEND: ['uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32', 'uint32']
+typedef struct JSGCStats {
+    uint32  alloc;      
+    uint32  freelen[GC_NUM_FREELISTS];
+                        
+    uint32  recycle[GC_NUM_FREELISTS];
+                        
+    uint32  retry;      
+    uint32  retryhalt;  
+    uint32  fail;       
+    uint32  finalfail;  
+    uint32  lockborn;   
+    uint32  lock;       
+    uint32  unlock;     
+    uint32  depth;      
+    uint32  maxdepth;   
+    uint32  cdepth;     
+    uint32  maxcdepth;  
+    uint32  dswmark;    
+    uint32  dswdepth;   
+    uint32  maxdswdepth;
+    uint32  dswup;      
+    uint32  dswupstep;  
+    uint32  maxlevel;   
+    uint32  poke;       
+    uint32  nopoke;     
+    uint32  afree;      
+    uint32  stackseg;   
+    uint32  segslots;   
+} JSGCStats;
+
+=============================
+DEFINED: *arg)
+DEPEND: int
+typedef int (*JSComparator)(const void *a, const void *b, void *arg);
+
+=============================
+DEFINED: JSGCMode
+DEPEND: []
+typedef enum JSGCMode { JS_NO_GC, JS_MAYBE_GC, JS_FORCE_GC } JSGCMode;
+
+=============================
+DEFINED: JSRuntimeState
+DEPEND: []
+typedef enum JSRuntimeState {
+    JSRTS_DOWN,
+    JSRTS_LAUNCHING,
+    JSRTS_UP,
+    JSRTS_LANDING
+} JSRuntimeState;
+
+=============================
+DEFINED: JSPropertyTreeEntry
+DEPEND: ['JSDHashEntryHdr', 'JSScopeProperty']
+typedef struct JSPropertyTreeEntry {
+    JSDHashEntryHdr     hdr;
+    JSScopeProperty     *child;
+} JSPropertyTreeEntry;
+
+=============================
+DEFINED: JSNativeIteratorState
+DEPEND: []
+typedef struct JSNativeIteratorState JSNativeIteratorState;
+
+=============================
+DEFINED: JSResolvingKey
+DEPEND: ['JSObject', 'jsid']
+typedef struct JSResolvingKey {
+    JSObject            *obj;
+    jsid                id;
+} JSResolvingKey;
+
+=============================
+DEFINED: JSResolvingEntry
+DEPEND: ['JSDHashEntryHdr', 'JSResolvingKey', 'uint32']
+typedef struct JSResolvingEntry {
+    JSDHashEntryHdr     hdr;
+    JSResolvingKey      key;
+    uint32              flags;
+} JSResolvingEntry;
+
+=============================
+DEFINED: JSLocalRootChunk
+DEPEND: []
+typedef struct JSLocalRootChunk JSLocalRootChunk;
+
+=============================
+DEFINED: JSLocalRootStack
+DEPEND: ['uint32', 'uint32', 'JSLocalRootChunk', 'JSLocalRootChunk']
+typedef struct JSLocalRootStack {
+    uint32              scopeMark;
+    uint32              rootCount;
+    JSLocalRootChunk    *topChunk;
+    JSLocalRootChunk    firstChunk;
+} JSLocalRootStack;
+
+=============================
+DEFINED: JSTempValueRooter
+DEPEND: []
+typedef struct JSTempValueRooter JSTempValueRooter;
+
+=============================
+DEFINED: *tvr)
+DEPEND: void
+typedef void
+(* JS_DLL_CALLBACK JSTempValueMarker)(JSContext *cx, JSTempValueRooter *tvr);
+
+=============================
+DEFINED: value
+DEPEND: ['jsval']
+typedef union JSTempValueUnion {
+    jsval               value;
+
+=============================
+DEFINED: JSErrNum
+DEPEND: []
+typedef enum JSErrNum {
+#define MSG_DEF(name, number, count, exception, format) \
+    name = number,
+#include "js.msg"
+#undef MSG_DEF
+    JSErr_Limit
+} JSErrNum;
+
+=============================
+DEFINED: ptrdiff_t
+DEPEND: long
+typedef long ptrdiff_t;
+
+=============================
+DEFINED: JSParseNodeArity
+DEPEND: []
+typedef enum JSParseNodeArity {
+    PN_FUNC     = -3,
+    PN_LIST     = -2,
+    PN_TERNARY  =  3,
+    PN_BINARY   =  2,
+    PN_UNARY    =  1,
+    PN_NAME     = -1,
+    PN_NULLARY  =  0
+} JSParseNodeArity;
+

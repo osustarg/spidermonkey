@@ -1,0 +1,265 @@
+Linux_All_DBG.OBJ/jscpucfg.gcda:cannot open data file
+Linux_All_DBG.OBJ/jsfile.gcno:cannot open graph file
+Linux_All_DBG.OBJ/jslock.gcno:cannot open graph file
+Linux_All_DBG.OBJ/jslong.gcda:cannot open data file
+Linux_All_DBG.OBJ/jsmath.gcno:cannot open graph file
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsapi.c'
+Lines executed:27.98% of 1762
+jsapi.c:creating 'jsapi.c.gcov'
+
+File 'js.msg'
+Lines executed:100.00% of 209
+js.msg:creating 'js.msg.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsarena.c'
+Lines executed:79.87% of 154
+jsarena.c:creating 'jsarena.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsarray.c'
+Lines executed:25.45% of 892
+jsarray.c:creating 'jsarray.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsatom.c'
+Lines executed:70.28% of 387
+jsatom.c:creating 'jsatom.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsbool.c'
+Lines executed:30.26% of 76
+jsbool.c:creating 'jsbool.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'js.c'
+Lines executed:13.24% of 884
+js.c:creating 'js.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jscntxt.c'
+Lines executed:55.85% of 453
+jscntxt.c:creating 'jscntxt.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsdate.c'
+Lines executed:11.88% of 968
+jsdate.c:creating 'jsdate.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsdbgapi.c'
+Lines executed:7.79% of 642
+jsdbgapi.c:creating 'jsdbgapi.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsdhash.c'
+Lines executed:77.92% of 231
+jsdhash.c:creating 'jsdhash.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsdtoa.c'
+Lines executed:5.15% of 1379
+jsdtoa.c:creating 'jsdtoa.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsemit.c'
+Lines executed:52.18% of 2459
+jsemit.c:creating 'jsemit.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsexn.c'
+Lines executed:45.51% of 457
+jsexn.c:creating 'jsexn.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsfun.c'
+Lines executed:38.17% of 909
+jsfun.c:creating 'jsfun.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsgc.c'
+Lines executed:56.43% of 544
+jsgc.c:creating 'jsgc.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jshash.c'
+Lines executed:78.49% of 172
+jshash.c:creating 'jshash.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsinterp.c'
+Lines executed:48.03% of 2313
+jsinterp.c:creating 'jsinterp.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jslog2.c'
+Lines executed:50.00% of 28
+jslog2.c:creating 'jslog2.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsnum.c'
+Lines executed:32.56% of 519
+jsnum.c:creating 'jsnum.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsobj.c'
+Lines executed:53.30% of 1773
+jsobj.c:creating 'jsobj.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsopcode.c'
+Lines executed:50.32% of 1564
+jsopcode.c:creating 'jsopcode.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsparse.c'
+Lines executed:72.17% of 2361
+jsparse.c:creating 'jsparse.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsprf.c'
+Lines executed:38.39% of 534
+jsprf.c:creating 'jsprf.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsregexp.c'
+Lines executed:35.35% of 1980
+jsregexp.c:creating 'jsregexp.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsscan.c'
+Lines executed:64.61% of 1037
+jsscan.c:creating 'jsscan.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsscope.c'
+Lines executed:75.97% of 566
+jsscope.c:creating 'jsscope.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsscript.c'
+Lines executed:27.81% of 579
+jsscript.c:creating 'jsscript.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsstr.c'
+Lines executed:33.14% of 1590
+jsstr.c:creating 'jsstr.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsutil.c'
+Lines executed:0.00% of 4
+jsutil.c:creating 'jsutil.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsxdrapi.c'
+Lines executed:0.00% of 327
+jsxdrapi.c:creating 'jsxdrapi.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'jsxml.c'
+Lines executed:24.83% of 3999
+jsxml.c:creating 'jsxml.c.gcov'
+
+File '/usr/include/sys/sysmacros.h'
+Lines executed:0.00% of 6
+/usr/include/sys/sysmacros.h:creating 'sysmacros.h.gcov'
+
+File 'prmjtime.c'
+Lines executed:95.12% of 123
+prmjtime.c:creating 'prmjtime.c.gcov'
+

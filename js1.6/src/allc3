@@ -1,0 +1,251 @@
+SCANNING jsbool.h
+SCANNING jsinterp.h
+SCANNING jslock.h
+SCANNING jsotypes.h
+SCANNING jsexn.h
+SCANNING jshash.h
+SCANNING jsdate.h
+SCANNING jsclist.h
+SCANNING jsfile.h
+SCANNING jscpucfg.h
+SCANNING jsobj.h
+SCANNING jsscan.h
+SCANNING jsdbgapi.h
+SCANNING jsnum.h
+SCANNING jsemit.h
+SCANNING prmjtime.h
+SCANNING jsarena.h
+SCANNING jsmath.h
+SCANNING jsscript.h
+SCANNING jsdhash.h
+SCANNING jsprvtd.h
+SCANNING jsconfig.h
+SCANNING resource.h
+SCANNING jsopcode.h
+SCANNING jsutil.h
+SCANNING jscompat.h
+SCANNING jsprf.h
+SCANNING jsstr.h
+SCANNING jsregexp.h
+SCANNING jspubtd.h
+SCANNING jsxdrapi.h
+SCANNING jsatom.h
+SCANNING jsosdep.h
+SCANNING jstypes.h
+SCANNING jsdtoa.h
+SCANNING jsscope.h
+SCANNING jsxml.h
+SCANNING jsbit.h
+SCANNING jslong.h
+SCANNING jslibmath.h
+SCANNING jsfun.h
+SCANNING jsapi.h
+SCANNING jsgc.h
+SCANNING jsarray.h
+SCANNING jscntxt.h
+SCANNING jsstddef.h
+SCANNING jsparse.h
+OK TYPES:['int', 'short', 'long', 'unsignedint', 'unsignedshort', 'unsignedlong', 'char', 'size_t', 'char*', 'int*', 'void', 'uint32', 'int32', 'JSHashNumber', 'JSDHashNumber', '', 'jsatomid', 'jsint', 'jsuint', 'JSUint16', 'JSInt16', 'JSUint32', 'JSInt32', 'JSInt64', 'JSUint64', 'JSIntn', 'JSUintn', 'JSSize', 'JSUptrdiff', 'JSBool', 'JSWord', 'JSUword', 'ptrdiff_t', 'uintn', 'intn', 'uint', 'uint64', 'uint16', 'int64', 'int16', 'intN', 'uintN', 'jsuword', 'jsword', 'jschar', 'jsval', 'jsid', 'JSPtrdiff']
+uintN GetDecimalValue ['jschar c', ' uintN max', ' uintN ']
+                CompilerState *state)
+{
+    uintN value = JS7_UNDEC(c);
+    JSBool overflow = (value > max && (!findMax || value > findMax(state)));
+
+    /* The following restriction allows simpler overflow checks. */
+    JS_ASSERT(max <= ((uintN)-1 - 9) / 10);
+    while (state->cp < state->cpend) {
+        c = *state->cp;
+        if (!JS7_ISDEC(c))
+            break;
+        value = 10 * value + JS7_UNDEC(c);
+        if (!overflow && value > max && (!findMax || value > findMax(state)))
+            overflow = JS_TRUE;
+        ++state->cp;
+    }
+    return overflow ? OVERFLOW_VALUE : value;
+}
+
+=====================
+*/ JS_PUBLIC_API ['JSUint32']
+{
+    va_list ap;
+    int rv;
+
+    JS_ASSERT((JSInt32)outlen > 0);
+    if ((JSInt32)outlen <= 0) {
+        return 0;
+    }
+
+    va_start(ap, fmt);
+    rv = JS_vsnprintf(out, outlen, fmt, ap);
+    va_end(ap);
+    return rv;
+}
+
+=====================
+JS_PUBLIC_API(JSUint32) JS_PUBLIC_API ['JSUint32']
+                                  va_list ap)
+{
+    SprintfState ss;
+    JSUint32 n;
+
+    JS_ASSERT((JSInt32)outlen > 0);
+    if ((JSInt32)outlen <= 0) {
+        return 0;
+    }
+
+    ss.stuff = LimitStuff;
+    ss.base = out;
+    ss.cur = out;
+    ss.maxlen = outlen;
+    (void) dosprintf(&ss, fmt, ap);
+
+    /* If we added chars, and we didn't append a null, do it now. */
+    if( (ss.cur != ss.base) && (ss.cur[-1] != '\0') )
+        ss.cur[-1] = '\0';
+
+    n = ss.cur - ss.base;
+    return n ? n - 1 : n;
+}
+
+=====================
+jsint js_BoyerMooreHorspool ['const jschar *text', ' jsint textlen', '\n']
+                      const jschar *pat, jsint patlen,
+                      jsint start)
+{
+    jsint i, j, k, m;
+    uint8 skip[BMH_CHARSET_SIZE];
+    jschar c;
+
+    JS_ASSERT(0 < patlen && patlen <= BMH_PATLEN_MAX);
+    for (i = 0; i < BMH_CHARSET_SIZE; i++)
+        skip[i] = (uint8)patlen;
+    m = patlen - 1;
+    for (i = 0; i < m; i++) {
+        c = pat[i];
+        if (c >= BMH_CHARSET_SIZE)
+            return BMH_BAD_PATTERN;
+        skip[c] = (uint8)(m - i);
+    }
+    for (k = start + m;
+         k < textlen;
+         k += ((c = text[k]) >= BMH_CHARSET_SIZE) ? patlen : skip[c]) {
+        for (i = k, j = m; ; i--, j--) {
+            if (j < 0)
+                return i + 1;
+            if (text[i] != pat[j])
+                break;
+        }
+    }
+    return -1;
+}
+
+=====================
+#endif /*          JS_SetError ['JS_BUFFER_OVERFLOW_ERROR', ' 0']
+            return JS_FALSE;
+        }
+        strcpy(buf, s);
+        if (rve) {
+            *rve = buf[3] ? buf + 8 : buf + 3;
+            JS_ASSERT(**rve == '\0');
+        }
+        return JS_TRUE;
+    }
+
+    b = NULL;                           /* initialize for abort protection */
+    S = NULL;
+    mlo = mhi = NULL;
+
+    if (!d) {
+      no_digits:
+        *decpt = 1;
+        if (bufsize < 2) {
+            JS_ASSERT(JS_FALSE);
+=====================
+uint32 js_GetScriptFilenameFlags ['const char *filename']
+{
+    ScriptFilenameEntry *sfe;
+
+    sfe = FILENAME_TO_SFE(filename);
+    ASSERT_VALID_SFE(sfe);
+    return sfe->flags;
+}
+
+=====================
+void js_MarkScriptFilename ['const char *filename']
+{
+    ScriptFilenameEntry *sfe;
+
+    sfe = FILENAME_TO_SFE(filename);
+    ASSERT_VALID_SFE(sfe);
+    sfe->mark = JS_TRUE;
+}
+
+=====================
+uint8 UNMARKED_GC_THING_FLAGS ['void *thing', ' void *arg']
+{
+    uint8 flags, *flagp;
+
+    if (!thing)
+        return NULL;
+
+    flagp = js_GetGCThingFlags(thing);
+    flags = *flagp;
+    JS_ASSERT(flags != GCF_FINAL);
+=====================
+JS_INLINE EncodeDSWIndex ['jsval *vp', ' jsval *slots']
+{
+    uint32 nslots, limit, index;
+    jsdouble d;
+
+    nslots = slots[-1];
+    limit = JS_BIT(16);
+    index = PTRDIFF(vp, slots, jsval);
+    JS_ASSERT(index < nslots);
+    if (nslots > limit) {
+        d = ((jsdouble)index / nslots) * limit;
+        JS_ASSERT(0 <= d && d < limit);
+        return (uint16) d;
+    }
+    return (uint16) index;
+}
+
+=====================
+JS_INLINE DecodeDSWIndex ['uint16 dswIndex', ' jsval *slots']
+{
+    uint32 nslots, limit;
+    jsdouble d;
+
+    nslots = slots[-1];
+    limit = JS_BIT(16);
+    JS_ASSERT(dswIndex < nslots);
+    if (nslots > limit) {
+        d = ((jsdouble)dswIndex * nslots) / limit;
+        JS_ASSERT(0 <= d && d < nslots);
+        return (uint32) d;
+    }
+    return dswIndex;
+}
+
+=====================
+JSFatLock ListOfFatlocks ['int listc']
+{
+    JSFatLock *m;
+    JSFatLock *m0;
+    int i;
+
+    JS_ASSERT(listc>0);
+    m0 = m = NewFatlock();
+    for (i=1; i<listc; i++) {
+        m->next = NewFatlock();
+        m = m->next;
+    }
+    return m0;
+}
+
+=====================
+11 functions suitable
+2470 total functions
+0.445344129555% of functions might be suitable
+BAD TYPES:['jsdouble', 'JSContext', 'JSObject', 'JSString', 'PRMJTime', 'formatspec', 'jsbytecode', 'CompilerState', 'REOp', 'REOpData', 'RENode', 'JSRegExp', 'JSTokenStream', 'REGlobalData', 'REMatchState', 'RECharSet', 'JSRegExpStatics', 'JSXDRState', 'JSRuntime', 'JSScript', 'JSOp', 'JSTrap', 'JSTrapHandler', 'JSWatchPoint', 'JSScope', 'JSPropertyOp', 'JSFunction', 'JSPrincipals', 'JSStackFrame', 'JSNewScriptHook', 'JSDestroyScriptHook', 'JSScopeProperty', 'JSPropertyDescArray', 'JSSourceHandler', 'JSInterpreterHook', 'JSObjectHook', 'JSDebugErrorHook', 'JSAtom', 'JSErrorReport', 'FILE', 'Sprinter', 'JSPrinter', 'SprintStack', 'TableEntry', 'jssrcnote', 'JSStringBuffer', 'JSCodeGenerator', 'JSJumpTarget', 'AddJumpTargetArgs', 'JSSpanDep', 'JSTreeContext', 'JSStmtInfo', 'JSStmtType', 'JSParseNode', 'JSAtomListElement', 'whence', 'JSSrcNoteType', 'unsigned', 'JSFile', 'JSHashEntry', 'JSType', 'JSAtomState', 'JSGCThingMarker', 'JSAtomList', 'JSAtomMap', 'struct', 'JSVersion', 'JSGCMode', 'JSDHashTable', 'JSDHashEntryHdr', 'JSResolvingKey', 'JSLocalRootStack', 'JSErrorCallback', 'va_list', 'JSNative', 'jsrefcount', 'JSStdName', 'JSIdArray', 'JSGCRootMapFun', 'JSGCCallback', 'JSGCParamKey', 'JSStringFinalizeOp', 'JSClass', 'JSConstDoubleSpec', 'JSPropertySpec', 'JSProperty', 'JSAccessMode', 'JSCheckAccessOp', 'JSPrincipalsTranscoder', 'JSObjectPrincipalsFinder', 'JSFunctionSpec', 'JSBranchCallback', 'JSErrorReporter', 'JSLocaleCallbacks', 'JSExceptionState', 'HINSTANCE', 'DWORD', 'LPVOID', 'WORD', 'BOOL', 'JSParseNodeArity', 'JSTokenType', 'because', 'SprintfState', 'double', 'JSObjectOps', 'PropTreeKidsChunk', 'uint8', 'GlobData', 'ReplaceData', 'add', 'subtract', 'highest', 'over', 'Bigint', 'CONST', 'ULong', '0', 'register', 'ignoring', 'JSDToStrMode', 'b', '1073', 'JSArenaPool', 'JSArena', 'JSHashTable', 'JSHashFunction', 'return', 'JSHashEnumerator', 'JSSharpObjectMap', 'JSLookupPropOp', 'JSIterateOp', 'JSObjectMap', 'JSXDRWhence', 'JSXDRMode', 'JSDHashTableOps', 'JSDHashOperator', 'JSDHashEnumerator', 'JSXMLNamespace', 'JSXMLQName', 'JSXMLArrayCursor', 'JSXMLArray', 'JSIdentityOp', 'JSXML', 'JSTempValueRooter', 'JSTempRootedNSArray', 'JSXMLClass', 'small', 'JSGCThing', 'GCMarkNode', 'JSThinLock', 'JSFatLock', 'HSortArgs']
