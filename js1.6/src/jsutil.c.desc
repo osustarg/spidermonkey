@@ -1,0 +1,116 @@
+56: /* MUTANT (del_stmt) */ /*     fprintf(stderr, "Assertion failure: %s, at %s:%d\n", s, file, ln); */ 
+59: /* MUTANT (del_stmt) */ /*     exit(3); */ 
+59: /* MUTANT (rep_const) */    exit(0);
+59: /* MUTANT (rep_const) */    exit(1);
+59: /* MUTANT (rep_const) */    exit(-1);
+59: /* MUTANT (rep_const) */    exit(((3)+1));
+59: /* MUTANT (rep_const) */    exit(((3)-1));
+62: /* MUTANT (rep_const) */    asm("int $0");
+62: /* MUTANT (rep_const) */    asm("int $1");
+62: /* MUTANT (rep_const) */    asm("int $-1");
+62: /* MUTANT (rep_const) */    asm("int $((3)+1)");
+62: /* MUTANT (rep_const) */    asm("int $((3)-1)");
+67: /* MUTANT (del_stmt) */ /*     abort(); */ 
+72: #define __USE_GNU 0 /* MUTANT (rep_const) */
+72: #define __USE_GNU -1 /* MUTANT (rep_const) */
+72: #define __USE_GNU ((1)+1) /* MUTANT (rep_const) */
+79: /* MUTANT (rep_const) */JSCallsite js_calltree_root = {1, NULL, NULL, 0, NULL, NULL, NULL, NULL};
+79: /* MUTANT (rep_const) */JSCallsite js_calltree_root = {-1, NULL, NULL, 0, NULL, NULL, NULL, NULL};
+79: /* MUTANT (rep_const) */JSCallsite js_calltree_root = {0, NULL, NULL, 1, NULL, NULL, NULL, NULL};
+79: /* MUTANT (rep_const) */JSCallsite js_calltree_root = {0, NULL, NULL, -1, NULL, NULL, NULL, NULL};
+84: /* MUTANT (del_stmt) */ /*     uint32 *bpup, *bpdown, pc; */ 
+85: /* MUTANT (del_stmt) */ /*     JSCallsite *parent, *site, **csp; */ 
+86: /* MUTANT (del_stmt) */ /*     Dl_info info; */ 
+87: /* MUTANT (del_stmt) */ /*     int ok, offset; */ 
+88: /* MUTANT (del_stmt) */ /*     const char *symbol; */ 
+89: /* MUTANT (del_stmt) */ /*     char *method; */ 
+92: /* MUTANT (del_stmt) */ /*     bpup = NULL; */ 
+94: /* MUTANT (del_stmt) */ /*         bpdown = (uint32*) bp[0]; */ 
+94: /* MUTANT (rep_const) */        bpdown = (uint32*) bp[1];
+94: /* MUTANT (rep_const) */        bpdown = (uint32*) bp[-1];
+95: /* MUTANT (del_stmt) */ /*         bp[0] = (uint32) bpup; */ 
+95: /* MUTANT (rep_const) */        bp[1] = (uint32) bpup;
+95: /* MUTANT (rep_const) */        bp[-1] = (uint32) bpup;
+96: /* MUTANT (rep_op) */        if ((uint32*) bpdown[0] <= bpdown)
+96: /* MUTANT (rep_op) */        if ((uint32*) bpdown[0] > bpdown)
+96: /* MUTANT (rep_op) */        if ((uint32*) bpdown[0] >= bpdown)
+96: /* MUTANT (rep_op) */        if ((uint32*) bpdown[0] == bpdown)
+96: /* MUTANT (rep_op) */        if ((uint32*) bpdown[0] != bpdown)
+96: /* MUTANT (rep_const) */        if ((uint32*) bpdown[1] < bpdown)
+96: /* MUTANT (rep_const) */        if ((uint32*) bpdown[-1] < bpdown)
+96: /* MUTANT (negate) */        if(! ((uint32*) bpdown[0] < bpdown))
+98: /* MUTANT (del_stmt) */ /*         bpup = bp; */ 
+99: /* MUTANT (del_stmt) */ /*         bp = bpdown; */ 
+105: /* MUTANT (del_stmt) */ /*         bpup = (uint32*) bp[0]; */ 
+105: /* MUTANT (rep_const) */        bpup = (uint32*) bp[1];
+105: /* MUTANT (rep_const) */        bpup = (uint32*) bp[-1];
+106: /* MUTANT (del_stmt) */ /*         bp[0] = (uint32) bpdown; */ 
+106: /* MUTANT (rep_const) */        bp[1] = (uint32) bpdown;
+106: /* MUTANT (rep_const) */        bp[-1] = (uint32) bpdown;
+107: /* MUTANT (del_stmt) */ /*         pc = bp[1]; */ 
+107: /* MUTANT (rep_const) */        pc = bp[0];
+107: /* MUTANT (rep_const) */        pc = bp[-1];
+107: /* MUTANT (rep_const) */        pc = bp[((1)+1)];
+109: /* MUTANT (del_stmt) */ /*         csp = &parent->kids; */ 
+110: /* MUTANT (rep_op) */        while ((site = *csp) == NULL) {
+110: /* MUTANT (negate) */        while(! ((site = *csp) != NULL)) {
+111: /* MUTANT (rep_op) */            if (site->pc != pc) {
+111: /* MUTANT (negate) */            if(! (site->pc == pc)) {
+113: /* MUTANT (del_stmt) */ /*                 *csp = site->siblings; */ 
+114: /* MUTANT (del_stmt) */ /*                 site->siblings = parent->kids; */ 
+115: /* MUTANT (del_stmt) */ /*                 parent->kids = site; */ 
+118: /* MUTANT (del_stmt) */ /*                 goto upward; */ 
+125: /* MUTANT (rep_op) */            if (site->pc != pc)
+125: /* MUTANT (negate) */            if(! (site->pc == pc))
+134: /* MUTANT (del_stmt) */ /*         ok = dladdr((void*) pc, &info); */ 
+135: /* MUTANT (rep_op) */        if (ok <= 0) {
+135: /* MUTANT (rep_op) */        if (ok > 0) {
+135: /* MUTANT (rep_op) */        if (ok >= 0) {
+135: /* MUTANT (rep_op) */        if (ok == 0) {
+135: /* MUTANT (rep_op) */        if (ok != 0) {
+135: /* MUTANT (rep_const) */        if (ok < 1) {
+135: /* MUTANT (rep_const) */        if (ok < -1) {
+135: /* MUTANT (negate) */        if(! (ok < 0)) {
+136: /* MUTANT (del_stmt) */ /*             fprintf(stderr, "dladdr failed!\n"); */ 
+137: /* MUTANT (del_stmt) */ /*             return NULL; */ 
+142: /* MUTANT (del_stmt) */ /*         offset = (char*)pc - (char*)info.dli_fbase; */ 
+148: /* MUTANT (negate) */        if(! (!method))
+152: /* MUTANT (del_stmt) */ /*         site = (JSCallsite *) malloc(sizeof(JSCallsite)); */ 
+153: /* MUTANT (negate) */        if(! (!site))
+157: /* MUTANT (del_stmt) */ /*         site->pc = pc; */ 
+158: /* MUTANT (del_stmt) */ /*         site->name = method; */ 
+159: /* MUTANT (del_stmt) */ /*         site->library = info.dli_fname; */ 
+160: /* MUTANT (del_stmt) */ /*         site->offset = offset; */ 
+161: /* MUTANT (del_stmt) */ /*         site->parent = parent; */ 
+162: /* MUTANT (del_stmt) */ /*         site->siblings = parent->kids; */ 
+163: /* MUTANT (del_stmt) */ /*         parent->kids = site; */ 
+164: /* MUTANT (del_stmt) */ /*         site->kids = NULL; */ 
+168: /* MUTANT (del_stmt) */ /*         bpdown = bp; */ 
+169: /* MUTANT (del_stmt) */ /*         bp = bpup; */ 
+170: /* MUTANT (del_stmt) */ /*     } while (bp); */ 
+170: /* MUTANT (negate) */    } while(! (bp));
+172: /* MUTANT (del_stmt) */ /*     return site; */ 
+178: /* MUTANT (del_stmt) */ /*     jmp_buf jb; */ 
+179: /* MUTANT (del_stmt) */ /*     uint32 *bp, *bpdown; */ 
+181: /* MUTANT (del_stmt) */ /*     setjmp(jb); */ 
+184: /* MUTANT (del_stmt) */ /*     bp = (uint32*) jb[0].__jmpbuf[JB_BP]; */ 
+184: /* MUTANT (rep_const) */    bp = (uint32*) jb[1].__jmpbuf[JB_BP];
+184: /* MUTANT (rep_const) */    bp = (uint32*) jb[-1].__jmpbuf[JB_BP];
+185: /* MUTANT (rep_op) */    while (++skip >= 0) {
+185: /* MUTANT (rep_op) */    while (--skip <= 0) {
+185: /* MUTANT (rep_op) */    while (--skip < 0) {
+185: /* MUTANT (rep_op) */    while (--skip > 0) {
+185: /* MUTANT (rep_op) */    while (--skip == 0) {
+185: /* MUTANT (rep_op) */    while (--skip != 0) {
+185: /* MUTANT (rep_const) */    while (--skip >= 1) {
+185: /* MUTANT (rep_const) */    while (--skip >= -1) {
+185: /* MUTANT (negate) */    while(! (--skip >= 0)) {
+186: /* MUTANT (del_stmt) */ /*         bpdown = (uint32*) *bp++; */ 
+186: /* MUTANT (rep_op) */        bpdown = (uint32*) *bp--;
+187: /* MUTANT (rep_op) */        if (bpdown <= bp)
+187: /* MUTANT (rep_op) */        if (bpdown > bp)
+187: /* MUTANT (rep_op) */        if (bpdown >= bp)
+187: /* MUTANT (rep_op) */        if (bpdown == bp)
+187: /* MUTANT (rep_op) */        if (bpdown != bp)
+187: /* MUTANT (negate) */        if(! (bpdown < bp))
+189: /* MUTANT (del_stmt) */ /*         bp = bpdown; */ 

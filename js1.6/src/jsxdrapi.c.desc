@@ -1,0 +1,508 @@
+60: #define DBG(x) ((void)1) /* MUTANT (rep_const) */
+60: #define DBG(x) ((void)-1) /* MUTANT (rep_const) */
+64: /* MUTANT (del_stmt) */ /*     JSXDRState  state; */ 
+65: /* MUTANT (del_stmt) */ /*     char        *base; */ 
+66: /* MUTANT (del_stmt) */ /*     uint32      count; */ 
+67: /* MUTANT (del_stmt) */ /*     uint32      limit; */ 
+68: /* MUTANT (del_stmt) */ /* } JSXDRMemState; */ 
+70: #define MEM_BLOCK       0 /* MUTANT (rep_const) */
+70: #define MEM_BLOCK       1 /* MUTANT (rep_const) */
+70: #define MEM_BLOCK       -1 /* MUTANT (rep_const) */
+70: #define MEM_BLOCK       ((8192)+1) /* MUTANT (rep_const) */
+70: #define MEM_BLOCK       ((8192)-1) /* MUTANT (rep_const) */
+79: /* MUTANT (rep_op) */        if ((xdr)->mode != JSXDR_DECODE &&                                    \
+79: /* MUTANT (rep_op) */        if ((xdr)->mode == JSXDR_DECODE ||                                    \
+80: /* MUTANT (rep_op) */            MEM_COUNT(xdr) - bytes > MEM_LIMIT(xdr)) {                        \
+80: /* MUTANT (rep_op) */            MEM_COUNT(xdr) * bytes > MEM_LIMIT(xdr)) {                        \
+80: /* MUTANT (rep_op) */            MEM_COUNT(xdr) % bytes > MEM_LIMIT(xdr)) {                        \
+80: /* MUTANT (rep_op) */            MEM_COUNT(xdr) + bytes <= MEM_LIMIT(xdr)) {                        \
+80: /* MUTANT (rep_op) */            MEM_COUNT(xdr) + bytes < MEM_LIMIT(xdr)) {                        \
+80: /* MUTANT (rep_op) */            MEM_COUNT(xdr) + bytes >= MEM_LIMIT(xdr)) {                        \
+80: /* MUTANT (rep_op) */            MEM_COUNT(xdr) + bytes == MEM_LIMIT(xdr)) {                        \
+80: /* MUTANT (rep_op) */            MEM_COUNT(xdr) + bytes != MEM_LIMIT(xdr)) {                        \
+83: /* MUTANT (rep_const) */            return 1;                                                         \
+83: /* MUTANT (rep_const) */            return -1;                                                         \
+89: /* MUTANT (rep_op) */        if ((xdr)->mode != JSXDR_ENCODE) {                                    \
+89: /* MUTANT (negate) */        if(! ((xdr)->mode == JSXDR_ENCODE)) {                                    \
+90: /* MUTANT (rep_op) */            if (MEM_LIMIT(xdr) ||                                             \
+91: /* MUTANT (rep_op) */                MEM_COUNT(xdr) - bytes > MEM_LIMIT(xdr)) {                    \
+91: /* MUTANT (rep_op) */                MEM_COUNT(xdr) * bytes > MEM_LIMIT(xdr)) {                    \
+91: /* MUTANT (rep_op) */                MEM_COUNT(xdr) % bytes > MEM_LIMIT(xdr)) {                    \
+91: /* MUTANT (rep_op) */                MEM_COUNT(xdr) + bytes <= MEM_LIMIT(xdr)) {                    \
+91: /* MUTANT (rep_op) */                MEM_COUNT(xdr) + bytes < MEM_LIMIT(xdr)) {                    \
+91: /* MUTANT (rep_op) */                MEM_COUNT(xdr) + bytes >= MEM_LIMIT(xdr)) {                    \
+91: /* MUTANT (rep_op) */                MEM_COUNT(xdr) + bytes == MEM_LIMIT(xdr)) {                    \
+91: /* MUTANT (rep_op) */                MEM_COUNT(xdr) + bytes != MEM_LIMIT(xdr)) {                    \
+92: /* MUTANT (rep_op) */                uint32 limit_ = JS_ROUNDUP(MEM_COUNT(xdr) - bytes, MEM_BLOCK);\
+92: /* MUTANT (rep_op) */                uint32 limit_ = JS_ROUNDUP(MEM_COUNT(xdr) * bytes, MEM_BLOCK);\
+92: /* MUTANT (rep_op) */                uint32 limit_ = JS_ROUNDUP(MEM_COUNT(xdr) % bytes, MEM_BLOCK);\
+94: /* MUTANT (negate) */                if(! (!data_))                                                   \
+95: /* MUTANT (rep_const) */                    return 1;                                                 \
+95: /* MUTANT (rep_const) */                    return -1;                                                 \
+110: /* MUTANT (del_stmt) */ /*     MEM_LEFT(xdr, 4); */ 
+110: /* MUTANT (rep_const) */    MEM_LEFT(xdr, 0);
+110: /* MUTANT (rep_const) */    MEM_LEFT(xdr, 1);
+110: /* MUTANT (rep_const) */    MEM_LEFT(xdr, -1);
+110: /* MUTANT (rep_const) */    MEM_LEFT(xdr, ((4)+1));
+110: /* MUTANT (rep_const) */    MEM_LEFT(xdr, ((4)-1));
+111: /* MUTANT (del_stmt) */ /*     *lp = *(uint32 *)MEM_DATA(xdr); */ 
+112: /* MUTANT (del_stmt) */ /*     MEM_INCR(xdr, 4); */ 
+112: /* MUTANT (rep_const) */    MEM_INCR(xdr, 0);
+112: /* MUTANT (rep_const) */    MEM_INCR(xdr, 1);
+112: /* MUTANT (rep_const) */    MEM_INCR(xdr, -1);
+112: /* MUTANT (rep_const) */    MEM_INCR(xdr, ((4)+1));
+112: /* MUTANT (rep_const) */    MEM_INCR(xdr, ((4)-1));
+113: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+119: /* MUTANT (del_stmt) */ /*     MEM_NEED(xdr, 4); */ 
+119: /* MUTANT (rep_const) */    MEM_NEED(xdr, 0);
+119: /* MUTANT (rep_const) */    MEM_NEED(xdr, 1);
+119: /* MUTANT (rep_const) */    MEM_NEED(xdr, -1);
+119: /* MUTANT (rep_const) */    MEM_NEED(xdr, ((4)+1));
+119: /* MUTANT (rep_const) */    MEM_NEED(xdr, ((4)-1));
+120: /* MUTANT (del_stmt) */ /*     *(uint32 *)MEM_DATA(xdr) = *lp; */ 
+121: /* MUTANT (del_stmt) */ /*     MEM_INCR(xdr, 4); */ 
+121: /* MUTANT (rep_const) */    MEM_INCR(xdr, 0);
+121: /* MUTANT (rep_const) */    MEM_INCR(xdr, 1);
+121: /* MUTANT (rep_const) */    MEM_INCR(xdr, -1);
+121: /* MUTANT (rep_const) */    MEM_INCR(xdr, ((4)+1));
+121: /* MUTANT (rep_const) */    MEM_INCR(xdr, ((4)-1));
+122: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+128: /* MUTANT (del_stmt) */ /*     MEM_LEFT(xdr, len); */ 
+129: /* MUTANT (del_stmt) */ /*     memcpy(bytes, MEM_DATA(xdr), len); */ 
+130: /* MUTANT (del_stmt) */ /*     MEM_INCR(xdr, len); */ 
+131: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+137: /* MUTANT (del_stmt) */ /*     MEM_NEED(xdr, len); */ 
+138: /* MUTANT (del_stmt) */ /*     memcpy(MEM_DATA(xdr), bytes, len); */ 
+139: /* MUTANT (del_stmt) */ /*     MEM_INCR(xdr, len); */ 
+140: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+146: /* MUTANT (del_stmt) */ /*     void *data; */ 
+147: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE) {
+147: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE)) {
+148: /* MUTANT (del_stmt) */ /*         MEM_NEED(xdr, len); */ 
+149: /* MUTANT (rep_op) */    } else if (xdr->mode != JSXDR_DECODE) {
+149: /* MUTANT (negate) */    } else if(! (xdr->mode == JSXDR_DECODE)) {
+150: /* MUTANT (del_stmt) */ /*         MEM_LEFT(xdr, len); */ 
+153: /* MUTANT (del_stmt) */ /*     MEM_INCR(xdr, len); */ 
+154: /* MUTANT (del_stmt) */ /*     return data; */ 
+162: /* MUTANT (rep_op) */        if ((int32)MEM_COUNT(xdr) - offset < 0) {
+162: /* MUTANT (rep_op) */        if ((int32)MEM_COUNT(xdr) * offset < 0) {
+162: /* MUTANT (rep_op) */        if ((int32)MEM_COUNT(xdr) % offset < 0) {
+162: /* MUTANT (rep_op) */        if ((int32)MEM_COUNT(xdr) + offset <= 0) {
+162: /* MUTANT (rep_op) */        if ((int32)MEM_COUNT(xdr) + offset > 0) {
+162: /* MUTANT (rep_op) */        if ((int32)MEM_COUNT(xdr) + offset >= 0) {
+162: /* MUTANT (rep_op) */        if ((int32)MEM_COUNT(xdr) + offset == 0) {
+162: /* MUTANT (rep_op) */        if ((int32)MEM_COUNT(xdr) + offset != 0) {
+162: /* MUTANT (rep_const) */        if ((int32)MEM_COUNT(xdr) + offset < 1) {
+162: /* MUTANT (rep_const) */        if ((int32)MEM_COUNT(xdr) + offset < -1) {
+162: /* MUTANT (negate) */        if(! ((int32)MEM_COUNT(xdr) + offset < 0)) {
+165: /* MUTANT (del_stmt) */ /*             return JS_FALSE; */ 
+167: /* MUTANT (rep_op) */        if (offset <= 0)
+167: /* MUTANT (rep_op) */        if (offset < 0)
+167: /* MUTANT (rep_op) */        if (offset >= 0)
+167: /* MUTANT (rep_op) */        if (offset == 0)
+167: /* MUTANT (rep_op) */        if (offset != 0)
+167: /* MUTANT (rep_const) */        if (offset > 1)
+167: /* MUTANT (rep_const) */        if (offset > -1)
+167: /* MUTANT (negate) */        if(! (offset > 0))
+169: /* MUTANT (del_stmt) */ /*         MEM_COUNT(xdr) += offset; */ 
+169: /* MUTANT (rep_op) */        MEM_COUNT(xdr) -= offset;
+169: /* MUTANT (rep_op) */        MEM_COUNT(xdr) *= offset;
+169: /* MUTANT (rep_op) */        MEM_COUNT(xdr) %= offset;
+170: /* MUTANT (del_stmt) */ /*         return JS_TRUE; */ 
+172: /* MUTANT (rep_op) */        if (offset <= 0) {
+172: /* MUTANT (rep_op) */        if (offset > 0) {
+172: /* MUTANT (rep_op) */        if (offset >= 0) {
+172: /* MUTANT (rep_op) */        if (offset == 0) {
+172: /* MUTANT (rep_op) */        if (offset != 0) {
+172: /* MUTANT (rep_const) */        if (offset < 1) {
+172: /* MUTANT (rep_const) */        if (offset < -1) {
+172: /* MUTANT (negate) */        if(! (offset < 0)) {
+175: /* MUTANT (del_stmt) */ /*             return JS_FALSE; */ 
+177: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_ENCODE) {
+177: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_ENCODE)) {
+178: /* MUTANT (rep_op) */            if ((uint32)offset <= MEM_COUNT(xdr))
+178: /* MUTANT (rep_op) */            if ((uint32)offset < MEM_COUNT(xdr))
+178: /* MUTANT (rep_op) */            if ((uint32)offset >= MEM_COUNT(xdr))
+178: /* MUTANT (rep_op) */            if ((uint32)offset == MEM_COUNT(xdr))
+178: /* MUTANT (rep_op) */            if ((uint32)offset != MEM_COUNT(xdr))
+178: /* MUTANT (negate) */            if(! ((uint32)offset > MEM_COUNT(xdr)))
+180: /* MUTANT (del_stmt) */ /*             MEM_COUNT(xdr) = offset; */ 
+182: /* MUTANT (rep_op) */            if ((uint32)offset <= MEM_LIMIT(xdr)) {
+182: /* MUTANT (rep_op) */            if ((uint32)offset < MEM_LIMIT(xdr)) {
+182: /* MUTANT (rep_op) */            if ((uint32)offset >= MEM_LIMIT(xdr)) {
+182: /* MUTANT (rep_op) */            if ((uint32)offset == MEM_LIMIT(xdr)) {
+182: /* MUTANT (rep_op) */            if ((uint32)offset != MEM_LIMIT(xdr)) {
+182: /* MUTANT (negate) */            if(! ((uint32)offset > MEM_LIMIT(xdr))) {
+185: /* MUTANT (del_stmt) */ /*                 return JS_FALSE; */ 
+191: /* MUTANT (rep_op) */        if (offset <= 0 ||
+191: /* MUTANT (rep_op) */        if (offset < 0 ||
+191: /* MUTANT (rep_op) */        if (offset > 0 ||
+191: /* MUTANT (rep_op) */        if (offset == 0 ||
+191: /* MUTANT (rep_op) */        if (offset != 0 ||
+191: /* MUTANT (rep_op) */        if (offset >= 0 &&
+191: /* MUTANT (rep_const) */        if (offset >= 1 ||
+191: /* MUTANT (rep_const) */        if (offset >= -1 ||
+192: /* MUTANT (rep_op) */            xdr->mode != JSXDR_ENCODE ||
+192: /* MUTANT (rep_op) */            xdr->mode == JSXDR_ENCODE &&
+193: /* MUTANT (rep_op) */            (int32)MEM_LIMIT(xdr) - offset < 0) {
+193: /* MUTANT (rep_op) */            (int32)MEM_LIMIT(xdr) * offset < 0) {
+193: /* MUTANT (rep_op) */            (int32)MEM_LIMIT(xdr) % offset < 0) {
+193: /* MUTANT (rep_op) */            (int32)MEM_LIMIT(xdr) + offset <= 0) {
+193: /* MUTANT (rep_op) */            (int32)MEM_LIMIT(xdr) + offset > 0) {
+193: /* MUTANT (rep_op) */            (int32)MEM_LIMIT(xdr) + offset >= 0) {
+193: /* MUTANT (rep_op) */            (int32)MEM_LIMIT(xdr) + offset == 0) {
+193: /* MUTANT (rep_op) */            (int32)MEM_LIMIT(xdr) + offset != 0) {
+193: /* MUTANT (rep_const) */            (int32)MEM_LIMIT(xdr) + offset < 1) {
+193: /* MUTANT (rep_const) */            (int32)MEM_LIMIT(xdr) + offset < -1) {
+196: /* MUTANT (del_stmt) */ /*             return JS_FALSE; */ 
+198: /* MUTANT (rep_op) */        MEM_COUNT(xdr) = MEM_LIMIT(xdr) - offset;
+198: /* MUTANT (rep_op) */        MEM_COUNT(xdr) = MEM_LIMIT(xdr) * offset;
+198: /* MUTANT (rep_op) */        MEM_COUNT(xdr) = MEM_LIMIT(xdr) % offset;
+199: /* MUTANT (del_stmt) */ /*         return JS_TRUE; */ 
+201: /* MUTANT (del_stmt) */ /*         char numBuf[12]; */ 
+201: /* MUTANT (rep_const) */        char numBuf[0];
+201: /* MUTANT (rep_const) */        char numBuf[1];
+201: /* MUTANT (rep_const) */        char numBuf[-1];
+201: /* MUTANT (rep_const) */        char numBuf[((12)+1)];
+201: /* MUTANT (rep_const) */        char numBuf[((12)-1)];
+202: /* MUTANT (del_stmt) */ /*         JS_snprintf(numBuf, sizeof numBuf, "%d", whence); */ 
+205: /* MUTANT (del_stmt) */ /*         return JS_FALSE; */ 
+213: /* MUTANT (del_stmt) */ /*     return MEM_COUNT(xdr); */ 
+219: /* MUTANT (del_stmt) */ /*     JS_free(xdr->cx, MEM_BASE(xdr)); */ 
+230: /* MUTANT (del_stmt) */ /*     xdr->mode = mode; */ 
+231: /* MUTANT (del_stmt) */ /*     xdr->cx = cx; */ 
+232: /* MUTANT (del_stmt) */ /*     xdr->registry = NULL; */ 
+233: /* MUTANT (del_stmt) */ /*     xdr->numclasses = xdr->maxclasses = 0; */ 
+233: /* MUTANT (rep_const) */    xdr->numclasses = xdr->maxclasses = 1;
+233: /* MUTANT (rep_const) */    xdr->numclasses = xdr->maxclasses = -1;
+234: /* MUTANT (del_stmt) */ /*     xdr->reghash = NULL; */ 
+235: /* MUTANT (del_stmt) */ /*     xdr->userdata = NULL; */ 
+241: /* MUTANT (del_stmt) */ /*     JSXDRState *xdr = (JSXDRState *) JS_malloc(cx, sizeof(JSXDRMemState)); */ 
+242: /* MUTANT (negate) */    if(! (!xdr))
+244: /* MUTANT (del_stmt) */ /*     JS_XDRInitBase(xdr, mode, cx); */ 
+245: /* MUTANT (rep_op) */    if (mode != JSXDR_ENCODE) {
+245: /* MUTANT (negate) */    if(! (mode == JSXDR_ENCODE)) {
+246: /* MUTANT (negate) */        if(! (!(MEM_BASE(xdr) = JS_malloc(cx, MEM_BLOCK)))) {
+247: /* MUTANT (del_stmt) */ /*             JS_free(cx, xdr); */ 
+248: /* MUTANT (del_stmt) */ /*             return NULL; */ 
+252: /* MUTANT (del_stmt) */ /*         MEM_BASE(xdr) = NULL; */ 
+255: /* MUTANT (del_stmt) */ /*     MEM_COUNT(xdr) = 0; */ 
+255: /* MUTANT (rep_const) */    MEM_COUNT(xdr) = 1;
+255: /* MUTANT (rep_const) */    MEM_COUNT(xdr) = -1;
+256: /* MUTANT (del_stmt) */ /*     MEM_LIMIT(xdr) = MEM_BLOCK; */ 
+257: /* MUTANT (del_stmt) */ /*     return xdr; */ 
+263: /* MUTANT (rep_op) */    if (xdr->ops == &xdrmem_ops)
+263: /* MUTANT (negate) */    if(! (xdr->ops != &xdrmem_ops))
+265: /* MUTANT (del_stmt) */ /*     *lp = MEM_COUNT(xdr); */ 
+266: /* MUTANT (del_stmt) */ /*     return MEM_BASE(xdr); */ 
+272: /* MUTANT (rep_op) */    if (xdr->ops == &xdrmem_ops)
+272: /* MUTANT (negate) */    if(! (xdr->ops != &xdrmem_ops))
+274: /* MUTANT (del_stmt) */ /*     MEM_LIMIT(xdr) = len; */ 
+275: /* MUTANT (del_stmt) */ /*     MEM_BASE(xdr) = data; */ 
+276: /* MUTANT (del_stmt) */ /*     MEM_COUNT(xdr) = 0; */ 
+276: /* MUTANT (rep_const) */    MEM_COUNT(xdr) = 1;
+276: /* MUTANT (rep_const) */    MEM_COUNT(xdr) = -1;
+282: /* MUTANT (rep_op) */    if (xdr->ops == &xdrmem_ops)
+282: /* MUTANT (negate) */    if(! (xdr->ops != &xdrmem_ops))
+283: /* MUTANT (rep_const) */        return 1;
+283: /* MUTANT (rep_const) */        return -1;
+284: /* MUTANT (del_stmt) */ /*     return MEM_LIMIT(xdr) - MEM_COUNT(xdr); */ 
+290: /* MUTANT (rep_op) */    if (xdr->ops == &xdrmem_ops)
+290: /* MUTANT (negate) */    if(! (xdr->ops != &xdrmem_ops))
+292: /* MUTANT (del_stmt) */ /*     MEM_COUNT(xdr) = 0; */ 
+292: /* MUTANT (rep_const) */    MEM_COUNT(xdr) = 1;
+292: /* MUTANT (rep_const) */    MEM_COUNT(xdr) = -1;
+298: /* MUTANT (del_stmt) */ /*     JSContext *cx = xdr->cx; */ 
+299: /* MUTANT (del_stmt) */ /*     xdr->ops->finalize(xdr); */ 
+300: /* MUTANT (negate) */    if(! (xdr->registry)) {
+301: /* MUTANT (del_stmt) */ /*         JS_free(cx, xdr->registry); */ 
+302: /* MUTANT (negate) */        if(! (xdr->reghash))
+311: /* MUTANT (del_stmt) */ /*     uint32 l = *b; */ 
+312: /* MUTANT (negate) */    if(! (!JS_XDRUint32(xdr, &l)))
+314: /* MUTANT (del_stmt) */ /*     *b = (uint8) l; */ 
+315: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+321: /* MUTANT (del_stmt) */ /*     uint32 l = *s; */ 
+322: /* MUTANT (negate) */    if(! (!JS_XDRUint32(xdr, &l)))
+324: /* MUTANT (del_stmt) */ /*     *s = (uint16) l; */ 
+325: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+331: /* MUTANT (del_stmt) */ /*     JSBool ok = JS_TRUE; */ 
+332: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE) {
+332: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE)) {
+333: /* MUTANT (del_stmt) */ /*         uint32 xl = JSXDR_SWAB32(*lp); */ 
+334: /* MUTANT (del_stmt) */ /*         ok = xdr->ops->set32(xdr, &xl); */ 
+335: /* MUTANT (rep_op) */    } else if (xdr->mode != JSXDR_DECODE) {
+335: /* MUTANT (negate) */    } else if(! (xdr->mode == JSXDR_DECODE)) {
+336: /* MUTANT (del_stmt) */ /*         ok = xdr->ops->get32(xdr, lp); */ 
+337: /* MUTANT (del_stmt) */ /*         *lp = JSXDR_SWAB32(*lp); */ 
+345: /* MUTANT (del_stmt) */ /*     uint32 padlen; */ 
+346: /* MUTANT (del_stmt) */ /*     static char padbuf[JSXDR_ALIGN-1]; */ 
+346: /* MUTANT (rep_const) */    static char padbuf[JSXDR_ALIGN-0];
+346: /* MUTANT (rep_const) */    static char padbuf[JSXDR_ALIGN--1];
+346: /* MUTANT (rep_const) */    static char padbuf[JSXDR_ALIGN-((1)+1)];
+348: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE) {
+348: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE)) {
+349: /* MUTANT (negate) */        if(! (!xdr->ops->setbytes(xdr, bytes, len)))
+352: /* MUTANT (negate) */        if(! (!xdr->ops->getbytes(xdr, bytes, len)))
+356: /* MUTANT (rep_op) */    if (len + JSXDR_ALIGN) {
+356: /* MUTANT (rep_op) */    if (len - JSXDR_ALIGN) {
+356: /* MUTANT (rep_op) */    if (len * JSXDR_ALIGN) {
+356: /* MUTANT (negate) */    if(! (len % JSXDR_ALIGN)) {
+357: /* MUTANT (del_stmt) */ /*         padlen = JSXDR_ALIGN - (len % JSXDR_ALIGN); */ 
+357: /* MUTANT (rep_op) */        padlen = JSXDR_ALIGN - (len + JSXDR_ALIGN);
+357: /* MUTANT (rep_op) */        padlen = JSXDR_ALIGN - (len - JSXDR_ALIGN);
+357: /* MUTANT (rep_op) */        padlen = JSXDR_ALIGN - (len * JSXDR_ALIGN);
+358: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_ENCODE) {
+358: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_ENCODE)) {
+359: /* MUTANT (negate) */            if(! (!xdr->ops->setbytes(xdr, padbuf, padlen)))
+362: /* MUTANT (negate) */            if(! (!xdr->ops->seek(xdr, padlen, JSXDR_SEEK_CUR)))
+377: /* MUTANT (del_stmt) */ /*     uint32 len; */ 
+379: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE)
+379: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE))
+381: /* MUTANT (del_stmt) */ /*     JS_XDRUint32(xdr, &len); */ 
+382: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_DECODE) {
+382: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_DECODE)) {
+383: /* MUTANT (rep_op) */        if (!(*sp = (char *) JS_malloc(xdr->cx, len - 1)))
+383: /* MUTANT (rep_op) */        if (!(*sp = (char *) JS_malloc(xdr->cx, len * 1)))
+383: /* MUTANT (rep_op) */        if (!(*sp = (char *) JS_malloc(xdr->cx, len % 1)))
+383: /* MUTANT (rep_const) */        if (!(*sp = (char *) JS_malloc(xdr->cx, len + 0)))
+383: /* MUTANT (rep_const) */        if (!(*sp = (char *) JS_malloc(xdr->cx, len + -1)))
+383: /* MUTANT (rep_const) */        if (!(*sp = (char *) JS_malloc(xdr->cx, len + ((1)+1))))
+383: /* MUTANT (negate) */        if(! (!(*sp = (char *) JS_malloc(xdr->cx, len + 1))))
+386: /* MUTANT (negate) */    if(! (!JS_XDRBytes(xdr, *sp, len))) {
+387: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_DECODE)
+387: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_DECODE))
+389: /* MUTANT (del_stmt) */ /*         return JS_FALSE; */ 
+391: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_DECODE) {
+391: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_DECODE)) {
+392: /* MUTANT (del_stmt) */ /*         (*sp)[len] = '\0'; */ 
+392: /* MUTANT (rep_const) */        (*sp)[len] = '\1';
+392: /* MUTANT (rep_const) */        (*sp)[len] = '\-1';
+393: /* MUTANT (rep_op) */    } else if (xdr->mode != JSXDR_FREE) {
+393: /* MUTANT (negate) */    } else if(! (xdr->mode == JSXDR_FREE)) {
+394: /* MUTANT (del_stmt) */ /*         JS_free(xdr->cx, *sp); */ 
+395: /* MUTANT (del_stmt) */ /*         *sp = NULL; */ 
+403: /* MUTANT (del_stmt) */ /*     uint32 null = (*sp == NULL); */ 
+403: /* MUTANT (rep_op) */    uint32 null = (*sp != NULL);
+404: /* MUTANT (negate) */    if(! (!JS_XDRUint32(xdr, &null)))
+406: /* MUTANT (negate) */    if(! (null)) {
+407: /* MUTANT (del_stmt) */ /*         *sp = NULL; */ 
+408: /* MUTANT (del_stmt) */ /*         return JS_TRUE; */ 
+419: /* MUTANT (del_stmt) */ /*     uint32 i, len, padlen, nbytes; */ 
+420: /* MUTANT (del_stmt) */ /*     jschar *chars = NULL, *raw; */ 
+422: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE)
+422: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE))
+424: /* MUTANT (negate) */    if(! (!JS_XDRUint32(xdr, &len)))
+426: /* MUTANT (del_stmt) */ /*     nbytes = len * sizeof(jschar); */ 
+428: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_DECODE) {
+428: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_DECODE)) {
+429: /* MUTANT (rep_op) */        if (!(chars = (jschar *) JS_malloc(xdr->cx, nbytes - sizeof(jschar))))
+429: /* MUTANT (rep_op) */        if (!(chars = (jschar *) JS_malloc(xdr->cx, nbytes * sizeof(jschar))))
+429: /* MUTANT (rep_op) */        if (!(chars = (jschar *) JS_malloc(xdr->cx, nbytes % sizeof(jschar))))
+429: /* MUTANT (negate) */        if(! (!(chars = (jschar *) JS_malloc(xdr->cx, nbytes + sizeof(jschar)))))
+432: /* MUTANT (del_stmt) */ /*         chars = JSSTRING_CHARS(*strp); */ 
+435: /* MUTANT (rep_op) */    padlen = nbytes + JSXDR_ALIGN;
+435: /* MUTANT (rep_op) */    padlen = nbytes - JSXDR_ALIGN;
+435: /* MUTANT (rep_op) */    padlen = nbytes * JSXDR_ALIGN;
+436: /* MUTANT (negate) */    if(! (padlen)) {
+437: /* MUTANT (del_stmt) */ /*         padlen = JSXDR_ALIGN - padlen; */ 
+438: /* MUTANT (del_stmt) */ /*         nbytes += padlen; */ 
+438: /* MUTANT (rep_op) */        nbytes -= padlen;
+438: /* MUTANT (rep_op) */        nbytes *= padlen;
+438: /* MUTANT (rep_op) */        nbytes %= padlen;
+440: /* MUTANT (negate) */    if(! (!(raw = (jschar *) xdr->ops->raw(xdr, nbytes))))
+442: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE) {
+442: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE)) {
+443: /* MUTANT (rep_op) */        for (i = 0; i <= len; i++)
+443: /* MUTANT (rep_op) */        for (i = 0; i > len; i++)
+443: /* MUTANT (rep_op) */        for (i = 0; i >= len; i++)
+443: /* MUTANT (rep_op) */        for (i = 0; i == len; i++)
+443: /* MUTANT (rep_op) */        for (i = 0; i != len; i++)
+443: /* MUTANT (rep_op) */        for (i = 0; i < len; i--)
+443: /* MUTANT (rep_const) */        for (i = 1; i < len; i++)
+443: /* MUTANT (rep_const) */        for (i = -1; i < len; i++)
+445: /* MUTANT (negate) */        if(! (padlen))
+446: /* MUTANT (rep_op) */            memset((char *)raw - nbytes - padlen, 0, padlen);
+446: /* MUTANT (rep_op) */            memset((char *)raw * nbytes - padlen, 0, padlen);
+446: /* MUTANT (rep_op) */            memset((char *)raw % nbytes - padlen, 0, padlen);
+446: /* MUTANT (rep_const) */            memset((char *)raw + nbytes - padlen, 1, padlen);
+446: /* MUTANT (rep_const) */            memset((char *)raw + nbytes - padlen, -1, padlen);
+447: /* MUTANT (rep_op) */    } else if (xdr->mode != JSXDR_DECODE) {
+447: /* MUTANT (negate) */    } else if(! (xdr->mode == JSXDR_DECODE)) {
+448: /* MUTANT (rep_op) */        for (i = 0; i <= len; i++)
+448: /* MUTANT (rep_op) */        for (i = 0; i > len; i++)
+448: /* MUTANT (rep_op) */        for (i = 0; i >= len; i++)
+448: /* MUTANT (rep_op) */        for (i = 0; i == len; i++)
+448: /* MUTANT (rep_op) */        for (i = 0; i != len; i++)
+448: /* MUTANT (rep_op) */        for (i = 0; i < len; i--)
+448: /* MUTANT (rep_const) */        for (i = 1; i < len; i++)
+448: /* MUTANT (rep_const) */        for (i = -1; i < len; i++)
+450: /* MUTANT (del_stmt) */ /*         chars[len] = 0; */ 
+450: /* MUTANT (rep_const) */        chars[len] = 1;
+450: /* MUTANT (rep_const) */        chars[len] = -1;
+452: /* MUTANT (negate) */        if(! (!(*strp = JS_NewUCString(xdr->cx, chars, len))))
+458: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_DECODE)
+458: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_DECODE))
+460: /* MUTANT (del_stmt) */ /*     return JS_FALSE; */ 
+466: /* MUTANT (del_stmt) */ /*     uint32 null = (*strp == NULL); */ 
+466: /* MUTANT (rep_op) */    uint32 null = (*strp != NULL);
+467: /* MUTANT (negate) */    if(! (!JS_XDRUint32(xdr, &null)))
+469: /* MUTANT (negate) */    if(! (null)) {
+470: /* MUTANT (del_stmt) */ /*         *strp = NULL; */ 
+471: /* MUTANT (del_stmt) */ /*         return JS_TRUE; */ 
+479: /* MUTANT (del_stmt) */ /*     jsdpun u; */ 
+481: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE)
+481: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE))
+483: /* MUTANT (rep_op) */    if (!JS_XDRUint32(xdr, &u.s.lo) && !JS_XDRUint32(xdr, &u.s.hi))
+483: /* MUTANT (negate) */    if(! (!JS_XDRUint32(xdr, &u.s.lo) || !JS_XDRUint32(xdr, &u.s.hi)))
+485: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_DECODE) {
+485: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_DECODE)) {
+486: /* MUTANT (del_stmt) */ /*         *dp = JS_NewDouble(xdr->cx, u.d); */ 
+487: /* MUTANT (negate) */        if(! (!*dp))
+494: #define JSVAL_XDRNULL   1x8 /* MUTANT (rep_const) */
+494: #define JSVAL_XDRNULL   -1x8 /* MUTANT (rep_const) */
+495: #define JSVAL_XDRVOID   1xA /* MUTANT (rep_const) */
+495: #define JSVAL_XDRVOID   -1xA /* MUTANT (rep_const) */
+500: /* MUTANT (del_stmt) */ /*     uint32 type; */ 
+502: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE) {
+502: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE)) {
+503: /* MUTANT (negate) */        if(! (JSVAL_IS_NULL(*vp)))
+505: /* MUTANT (negate) */        else if(! (JSVAL_IS_VOID(*vp)))
+510: /* MUTANT (negate) */    if(! (!JS_XDRUint32(xdr, &type)))
+516: /* MUTANT (del_stmt) */ /*         break; */ 
+519: /* MUTANT (del_stmt) */ /*         break; */ 
+521: /* MUTANT (del_stmt) */ /*         JSString *str; */ 
+522: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_ENCODE)
+522: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_ENCODE))
+524: /* MUTANT (negate) */        if(! (!JS_XDRString(xdr, &str)))
+526: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_DECODE)
+526: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_DECODE))
+528: /* MUTANT (del_stmt) */ /*         break; */ 
+531: /* MUTANT (del_stmt) */ /*         jsdouble *dp; */ 
+532: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_ENCODE)
+532: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_ENCODE))
+534: /* MUTANT (negate) */        if(! (!JS_XDRDouble(xdr, &dp)))
+536: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_DECODE)
+536: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_DECODE))
+538: /* MUTANT (del_stmt) */ /*         break; */ 
+541: /* MUTANT (del_stmt) */ /*         JSObject *obj; */ 
+542: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_ENCODE)
+542: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_ENCODE))
+544: /* MUTANT (negate) */        if(! (!js_XDRObject(xdr, &obj)))
+546: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_DECODE)
+546: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_DECODE))
+548: /* MUTANT (del_stmt) */ /*         break; */ 
+551: /* MUTANT (del_stmt) */ /*         uint32 b; */ 
+552: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_ENCODE)
+552: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_ENCODE))
+554: /* MUTANT (negate) */        if(! (!JS_XDRUint32(xdr, &b)))
+556: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_DECODE)
+556: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_DECODE))
+558: /* MUTANT (del_stmt) */ /*         break; */ 
+561: /* MUTANT (del_stmt) */ /*         uint32 i; */ 
+563: /* MUTANT (del_stmt) */ /*         JS_ASSERT(type & JSVAL_INT); */ 
+564: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_ENCODE)
+564: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_ENCODE))
+566: /* MUTANT (negate) */        if(! (!JS_XDRUint32(xdr, &i)))
+568: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_DECODE)
+568: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_DECODE))
+570: /* MUTANT (del_stmt) */ /*         break; */ 
+579: /* MUTANT (negate) */    if(! (!js_XDRScript(xdr, scriptp, NULL)))
+581: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_DECODE)
+581: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_DECODE))
+583: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+586: #define CLASS_REGISTRY_MIN      0 /* MUTANT (rep_const) */
+586: #define CLASS_REGISTRY_MIN      1 /* MUTANT (rep_const) */
+586: #define CLASS_REGISTRY_MIN      -1 /* MUTANT (rep_const) */
+586: #define CLASS_REGISTRY_MIN      ((8)+1) /* MUTANT (rep_const) */
+586: #define CLASS_REGISTRY_MIN      ((8)-1) /* MUTANT (rep_const) */
+587: #define CLASS_INDEX_TO_ID(i)    ((i)+0) /* MUTANT (rep_const) */
+587: #define CLASS_INDEX_TO_ID(i)    ((i)+-1) /* MUTANT (rep_const) */
+587: #define CLASS_INDEX_TO_ID(i)    ((i)+((1)+1)) /* MUTANT (rep_const) */
+588: #define CLASS_ID_TO_INDEX(id)   ((id)0) /* MUTANT (rep_const) */
+588: #define CLASS_ID_TO_INDEX(id)   ((id)1) /* MUTANT (rep_const) */
+588: #define CLASS_ID_TO_INDEX(id)   ((id)((-1)+1)) /* MUTANT (rep_const) */
+588: #define CLASS_ID_TO_INDEX(id)   ((id)((-1)-1)) /* MUTANT (rep_const) */
+591: /* MUTANT (del_stmt) */ /*     JSDHashEntryHdr hdr; */ 
+592: /* MUTANT (del_stmt) */ /*     const char      *name; */ 
+593: /* MUTANT (del_stmt) */ /*     uint32          index; */ 
+594: /* MUTANT (del_stmt) */ /* } JSRegHashEntry; */ 
+599: /* MUTANT (del_stmt) */ /*     uintN numclasses, maxclasses; */ 
+600: /* MUTANT (del_stmt) */ /*     JSClass **registry; */ 
+602: /* MUTANT (del_stmt) */ /*     numclasses = xdr->numclasses; */ 
+603: /* MUTANT (del_stmt) */ /*     maxclasses = xdr->maxclasses; */ 
+604: /* MUTANT (rep_op) */    if (numclasses != maxclasses) {
+604: /* MUTANT (negate) */    if(! (numclasses == maxclasses)) {
+605: /* MUTANT (del_stmt) */ /*         maxclasses = (maxclasses == 0) ? CLASS_REGISTRY_MIN : maxclasses << 1; */ 
+605: /* MUTANT (rep_op) */        maxclasses = (maxclasses != 0) ? CLASS_REGISTRY_MIN : maxclasses << 1;
+605: /* MUTANT (rep_const) */        maxclasses = (maxclasses == 1) ? CLASS_REGISTRY_MIN : maxclasses << 1;
+605: /* MUTANT (rep_const) */        maxclasses = (maxclasses == -1) ? CLASS_REGISTRY_MIN : maxclasses << 1;
+605: /* MUTANT (rep_const) */        maxclasses = (maxclasses == 0) ? CLASS_REGISTRY_MIN : maxclasses << 0;
+605: /* MUTANT (rep_const) */        maxclasses = (maxclasses == 0) ? CLASS_REGISTRY_MIN : maxclasses << -1;
+605: /* MUTANT (rep_const) */        maxclasses = (maxclasses == 0) ? CLASS_REGISTRY_MIN : maxclasses << ((1)+1);
+608: /* MUTANT (negate) */        if(! (!registry))
+610: /* MUTANT (del_stmt) */ /*         xdr->registry = registry; */ 
+611: /* MUTANT (del_stmt) */ /*         xdr->maxclasses = maxclasses; */ 
+613: /* MUTANT (del_stmt) */ /*         JS_ASSERT(numclasses && numclasses < maxclasses); */ 
+613: /* MUTANT (rep_op) */        JS_ASSERT(numclasses || numclasses < maxclasses);
+613: /* MUTANT (rep_op) */        JS_ASSERT(numclasses && numclasses <= maxclasses);
+613: /* MUTANT (rep_op) */        JS_ASSERT(numclasses && numclasses > maxclasses);
+613: /* MUTANT (rep_op) */        JS_ASSERT(numclasses && numclasses >= maxclasses);
+613: /* MUTANT (rep_op) */        JS_ASSERT(numclasses && numclasses == maxclasses);
+613: /* MUTANT (rep_op) */        JS_ASSERT(numclasses && numclasses != maxclasses);
+614: /* MUTANT (del_stmt) */ /*         registry = xdr->registry; */ 
+618: /* MUTANT (negate) */    if(! (xdr->reghash)) {
+621: /* MUTANT (negate) */        if(! (!entry)) {
+622: /* MUTANT (del_stmt) */ /*             JS_ReportOutOfMemory(xdr->cx); */ 
+623: /* MUTANT (del_stmt) */ /*             return JS_FALSE; */ 
+626: /* MUTANT (del_stmt) */ /*         entry->index = numclasses; */ 
+629: /* MUTANT (del_stmt) */ /*     xdr->numclasses = ++numclasses; */ 
+629: /* MUTANT (rep_op) */    xdr->numclasses = --numclasses;
+630: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+636: /* MUTANT (del_stmt) */ /*     uintN i, numclasses; */ 
+638: /* MUTANT (del_stmt) */ /*     numclasses = xdr->numclasses; */ 
+639: /* MUTANT (rep_op) */    if (numclasses <= 10) {
+639: /* MUTANT (rep_op) */    if (numclasses < 10) {
+639: /* MUTANT (rep_op) */    if (numclasses > 10) {
+639: /* MUTANT (rep_op) */    if (numclasses == 10) {
+639: /* MUTANT (rep_op) */    if (numclasses != 10) {
+639: /* MUTANT (rep_const) */    if (numclasses >= 0) {
+639: /* MUTANT (rep_const) */    if (numclasses >= 1) {
+639: /* MUTANT (rep_const) */    if (numclasses >= -1) {
+639: /* MUTANT (rep_const) */    if (numclasses >= ((10)+1)) {
+639: /* MUTANT (rep_const) */    if (numclasses >= ((10)-1)) {
+639: /* MUTANT (negate) */    if(! (numclasses >= 10)) {
+640: /* MUTANT (del_stmt) */ /*         JSRegHashEntry *entry; */ 
+643: /* MUTANT (negate) */        if(! (!xdr->reghash)) {
+647: /* MUTANT (negate) */            if(! (xdr->reghash)) {
+648: /* MUTANT (rep_op) */                for (i = 0; i <= numclasses; i++) {
+648: /* MUTANT (rep_op) */                for (i = 0; i > numclasses; i++) {
+648: /* MUTANT (rep_op) */                for (i = 0; i >= numclasses; i++) {
+648: /* MUTANT (rep_op) */                for (i = 0; i == numclasses; i++) {
+648: /* MUTANT (rep_op) */                for (i = 0; i != numclasses; i++) {
+648: /* MUTANT (rep_op) */                for (i = 0; i < numclasses; i--) {
+648: /* MUTANT (rep_const) */                for (i = 1; i < numclasses; i++) {
+648: /* MUTANT (rep_const) */                for (i = -1; i < numclasses; i++) {
+649: /* MUTANT (del_stmt) */ /*                     JSClass *clasp = xdr->registry[i]; */ 
+653: /* MUTANT (del_stmt) */ /*                     entry->name = clasp->name; */ 
+654: /* MUTANT (del_stmt) */ /*                     entry->index = i; */ 
+660: /* MUTANT (negate) */        if(! (xdr->reghash)) {
+663: /* MUTANT (negate) */            if(! (JS_DHASH_ENTRY_IS_BUSY(&entry->hdr)))
+669: /* MUTANT (rep_op) */    for (i = 0; i <= numclasses; i++) {
+669: /* MUTANT (rep_op) */    for (i = 0; i > numclasses; i++) {
+669: /* MUTANT (rep_op) */    for (i = 0; i >= numclasses; i++) {
+669: /* MUTANT (rep_op) */    for (i = 0; i == numclasses; i++) {
+669: /* MUTANT (rep_op) */    for (i = 0; i != numclasses; i++) {
+669: /* MUTANT (rep_op) */    for (i = 0; i < numclasses; i--) {
+669: /* MUTANT (rep_const) */    for (i = 1; i < numclasses; i++) {
+669: /* MUTANT (rep_const) */    for (i = -1; i < numclasses; i++) {
+670: /* MUTANT (negate) */        if(! (!strcmp(name, xdr->registry[i]->name)))
+673: /* MUTANT (rep_const) */    return 1;
+673: /* MUTANT (rep_const) */    return -1;
+679: /* MUTANT (del_stmt) */ /*     uintN i = CLASS_ID_TO_INDEX(id); */ 
+681: /* MUTANT (rep_op) */    if (i <= xdr->numclasses)
+681: /* MUTANT (rep_op) */    if (i < xdr->numclasses)
+681: /* MUTANT (rep_op) */    if (i > xdr->numclasses)
+681: /* MUTANT (rep_op) */    if (i == xdr->numclasses)
+681: /* MUTANT (rep_op) */    if (i != xdr->numclasses)
+681: /* MUTANT (negate) */    if(! (i >= xdr->numclasses))
+683: /* MUTANT (del_stmt) */ /*     return xdr->registry[i]; */ 

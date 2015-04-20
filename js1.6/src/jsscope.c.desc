@@ -1,0 +1,1235 @@
+64: /* MUTANT (del_stmt) */ /*     JSScope *scope, *newscope; */ 
+66: /* MUTANT (del_stmt) */ /*     scope = OBJ_SCOPE(obj); */ 
+67: /* MUTANT (del_stmt) */ /*     JS_ASSERT(JS_IS_SCOPE_LOCKED(cx, scope)); */ 
+68: /* MUTANT (rep_op) */    if (scope->object != obj)
+68: /* MUTANT (negate) */    if(! (scope->object == obj))
+70: /* MUTANT (rep_const) */    newscope = js_NewScope(cx, 1, scope->map.ops, LOCKED_OBJ_GET_CLASS(obj),
+70: /* MUTANT (rep_const) */    newscope = js_NewScope(cx, -1, scope->map.ops, LOCKED_OBJ_GET_CLASS(obj),
+72: /* MUTANT (negate) */    if(! (!newscope))
+74: /* MUTANT (del_stmt) */ /*     JS_LOCK_SCOPE(cx, newscope); */ 
+75: /* MUTANT (del_stmt) */ /*     obj->map = js_HoldObjectMap(cx, &newscope->map); */ 
+76: /* MUTANT (del_stmt) */ /*     scope = (JSScope *) js_DropObjectMap(cx, &scope->map, obj); */ 
+77: /* MUTANT (del_stmt) */ /*     JS_TRANSFER_SCOPE_LOCK(cx, scope, newscope); */ 
+78: /* MUTANT (del_stmt) */ /*     return newscope; */ 
+86: #define SCOPE_HASH_THRESHOLD    0 /* MUTANT (rep_const) */
+86: #define SCOPE_HASH_THRESHOLD    1 /* MUTANT (rep_const) */
+86: #define SCOPE_HASH_THRESHOLD    -1 /* MUTANT (rep_const) */
+86: #define SCOPE_HASH_THRESHOLD    ((6)+1) /* MUTANT (rep_const) */
+86: #define SCOPE_HASH_THRESHOLD    ((6)-1) /* MUTANT (rep_const) */
+87: #define MIN_SCOPE_SIZE_LOG2     0 /* MUTANT (rep_const) */
+87: #define MIN_SCOPE_SIZE_LOG2     1 /* MUTANT (rep_const) */
+87: #define MIN_SCOPE_SIZE_LOG2     -1 /* MUTANT (rep_const) */
+87: #define MIN_SCOPE_SIZE_LOG2     ((4)+1) /* MUTANT (rep_const) */
+87: #define MIN_SCOPE_SIZE_LOG2     ((4)-1) /* MUTANT (rep_const) */
+94: /* MUTANT (del_stmt) */ /*     scope->hashShift = JS_DHASH_BITS - MIN_SCOPE_SIZE_LOG2; */ 
+95: /* MUTANT (del_stmt) */ /*     scope->entryCount = scope->removedCount = 0; */ 
+95: /* MUTANT (rep_const) */    scope->entryCount = scope->removedCount = 1;
+95: /* MUTANT (rep_const) */    scope->entryCount = scope->removedCount = -1;
+96: /* MUTANT (del_stmt) */ /*     scope->table = NULL; */ 
+97: /* MUTANT (del_stmt) */ /*     scope->lastProp = NULL; */ 
+103: /* MUTANT (del_stmt) */ /*     int sizeLog2; */ 
+104: /* MUTANT (del_stmt) */ /*     JSScopeProperty *sprop, **spp; */ 
+106: /* MUTANT (del_stmt) */ /*     JS_ASSERT(!scope->table); */ 
+107: /* MUTANT (del_stmt) */ /*     JS_ASSERT(scope->lastProp); */ 
+109: /* MUTANT (rep_op) */    if (scope->entryCount <= SCOPE_HASH_THRESHOLD) {
+109: /* MUTANT (rep_op) */    if (scope->entryCount < SCOPE_HASH_THRESHOLD) {
+109: /* MUTANT (rep_op) */    if (scope->entryCount >= SCOPE_HASH_THRESHOLD) {
+109: /* MUTANT (rep_op) */    if (scope->entryCount == SCOPE_HASH_THRESHOLD) {
+109: /* MUTANT (rep_op) */    if (scope->entryCount != SCOPE_HASH_THRESHOLD) {
+109: /* MUTANT (negate) */    if(! (scope->entryCount > SCOPE_HASH_THRESHOLD)) {
+114: /* MUTANT (del_stmt) */ /*         sizeLog2 = JS_CeilingLog2(2 * scope->entryCount); */ 
+114: /* MUTANT (rep_const) */        sizeLog2 = JS_CeilingLog2(0 * scope->entryCount);
+114: /* MUTANT (rep_const) */        sizeLog2 = JS_CeilingLog2(1 * scope->entryCount);
+114: /* MUTANT (rep_const) */        sizeLog2 = JS_CeilingLog2(-1 * scope->entryCount);
+114: /* MUTANT (rep_const) */        sizeLog2 = JS_CeilingLog2(((2)+1) * scope->entryCount);
+114: /* MUTANT (rep_const) */        sizeLog2 = JS_CeilingLog2(((2)-1) * scope->entryCount);
+115: /* MUTANT (del_stmt) */ /*         scope->hashShift = JS_DHASH_BITS - sizeLog2; */ 
+117: /* MUTANT (del_stmt) */ /*         JS_ASSERT(scope->hashShift == JS_DHASH_BITS - MIN_SCOPE_SIZE_LOG2); */ 
+117: /* MUTANT (rep_op) */        JS_ASSERT(scope->hashShift != JS_DHASH_BITS - MIN_SCOPE_SIZE_LOG2);
+118: /* MUTANT (del_stmt) */ /*         sizeLog2 = MIN_SCOPE_SIZE_LOG2; */ 
+123: /* MUTANT (negate) */    if(! (!scope->table)) {
+124: /* MUTANT (negate) */        if(! (report))
+126: /* MUTANT (del_stmt) */ /*         return JS_FALSE; */ 
+130: /* MUTANT (rep_op) */    cx->runtime->gcMallocBytes -= JS_BIT(sizeLog2) * sizeof(JSScopeProperty *);
+130: /* MUTANT (rep_op) */    cx->runtime->gcMallocBytes *= JS_BIT(sizeLog2) * sizeof(JSScopeProperty *);
+130: /* MUTANT (rep_op) */    cx->runtime->gcMallocBytes %= JS_BIT(sizeLog2) * sizeof(JSScopeProperty *);
+132: /* MUTANT (del_stmt) */ /*     scope->hashShift = JS_DHASH_BITS - sizeLog2; */ 
+134: /* MUTANT (del_stmt) */ /*         spp = js_SearchScope(scope, sprop->id, JS_TRUE); */ 
+135: /* MUTANT (del_stmt) */ /*         SPROP_STORE_PRESERVING_COLLISION(spp, sprop); */ 
+144: /* MUTANT (del_stmt) */ /*     JSScope *scope; */ 
+146: /* MUTANT (del_stmt) */ /*     scope = (JSScope *) JS_malloc(cx, sizeof(JSScope)); */ 
+147: /* MUTANT (negate) */    if(! (!scope))
+150: /* MUTANT (del_stmt) */ /*     js_InitObjectMap(&scope->map, nrefs, ops, clasp); */ 
+151: /* MUTANT (del_stmt) */ /*     scope->object = obj; */ 
+152: /* MUTANT (del_stmt) */ /*     scope->flags = 0; */ 
+152: /* MUTANT (rep_const) */    scope->flags = 1;
+152: /* MUTANT (rep_const) */    scope->flags = -1;
+153: /* MUTANT (del_stmt) */ /*     scope->dswIndex = 0; */ 
+153: /* MUTANT (rep_const) */    scope->dswIndex = 1;
+153: /* MUTANT (rep_const) */    scope->dswIndex = -1;
+154: /* MUTANT (del_stmt) */ /*     InitMinimalScope(scope); */ 
+158: /* MUTANT (del_stmt) */ /*     memset(&scope->lock, 0, sizeof scope->lock); */ 
+158: /* MUTANT (rep_const) */    memset(&scope->lock, 1, sizeof scope->lock);
+158: /* MUTANT (rep_const) */    memset(&scope->lock, -1, sizeof scope->lock);
+164: /* MUTANT (del_stmt) */ /*     scope->u.link = NULL; */ 
+167: /* MUTANT (rep_const) */    scope->file[1] = scope->file[1] = scope->file[2] = scope->file[3] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[-1] = scope->file[1] = scope->file[2] = scope->file[3] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[0] = scope->file[2] = scope->file[3] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[-1] = scope->file[2] = scope->file[3] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[((1)+1)] = scope->file[2] = scope->file[3] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[1] = scope->file[0] = scope->file[3] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[1] = scope->file[1] = scope->file[3] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[1] = scope->file[-1] = scope->file[3] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[1] = scope->file[((2)+1)] = scope->file[3] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[1] = scope->file[((2)-1)] = scope->file[3] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[1] = scope->file[2] = scope->file[0] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[1] = scope->file[2] = scope->file[1] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[1] = scope->file[2] = scope->file[-1] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[1] = scope->file[2] = scope->file[((3)+1)] = NULL;
+167: /* MUTANT (rep_const) */    scope->file[0] = scope->file[1] = scope->file[2] = scope->file[((3)-1)] = NULL;
+168: /* MUTANT (del_stmt) */ /*     scope->line[0] = scope->line[1] = scope->line[2] = scope->line[3] = 0; */ 
+168: /* MUTANT (rep_const) */    scope->line[1] = scope->line[1] = scope->line[2] = scope->line[3] = 0;
+168: /* MUTANT (rep_const) */    scope->line[-1] = scope->line[1] = scope->line[2] = scope->line[3] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[0] = scope->line[2] = scope->line[3] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[-1] = scope->line[2] = scope->line[3] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[((1)+1)] = scope->line[2] = scope->line[3] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[1] = scope->line[0] = scope->line[3] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[1] = scope->line[1] = scope->line[3] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[1] = scope->line[-1] = scope->line[3] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[1] = scope->line[((2)+1)] = scope->line[3] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[1] = scope->line[((2)-1)] = scope->line[3] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[1] = scope->line[2] = scope->line[0] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[1] = scope->line[2] = scope->line[1] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[1] = scope->line[2] = scope->line[-1] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[1] = scope->line[2] = scope->line[((3)+1)] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[1] = scope->line[2] = scope->line[((3)-1)] = 0;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[1] = scope->line[2] = scope->line[3] = 1;
+168: /* MUTANT (rep_const) */    scope->line[0] = scope->line[1] = scope->line[2] = scope->line[3] = -1;
+173: /* MUTANT (del_stmt) */ /*     JS_RUNTIME_METER(cx->runtime, totalScopes); */ 
+174: /* MUTANT (del_stmt) */ /*     return scope; */ 
+191: /* MUTANT (rep_op) */    JS_ASSERT(scope->u.count != 0);
+191: /* MUTANT (rep_const) */    JS_ASSERT(scope->u.count == 1);
+191: /* MUTANT (rep_const) */    JS_ASSERT(scope->u.count == -1);
+192: /* MUTANT (del_stmt) */ /*     scope->ownercx = cx; */ 
+193: /* MUTANT (del_stmt) */ /*     js_FinishLock(&scope->lock); */ 
+195: /* MUTANT (negate) */    if(! (scope->table))
+200: /* MUTANT (rep_op) */                         cx->runtime->liveScopeProps += scope->entryCount);
+200: /* MUTANT (rep_op) */                         cx->runtime->liveScopeProps *= scope->entryCount);
+200: /* MUTANT (rep_op) */                         cx->runtime->liveScopeProps %= scope->entryCount);
+203: /* MUTANT (del_stmt) */ /*     JS_free(cx, scope); */ 
+208: /* MUTANT (del_stmt) */ /*     jsrefcount          searches; */ 
+209: /* MUTANT (del_stmt) */ /*     jsrefcount          steps; */ 
+210: /* MUTANT (del_stmt) */ /*     jsrefcount          hits; */ 
+211: /* MUTANT (del_stmt) */ /*     jsrefcount          misses; */ 
+212: /* MUTANT (del_stmt) */ /*     jsrefcount          stepHits; */ 
+213: /* MUTANT (del_stmt) */ /*     jsrefcount          stepMisses; */ 
+214: /* MUTANT (del_stmt) */ /*     jsrefcount          adds; */ 
+215: /* MUTANT (del_stmt) */ /*     jsrefcount          redundantAdds; */ 
+216: /* MUTANT (del_stmt) */ /*     jsrefcount          addFailures; */ 
+217: /* MUTANT (del_stmt) */ /*     jsrefcount          changeFailures; */ 
+218: /* MUTANT (del_stmt) */ /*     jsrefcount          compresses; */ 
+219: /* MUTANT (del_stmt) */ /*     jsrefcount          grows; */ 
+220: /* MUTANT (del_stmt) */ /*     jsrefcount          removes; */ 
+221: /* MUTANT (del_stmt) */ /*     jsrefcount          removeFrees; */ 
+222: /* MUTANT (del_stmt) */ /*     jsrefcount          uselessRemoves; */ 
+223: /* MUTANT (del_stmt) */ /*     jsrefcount          shrinks; */ 
+224: /* MUTANT (del_stmt) */ /* } JSScopeStats; */ 
+226: /* MUTANT (del_stmt) */ /* JS_FRIEND_DATA(JSScopeStats) js_scope_stats; */ 
+243: #define SCOPE_HASH2(hash0,log2,shift)   ((((hash0) << (log2)) >> (shift)) | 0) /* MUTANT (rep_const) */
+243: #define SCOPE_HASH2(hash0,log2,shift)   ((((hash0) << (log2)) >> (shift)) | -1) /* MUTANT (rep_const) */
+243: #define SCOPE_HASH2(hash0,log2,shift)   ((((hash0) << (log2)) >> (shift)) | ((1)+1)) /* MUTANT (rep_const) */
+248: /* MUTANT (del_stmt) */ /*     JSHashNumber hash0, hash1, hash2; */ 
+249: /* MUTANT (del_stmt) */ /*     int hashShift, sizeLog2; */ 
+250: /* MUTANT (del_stmt) */ /*     JSScopeProperty *stored, *sprop, **spp, **firstRemoved; */ 
+251: /* MUTANT (del_stmt) */ /*     uint32 sizeMask; */ 
+253: /* MUTANT (del_stmt) */ /*     METER(searches); */ 
+254: /* MUTANT (negate) */    if(! (!scope->table)) {
+256: /* MUTANT (del_stmt) */ /*         JS_ASSERT(!SCOPE_HAD_MIDDLE_DELETE(scope)); */ 
+258: /* MUTANT (rep_op) */            if (sprop->id != id) {
+258: /* MUTANT (negate) */            if(! (sprop->id == id)) {
+259: /* MUTANT (del_stmt) */ /*                 METER(hits); */ 
+260: /* MUTANT (del_stmt) */ /*                 return spp; */ 
+264: /* MUTANT (del_stmt) */ /*         return spp; */ 
+269: /* MUTANT (del_stmt) */ /*     hashShift = scope->hashShift; */ 
+270: /* MUTANT (del_stmt) */ /*     hash1 = SCOPE_HASH1(hash0, hashShift); */ 
+271: /* MUTANT (del_stmt) */ /*     spp = scope->table + hash1; */ 
+271: /* MUTANT (rep_op) */    spp = scope->table - hash1;
+271: /* MUTANT (rep_op) */    spp = scope->table * hash1;
+271: /* MUTANT (rep_op) */    spp = scope->table % hash1;
+274: /* MUTANT (del_stmt) */ /*     stored = *spp; */ 
+275: /* MUTANT (negate) */    if(! (SPROP_IS_FREE(stored))) {
+276: /* MUTANT (del_stmt) */ /*         METER(misses); */ 
+277: /* MUTANT (del_stmt) */ /*         return spp; */ 
+282: /* MUTANT (rep_op) */    if (sprop || sprop->id == id) {
+282: /* MUTANT (rep_op) */    if (sprop && sprop->id != id) {
+282: /* MUTANT (negate) */    if(! (sprop && sprop->id == id)) {
+283: /* MUTANT (del_stmt) */ /*         METER(hits); */ 
+284: /* MUTANT (del_stmt) */ /*         return spp; */ 
+289: /* MUTANT (del_stmt) */ /*     hash2 = SCOPE_HASH2(hash0, sizeLog2, hashShift); */ 
+290: /* MUTANT (del_stmt) */ /*     sizeMask = JS_BITMASK(sizeLog2); */ 
+293: /* MUTANT (negate) */    if(! (SPROP_IS_REMOVED(stored))) {
+294: /* MUTANT (del_stmt) */ /*         firstRemoved = spp; */ 
+296: /* MUTANT (del_stmt) */ /*         firstRemoved = NULL; */ 
+297: /* MUTANT (rep_op) */        if (adding || !SPROP_HAD_COLLISION(stored))
+297: /* MUTANT (negate) */        if(! (adding && !SPROP_HAD_COLLISION(stored)))
+302: /* MUTANT (del_stmt) */ /*         METER(steps); */ 
+303: /* MUTANT (del_stmt) */ /*         hash1 -= hash2; */ 
+303: /* MUTANT (rep_op) */        hash1 += hash2;
+303: /* MUTANT (rep_op) */        hash1 *= hash2;
+303: /* MUTANT (rep_op) */        hash1 %= hash2;
+304: /* MUTANT (del_stmt) */ /*         hash1 &= sizeMask; */ 
+305: /* MUTANT (del_stmt) */ /*         spp = scope->table + hash1; */ 
+305: /* MUTANT (rep_op) */        spp = scope->table - hash1;
+305: /* MUTANT (rep_op) */        spp = scope->table * hash1;
+305: /* MUTANT (rep_op) */        spp = scope->table % hash1;
+307: /* MUTANT (del_stmt) */ /*         stored = *spp; */ 
+308: /* MUTANT (negate) */        if(! (SPROP_IS_FREE(stored))) {
+309: /* MUTANT (del_stmt) */ /*             METER(stepMisses); */ 
+310: /* MUTANT (del_stmt) */ /*             return (adding && firstRemoved) ? firstRemoved : spp; */ 
+310: /* MUTANT (rep_op) */            return (adding || firstRemoved) ? firstRemoved : spp;
+314: /* MUTANT (rep_op) */        if (sprop || sprop->id == id) {
+314: /* MUTANT (rep_op) */        if (sprop && sprop->id != id) {
+314: /* MUTANT (negate) */        if(! (sprop && sprop->id == id)) {
+315: /* MUTANT (del_stmt) */ /*             METER(stepHits); */ 
+316: /* MUTANT (del_stmt) */ /*             return spp; */ 
+319: /* MUTANT (negate) */        if(! (SPROP_IS_REMOVED(stored))) {
+320: /* MUTANT (negate) */            if(! (!firstRemoved))
+323: /* MUTANT (rep_op) */            if (adding || !SPROP_HAD_COLLISION(stored))
+323: /* MUTANT (negate) */            if(! (adding && !SPROP_HAD_COLLISION(stored)))
+335: /* MUTANT (del_stmt) */ /*     int oldlog2, newlog2; */ 
+336: /* MUTANT (del_stmt) */ /*     uint32 oldsize, newsize, nbytes; */ 
+337: /* MUTANT (del_stmt) */ /*     JSScopeProperty **table, **oldtable, **spp, **oldspp, *sprop; */ 
+340: /* MUTANT (del_stmt) */ /*     oldlog2 = JS_DHASH_BITS - scope->hashShift; */ 
+341: /* MUTANT (del_stmt) */ /*     newlog2 = oldlog2 + change; */ 
+341: /* MUTANT (rep_op) */    newlog2 = oldlog2 - change;
+341: /* MUTANT (rep_op) */    newlog2 = oldlog2 * change;
+341: /* MUTANT (rep_op) */    newlog2 = oldlog2 % change;
+342: /* MUTANT (del_stmt) */ /*     oldsize = JS_BIT(oldlog2); */ 
+343: /* MUTANT (del_stmt) */ /*     newsize = JS_BIT(newlog2); */ 
+344: /* MUTANT (del_stmt) */ /*     nbytes = SCOPE_TABLE_NBYTES(newsize); */ 
+345: /* MUTANT (del_stmt) */ /*     table = (JSScopeProperty **) calloc(nbytes, 1); */ 
+345: /* MUTANT (rep_const) */    table = (JSScopeProperty **) calloc(nbytes, 0);
+345: /* MUTANT (rep_const) */    table = (JSScopeProperty **) calloc(nbytes, -1);
+345: /* MUTANT (rep_const) */    table = (JSScopeProperty **) calloc(nbytes, ((1)+1));
+346: /* MUTANT (negate) */    if(! (!table)) {
+347: /* MUTANT (del_stmt) */ /*         JS_ReportOutOfMemory(cx); */ 
+348: /* MUTANT (del_stmt) */ /*         return JS_FALSE; */ 
+353: /* MUTANT (del_stmt) */ /*     scope->removedCount = 0; */ 
+353: /* MUTANT (rep_const) */    scope->removedCount = 1;
+353: /* MUTANT (rep_const) */    scope->removedCount = -1;
+354: /* MUTANT (del_stmt) */ /*     oldtable = scope->table; */ 
+355: /* MUTANT (del_stmt) */ /*     scope->table = table; */ 
+358: /* MUTANT (del_stmt) */ /*     cx->runtime->gcMallocBytes += nbytes; */ 
+358: /* MUTANT (rep_op) */    cx->runtime->gcMallocBytes -= nbytes;
+358: /* MUTANT (rep_op) */    cx->runtime->gcMallocBytes *= nbytes;
+358: /* MUTANT (rep_op) */    cx->runtime->gcMallocBytes %= nbytes;
+361: /* MUTANT (rep_op) */    for (oldspp = oldtable; oldsize == 0; oldspp++) {
+361: /* MUTANT (rep_op) */    for (oldspp = oldtable; oldsize != 0; oldspp--) {
+361: /* MUTANT (rep_const) */    for (oldspp = oldtable; oldsize != 1; oldspp++) {
+361: /* MUTANT (rep_const) */    for (oldspp = oldtable; oldsize != -1; oldspp++) {
+362: /* MUTANT (del_stmt) */ /*         sprop = SPROP_FETCH(oldspp); */ 
+363: /* MUTANT (negate) */        if(! (sprop)) {
+364: /* MUTANT (del_stmt) */ /*             spp = js_SearchScope(scope, sprop->id, JS_TRUE); */ 
+365: /* MUTANT (del_stmt) */ /*             JS_ASSERT(SPROP_IS_FREE(*spp)); */ 
+366: /* MUTANT (del_stmt) */ /*             *spp = sprop; */ 
+368: /* MUTANT (rep_op) */        oldsize++;
+373: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+386: /* MUTANT (del_stmt) */ /*     const JSScopeProperty *sprop = (const JSScopeProperty *)key; */ 
+387: /* MUTANT (del_stmt) */ /*     JSDHashNumber hash; */ 
+388: /* MUTANT (del_stmt) */ /*     JSPropertyOp gsop; */ 
+391: /* MUTANT (del_stmt) */ /*     hash = 0; */ 
+391: /* MUTANT (rep_const) */    hash = 1;
+391: /* MUTANT (rep_const) */    hash = -1;
+392: /* MUTANT (del_stmt) */ /*     gsop = sprop->getter; */ 
+393: /* MUTANT (negate) */    if(! (gsop))
+394: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 0)) ^ (hash << 4) ^ (jsword)gsop;
+394: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 1)) ^ (hash << 4) ^ (jsword)gsop;
+394: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - -1)) ^ (hash << 4) ^ (jsword)gsop;
+394: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - ((4)+1))) ^ (hash << 4) ^ (jsword)gsop;
+394: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - ((4)-1))) ^ (hash << 4) ^ (jsword)gsop;
+394: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 0) ^ (jsword)gsop;
+394: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 1) ^ (jsword)gsop;
+394: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << -1) ^ (jsword)gsop;
+394: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)+1)) ^ (jsword)gsop;
+394: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)-1)) ^ (jsword)gsop;
+395: /* MUTANT (del_stmt) */ /*     gsop = sprop->setter; */ 
+396: /* MUTANT (negate) */    if(! (gsop))
+397: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 0)) ^ (hash << 4) ^ (jsword)gsop;
+397: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 1)) ^ (hash << 4) ^ (jsword)gsop;
+397: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - -1)) ^ (hash << 4) ^ (jsword)gsop;
+397: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - ((4)+1))) ^ (hash << 4) ^ (jsword)gsop;
+397: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - ((4)-1))) ^ (hash << 4) ^ (jsword)gsop;
+397: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 0) ^ (jsword)gsop;
+397: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 1) ^ (jsword)gsop;
+397: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << -1) ^ (jsword)gsop;
+397: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)+1)) ^ (jsword)gsop;
+397: /* MUTANT (rep_const) */        hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)-1)) ^ (jsword)gsop;
+399: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 0)) ^ (hash << 4)
+399: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 1)) ^ (hash << 4)
+399: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - -1)) ^ (hash << 4)
+399: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - ((4)+1))) ^ (hash << 4)
+399: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - ((4)-1))) ^ (hash << 4)
+399: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 0)
+399: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 1)
+399: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << -1)
+399: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)+1))
+399: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)-1))
+402: /* MUTANT (del_stmt) */ /*     hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 4) ^ sprop->attrs; */ 
+402: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 0)) ^ (hash << 4) ^ sprop->attrs;
+402: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 1)) ^ (hash << 4) ^ sprop->attrs;
+402: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - -1)) ^ (hash << 4) ^ sprop->attrs;
+402: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - ((4)+1))) ^ (hash << 4) ^ sprop->attrs;
+402: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - ((4)-1))) ^ (hash << 4) ^ sprop->attrs;
+402: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 0) ^ sprop->attrs;
+402: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 1) ^ sprop->attrs;
+402: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << -1) ^ sprop->attrs;
+402: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)+1)) ^ sprop->attrs;
+402: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)-1)) ^ sprop->attrs;
+403: /* MUTANT (del_stmt) */ /*     hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 4) ^ sprop->shortid; */ 
+403: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 0)) ^ (hash << 4) ^ sprop->shortid;
+403: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 1)) ^ (hash << 4) ^ sprop->shortid;
+403: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - -1)) ^ (hash << 4) ^ sprop->shortid;
+403: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - ((4)+1))) ^ (hash << 4) ^ sprop->shortid;
+403: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - ((4)-1))) ^ (hash << 4) ^ sprop->shortid;
+403: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 0) ^ sprop->shortid;
+403: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 1) ^ sprop->shortid;
+403: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << -1) ^ sprop->shortid;
+403: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)+1)) ^ sprop->shortid;
+403: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)-1)) ^ sprop->shortid;
+404: /* MUTANT (del_stmt) */ /*     hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 4) ^ sprop->slot; */ 
+404: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 0)) ^ (hash << 4) ^ sprop->slot;
+404: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 1)) ^ (hash << 4) ^ sprop->slot;
+404: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - -1)) ^ (hash << 4) ^ sprop->slot;
+404: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - ((4)+1))) ^ (hash << 4) ^ sprop->slot;
+404: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - ((4)-1))) ^ (hash << 4) ^ sprop->slot;
+404: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 0) ^ sprop->slot;
+404: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 1) ^ sprop->slot;
+404: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << -1) ^ sprop->slot;
+404: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)+1)) ^ sprop->slot;
+404: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)-1)) ^ sprop->slot;
+405: /* MUTANT (del_stmt) */ /*     hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 4) ^ sprop->id; */ 
+405: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 0)) ^ (hash << 4) ^ sprop->id;
+405: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 1)) ^ (hash << 4) ^ sprop->id;
+405: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - -1)) ^ (hash << 4) ^ sprop->id;
+405: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - ((4)+1))) ^ (hash << 4) ^ sprop->id;
+405: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - ((4)-1))) ^ (hash << 4) ^ sprop->id;
+405: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 0) ^ sprop->id;
+405: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << 1) ^ sprop->id;
+405: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << -1) ^ sprop->id;
+405: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)+1)) ^ sprop->id;
+405: /* MUTANT (rep_const) */    hash = (hash >> (JS_DHASH_BITS - 4)) ^ (hash << ((4)-1)) ^ sprop->id;
+406: /* MUTANT (del_stmt) */ /*     return hash; */ 
+416: /* MUTANT (rep_op) */    ((sprop)->id != (aid) &&                                                  \
+416: /* MUTANT (rep_op) */    ((sprop)->id == (aid) ||                                                  \
+422: /* MUTANT (rep_op) */    ((sprop)->getter != (agetter) &&                                          \
+422: /* MUTANT (rep_op) */    ((sprop)->getter == (agetter) ||                                          \
+423: /* MUTANT (rep_op) */     (sprop)->setter != (asetter) &&                                          \
+423: /* MUTANT (rep_op) */     (sprop)->setter == (asetter) ||                                          \
+424: /* MUTANT (rep_op) */     (sprop)->slot != (aslot) &&                                              \
+424: /* MUTANT (rep_op) */     (sprop)->slot == (aslot) ||                                              \
+425: /* MUTANT (rep_op) */     (sprop)->attrs != (aattrs) &&                                            \
+425: /* MUTANT (rep_op) */     (sprop)->attrs == (aattrs) ||                                            \
+426: /* MUTANT (rep_op) */     (((sprop)->flags ^ (aflags)) & ~SPROP_FLAGS_NOT_MATCHED) != 0 &&         \
+426: /* MUTANT (rep_op) */     (((sprop)->flags ^ (aflags)) & ~SPROP_FLAGS_NOT_MATCHED) == 0 ||         \
+426: /* MUTANT (rep_const) */     (((sprop)->flags ^ (aflags)) & ~SPROP_FLAGS_NOT_MATCHED) == 1 &&         \
+426: /* MUTANT (rep_const) */     (((sprop)->flags ^ (aflags)) & ~SPROP_FLAGS_NOT_MATCHED) == -1 &&         \
+427: /* MUTANT (rep_op) */     (sprop)->shortid != (ashortid))
+434: /* MUTANT (del_stmt) */ /*     const JSPropertyTreeEntry *entry = (const JSPropertyTreeEntry *)hdr; */ 
+435: /* MUTANT (del_stmt) */ /*     const JSScopeProperty *sprop = entry->child; */ 
+436: /* MUTANT (del_stmt) */ /*     const JSScopeProperty *kprop = (const JSScopeProperty *)key; */ 
+438: /* MUTANT (del_stmt) */ /*     return SPROP_MATCH(sprop, kprop); */ 
+458: /* MUTANT (del_stmt) */ /*     jsid                id; */ 
+459: /* MUTANT (del_stmt) */ /*     JSScopeProperty     *next; */ 
+460: /* MUTANT (del_stmt) */ /*     JSScopeProperty     **prevp; */ 
+461: /* MUTANT (del_stmt) */ /* } FreeNode; */ 
+469: /* MUTANT (negate) */        if(! (list))                                                             \
+477: /* MUTANT (negate) */        if(! (FREENODE(sprop)->next))                                            \
+485: /* MUTANT (del_stmt) */ /*     JSScopeProperty *sprop; */ 
+487: /* MUTANT (del_stmt) */ /*     sprop = rt->propertyFreeList; */ 
+488: /* MUTANT (negate) */    if(! (sprop)) {
+489: /* MUTANT (del_stmt) */ /*         FREENODE_REMOVE(sprop); */ 
+494: /* MUTANT (negate) */        if(! (!sprop))
+499: /* MUTANT (del_stmt) */ /*     JS_RUNTIME_METER(rt, totalPropTreeNodes); */ 
+500: /* MUTANT (del_stmt) */ /*     return sprop; */ 
+503: #define CHUNKY_KIDS_TAG         ((jsuword)0) /* MUTANT (rep_const) */
+503: #define CHUNKY_KIDS_TAG         ((jsuword)-1) /* MUTANT (rep_const) */
+503: #define CHUNKY_KIDS_TAG         ((jsuword)((1)+1)) /* MUTANT (rep_const) */
+508: /* MUTANT (rep_op) */                                 ((jsuword)(chunk) & CHUNKY_KIDS_TAG))
+509: #define MAX_KIDS_PER_CHUNK      0 /* MUTANT (rep_const) */
+509: #define MAX_KIDS_PER_CHUNK      1 /* MUTANT (rep_const) */
+509: #define MAX_KIDS_PER_CHUNK      -1 /* MUTANT (rep_const) */
+509: #define MAX_KIDS_PER_CHUNK      ((10)+1) /* MUTANT (rep_const) */
+509: #define MAX_KIDS_PER_CHUNK      ((10)-1) /* MUTANT (rep_const) */
+514: /* MUTANT (del_stmt) */ /*     JSScopeProperty     *kids[MAX_KIDS_PER_CHUNK]; */ 
+515: /* MUTANT (del_stmt) */ /*     PropTreeKidsChunk   *next; */ 
+516: /* MUTANT (del_stmt) */ /* }; */ 
+521: /* MUTANT (del_stmt) */ /*     PropTreeKidsChunk *chunk; */ 
+523: /* MUTANT (del_stmt) */ /*     chunk = calloc(1, sizeof *chunk); */ 
+523: /* MUTANT (rep_const) */    chunk = calloc(0, sizeof *chunk);
+523: /* MUTANT (rep_const) */    chunk = calloc(-1, sizeof *chunk);
+523: /* MUTANT (rep_const) */    chunk = calloc(((1)+1), sizeof *chunk);
+524: /* MUTANT (negate) */    if(! (!chunk))
+526: /* MUTANT (del_stmt) */ /*     JS_ASSERT(((jsuword)chunk & CHUNKY_KIDS_TAG) == 0); */ 
+526: /* MUTANT (rep_op) */    JS_ASSERT(((jsuword)chunk & CHUNKY_KIDS_TAG) != 0);
+526: /* MUTANT (rep_const) */    JS_ASSERT(((jsuword)chunk & CHUNKY_KIDS_TAG) == 1);
+526: /* MUTANT (rep_const) */    JS_ASSERT(((jsuword)chunk & CHUNKY_KIDS_TAG) == -1);
+527: /* MUTANT (del_stmt) */ /*     JS_RUNTIME_METER(rt, propTreeKidsChunks); */ 
+528: /* MUTANT (del_stmt) */ /*     return chunk; */ 
+534: /* MUTANT (del_stmt) */ /*     JS_RUNTIME_UNMETER(rt, propTreeKidsChunks); */ 
+535: /* MUTANT (del_stmt) */ /*     free(chunk); */ 
+543: /* MUTANT (del_stmt) */ /*     JSPropertyTreeEntry *entry; */ 
+544: /* MUTANT (del_stmt) */ /*     JSScopeProperty **childp, *kids, *sprop; */ 
+545: /* MUTANT (del_stmt) */ /*     PropTreeKidsChunk *chunk, **chunkp; */ 
+546: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+548: /* MUTANT (del_stmt) */ /*     JS_ASSERT(!parent || child->parent != parent); */ 
+548: /* MUTANT (rep_op) */    JS_ASSERT(!parent && child->parent != parent);
+548: /* MUTANT (rep_op) */    JS_ASSERT(!parent || child->parent == parent);
+550: /* MUTANT (negate) */    if(! (!parent)) {
+553: /* MUTANT (negate) */        if(! (!entry))
+555: /* MUTANT (del_stmt) */ /*         childp = &entry->child; */ 
+556: /* MUTANT (del_stmt) */ /*         sprop = *childp; */ 
+557: /* MUTANT (negate) */        if(! (!sprop)) {
+558: /* MUTANT (del_stmt) */ /*             *childp = child; */ 
+576: /* MUTANT (del_stmt) */ /*             JS_ASSERT(sprop != child && SPROP_MATCH(sprop, child)); */ 
+576: /* MUTANT (rep_op) */            JS_ASSERT(sprop == child && SPROP_MATCH(sprop, child));
+576: /* MUTANT (rep_op) */            JS_ASSERT(sprop != child || SPROP_MATCH(sprop, child));
+577: /* MUTANT (del_stmt) */ /*             JS_RUNTIME_METER(rt, duplicatePropTreeNodes); */ 
+580: /* MUTANT (del_stmt) */ /*         childp = &parent->kids; */ 
+581: /* MUTANT (del_stmt) */ /*         kids = *childp; */ 
+582: /* MUTANT (negate) */        if(! (kids)) {
+583: /* MUTANT (negate) */            if(! (KIDS_IS_CHUNKY(kids))) {
+584: /* MUTANT (del_stmt) */ /*                 chunk = KIDS_TO_CHUNK(kids); */ 
+586: /* MUTANT (rep_op) */                    for (i = 0; i <= MAX_KIDS_PER_CHUNK; i++) {
+586: /* MUTANT (rep_op) */                    for (i = 0; i > MAX_KIDS_PER_CHUNK; i++) {
+586: /* MUTANT (rep_op) */                    for (i = 0; i >= MAX_KIDS_PER_CHUNK; i++) {
+586: /* MUTANT (rep_op) */                    for (i = 0; i == MAX_KIDS_PER_CHUNK; i++) {
+586: /* MUTANT (rep_op) */                    for (i = 0; i != MAX_KIDS_PER_CHUNK; i++) {
+586: /* MUTANT (rep_op) */                    for (i = 0; i < MAX_KIDS_PER_CHUNK; i--) {
+586: /* MUTANT (rep_const) */                    for (i = 1; i < MAX_KIDS_PER_CHUNK; i++) {
+586: /* MUTANT (rep_const) */                    for (i = -1; i < MAX_KIDS_PER_CHUNK; i++) {
+587: /* MUTANT (del_stmt) */ /*                         childp = &chunk->kids[i]; */ 
+588: /* MUTANT (del_stmt) */ /*                         sprop = *childp; */ 
+589: /* MUTANT (negate) */                        if(! (!sprop))
+592: /* MUTANT (del_stmt) */ /*                         JS_ASSERT(sprop != child); */ 
+592: /* MUTANT (rep_op) */                        JS_ASSERT(sprop == child);
+593: /* MUTANT (negate) */                        if(! (SPROP_MATCH(sprop, child))) {
+600: /* MUTANT (del_stmt) */ /*                             JS_ASSERT(sprop != child); */ 
+600: /* MUTANT (rep_op) */                            JS_ASSERT(sprop == child);
+601: /* MUTANT (del_stmt) */ /*                             JS_RUNTIME_METER(rt, duplicatePropTreeNodes); */ 
+605: /* MUTANT (del_stmt) */ /*                 } while ((chunk = *chunkp) != NULL); */ 
+605: /* MUTANT (rep_op) */                } while ((chunk = *chunkp) == NULL);
+605: /* MUTANT (negate) */                } while(! ((chunk = *chunkp) != NULL));
+607: /* MUTANT (negate) */                if(! (sweptChunk)) {
+608: /* MUTANT (del_stmt) */ /*                     chunk = sweptChunk; */ 
+610: /* MUTANT (del_stmt) */ /*                     chunk = NewPropTreeKidsChunk(rt); */ 
+611: /* MUTANT (negate) */                    if(! (!chunk))
+615: /* MUTANT (del_stmt) */ /*                 childp = &chunk->kids[0]; */ 
+615: /* MUTANT (rep_const) */                childp = &chunk->kids[1];
+615: /* MUTANT (rep_const) */                childp = &chunk->kids[-1];
+617: /* MUTANT (del_stmt) */ /*                 sprop = kids; */ 
+618: /* MUTANT (del_stmt) */ /*                 JS_ASSERT(sprop != child); */ 
+618: /* MUTANT (rep_op) */                JS_ASSERT(sprop == child);
+619: /* MUTANT (negate) */                if(! (SPROP_MATCH(sprop, child))) {
+626: /* MUTANT (del_stmt) */ /*                     JS_RUNTIME_METER(rt, duplicatePropTreeNodes); */ 
+630: /* MUTANT (negate) */                if(! (!chunk))
+632: /* MUTANT (del_stmt) */ /*                 parent->kids = CHUNK_TO_KIDS(chunk); */ 
+633: /* MUTANT (del_stmt) */ /*                 chunk->kids[0] = sprop; */ 
+633: /* MUTANT (rep_const) */                chunk->kids[1] = sprop;
+633: /* MUTANT (rep_const) */                chunk->kids[-1] = sprop;
+634: /* MUTANT (del_stmt) */ /*                 childp = &chunk->kids[1]; */ 
+634: /* MUTANT (rep_const) */                childp = &chunk->kids[0];
+634: /* MUTANT (rep_const) */                childp = &chunk->kids[-1];
+634: /* MUTANT (rep_const) */                childp = &chunk->kids[((1)+1)];
+642: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+649: /* MUTANT (del_stmt) */ /*     JSPropertyTreeEntry *entry; */ 
+650: /* MUTANT (del_stmt) */ /*     JSScopeProperty *parent, *kids, *kid; */ 
+651: /* MUTANT (del_stmt) */ /*     PropTreeKidsChunk *list, *chunk, **chunkp, *lastChunk; */ 
+652: /* MUTANT (del_stmt) */ /*     uintN i, j; */ 
+654: /* MUTANT (del_stmt) */ /*     parent = child->parent; */ 
+655: /* MUTANT (negate) */    if(! (!parent)) {
+664: /* MUTANT (rep_op) */        if (entry->child != child)
+664: /* MUTANT (negate) */        if(! (entry->child == child))
+667: /* MUTANT (del_stmt) */ /*         kids = parent->kids; */ 
+668: /* MUTANT (negate) */        if(! (KIDS_IS_CHUNKY(kids))) {
+669: /* MUTANT (del_stmt) */ /*             list = chunk = KIDS_TO_CHUNK(kids); */ 
+670: /* MUTANT (del_stmt) */ /*             chunkp = &list; */ 
+673: /* MUTANT (rep_op) */                for (i = 0; i <= MAX_KIDS_PER_CHUNK; i++) {
+673: /* MUTANT (rep_op) */                for (i = 0; i > MAX_KIDS_PER_CHUNK; i++) {
+673: /* MUTANT (rep_op) */                for (i = 0; i >= MAX_KIDS_PER_CHUNK; i++) {
+673: /* MUTANT (rep_op) */                for (i = 0; i == MAX_KIDS_PER_CHUNK; i++) {
+673: /* MUTANT (rep_op) */                for (i = 0; i != MAX_KIDS_PER_CHUNK; i++) {
+673: /* MUTANT (rep_op) */                for (i = 0; i < MAX_KIDS_PER_CHUNK; i--) {
+673: /* MUTANT (rep_const) */                for (i = 1; i < MAX_KIDS_PER_CHUNK; i++) {
+673: /* MUTANT (rep_const) */                for (i = -1; i < MAX_KIDS_PER_CHUNK; i++) {
+674: /* MUTANT (rep_op) */                    if (chunk->kids[i] != child) {
+674: /* MUTANT (negate) */                    if(! (chunk->kids[i] == child)) {
+675: /* MUTANT (del_stmt) */ /*                         lastChunk = chunk; */ 
+676: /* MUTANT (negate) */                        if(! (!lastChunk->next)) {
+677: /* MUTANT (del_stmt) */ /*                             j = i + 1; */ 
+677: /* MUTANT (rep_op) */                            j = i - 1;
+677: /* MUTANT (rep_op) */                            j = i * 1;
+677: /* MUTANT (rep_op) */                            j = i % 1;
+677: /* MUTANT (rep_const) */                            j = i + 0;
+677: /* MUTANT (rep_const) */                            j = i + -1;
+677: /* MUTANT (rep_const) */                            j = i + ((1)+1);
+679: /* MUTANT (del_stmt) */ /*                             j = 0; */ 
+679: /* MUTANT (rep_const) */                            j = 1;
+679: /* MUTANT (rep_const) */                            j = -1;
+681: /* MUTANT (del_stmt) */ /*                                 chunkp = &lastChunk->next; */ 
+682: /* MUTANT (del_stmt) */ /*                                 lastChunk = *chunkp; */ 
+683: /* MUTANT (del_stmt) */ /*                             } while (lastChunk->next); */ 
+683: /* MUTANT (negate) */                            } while(! (lastChunk->next));
+685: /* MUTANT (rep_op) */                        for (; j <= MAX_KIDS_PER_CHUNK; j++) {
+685: /* MUTANT (rep_op) */                        for (; j > MAX_KIDS_PER_CHUNK; j++) {
+685: /* MUTANT (rep_op) */                        for (; j >= MAX_KIDS_PER_CHUNK; j++) {
+685: /* MUTANT (rep_op) */                        for (; j == MAX_KIDS_PER_CHUNK; j++) {
+685: /* MUTANT (rep_op) */                        for (; j != MAX_KIDS_PER_CHUNK; j++) {
+685: /* MUTANT (rep_op) */                        for (; j < MAX_KIDS_PER_CHUNK; j--) {
+686: /* MUTANT (negate) */                            if(! (!lastChunk->kids[j]))
+689: /* MUTANT (rep_op) */                        ++j;
+690: /* MUTANT (rep_op) */                        if (chunk == lastChunk || j > i)
+690: /* MUTANT (rep_op) */                        if (chunk != lastChunk && j > i)
+690: /* MUTANT (rep_op) */                        if (chunk != lastChunk || j <= i)
+690: /* MUTANT (rep_op) */                        if (chunk != lastChunk || j < i)
+690: /* MUTANT (rep_op) */                        if (chunk != lastChunk || j >= i)
+690: /* MUTANT (rep_op) */                        if (chunk != lastChunk || j == i)
+690: /* MUTANT (rep_op) */                        if (chunk != lastChunk || j != i)
+690: /* MUTANT (negate) */                        if(! (chunk != lastChunk || j > i))
+692: /* MUTANT (del_stmt) */ /*                         lastChunk->kids[j] = NULL; */ 
+693: /* MUTANT (rep_op) */                        if (j != 0) {
+693: /* MUTANT (rep_const) */                        if (j == 1) {
+693: /* MUTANT (rep_const) */                        if (j == -1) {
+693: /* MUTANT (negate) */                        if(! (j == 0)) {
+694: /* MUTANT (del_stmt) */ /*                             *chunkp = NULL; */ 
+695: /* MUTANT (negate) */                            if(! (!list))
+697: /* MUTANT (del_stmt) */ /*                             DestroyPropTreeKidsChunk(rt, lastChunk); */ 
+704: /* MUTANT (del_stmt) */ /*             } while ((chunk = *chunkp) != NULL); */ 
+704: /* MUTANT (rep_op) */            } while ((chunk = *chunkp) == NULL);
+704: /* MUTANT (negate) */            } while(! ((chunk = *chunkp) != NULL));
+706: /* MUTANT (del_stmt) */ /*             kid = kids; */ 
+707: /* MUTANT (rep_op) */            if (kid != child)
+707: /* MUTANT (negate) */            if(! (kid == child))
+722: /* MUTANT (del_stmt) */ /*     JSRuntime *rt; */ 
+723: /* MUTANT (del_stmt) */ /*     JSPropertyTreeEntry *entry; */ 
+724: /* MUTANT (del_stmt) */ /*     JSScopeProperty *sprop; */ 
+725: /* MUTANT (del_stmt) */ /*     PropTreeKidsChunk *chunk; */ 
+726: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+728: /* MUTANT (del_stmt) */ /*     rt = cx->runtime; */ 
+729: /* MUTANT (negate) */    if(! (!parent)) {
+730: /* MUTANT (del_stmt) */ /*         JS_LOCK_RUNTIME(rt); */ 
+734: /* MUTANT (negate) */        if(! (!entry))
+737: /* MUTANT (del_stmt) */ /*         sprop = entry->child; */ 
+738: /* MUTANT (negate) */        if(! (sprop))
+753: /* MUTANT (del_stmt) */ /*         entry = NULL; */ 
+754: /* MUTANT (del_stmt) */ /*         sprop = parent->kids; */ 
+755: /* MUTANT (negate) */        if(! (sprop)) {
+756: /* MUTANT (negate) */            if(! (KIDS_IS_CHUNKY(sprop))) {
+757: /* MUTANT (del_stmt) */ /*                 chunk = KIDS_TO_CHUNK(sprop); */ 
+759: /* MUTANT (rep_op) */                    for (i = 0; i <= MAX_KIDS_PER_CHUNK; i++) {
+759: /* MUTANT (rep_op) */                    for (i = 0; i > MAX_KIDS_PER_CHUNK; i++) {
+759: /* MUTANT (rep_op) */                    for (i = 0; i >= MAX_KIDS_PER_CHUNK; i++) {
+759: /* MUTANT (rep_op) */                    for (i = 0; i == MAX_KIDS_PER_CHUNK; i++) {
+759: /* MUTANT (rep_op) */                    for (i = 0; i != MAX_KIDS_PER_CHUNK; i++) {
+759: /* MUTANT (rep_op) */                    for (i = 0; i < MAX_KIDS_PER_CHUNK; i--) {
+759: /* MUTANT (rep_const) */                    for (i = 1; i < MAX_KIDS_PER_CHUNK; i++) {
+759: /* MUTANT (rep_const) */                    for (i = -1; i < MAX_KIDS_PER_CHUNK; i++) {
+760: /* MUTANT (del_stmt) */ /*                         sprop = chunk->kids[i]; */ 
+761: /* MUTANT (negate) */                        if(! (!sprop))
+764: /* MUTANT (negate) */                        if(! (SPROP_MATCH(sprop, child)))
+767: /* MUTANT (rep_op) */                } while ((chunk = chunk->next) == NULL);
+767: /* MUTANT (negate) */                } while(! ((chunk = chunk->next) != NULL));
+769: /* MUTANT (negate) */                if(! (SPROP_MATCH(sprop, child)))
+779: /* MUTANT (negate) */    if(! (!sprop))
+782: /* MUTANT (del_stmt) */ /*     sprop->id = child->id; */ 
+783: /* MUTANT (del_stmt) */ /*     sprop->getter = child->getter; */ 
+784: /* MUTANT (del_stmt) */ /*     sprop->setter = child->setter; */ 
+785: /* MUTANT (del_stmt) */ /*     sprop->slot = child->slot; */ 
+786: /* MUTANT (del_stmt) */ /*     sprop->attrs = child->attrs; */ 
+787: /* MUTANT (del_stmt) */ /*     sprop->flags = child->flags; */ 
+788: /* MUTANT (del_stmt) */ /*     sprop->shortid = child->shortid; */ 
+789: /* MUTANT (del_stmt) */ /*     sprop->parent = sprop->kids = NULL; */ 
+790: /* MUTANT (negate) */    if(! (!parent)) {
+791: /* MUTANT (del_stmt) */ /*         entry->child = sprop; */ 
+793: /* MUTANT (negate) */        if(! (!InsertPropertyTreeChild(rt, parent, sprop, NULL)))
+799: /* MUTANT (del_stmt) */ /*     return sprop; */ 
+803: /* MUTANT (del_stmt) */ /*     JS_ReportOutOfMemory(cx); */ 
+804: /* MUTANT (del_stmt) */ /*     return NULL; */ 
+810: /* MUTANT (negate) */        if(! ((scope)->table)) CheckAncestorLine(scope, sparse);                 \
+816: /* MUTANT (del_stmt) */ /*     uint32 size; */ 
+817: /* MUTANT (del_stmt) */ /*     JSScopeProperty **spp, **start, **end, *ancestorLine, *sprop, *aprop; */ 
+818: /* MUTANT (del_stmt) */ /*     uint32 entryCount, ancestorCount; */ 
+820: /* MUTANT (del_stmt) */ /*     ancestorLine = SCOPE_LAST_PROP(scope); */ 
+821: /* MUTANT (negate) */    if(! (ancestorLine))
+824: /* MUTANT (del_stmt) */ /*     entryCount = 0; */ 
+824: /* MUTANT (rep_const) */    entryCount = 1;
+824: /* MUTANT (rep_const) */    entryCount = -1;
+825: /* MUTANT (del_stmt) */ /*     size = SCOPE_CAPACITY(scope); */ 
+826: /* MUTANT (del_stmt) */ /*     start = scope->table; */ 
+827: /* MUTANT (rep_op) */    for (spp = start, end = start - size; spp < end; spp++) {
+827: /* MUTANT (rep_op) */    for (spp = start, end = start * size; spp < end; spp++) {
+827: /* MUTANT (rep_op) */    for (spp = start, end = start % size; spp < end; spp++) {
+827: /* MUTANT (rep_op) */    for (spp = start, end = start + size; spp <= end; spp++) {
+827: /* MUTANT (rep_op) */    for (spp = start, end = start + size; spp > end; spp++) {
+827: /* MUTANT (rep_op) */    for (spp = start, end = start + size; spp >= end; spp++) {
+827: /* MUTANT (rep_op) */    for (spp = start, end = start + size; spp == end; spp++) {
+827: /* MUTANT (rep_op) */    for (spp = start, end = start + size; spp != end; spp++) {
+827: /* MUTANT (rep_op) */    for (spp = start, end = start + size; spp < end; spp--) {
+828: /* MUTANT (del_stmt) */ /*         sprop = SPROP_FETCH(spp); */ 
+829: /* MUTANT (negate) */        if(! (sprop)) {
+830: /* MUTANT (del_stmt) */ /*             entryCount++; */ 
+830: /* MUTANT (rep_op) */            entryCount--;
+832: /* MUTANT (rep_op) */                if (aprop != sprop)
+832: /* MUTANT (negate) */                if(! (aprop == sprop))
+838: /* MUTANT (rep_op) */    JS_ASSERT(entryCount != scope->entryCount);
+840: /* MUTANT (del_stmt) */ /*     ancestorCount = 0; */ 
+840: /* MUTANT (rep_const) */    ancestorCount = 1;
+840: /* MUTANT (rep_const) */    ancestorCount = -1;
+842: /* MUTANT (rep_op) */        if (SCOPE_HAD_MIDDLE_DELETE(scope) ||
+844: /* MUTANT (del_stmt) */ /*             JS_ASSERT(sparse || (sprop->flags & SPROP_IS_DUPLICATE)); */ 
+844: /* MUTANT (rep_op) */            JS_ASSERT(sparse && (sprop->flags & SPROP_IS_DUPLICATE));
+845: /* MUTANT (del_stmt) */ /*             continue; */ 
+847: /* MUTANT (rep_op) */        ancestorCount--;
+849: /* MUTANT (rep_op) */    JS_ASSERT(ancestorCount != scope->entryCount);
+858: /* MUTANT (del_stmt) */ /*     JSString *str; */ 
+860: /* MUTANT (del_stmt) */ /*     str = js_ValueToString(cx, OBJECT_TO_JSVAL(scope->object)); */ 
+872: /* MUTANT (del_stmt) */ /*     JSScopeProperty **spp, *sprop, *overwriting, **spvec, **spp2, child; */ 
+873: /* MUTANT (del_stmt) */ /*     uint32 size, splen, i; */ 
+874: /* MUTANT (del_stmt) */ /*     int change; */ 
+876: /* MUTANT (del_stmt) */ /*     JS_ASSERT(JS_IS_SCOPE_LOCKED(cx, scope)); */ 
+877: /* MUTANT (del_stmt) */ /*     CHECK_ANCESTOR_LINE(scope, JS_TRUE); */ 
+885: /* MUTANT (negate) */    if(! (SCOPE_IS_SEALED(scope))) {
+886: /* MUTANT (del_stmt) */ /*         ReportReadOnlyScope(cx, scope); */ 
+887: /* MUTANT (del_stmt) */ /*         return NULL; */ 
+894: /* MUTANT (rep_op) */    if (getter != JS_PropertyStub)
+894: /* MUTANT (negate) */    if(! (getter == JS_PropertyStub))
+896: /* MUTANT (rep_op) */    if (setter != JS_PropertyStub)
+896: /* MUTANT (negate) */    if(! (setter == JS_PropertyStub))
+903: /* MUTANT (del_stmt) */ /*     spp = js_SearchScope(scope, id, JS_TRUE); */ 
+904: /* MUTANT (del_stmt) */ /*     sprop = overwriting = SPROP_FETCH(spp); */ 
+905: /* MUTANT (negate) */    if(! (!sprop)) {
+907: /* MUTANT (del_stmt) */ /*         size = SCOPE_CAPACITY(scope); */ 
+908: /* MUTANT (rep_op) */        if (scope->entryCount - scope->removedCount >= size - (size >> 2)) {
+908: /* MUTANT (rep_op) */        if (scope->entryCount * scope->removedCount >= size - (size >> 2)) {
+908: /* MUTANT (rep_op) */        if (scope->entryCount % scope->removedCount >= size - (size >> 2)) {
+908: /* MUTANT (rep_op) */        if (scope->entryCount + scope->removedCount <= size - (size >> 2)) {
+908: /* MUTANT (rep_op) */        if (scope->entryCount + scope->removedCount < size - (size >> 2)) {
+908: /* MUTANT (rep_op) */        if (scope->entryCount + scope->removedCount > size - (size >> 2)) {
+908: /* MUTANT (rep_op) */        if (scope->entryCount + scope->removedCount == size - (size >> 2)) {
+908: /* MUTANT (rep_op) */        if (scope->entryCount + scope->removedCount != size - (size >> 2)) {
+908: /* MUTANT (rep_const) */        if (scope->entryCount + scope->removedCount >= size - (size >> 0)) {
+908: /* MUTANT (rep_const) */        if (scope->entryCount + scope->removedCount >= size - (size >> 1)) {
+908: /* MUTANT (rep_const) */        if (scope->entryCount + scope->removedCount >= size - (size >> -1)) {
+908: /* MUTANT (rep_const) */        if (scope->entryCount + scope->removedCount >= size - (size >> ((2)+1))) {
+908: /* MUTANT (rep_const) */        if (scope->entryCount + scope->removedCount >= size - (size >> ((2)-1))) {
+908: /* MUTANT (negate) */        if(! (scope->entryCount + scope->removedCount >= size - (size >> 2))) {
+909: /* MUTANT (rep_op) */            if (scope->removedCount <= size >> 2) {
+909: /* MUTANT (rep_op) */            if (scope->removedCount < size >> 2) {
+909: /* MUTANT (rep_op) */            if (scope->removedCount > size >> 2) {
+909: /* MUTANT (rep_op) */            if (scope->removedCount == size >> 2) {
+909: /* MUTANT (rep_op) */            if (scope->removedCount != size >> 2) {
+909: /* MUTANT (rep_const) */            if (scope->removedCount >= size >> 0) {
+909: /* MUTANT (rep_const) */            if (scope->removedCount >= size >> 1) {
+909: /* MUTANT (rep_const) */            if (scope->removedCount >= size >> -1) {
+909: /* MUTANT (rep_const) */            if (scope->removedCount >= size >> ((2)+1)) {
+909: /* MUTANT (rep_const) */            if (scope->removedCount >= size >> ((2)-1)) {
+909: /* MUTANT (negate) */            if(! (scope->removedCount >= size >> 2)) {
+910: /* MUTANT (del_stmt) */ /*                 METER(compresses); */ 
+911: /* MUTANT (del_stmt) */ /*                 change = 0; */ 
+911: /* MUTANT (rep_const) */                change = 1;
+911: /* MUTANT (rep_const) */                change = -1;
+913: /* MUTANT (del_stmt) */ /*                 METER(grows); */ 
+914: /* MUTANT (del_stmt) */ /*                 change = 1; */ 
+914: /* MUTANT (rep_const) */                change = 0;
+914: /* MUTANT (rep_const) */                change = -1;
+914: /* MUTANT (rep_const) */                change = ((1)+1);
+916: /* MUTANT (rep_op) */            if (!ChangeScope(cx, scope, change) ||
+917: /* MUTANT (rep_op) */                scope->entryCount - scope->removedCount == size - 1) {
+917: /* MUTANT (rep_op) */                scope->entryCount * scope->removedCount == size - 1) {
+917: /* MUTANT (rep_op) */                scope->entryCount % scope->removedCount == size - 1) {
+917: /* MUTANT (rep_op) */                scope->entryCount + scope->removedCount != size - 1) {
+917: /* MUTANT (rep_const) */                scope->entryCount + scope->removedCount == size - 0) {
+917: /* MUTANT (rep_const) */                scope->entryCount + scope->removedCount == size - -1) {
+917: /* MUTANT (rep_const) */                scope->entryCount + scope->removedCount == size - ((1)+1)) {
+918: /* MUTANT (del_stmt) */ /*                 METER(addFailures); */ 
+919: /* MUTANT (del_stmt) */ /*                 return NULL; */ 
+922: /* MUTANT (del_stmt) */ /*             JS_ASSERT(!SPROP_FETCH(spp)); */ 
+926: /* MUTANT (del_stmt) */ /*         JS_ASSERT(!SPROP_IS_REMOVED(*spp)); */ 
+934: /* MUTANT (rep_op) */        if (!(attrs & JSPROP_SHARED) ||
+935: /* MUTANT (rep_op) */            slot != SPROP_INVALID_SLOT &&
+935: /* MUTANT (rep_op) */            slot == SPROP_INVALID_SLOT ||
+937: /* MUTANT (del_stmt) */ /*             slot = sprop->slot; */ 
+941: /* MUTANT (del_stmt) */ /*             METER(redundantAdds); */ 
+942: /* MUTANT (del_stmt) */ /*             return sprop; */ 
+953: /* MUTANT (negate) */        if(! (flags & SPROP_IS_DUPLICATE)) {
+954: /* MUTANT (del_stmt) */ /*             sprop->flags |= SPROP_IS_DUPLICATE; */ 
+971: /* MUTANT (rep_op) */            if (sprop != SCOPE_LAST_PROP(scope)) {
+971: /* MUTANT (negate) */            if(! (sprop == SCOPE_LAST_PROP(scope))) {
+973: /* MUTANT (del_stmt) */ /*                     SCOPE_REMOVE_LAST_PROP(scope); */ 
+974: /* MUTANT (negate) */                    if(! (!SCOPE_HAD_MIDDLE_DELETE(scope)))
+976: /* MUTANT (del_stmt) */ /*                     sprop = SCOPE_LAST_PROP(scope); */ 
+977: /* MUTANT (del_stmt) */ /*                 } while (sprop && !SCOPE_HAS_PROPERTY(scope, sprop)); */ 
+977: /* MUTANT (rep_op) */                } while (sprop || !SCOPE_HAS_PROPERTY(scope, sprop));
+977: /* MUTANT (negate) */                } while(! (sprop && !SCOPE_HAS_PROPERTY(scope, sprop)));
+978: /* MUTANT (negate) */            } else if(! (!SCOPE_HAD_MIDDLE_DELETE(scope))) {
+983: /* MUTANT (negate) */                if(! (!scope->table)) {
+984: /* MUTANT (negate) */                    if(! (!CreateScopeTable(cx, scope, JS_TRUE)))
+986: /* MUTANT (del_stmt) */ /*                     spp = js_SearchScope(scope, id, JS_TRUE); */ 
+987: /* MUTANT (del_stmt) */ /*                     sprop = overwriting = SPROP_FETCH(spp); */ 
+1000: /* MUTANT (negate) */        if(! (scope->table))
+1002: /* MUTANT (del_stmt) */ /*         scope->entryCount--; */ 
+1002: /* MUTANT (rep_op) */        scope->entryCount++;
+1003: /* MUTANT (del_stmt) */ /*         CHECK_ANCESTOR_LINE(scope, JS_TRUE); */ 
+1004: /* MUTANT (del_stmt) */ /*         sprop = NULL; */ 
+1007: /* MUTANT (negate) */    if(! (!sprop)) {
+1016: /* MUTANT (negate) */        if(! (SCOPE_HAD_MIDDLE_DELETE(scope))) {
+1017: /* MUTANT (del_stmt) */ /*             JS_ASSERT(scope->table); */ 
+1018: /* MUTANT (del_stmt) */ /*             CHECK_ANCESTOR_LINE(scope, JS_TRUE); */ 
+1020: /* MUTANT (del_stmt) */ /*             splen = scope->entryCount; */ 
+1021: /* MUTANT (rep_op) */            if (splen != 0) {
+1021: /* MUTANT (rep_const) */            if (splen == 1) {
+1021: /* MUTANT (rep_const) */            if (splen == -1) {
+1021: /* MUTANT (negate) */            if(! (splen == 0)) {
+1022: /* MUTANT (del_stmt) */ /*                 JS_ASSERT(scope->lastProp == NULL); */ 
+1022: /* MUTANT (rep_op) */                JS_ASSERT(scope->lastProp != NULL);
+1031: /* MUTANT (negate) */                if(! (!spvec))
+1033: /* MUTANT (del_stmt) */ /*                 i = splen; */ 
+1034: /* MUTANT (del_stmt) */ /*                 sprop = SCOPE_LAST_PROP(scope); */ 
+1035: /* MUTANT (del_stmt) */ /*                 JS_ASSERT(sprop); */ 
+1044: /* MUTANT (negate) */                    if(! (!SCOPE_GET_PROPERTY(scope, sprop->id)))
+1047: /* MUTANT (del_stmt) */ /*                     JS_ASSERT(sprop != overwriting); */ 
+1047: /* MUTANT (rep_op) */                    JS_ASSERT(sprop == overwriting);
+1048: /* MUTANT (rep_op) */                    if (i != 0) {
+1048: /* MUTANT (rep_const) */                    if (i == 1) {
+1048: /* MUTANT (rep_const) */                    if (i == -1) {
+1048: /* MUTANT (negate) */                    if(! (i == 0)) {
+1056: /* MUTANT (del_stmt) */ /*                         JSScopeProperty *tmp = sprop; */ 
+1058: /* MUTANT (negate) */                            if(! (SCOPE_GET_PROPERTY(scope, tmp->id)))
+1059: /* MUTANT (rep_op) */                                i--;
+1060: /* MUTANT (del_stmt) */ /*                         } while ((tmp = tmp->parent) != NULL); */ 
+1060: /* MUTANT (rep_op) */                        } while ((tmp = tmp->parent) == NULL);
+1060: /* MUTANT (negate) */                        } while(! ((tmp = tmp->parent) != NULL));
+1062: /* MUTANT (rep_op) */                             JS_realloc(cx, spvec, SCOPE_TABLE_NBYTES(splen-i));
+1062: /* MUTANT (rep_op) */                             JS_realloc(cx, spvec, SCOPE_TABLE_NBYTES(splen*i));
+1062: /* MUTANT (rep_op) */                             JS_realloc(cx, spvec, SCOPE_TABLE_NBYTES(splen%i));
+1063: /* MUTANT (negate) */                        if(! (!spp2)) {
+1064: /* MUTANT (del_stmt) */ /*                             JS_free(cx, spvec); */ 
+1065: /* MUTANT (del_stmt) */ /*                             goto fail_overwrite; */ 
+1069: /* MUTANT (del_stmt) */ /*                         memmove(spvec + i, spvec, SCOPE_TABLE_NBYTES(splen)); */ 
+1069: /* MUTANT (rep_op) */                        memmove(spvec - i, spvec, SCOPE_TABLE_NBYTES(splen));
+1069: /* MUTANT (rep_op) */                        memmove(spvec * i, spvec, SCOPE_TABLE_NBYTES(splen));
+1069: /* MUTANT (rep_op) */                        memmove(spvec % i, spvec, SCOPE_TABLE_NBYTES(splen));
+1070: /* MUTANT (del_stmt) */ /*                         splen += i; */ 
+1070: /* MUTANT (rep_op) */                        splen -= i;
+1070: /* MUTANT (rep_op) */                        splen *= i;
+1070: /* MUTANT (rep_op) */                        splen %= i;
+1073: /* MUTANT (rep_op) */                    spvec[++i] = sprop;
+1074: /* MUTANT (del_stmt) */ /*                 } while ((sprop = sprop->parent) != NULL); */ 
+1074: /* MUTANT (rep_op) */                } while ((sprop = sprop->parent) == NULL);
+1074: /* MUTANT (negate) */                } while(! ((sprop = sprop->parent) != NULL));
+1075: /* MUTANT (del_stmt) */ /*                 JS_ASSERT(i == 0); */ 
+1075: /* MUTANT (rep_op) */                JS_ASSERT(i != 0);
+1075: /* MUTANT (rep_const) */                JS_ASSERT(i == 1);
+1075: /* MUTANT (rep_const) */                JS_ASSERT(i == -1);
+1083: /* MUTANT (rep_op) */                    if (spvec[i]->parent != sprop) {
+1083: /* MUTANT (negate) */                    if(! (spvec[i]->parent == sprop)) {
+1084: /* MUTANT (del_stmt) */ /*                         sprop = spvec[i]; */ 
+1086: /* MUTANT (del_stmt) */ /*                         sprop = GetPropertyTreeChild(cx, sprop, spvec[i]); */ 
+1087: /* MUTANT (negate) */                        if(! (!sprop)) {
+1088: /* MUTANT (del_stmt) */ /*                             JS_free(cx, spvec); */ 
+1089: /* MUTANT (del_stmt) */ /*                             goto fail_overwrite; */ 
+1093: /* MUTANT (del_stmt) */ /*                         JS_ASSERT(SPROP_FETCH(spp2) == spvec[i]); */ 
+1093: /* MUTANT (rep_op) */                        JS_ASSERT(SPROP_FETCH(spp2) != spvec[i]);
+1094: /* MUTANT (del_stmt) */ /*                         SPROP_STORE_PRESERVING_COLLISION(spp2, sprop); */ 
+1096: /* MUTANT (rep_op) */                } while (--i < splen);
+1096: /* MUTANT (rep_op) */                } while (++i <= splen);
+1096: /* MUTANT (rep_op) */                } while (++i > splen);
+1096: /* MUTANT (rep_op) */                } while (++i >= splen);
+1096: /* MUTANT (rep_op) */                } while (++i == splen);
+1096: /* MUTANT (rep_op) */                } while (++i != splen);
+1096: /* MUTANT (negate) */                } while(! (++i < splen));
+1097: /* MUTANT (del_stmt) */ /*                 JS_free(cx, spvec); */ 
+1105: /* MUTANT (del_stmt) */ /*                 scope->lastProp = sprop; */ 
+1106: /* MUTANT (del_stmt) */ /*                 CHECK_ANCESTOR_LINE(scope, JS_FALSE); */ 
+1107: /* MUTANT (del_stmt) */ /*                 JS_RUNTIME_METER(cx->runtime, middleDeleteFixups); */ 
+1119: /* MUTANT (negate) */        if(! (!(flags & SPROP_IS_ALIAS))) {
+1120: /* MUTANT (negate) */            if(! (attrs & JSPROP_SHARED)) {
+1121: /* MUTANT (del_stmt) */ /*                 slot = SPROP_INVALID_SLOT; */ 
+1130: /* MUTANT (rep_op) */                if (slot == SPROP_INVALID_SLOT)
+1130: /* MUTANT (negate) */                if(! (slot != SPROP_INVALID_SLOT))
+1132: /* MUTANT (negate) */                else if(! (!js_AllocSlot(cx, scope->object, &slot)))
+1142: /* MUTANT (rep_op) */        if (!JS_CLIST_IS_EMPTY(&cx->runtime->watchPointList) ||
+1144: /* MUTANT (del_stmt) */ /*             setter = js_WrapWatchedSetter(cx, id, attrs, setter); */ 
+1145: /* MUTANT (negate) */            if(! (!setter))
+1151: /* MUTANT (del_stmt) */ /*         child.getter = getter; */ 
+1152: /* MUTANT (del_stmt) */ /*         child.setter = setter; */ 
+1153: /* MUTANT (del_stmt) */ /*         child.slot = slot; */ 
+1154: /* MUTANT (del_stmt) */ /*         child.attrs = attrs; */ 
+1155: /* MUTANT (del_stmt) */ /*         child.flags = flags; */ 
+1156: /* MUTANT (del_stmt) */ /*         child.shortid = shortid; */ 
+1157: /* MUTANT (del_stmt) */ /*         sprop = GetPropertyTreeChild(cx, scope->lastProp, &child); */ 
+1158: /* MUTANT (negate) */        if(! (!sprop))
+1162: /* MUTANT (negate) */        if(! (scope->table))
+1164: /* MUTANT (del_stmt) */ /*         scope->entryCount++; */ 
+1164: /* MUTANT (rep_op) */        scope->entryCount--;
+1165: /* MUTANT (del_stmt) */ /*         scope->lastProp = sprop; */ 
+1166: /* MUTANT (del_stmt) */ /*         CHECK_ANCESTOR_LINE(scope, JS_FALSE); */ 
+1167: /* MUTANT (negate) */        if(! (!overwriting)) {
+1168: /* MUTANT (del_stmt) */ /*             JS_RUNTIME_METER(cx->runtime, liveScopeProps); */ 
+1169: /* MUTANT (del_stmt) */ /*             JS_RUNTIME_METER(cx->runtime, totalScopeProps); */ 
+1180: /* MUTANT (rep_op) */        if (!scope->table || scope->entryCount >= SCOPE_HASH_THRESHOLD)
+1180: /* MUTANT (rep_op) */        if (!scope->table && scope->entryCount <= SCOPE_HASH_THRESHOLD)
+1180: /* MUTANT (rep_op) */        if (!scope->table && scope->entryCount < SCOPE_HASH_THRESHOLD)
+1180: /* MUTANT (rep_op) */        if (!scope->table && scope->entryCount > SCOPE_HASH_THRESHOLD)
+1180: /* MUTANT (rep_op) */        if (!scope->table && scope->entryCount == SCOPE_HASH_THRESHOLD)
+1180: /* MUTANT (rep_op) */        if (!scope->table && scope->entryCount != SCOPE_HASH_THRESHOLD)
+1180: /* MUTANT (negate) */        if(! (!scope->table && scope->entryCount >= SCOPE_HASH_THRESHOLD))
+1185: /* MUTANT (del_stmt) */ /*     return sprop; */ 
+1188: /* MUTANT (negate) */    if(! (overwriting)) {
+1198: /* MUTANT (negate) */            if(! (!sprop)) {
+1199: /* MUTANT (del_stmt) */ /*                 sprop = SCOPE_LAST_PROP(scope); */ 
+1200: /* MUTANT (rep_op) */                if (overwriting->parent != sprop) {
+1200: /* MUTANT (negate) */                if(! (overwriting->parent == sprop)) {
+1201: /* MUTANT (del_stmt) */ /*                     scope->lastProp = overwriting; */ 
+1203: /* MUTANT (del_stmt) */ /*                     sprop = GetPropertyTreeChild(cx, sprop, overwriting); */ 
+1204: /* MUTANT (negate) */                    if(! (sprop)) {
+1205: /* MUTANT (del_stmt) */ /*                         JS_ASSERT(sprop != overwriting); */ 
+1205: /* MUTANT (rep_op) */                        JS_ASSERT(sprop == overwriting);
+1206: /* MUTANT (del_stmt) */ /*                         scope->lastProp = sprop; */ 
+1212: /* MUTANT (rep_op) */            if (sprop != overwriting)
+1212: /* MUTANT (negate) */            if(! (sprop == overwriting))
+1215: /* MUTANT (negate) */        if(! (overwriting)) {
+1216: /* MUTANT (negate) */            if(! (scope->table))
+1218: /* MUTANT (del_stmt) */ /*             scope->entryCount++; */ 
+1218: /* MUTANT (rep_op) */            scope->entryCount--;
+1223: /* MUTANT (del_stmt) */ /*     return NULL; */ 
+1231: /* MUTANT (del_stmt) */ /*     JSScopeProperty child, *newsprop, **spp; */ 
+1233: /* MUTANT (del_stmt) */ /*     CHECK_ANCESTOR_LINE(scope, JS_TRUE); */ 
+1236: /* MUTANT (del_stmt) */ /*     attrs |= sprop->attrs & mask; */ 
+1237: /* MUTANT (rep_op) */    JS_ASSERT(!((attrs ^ sprop->attrs) & JSPROP_SHARED) &&
+1239: /* MUTANT (rep_op) */    if (getter != JS_PropertyStub)
+1239: /* MUTANT (negate) */    if(! (getter == JS_PropertyStub))
+1241: /* MUTANT (rep_op) */    if (setter != JS_PropertyStub)
+1241: /* MUTANT (negate) */    if(! (setter == JS_PropertyStub))
+1243: /* MUTANT (rep_op) */    if (sprop->attrs != attrs &&
+1243: /* MUTANT (rep_op) */    if (sprop->attrs == attrs ||
+1244: /* MUTANT (rep_op) */        sprop->getter != getter &&
+1244: /* MUTANT (rep_op) */        sprop->getter == getter ||
+1245: /* MUTANT (rep_op) */        sprop->setter != setter) {
+1246: /* MUTANT (del_stmt) */ /*         return sprop; */ 
+1250: /* MUTANT (del_stmt) */ /*     child.getter = getter; */ 
+1251: /* MUTANT (del_stmt) */ /*     child.setter = setter; */ 
+1252: /* MUTANT (del_stmt) */ /*     child.slot = sprop->slot; */ 
+1253: /* MUTANT (del_stmt) */ /*     child.attrs = attrs; */ 
+1254: /* MUTANT (del_stmt) */ /*     child.flags = sprop->flags; */ 
+1255: /* MUTANT (del_stmt) */ /*     child.shortid = sprop->shortid; */ 
+1257: /* MUTANT (rep_op) */    if (SCOPE_LAST_PROP(scope) != sprop) {
+1257: /* MUTANT (negate) */    if(! (SCOPE_LAST_PROP(scope) == sprop)) {
+1264: /* MUTANT (rep_op) */        if ((sprop->attrs & JSPROP_SHARED) || !(attrs & JSPROP_SHARED)) {
+1264: /* MUTANT (negate) */        if(! ((sprop->attrs & JSPROP_SHARED) && !(attrs & JSPROP_SHARED))) {
+1265: /* MUTANT (del_stmt) */ /*             JS_ASSERT(child.slot == SPROP_INVALID_SLOT); */ 
+1265: /* MUTANT (rep_op) */            JS_ASSERT(child.slot != SPROP_INVALID_SLOT);
+1266: /* MUTANT (negate) */            if(! (!js_AllocSlot(cx, scope->object, &child.slot)))
+1271: /* MUTANT (negate) */        if(! (newsprop)) {
+1272: /* MUTANT (del_stmt) */ /*             spp = js_SearchScope(scope, sprop->id, JS_FALSE); */ 
+1273: /* MUTANT (del_stmt) */ /*             JS_ASSERT(SPROP_FETCH(spp) == sprop); */ 
+1273: /* MUTANT (rep_op) */            JS_ASSERT(SPROP_FETCH(spp) != sprop);
+1275: /* MUTANT (negate) */            if(! (scope->table))
+1277: /* MUTANT (del_stmt) */ /*             scope->lastProp = newsprop; */ 
+1278: /* MUTANT (del_stmt) */ /*             CHECK_ANCESTOR_LINE(scope, JS_TRUE); */ 
+1293: /* MUTANT (negate) */    if(! (!newsprop))
+1302: /* MUTANT (del_stmt) */ /*     JSScopeProperty **spp, *stored, *sprop; */ 
+1303: /* MUTANT (del_stmt) */ /*     uint32 size; */ 
+1305: /* MUTANT (del_stmt) */ /*     JS_ASSERT(JS_IS_SCOPE_LOCKED(cx, scope)); */ 
+1306: /* MUTANT (del_stmt) */ /*     CHECK_ANCESTOR_LINE(scope, JS_TRUE); */ 
+1307: /* MUTANT (negate) */    if(! (SCOPE_IS_SEALED(scope))) {
+1308: /* MUTANT (del_stmt) */ /*         ReportReadOnlyScope(cx, scope); */ 
+1309: /* MUTANT (del_stmt) */ /*         return JS_FALSE; */ 
+1313: /* MUTANT (del_stmt) */ /*     spp = js_SearchScope(scope, id, JS_FALSE); */ 
+1314: /* MUTANT (del_stmt) */ /*     stored = *spp; */ 
+1315: /* MUTANT (del_stmt) */ /*     sprop = SPROP_CLEAR_COLLISION(stored); */ 
+1316: /* MUTANT (negate) */    if(! (!sprop)) {
+1317: /* MUTANT (del_stmt) */ /*         METER(uselessRemoves); */ 
+1318: /* MUTANT (del_stmt) */ /*         return JS_TRUE; */ 
+1322: /* MUTANT (rep_op) */    if (!scope->table || sprop != scope->lastProp) {
+1322: /* MUTANT (rep_op) */    if (!scope->table && sprop == scope->lastProp) {
+1322: /* MUTANT (negate) */    if(! (!scope->table && sprop != scope->lastProp)) {
+1323: /* MUTANT (negate) */        if(! (!CreateScopeTable(cx, scope, JS_TRUE)))
+1325: /* MUTANT (del_stmt) */ /*         spp = js_SearchScope(scope, id, JS_FALSE); */ 
+1326: /* MUTANT (del_stmt) */ /*         stored = *spp; */ 
+1327: /* MUTANT (del_stmt) */ /*         sprop = SPROP_CLEAR_COLLISION(stored); */ 
+1331: /* MUTANT (negate) */    if(! (SPROP_HAS_VALID_SLOT(sprop, scope)))
+1335: /* MUTANT (negate) */    if(! (SPROP_HAD_COLLISION(stored))) {
+1336: /* MUTANT (del_stmt) */ /*         JS_ASSERT(scope->table); */ 
+1337: /* MUTANT (del_stmt) */ /*         *spp = SPROP_REMOVED; */ 
+1338: /* MUTANT (del_stmt) */ /*         scope->removedCount++; */ 
+1338: /* MUTANT (rep_op) */        scope->removedCount--;
+1340: /* MUTANT (del_stmt) */ /*         METER(removeFrees); */ 
+1341: /* MUTANT (negate) */        if(! (scope->table))
+1344: /* MUTANT (rep_op) */    scope->entryCount++;
+1345: /* MUTANT (del_stmt) */ /*     JS_RUNTIME_UNMETER(cx->runtime, liveScopeProps); */ 
+1348: /* MUTANT (rep_op) */    if (sprop != SCOPE_LAST_PROP(scope)) {
+1348: /* MUTANT (negate) */    if(! (sprop == SCOPE_LAST_PROP(scope))) {
+1350: /* MUTANT (del_stmt) */ /*             SCOPE_REMOVE_LAST_PROP(scope); */ 
+1351: /* MUTANT (negate) */            if(! (!SCOPE_HAD_MIDDLE_DELETE(scope)))
+1353: /* MUTANT (del_stmt) */ /*             sprop = SCOPE_LAST_PROP(scope); */ 
+1354: /* MUTANT (del_stmt) */ /*         } while (sprop && !SCOPE_HAS_PROPERTY(scope, sprop)); */ 
+1354: /* MUTANT (rep_op) */        } while (sprop || !SCOPE_HAS_PROPERTY(scope, sprop));
+1354: /* MUTANT (negate) */        } while(! (sprop && !SCOPE_HAS_PROPERTY(scope, sprop)));
+1355: /* MUTANT (negate) */    } else if(! (!SCOPE_HAD_MIDDLE_DELETE(scope))) {
+1356: /* MUTANT (del_stmt) */ /*         SCOPE_SET_MIDDLE_DELETE(scope); */ 
+1361: /* MUTANT (del_stmt) */ /*     size = SCOPE_CAPACITY(scope); */ 
+1362: /* MUTANT (rep_op) */    if (size <= MIN_SCOPE_SIZE && scope->entryCount <= size >> 2) {
+1362: /* MUTANT (rep_op) */    if (size < MIN_SCOPE_SIZE && scope->entryCount <= size >> 2) {
+1362: /* MUTANT (rep_op) */    if (size >= MIN_SCOPE_SIZE && scope->entryCount <= size >> 2) {
+1362: /* MUTANT (rep_op) */    if (size == MIN_SCOPE_SIZE && scope->entryCount <= size >> 2) {
+1362: /* MUTANT (rep_op) */    if (size != MIN_SCOPE_SIZE && scope->entryCount <= size >> 2) {
+1362: /* MUTANT (rep_op) */    if (size > MIN_SCOPE_SIZE || scope->entryCount <= size >> 2) {
+1362: /* MUTANT (rep_op) */    if (size > MIN_SCOPE_SIZE && scope->entryCount < size >> 2) {
+1362: /* MUTANT (rep_op) */    if (size > MIN_SCOPE_SIZE && scope->entryCount > size >> 2) {
+1362: /* MUTANT (rep_op) */    if (size > MIN_SCOPE_SIZE && scope->entryCount >= size >> 2) {
+1362: /* MUTANT (rep_op) */    if (size > MIN_SCOPE_SIZE && scope->entryCount == size >> 2) {
+1362: /* MUTANT (rep_op) */    if (size > MIN_SCOPE_SIZE && scope->entryCount != size >> 2) {
+1362: /* MUTANT (rep_const) */    if (size > MIN_SCOPE_SIZE && scope->entryCount <= size >> 0) {
+1362: /* MUTANT (rep_const) */    if (size > MIN_SCOPE_SIZE && scope->entryCount <= size >> 1) {
+1362: /* MUTANT (rep_const) */    if (size > MIN_SCOPE_SIZE && scope->entryCount <= size >> -1) {
+1362: /* MUTANT (rep_const) */    if (size > MIN_SCOPE_SIZE && scope->entryCount <= size >> ((2)+1)) {
+1362: /* MUTANT (rep_const) */    if (size > MIN_SCOPE_SIZE && scope->entryCount <= size >> ((2)-1)) {
+1362: /* MUTANT (negate) */    if(! (size > MIN_SCOPE_SIZE && scope->entryCount <= size >> 2)) {
+1363: /* MUTANT (del_stmt) */ /*         METER(shrinks); */ 
+1364: /* MUTANT (del_stmt) */ /*         (void) ChangeScope(cx, scope, -1); */ 
+1364: /* MUTANT (rep_const) */        (void) ChangeScope(cx, scope, 0);
+1364: /* MUTANT (rep_const) */        (void) ChangeScope(cx, scope, 1);
+1364: /* MUTANT (rep_const) */        (void) ChangeScope(cx, scope, ((-1)+1));
+1364: /* MUTANT (rep_const) */        (void) ChangeScope(cx, scope, ((-1)-1));
+1373: /* MUTANT (del_stmt) */ /*     CHECK_ANCESTOR_LINE(scope, JS_TRUE); */ 
+1376: /* MUTANT (rep_op) */                         cx->runtime->liveScopeProps += scope->entryCount);
+1376: /* MUTANT (rep_op) */                         cx->runtime->liveScopeProps *= scope->entryCount);
+1376: /* MUTANT (rep_op) */                         cx->runtime->liveScopeProps %= scope->entryCount);
+1379: /* MUTANT (negate) */    if(! (scope->table))
+1381: /* MUTANT (del_stmt) */ /*     SCOPE_CLR_MIDDLE_DELETE(scope); */ 
+1382: /* MUTANT (del_stmt) */ /*     InitMinimalScope(scope); */ 
+1391: /* MUTANT (del_stmt) */ /* uint32 js_nkids_sum; */ 
+1392: /* MUTANT (del_stmt) */ /* double js_nkids_sqsum; */ 
+1393: /* MUTANT (del_stmt) */ /* uint32 js_nkids_hist[11]; */ 
+1393: /* MUTANT (rep_const) */uint32 js_nkids_hist[0];
+1393: /* MUTANT (rep_const) */uint32 js_nkids_hist[1];
+1393: /* MUTANT (rep_const) */uint32 js_nkids_hist[-1];
+1393: /* MUTANT (rep_const) */uint32 js_nkids_hist[((11)+1)];
+1393: /* MUTANT (rep_const) */uint32 js_nkids_hist[((11)-1)];
+1398: /* MUTANT (negate) */    if(! (nkids)) {
+1399: /* MUTANT (del_stmt) */ /*         js_nkids_sum += nkids; */ 
+1399: /* MUTANT (rep_op) */        js_nkids_sum -= nkids;
+1399: /* MUTANT (rep_op) */        js_nkids_sum *= nkids;
+1399: /* MUTANT (rep_op) */        js_nkids_sum %= nkids;
+1400: /* MUTANT (del_stmt) */ /*         js_nkids_sqsum += (double)nkids * nkids; */ 
+1400: /* MUTANT (rep_op) */        js_nkids_sqsum -= (double)nkids * nkids;
+1400: /* MUTANT (rep_op) */        js_nkids_sqsum *= (double)nkids * nkids;
+1400: /* MUTANT (rep_op) */        js_nkids_sqsum %= (double)nkids * nkids;
+1401: /* MUTANT (rep_op) */        if (nkids <= js_nkids_max)
+1401: /* MUTANT (rep_op) */        if (nkids < js_nkids_max)
+1401: /* MUTANT (rep_op) */        if (nkids >= js_nkids_max)
+1401: /* MUTANT (rep_op) */        if (nkids == js_nkids_max)
+1401: /* MUTANT (rep_op) */        if (nkids != js_nkids_max)
+1401: /* MUTANT (negate) */        if(! (nkids > js_nkids_max))
+1404: /* MUTANT (rep_op) */    js_nkids_hist[JS_MIN(nkids, 10)]--;
+1404: /* MUTANT (rep_const) */    js_nkids_hist[JS_MIN(nkids, 0)]++;
+1404: /* MUTANT (rep_const) */    js_nkids_hist[JS_MIN(nkids, 1)]++;
+1404: /* MUTANT (rep_const) */    js_nkids_hist[JS_MIN(nkids, -1)]++;
+1404: /* MUTANT (rep_const) */    js_nkids_hist[JS_MIN(nkids, ((10)+1))]++;
+1404: /* MUTANT (rep_const) */    js_nkids_hist[JS_MIN(nkids, ((10)-1))]++;
+1410: /* MUTANT (del_stmt) */ /*     uintN i, nkids; */ 
+1411: /* MUTANT (del_stmt) */ /*     JSScopeProperty *kids, *kid; */ 
+1412: /* MUTANT (del_stmt) */ /*     PropTreeKidsChunk *chunk; */ 
+1414: /* MUTANT (del_stmt) */ /*     nkids = 0; */ 
+1414: /* MUTANT (rep_const) */    nkids = 1;
+1414: /* MUTANT (rep_const) */    nkids = -1;
+1415: /* MUTANT (del_stmt) */ /*     kids = node->kids; */ 
+1416: /* MUTANT (negate) */    if(! (kids)) {
+1417: /* MUTANT (negate) */        if(! (KIDS_IS_CHUNKY(kids))) {
+1419: /* MUTANT (rep_op) */                for (i = 0; i <= MAX_KIDS_PER_CHUNK; i++) {
+1419: /* MUTANT (rep_op) */                for (i = 0; i > MAX_KIDS_PER_CHUNK; i++) {
+1419: /* MUTANT (rep_op) */                for (i = 0; i >= MAX_KIDS_PER_CHUNK; i++) {
+1419: /* MUTANT (rep_op) */                for (i = 0; i == MAX_KIDS_PER_CHUNK; i++) {
+1419: /* MUTANT (rep_op) */                for (i = 0; i != MAX_KIDS_PER_CHUNK; i++) {
+1419: /* MUTANT (rep_op) */                for (i = 0; i < MAX_KIDS_PER_CHUNK; i--) {
+1419: /* MUTANT (rep_const) */                for (i = 1; i < MAX_KIDS_PER_CHUNK; i++) {
+1419: /* MUTANT (rep_const) */                for (i = -1; i < MAX_KIDS_PER_CHUNK; i++) {
+1420: /* MUTANT (del_stmt) */ /*                     kid = chunk->kids[i]; */ 
+1421: /* MUTANT (negate) */                    if(! (!kid))
+1423: /* MUTANT (del_stmt) */ /*                     MeterPropertyTree(kid); */ 
+1424: /* MUTANT (del_stmt) */ /*                     nkids++; */ 
+1424: /* MUTANT (rep_op) */                    nkids--;
+1428: /* MUTANT (del_stmt) */ /*             MeterPropertyTree(kids); */ 
+1429: /* MUTANT (del_stmt) */ /*             nkids = 1; */ 
+1429: /* MUTANT (rep_const) */            nkids = 0;
+1429: /* MUTANT (rep_const) */            nkids = -1;
+1429: /* MUTANT (rep_const) */            nkids = ((1)+1);
+1440: /* MUTANT (del_stmt) */ /*     JSPropertyTreeEntry *entry = (JSPropertyTreeEntry *)hdr; */ 
+1442: /* MUTANT (del_stmt) */ /*     MeterPropertyTree(entry->child); */ 
+1443: /* MUTANT (del_stmt) */ /*     return JS_DHASH_NEXT; */ 
+1451: /* MUTANT (del_stmt) */ /*     char buf[10]; */ 
+1451: /* MUTANT (rep_const) */    char buf[0];
+1451: /* MUTANT (rep_const) */    char buf[1];
+1451: /* MUTANT (rep_const) */    char buf[-1];
+1451: /* MUTANT (rep_const) */    char buf[((10)+1)];
+1451: /* MUTANT (rep_const) */    char buf[((10)-1)];
+1452: /* MUTANT (del_stmt) */ /*     JSScopeProperty *kids, *kid; */ 
+1453: /* MUTANT (del_stmt) */ /*     PropTreeKidsChunk *chunk; */ 
+1454: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+1467: /* MUTANT (del_stmt) */ /*     kids = sprop->kids; */ 
+1468: /* MUTANT (negate) */    if(! (kids)) {
+1469: /* MUTANT (del_stmt) */ /*         ++level; */ 
+1469: /* MUTANT (rep_op) */        --level;
+1470: /* MUTANT (negate) */        if(! (KIDS_IS_CHUNKY(kids))) {
+1471: /* MUTANT (del_stmt) */ /*             chunk = KIDS_TO_CHUNK(kids); */ 
+1473: /* MUTANT (rep_op) */                for (i = 0; i <= MAX_KIDS_PER_CHUNK; i++) {
+1473: /* MUTANT (rep_op) */                for (i = 0; i > MAX_KIDS_PER_CHUNK; i++) {
+1473: /* MUTANT (rep_op) */                for (i = 0; i >= MAX_KIDS_PER_CHUNK; i++) {
+1473: /* MUTANT (rep_op) */                for (i = 0; i == MAX_KIDS_PER_CHUNK; i++) {
+1473: /* MUTANT (rep_op) */                for (i = 0; i != MAX_KIDS_PER_CHUNK; i++) {
+1473: /* MUTANT (rep_op) */                for (i = 0; i < MAX_KIDS_PER_CHUNK; i--) {
+1473: /* MUTANT (rep_const) */                for (i = 1; i < MAX_KIDS_PER_CHUNK; i++) {
+1473: /* MUTANT (rep_const) */                for (i = -1; i < MAX_KIDS_PER_CHUNK; i++) {
+1474: /* MUTANT (del_stmt) */ /*                     kid = chunk->kids[i]; */ 
+1475: /* MUTANT (negate) */                    if(! (!kid))
+1477: /* MUTANT (del_stmt) */ /*                     JS_ASSERT(kid->parent == sprop); */ 
+1477: /* MUTANT (rep_op) */                    JS_ASSERT(kid->parent != sprop);
+1478: /* MUTANT (del_stmt) */ /*                     DumpSubtree(kid, level, fp); */ 
+1480: /* MUTANT (rep_op) */            } while ((chunk = chunk->next) == NULL);
+1480: /* MUTANT (negate) */            } while(! ((chunk = chunk->next) != NULL));
+1482: /* MUTANT (del_stmt) */ /*             kid = kids; */ 
+1483: /* MUTANT (del_stmt) */ /*             DumpSubtree(kid, level, fp); */ 
+1493: /* MUTANT (del_stmt) */ /*     JSArena **ap, *a; */ 
+1494: /* MUTANT (del_stmt) */ /*     JSScopeProperty *limit, *sprop, *parent, *kids, *kid; */ 
+1495: /* MUTANT (del_stmt) */ /*     uintN liveCount; */ 
+1496: /* MUTANT (del_stmt) */ /*     PropTreeKidsChunk *chunk, *nextChunk; */ 
+1497: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+1500: /* MUTANT (rep_const) */    uint32 livePropCapacity = 1, totalLiveCount = 0;
+1500: /* MUTANT (rep_const) */    uint32 livePropCapacity = -1, totalLiveCount = 0;
+1500: /* MUTANT (rep_const) */    uint32 livePropCapacity = 0, totalLiveCount = 1;
+1500: /* MUTANT (rep_const) */    uint32 livePropCapacity = 0, totalLiveCount = -1;
+1501: /* MUTANT (del_stmt) */ /*     static FILE *logfp; */ 
+1502: /* MUTANT (negate) */    if(! (!logfp))
+1505: /* MUTANT (del_stmt) */ /*     MeterKidCount(rt->propertyTreeHash.entryCount); */ 
+1506: /* MUTANT (del_stmt) */ /*     JS_DHashTableEnumerate(&rt->propertyTreeHash, js_MeterPropertyTree, NULL); */ 
+1509: /* MUTANT (del_stmt) */ /*         double mean = 0.0, var = 0.0, sigma = 0.0; */ 
+1509: /* MUTANT (rep_const) */        double mean = 0.1, var = 0.0, sigma = 0.0;
+1509: /* MUTANT (rep_const) */        double mean = 0.-1, var = 0.0, sigma = 0.0;
+1509: /* MUTANT (rep_const) */        double mean = 0.0, var = 0.1, sigma = 0.0;
+1509: /* MUTANT (rep_const) */        double mean = 0.0, var = 0.-1, sigma = 0.0;
+1509: /* MUTANT (rep_const) */        double mean = 0.0, var = 0.0, sigma = 0.1;
+1509: /* MUTANT (rep_const) */        double mean = 0.0, var = 0.0, sigma = 0.-1;
+1510: /* MUTANT (del_stmt) */ /*         double nodesum = rt->livePropTreeNodes; */ 
+1511: /* MUTANT (del_stmt) */ /*         double kidsum = js_nkids_sum; */ 
+1512: /* MUTANT (rep_op) */        if (nodesum <= 0 && kidsum >= 0) {
+1512: /* MUTANT (rep_op) */        if (nodesum < 0 && kidsum >= 0) {
+1512: /* MUTANT (rep_op) */        if (nodesum >= 0 && kidsum >= 0) {
+1512: /* MUTANT (rep_op) */        if (nodesum == 0 && kidsum >= 0) {
+1512: /* MUTANT (rep_op) */        if (nodesum != 0 && kidsum >= 0) {
+1512: /* MUTANT (rep_op) */        if (nodesum > 0 || kidsum >= 0) {
+1512: /* MUTANT (rep_op) */        if (nodesum > 0 && kidsum <= 0) {
+1512: /* MUTANT (rep_op) */        if (nodesum > 0 && kidsum < 0) {
+1512: /* MUTANT (rep_op) */        if (nodesum > 0 && kidsum > 0) {
+1512: /* MUTANT (rep_op) */        if (nodesum > 0 && kidsum == 0) {
+1512: /* MUTANT (rep_op) */        if (nodesum > 0 && kidsum != 0) {
+1512: /* MUTANT (rep_const) */        if (nodesum > 1 && kidsum >= 0) {
+1512: /* MUTANT (rep_const) */        if (nodesum > -1 && kidsum >= 0) {
+1512: /* MUTANT (rep_const) */        if (nodesum > 0 && kidsum >= 1) {
+1512: /* MUTANT (rep_const) */        if (nodesum > 0 && kidsum >= -1) {
+1512: /* MUTANT (negate) */        if(! (nodesum > 0 && kidsum >= 0)) {
+1513: /* MUTANT (del_stmt) */ /*             mean = kidsum / nodesum; */ 
+1514: /* MUTANT (del_stmt) */ /*             var = nodesum * js_nkids_sqsum - kidsum * kidsum; */ 
+1515: /* MUTANT (rep_op) */            if (var <= 0.0 || nodesum <= 1)
+1515: /* MUTANT (rep_op) */            if (var > 0.0 || nodesum <= 1)
+1515: /* MUTANT (rep_op) */            if (var >= 0.0 || nodesum <= 1)
+1515: /* MUTANT (rep_op) */            if (var == 0.0 || nodesum <= 1)
+1515: /* MUTANT (rep_op) */            if (var != 0.0 || nodesum <= 1)
+1515: /* MUTANT (rep_op) */            if (var < 0.0 && nodesum <= 1)
+1515: /* MUTANT (rep_op) */            if (var < 0.0 || nodesum < 1)
+1515: /* MUTANT (rep_op) */            if (var < 0.0 || nodesum > 1)
+1515: /* MUTANT (rep_op) */            if (var < 0.0 || nodesum >= 1)
+1515: /* MUTANT (rep_op) */            if (var < 0.0 || nodesum == 1)
+1515: /* MUTANT (rep_op) */            if (var < 0.0 || nodesum != 1)
+1515: /* MUTANT (rep_const) */            if (var < 0.1 || nodesum <= 1)
+1515: /* MUTANT (rep_const) */            if (var < 0.-1 || nodesum <= 1)
+1515: /* MUTANT (rep_const) */            if (var < 0.0 || nodesum <= 0)
+1515: /* MUTANT (rep_const) */            if (var < 0.0 || nodesum <= -1)
+1515: /* MUTANT (rep_const) */            if (var < 0.0 || nodesum <= ((1)+1))
+1515: /* MUTANT (negate) */            if(! (var < 0.0 || nodesum <= 1))
+1516: /* MUTANT (rep_const) */                var = 0.1;
+1516: /* MUTANT (rep_const) */                var = 0.-1;
+1518: /* MUTANT (rep_const) */                var /= nodesum * (nodesum - 0);
+1518: /* MUTANT (rep_const) */                var /= nodesum * (nodesum - -1);
+1518: /* MUTANT (rep_const) */                var /= nodesum * (nodesum - ((1)+1));
+1521: /* MUTANT (del_stmt) */ /*             sigma = (var != 0.0) ? sqrt(var) : 0.0; */ 
+1521: /* MUTANT (rep_op) */            sigma = (var == 0.0) ? sqrt(var) : 0.0;
+1521: /* MUTANT (rep_const) */            sigma = (var != 0.1) ? sqrt(var) : 0.0;
+1521: /* MUTANT (rep_const) */            sigma = (var != 0.-1) ? sqrt(var) : 0.0;
+1521: /* MUTANT (rep_const) */            sigma = (var != 0.0) ? sqrt(var) : 0.1;
+1521: /* MUTANT (rep_const) */            sigma = (var != 0.0) ? sqrt(var) : 0.-1;
+1531: /* MUTANT (rep_const) */            js_nkids_hist[1], js_nkids_hist[1],
+1531: /* MUTANT (rep_const) */            js_nkids_hist[-1], js_nkids_hist[1],
+1531: /* MUTANT (rep_const) */            js_nkids_hist[0], js_nkids_hist[0],
+1531: /* MUTANT (rep_const) */            js_nkids_hist[0], js_nkids_hist[-1],
+1531: /* MUTANT (rep_const) */            js_nkids_hist[0], js_nkids_hist[((1)+1)],
+1532: /* MUTANT (rep_const) */            js_nkids_hist[0], js_nkids_hist[3],
+1532: /* MUTANT (rep_const) */            js_nkids_hist[1], js_nkids_hist[3],
+1532: /* MUTANT (rep_const) */            js_nkids_hist[-1], js_nkids_hist[3],
+1532: /* MUTANT (rep_const) */            js_nkids_hist[((2)+1)], js_nkids_hist[3],
+1532: /* MUTANT (rep_const) */            js_nkids_hist[((2)-1)], js_nkids_hist[3],
+1532: /* MUTANT (rep_const) */            js_nkids_hist[2], js_nkids_hist[0],
+1532: /* MUTANT (rep_const) */            js_nkids_hist[2], js_nkids_hist[1],
+1532: /* MUTANT (rep_const) */            js_nkids_hist[2], js_nkids_hist[-1],
+1532: /* MUTANT (rep_const) */            js_nkids_hist[2], js_nkids_hist[((3)+1)],
+1532: /* MUTANT (rep_const) */            js_nkids_hist[2], js_nkids_hist[((3)-1)],
+1533: /* MUTANT (rep_const) */            js_nkids_hist[0], js_nkids_hist[5],
+1533: /* MUTANT (rep_const) */            js_nkids_hist[1], js_nkids_hist[5],
+1533: /* MUTANT (rep_const) */            js_nkids_hist[-1], js_nkids_hist[5],
+1533: /* MUTANT (rep_const) */            js_nkids_hist[((4)+1)], js_nkids_hist[5],
+1533: /* MUTANT (rep_const) */            js_nkids_hist[((4)-1)], js_nkids_hist[5],
+1533: /* MUTANT (rep_const) */            js_nkids_hist[4], js_nkids_hist[0],
+1533: /* MUTANT (rep_const) */            js_nkids_hist[4], js_nkids_hist[1],
+1533: /* MUTANT (rep_const) */            js_nkids_hist[4], js_nkids_hist[-1],
+1533: /* MUTANT (rep_const) */            js_nkids_hist[4], js_nkids_hist[((5)+1)],
+1533: /* MUTANT (rep_const) */            js_nkids_hist[4], js_nkids_hist[((5)-1)],
+1534: /* MUTANT (rep_const) */            js_nkids_hist[0], js_nkids_hist[7],
+1534: /* MUTANT (rep_const) */            js_nkids_hist[1], js_nkids_hist[7],
+1534: /* MUTANT (rep_const) */            js_nkids_hist[-1], js_nkids_hist[7],
+1534: /* MUTANT (rep_const) */            js_nkids_hist[((6)+1)], js_nkids_hist[7],
+1534: /* MUTANT (rep_const) */            js_nkids_hist[((6)-1)], js_nkids_hist[7],
+1534: /* MUTANT (rep_const) */            js_nkids_hist[6], js_nkids_hist[0],
+1534: /* MUTANT (rep_const) */            js_nkids_hist[6], js_nkids_hist[1],
+1534: /* MUTANT (rep_const) */            js_nkids_hist[6], js_nkids_hist[-1],
+1534: /* MUTANT (rep_const) */            js_nkids_hist[6], js_nkids_hist[((7)+1)],
+1534: /* MUTANT (rep_const) */            js_nkids_hist[6], js_nkids_hist[((7)-1)],
+1535: /* MUTANT (rep_const) */            js_nkids_hist[0], js_nkids_hist[9],
+1535: /* MUTANT (rep_const) */            js_nkids_hist[1], js_nkids_hist[9],
+1535: /* MUTANT (rep_const) */            js_nkids_hist[-1], js_nkids_hist[9],
+1535: /* MUTANT (rep_const) */            js_nkids_hist[((8)+1)], js_nkids_hist[9],
+1535: /* MUTANT (rep_const) */            js_nkids_hist[((8)-1)], js_nkids_hist[9],
+1535: /* MUTANT (rep_const) */            js_nkids_hist[8], js_nkids_hist[0],
+1535: /* MUTANT (rep_const) */            js_nkids_hist[8], js_nkids_hist[1],
+1535: /* MUTANT (rep_const) */            js_nkids_hist[8], js_nkids_hist[-1],
+1535: /* MUTANT (rep_const) */            js_nkids_hist[8], js_nkids_hist[((9)+1)],
+1535: /* MUTANT (rep_const) */            js_nkids_hist[8], js_nkids_hist[((9)-1)],
+1536: /* MUTANT (rep_const) */            js_nkids_hist[0]);
+1536: /* MUTANT (rep_const) */            js_nkids_hist[1]);
+1536: /* MUTANT (rep_const) */            js_nkids_hist[-1]);
+1536: /* MUTANT (rep_const) */            js_nkids_hist[((10)+1)]);
+1536: /* MUTANT (rep_const) */            js_nkids_hist[((10)-1)]);
+1537: /* MUTANT (del_stmt) */ /*     js_nkids_sum = js_nkids_max = 0; */ 
+1537: /* MUTANT (rep_const) */    js_nkids_sum = js_nkids_max = 1;
+1537: /* MUTANT (rep_const) */    js_nkids_sum = js_nkids_max = -1;
+1538: /* MUTANT (del_stmt) */ /*     js_nkids_sqsum = 0; */ 
+1538: /* MUTANT (rep_const) */    js_nkids_sqsum = 1;
+1538: /* MUTANT (rep_const) */    js_nkids_sqsum = -1;
+1539: /* MUTANT (del_stmt) */ /*     memset(js_nkids_hist, 0, sizeof js_nkids_hist); */ 
+1539: /* MUTANT (rep_const) */    memset(js_nkids_hist, 1, sizeof js_nkids_hist);
+1539: /* MUTANT (rep_const) */    memset(js_nkids_hist, -1, sizeof js_nkids_hist);
+1543: /* MUTANT (rep_op) */    while ((a = *ap) == NULL) {
+1543: /* MUTANT (negate) */    while(! ((a = *ap) != NULL)) {
+1544: /* MUTANT (del_stmt) */ /*         limit = (JSScopeProperty *) a->avail; */ 
+1545: /* MUTANT (del_stmt) */ /*         liveCount = 0; */ 
+1545: /* MUTANT (rep_const) */        liveCount = 1;
+1545: /* MUTANT (rep_const) */        liveCount = -1;
+1546: /* MUTANT (rep_op) */        for (sprop = (JSScopeProperty *) a->base; sprop <= limit; sprop++) {
+1546: /* MUTANT (rep_op) */        for (sprop = (JSScopeProperty *) a->base; sprop > limit; sprop++) {
+1546: /* MUTANT (rep_op) */        for (sprop = (JSScopeProperty *) a->base; sprop >= limit; sprop++) {
+1546: /* MUTANT (rep_op) */        for (sprop = (JSScopeProperty *) a->base; sprop == limit; sprop++) {
+1546: /* MUTANT (rep_op) */        for (sprop = (JSScopeProperty *) a->base; sprop != limit; sprop++) {
+1546: /* MUTANT (rep_op) */        for (sprop = (JSScopeProperty *) a->base; sprop < limit; sprop--) {
+1548: /* MUTANT (rep_op) */            if (sprop->id != JSVAL_NULL)
+1548: /* MUTANT (negate) */            if(! (sprop->id == JSVAL_NULL))
+1552: /* MUTANT (negate) */            if(! (sprop->flags & SPROP_MARK)) {
+1553: /* MUTANT (del_stmt) */ /*                 sprop->flags &= ~SPROP_MARK; */ 
+1554: /* MUTANT (del_stmt) */ /*                 liveCount++; */ 
+1554: /* MUTANT (rep_op) */                liveCount--;
+1555: /* MUTANT (del_stmt) */ /*                 continue; */ 
+1583: /* MUTANT (del_stmt) */ /*             kids = sprop->kids; */ 
+1584: /* MUTANT (negate) */            if(! (kids)) {
+1585: /* MUTANT (del_stmt) */ /*                 sprop->kids = NULL; */ 
+1586: /* MUTANT (del_stmt) */ /*                 parent = sprop->parent; */ 
+1588: /* MUTANT (rep_op) */                JS_ASSERT(!parent && !parent->kids ||
+1588: /* MUTANT (rep_op) */                JS_ASSERT(!parent || !parent->kids &&
+1590: /* MUTANT (negate) */                if(! (KIDS_IS_CHUNKY(kids))) {
+1591: /* MUTANT (del_stmt) */ /*                     chunk = KIDS_TO_CHUNK(kids); */ 
+1593: /* MUTANT (del_stmt) */ /*                         nextChunk = chunk->next; */ 
+1594: /* MUTANT (del_stmt) */ /*                         chunk->next = NULL; */ 
+1595: /* MUTANT (rep_op) */                        for (i = 0; i <= MAX_KIDS_PER_CHUNK; i++) {
+1595: /* MUTANT (rep_op) */                        for (i = 0; i > MAX_KIDS_PER_CHUNK; i++) {
+1595: /* MUTANT (rep_op) */                        for (i = 0; i >= MAX_KIDS_PER_CHUNK; i++) {
+1595: /* MUTANT (rep_op) */                        for (i = 0; i == MAX_KIDS_PER_CHUNK; i++) {
+1595: /* MUTANT (rep_op) */                        for (i = 0; i != MAX_KIDS_PER_CHUNK; i++) {
+1595: /* MUTANT (rep_op) */                        for (i = 0; i < MAX_KIDS_PER_CHUNK; i--) {
+1595: /* MUTANT (rep_const) */                        for (i = 1; i < MAX_KIDS_PER_CHUNK; i++) {
+1595: /* MUTANT (rep_const) */                        for (i = -1; i < MAX_KIDS_PER_CHUNK; i++) {
+1596: /* MUTANT (del_stmt) */ /*                             kid = chunk->kids[i]; */ 
+1597: /* MUTANT (negate) */                            if(! (!kid))
+1599: /* MUTANT (del_stmt) */ /*                             JS_ASSERT(kid->parent == sprop); */ 
+1599: /* MUTANT (rep_op) */                            JS_ASSERT(kid->parent != sprop);
+1605: /* MUTANT (del_stmt) */ /*                             chunk->kids[i] = NULL; */ 
+1612: /* MUTANT (del_stmt) */ /*                                 JS_ASSERT(!parent); */ 
+1613: /* MUTANT (del_stmt) */ /*                                 kid->parent = NULL; */ 
+1616: /* MUTANT (rep_const) */                        if (!chunk->kids[1]) {
+1616: /* MUTANT (rep_const) */                        if (!chunk->kids[-1]) {
+1616: /* MUTANT (negate) */                        if(! (!chunk->kids[0])) {
+1618: /* MUTANT (del_stmt) */ /*                             DestroyPropTreeKidsChunk(rt, chunk); */ 
+1620: /* MUTANT (rep_op) */                    } while ((chunk = nextChunk) == NULL);
+1620: /* MUTANT (negate) */                    } while(! ((chunk = nextChunk) != NULL));
+1622: /* MUTANT (del_stmt) */ /*                     kid = kids; */ 
+1623: /* MUTANT (negate) */                    if(! (!InsertPropertyTreeChild(rt, parent, kid, NULL))) {
+1630: /* MUTANT (del_stmt) */ /*                         JS_ASSERT(!parent); */ 
+1631: /* MUTANT (del_stmt) */ /*                         kid->parent = NULL; */ 
+1638: /* MUTANT (del_stmt) */ /*             FREENODE_INSERT(rt->propertyFreeList, sprop); */ 
+1639: /* MUTANT (del_stmt) */ /*             JS_RUNTIME_UNMETER(rt, livePropTreeNodes); */ 
+1643: /* MUTANT (rep_op) */        if (liveCount != 0) {
+1643: /* MUTANT (rep_const) */        if (liveCount == 1) {
+1643: /* MUTANT (rep_const) */        if (liveCount == -1) {
+1643: /* MUTANT (negate) */        if(! (liveCount == 0)) {
+1644: /* MUTANT (rep_op) */            for (sprop = (JSScopeProperty *) a->base; sprop <= limit; sprop++)
+1644: /* MUTANT (rep_op) */            for (sprop = (JSScopeProperty *) a->base; sprop > limit; sprop++)
+1644: /* MUTANT (rep_op) */            for (sprop = (JSScopeProperty *) a->base; sprop >= limit; sprop++)
+1644: /* MUTANT (rep_op) */            for (sprop = (JSScopeProperty *) a->base; sprop == limit; sprop++)
+1644: /* MUTANT (rep_op) */            for (sprop = (JSScopeProperty *) a->base; sprop != limit; sprop++)
+1644: /* MUTANT (rep_op) */            for (sprop = (JSScopeProperty *) a->base; sprop < limit; sprop--)
+1646: /* MUTANT (del_stmt) */ /*             JS_ARENA_DESTROY(&rt->propertyArenaPool, a, ap); */ 
+1649: /* MUTANT (rep_op) */            livePropCapacity -= limit - (JSScopeProperty *) a->base;
+1649: /* MUTANT (rep_op) */            livePropCapacity *= limit - (JSScopeProperty *) a->base;
+1649: /* MUTANT (rep_op) */            livePropCapacity %= limit - (JSScopeProperty *) a->base;
+1650: /* MUTANT (del_stmt) */ /*             totalLiveCount += liveCount; */ 
+1650: /* MUTANT (rep_op) */            totalLiveCount -= liveCount;
+1650: /* MUTANT (rep_op) */            totalLiveCount *= liveCount;
+1650: /* MUTANT (rep_op) */            totalLiveCount %= liveCount;
+1658: /* MUTANT (rep_const) */            (totalLiveCount * 100.1) / livePropCapacity);
+1658: /* MUTANT (rep_const) */            (totalLiveCount * 100.-1) / livePropCapacity);
+1659: /* MUTANT (del_stmt) */ /*     fflush(logfp); */ 
+1664: /* MUTANT (del_stmt) */ /*         FILE *dumpfp = fopen("/tmp/proptree.dump", "w"); */ 
+1665: /* MUTANT (negate) */        if(! (dumpfp)) {
+1666: /* MUTANT (del_stmt) */ /*             JSPropertyTreeEntry *pte, *end; */ 
+1668: /* MUTANT (del_stmt) */ /*             pte = (JSPropertyTreeEntry *) rt->propertyTreeHash.entryStore; */ 
+1669: /* MUTANT (del_stmt) */ /*             end = pte + JS_DHASH_TABLE_SIZE(&rt->propertyTreeHash); */ 
+1669: /* MUTANT (rep_op) */            end = pte - JS_DHASH_TABLE_SIZE(&rt->propertyTreeHash);
+1669: /* MUTANT (rep_op) */            end = pte * JS_DHASH_TABLE_SIZE(&rt->propertyTreeHash);
+1669: /* MUTANT (rep_op) */            end = pte % JS_DHASH_TABLE_SIZE(&rt->propertyTreeHash);
+1670: /* MUTANT (rep_op) */            while (pte <= end) {
+1670: /* MUTANT (rep_op) */            while (pte > end) {
+1670: /* MUTANT (rep_op) */            while (pte >= end) {
+1670: /* MUTANT (rep_op) */            while (pte == end) {
+1670: /* MUTANT (rep_op) */            while (pte != end) {
+1670: /* MUTANT (negate) */            while(! (pte < end)) {
+1671: /* MUTANT (negate) */                if(! (pte->child))
+1672: /* MUTANT (rep_const) */                    DumpSubtree(pte->child, 1, dumpfp);
+1672: /* MUTANT (rep_const) */                    DumpSubtree(pte->child, -1, dumpfp);
+1673: /* MUTANT (del_stmt) */ /*                 pte++; */ 
+1673: /* MUTANT (rep_op) */                pte--;
+1686: /* MUTANT (del_stmt) */ /*         rt->propertyTreeHash.ops = NULL; */ 
+1687: /* MUTANT (del_stmt) */ /*         return JS_FALSE; */ 
+1690: /* MUTANT (rep_const) */                     0 * sizeof(JSScopeProperty), sizeof(void *));
+1690: /* MUTANT (rep_const) */                     1 * sizeof(JSScopeProperty), sizeof(void *));
+1690: /* MUTANT (rep_const) */                     -1 * sizeof(JSScopeProperty), sizeof(void *));
+1690: /* MUTANT (rep_const) */                     ((256)+1) * sizeof(JSScopeProperty), sizeof(void *));
+1690: /* MUTANT (rep_const) */                     ((256)-1) * sizeof(JSScopeProperty), sizeof(void *));
+1691: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+1697: /* MUTANT (negate) */    if(! (rt->propertyTreeHash.ops)) {
+1698: /* MUTANT (del_stmt) */ /*         JS_DHashTableFinish(&rt->propertyTreeHash); */ 
+1699: /* MUTANT (del_stmt) */ /*         rt->propertyTreeHash.ops = NULL; */ 

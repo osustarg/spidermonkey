@@ -1,0 +1,568 @@
+59: #define M_E             2.0 /* MUTANT (rep_const) */
+59: #define M_E             2.1 /* MUTANT (rep_const) */
+59: #define M_E             2.-1 /* MUTANT (rep_const) */
+59: #define M_E             2.((7182818284590452354)+1) /* MUTANT (rep_const) */
+59: #define M_E             2.((7182818284590452354)-1) /* MUTANT (rep_const) */
+62: #define M_LOG2E         1.0 /* MUTANT (rep_const) */
+62: #define M_LOG2E         1.1 /* MUTANT (rep_const) */
+62: #define M_LOG2E         1.-1 /* MUTANT (rep_const) */
+62: #define M_LOG2E         1.((4426950408889634074)+1) /* MUTANT (rep_const) */
+62: #define M_LOG2E         1.((4426950408889634074)-1) /* MUTANT (rep_const) */
+65: #define M_LOG10E        0.0 /* MUTANT (rep_const) */
+65: #define M_LOG10E        0.1 /* MUTANT (rep_const) */
+65: #define M_LOG10E        0.-1 /* MUTANT (rep_const) */
+65: #define M_LOG10E        0.((43429448190325182765)+1) /* MUTANT (rep_const) */
+65: #define M_LOG10E        0.((43429448190325182765)-1) /* MUTANT (rep_const) */
+68: #define M_LN2           0.0 /* MUTANT (rep_const) */
+68: #define M_LN2           0.1 /* MUTANT (rep_const) */
+68: #define M_LN2           0.-1 /* MUTANT (rep_const) */
+68: #define M_LN2           0.((69314718055994530942)+1) /* MUTANT (rep_const) */
+68: #define M_LN2           0.((69314718055994530942)-1) /* MUTANT (rep_const) */
+71: #define M_LN10          2.0 /* MUTANT (rep_const) */
+71: #define M_LN10          2.1 /* MUTANT (rep_const) */
+71: #define M_LN10          2.-1 /* MUTANT (rep_const) */
+71: #define M_LN10          2.((30258509299404568402)+1) /* MUTANT (rep_const) */
+71: #define M_LN10          2.((30258509299404568402)-1) /* MUTANT (rep_const) */
+74: #define M_PI            3.0 /* MUTANT (rep_const) */
+74: #define M_PI            3.1 /* MUTANT (rep_const) */
+74: #define M_PI            3.-1 /* MUTANT (rep_const) */
+74: #define M_PI            3.((14159265358979323846)+1) /* MUTANT (rep_const) */
+74: #define M_PI            3.((14159265358979323846)-1) /* MUTANT (rep_const) */
+77: #define M_SQRT2         1.0 /* MUTANT (rep_const) */
+77: #define M_SQRT2         1.1 /* MUTANT (rep_const) */
+77: #define M_SQRT2         1.-1 /* MUTANT (rep_const) */
+77: #define M_SQRT2         1.((41421356237309504880)+1) /* MUTANT (rep_const) */
+77: #define M_SQRT2         1.((41421356237309504880)-1) /* MUTANT (rep_const) */
+80: #define M_SQRT1_2       0.0 /* MUTANT (rep_const) */
+80: #define M_SQRT1_2       0.1 /* MUTANT (rep_const) */
+80: #define M_SQRT1_2       0.-1 /* MUTANT (rep_const) */
+80: #define M_SQRT1_2       0.((70710678118654752440)+1) /* MUTANT (rep_const) */
+80: #define M_SQRT1_2       0.((70710678118654752440)-1) /* MUTANT (rep_const) */
+84: /* MUTANT (rep_const) */    {M_E,       "E",            1, {0,0,0}},
+84: /* MUTANT (rep_const) */    {M_E,       "E",            -1, {0,0,0}},
+84: /* MUTANT (rep_const) */    {M_E,       "E",            0, {1,0,0}},
+84: /* MUTANT (rep_const) */    {M_E,       "E",            0, {-1,0,0}},
+84: /* MUTANT (rep_const) */    {M_E,       "E",            0, {0,1,0}},
+84: /* MUTANT (rep_const) */    {M_E,       "E",            0, {0,-1,0}},
+84: /* MUTANT (rep_const) */    {M_E,       "E",            0, {0,0,1}},
+84: /* MUTANT (rep_const) */    {M_E,       "E",            0, {0,0,-1}},
+85: /* MUTANT (rep_const) */    {M_LOG2E,   "LOG2E",        1, {0,0,0}},
+85: /* MUTANT (rep_const) */    {M_LOG2E,   "LOG2E",        -1, {0,0,0}},
+85: /* MUTANT (rep_const) */    {M_LOG2E,   "LOG2E",        0, {1,0,0}},
+85: /* MUTANT (rep_const) */    {M_LOG2E,   "LOG2E",        0, {-1,0,0}},
+85: /* MUTANT (rep_const) */    {M_LOG2E,   "LOG2E",        0, {0,1,0}},
+85: /* MUTANT (rep_const) */    {M_LOG2E,   "LOG2E",        0, {0,-1,0}},
+85: /* MUTANT (rep_const) */    {M_LOG2E,   "LOG2E",        0, {0,0,1}},
+85: /* MUTANT (rep_const) */    {M_LOG2E,   "LOG2E",        0, {0,0,-1}},
+86: /* MUTANT (rep_const) */    {M_LOG10E,  "LOG10E",       1, {0,0,0}},
+86: /* MUTANT (rep_const) */    {M_LOG10E,  "LOG10E",       -1, {0,0,0}},
+86: /* MUTANT (rep_const) */    {M_LOG10E,  "LOG10E",       0, {1,0,0}},
+86: /* MUTANT (rep_const) */    {M_LOG10E,  "LOG10E",       0, {-1,0,0}},
+86: /* MUTANT (rep_const) */    {M_LOG10E,  "LOG10E",       0, {0,1,0}},
+86: /* MUTANT (rep_const) */    {M_LOG10E,  "LOG10E",       0, {0,-1,0}},
+86: /* MUTANT (rep_const) */    {M_LOG10E,  "LOG10E",       0, {0,0,1}},
+86: /* MUTANT (rep_const) */    {M_LOG10E,  "LOG10E",       0, {0,0,-1}},
+87: /* MUTANT (rep_const) */    {M_LN2,     "LN2",          1, {0,0,0}},
+87: /* MUTANT (rep_const) */    {M_LN2,     "LN2",          -1, {0,0,0}},
+87: /* MUTANT (rep_const) */    {M_LN2,     "LN2",          0, {1,0,0}},
+87: /* MUTANT (rep_const) */    {M_LN2,     "LN2",          0, {-1,0,0}},
+87: /* MUTANT (rep_const) */    {M_LN2,     "LN2",          0, {0,1,0}},
+87: /* MUTANT (rep_const) */    {M_LN2,     "LN2",          0, {0,-1,0}},
+87: /* MUTANT (rep_const) */    {M_LN2,     "LN2",          0, {0,0,1}},
+87: /* MUTANT (rep_const) */    {M_LN2,     "LN2",          0, {0,0,-1}},
+88: /* MUTANT (rep_const) */    {M_LN10,    "LN10",         1, {0,0,0}},
+88: /* MUTANT (rep_const) */    {M_LN10,    "LN10",         -1, {0,0,0}},
+88: /* MUTANT (rep_const) */    {M_LN10,    "LN10",         0, {1,0,0}},
+88: /* MUTANT (rep_const) */    {M_LN10,    "LN10",         0, {-1,0,0}},
+88: /* MUTANT (rep_const) */    {M_LN10,    "LN10",         0, {0,1,0}},
+88: /* MUTANT (rep_const) */    {M_LN10,    "LN10",         0, {0,-1,0}},
+88: /* MUTANT (rep_const) */    {M_LN10,    "LN10",         0, {0,0,1}},
+88: /* MUTANT (rep_const) */    {M_LN10,    "LN10",         0, {0,0,-1}},
+89: /* MUTANT (rep_const) */    {M_PI,      "PI",           1, {0,0,0}},
+89: /* MUTANT (rep_const) */    {M_PI,      "PI",           -1, {0,0,0}},
+89: /* MUTANT (rep_const) */    {M_PI,      "PI",           0, {1,0,0}},
+89: /* MUTANT (rep_const) */    {M_PI,      "PI",           0, {-1,0,0}},
+89: /* MUTANT (rep_const) */    {M_PI,      "PI",           0, {0,1,0}},
+89: /* MUTANT (rep_const) */    {M_PI,      "PI",           0, {0,-1,0}},
+89: /* MUTANT (rep_const) */    {M_PI,      "PI",           0, {0,0,1}},
+89: /* MUTANT (rep_const) */    {M_PI,      "PI",           0, {0,0,-1}},
+90: /* MUTANT (rep_const) */    {M_SQRT2,   "SQRT2",        1, {0,0,0}},
+90: /* MUTANT (rep_const) */    {M_SQRT2,   "SQRT2",        -1, {0,0,0}},
+90: /* MUTANT (rep_const) */    {M_SQRT2,   "SQRT2",        0, {1,0,0}},
+90: /* MUTANT (rep_const) */    {M_SQRT2,   "SQRT2",        0, {-1,0,0}},
+90: /* MUTANT (rep_const) */    {M_SQRT2,   "SQRT2",        0, {0,1,0}},
+90: /* MUTANT (rep_const) */    {M_SQRT2,   "SQRT2",        0, {0,-1,0}},
+90: /* MUTANT (rep_const) */    {M_SQRT2,   "SQRT2",        0, {0,0,1}},
+90: /* MUTANT (rep_const) */    {M_SQRT2,   "SQRT2",        0, {0,0,-1}},
+91: /* MUTANT (rep_const) */    {M_SQRT1_2, "SQRT1_2",      1, {0,0,0}},
+91: /* MUTANT (rep_const) */    {M_SQRT1_2, "SQRT1_2",      -1, {0,0,0}},
+91: /* MUTANT (rep_const) */    {M_SQRT1_2, "SQRT1_2",      0, {1,0,0}},
+91: /* MUTANT (rep_const) */    {M_SQRT1_2, "SQRT1_2",      0, {-1,0,0}},
+91: /* MUTANT (rep_const) */    {M_SQRT1_2, "SQRT1_2",      0, {0,1,0}},
+91: /* MUTANT (rep_const) */    {M_SQRT1_2, "SQRT1_2",      0, {0,-1,0}},
+91: /* MUTANT (rep_const) */    {M_SQRT1_2, "SQRT1_2",      0, {0,0,1}},
+91: /* MUTANT (rep_const) */    {M_SQRT1_2, "SQRT1_2",      0, {0,0,-1}},
+92: /* MUTANT (rep_const) */    {1,0,0,{0,0,0}}
+92: /* MUTANT (rep_const) */    {-1,0,0,{0,0,0}}
+92: /* MUTANT (rep_const) */    {0,1,0,{0,0,0}}
+92: /* MUTANT (rep_const) */    {0,-1,0,{0,0,0}}
+92: /* MUTANT (rep_const) */    {0,0,1,{0,0,0}}
+92: /* MUTANT (rep_const) */    {0,0,-1,{0,0,0}}
+92: /* MUTANT (rep_const) */    {0,0,0,{1,0,0}}
+92: /* MUTANT (rep_const) */    {0,0,0,{-1,0,0}}
+92: /* MUTANT (rep_const) */    {0,0,0,{0,1,0}}
+92: /* MUTANT (rep_const) */    {0,0,0,{0,-1,0}}
+92: /* MUTANT (rep_const) */    {0,0,0,{0,0,1}}
+92: /* MUTANT (rep_const) */    {0,0,0,{0,0,-1}}
+97: /* MUTANT (rep_const) */    1,
+97: /* MUTANT (rep_const) */    -1,
+106: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+108: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+108: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+108: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+110: /* MUTANT (del_stmt) */ /*     z = fd_fabs(x); */ 
+111: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+117: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+119: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+119: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+119: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+121: /* MUTANT (del_stmt) */ /*     z = fd_acos(x); */ 
+122: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+128: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+130: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+130: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+130: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+132: /* MUTANT (del_stmt) */ /*     z = fd_asin(x); */ 
+133: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+139: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+141: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+141: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+141: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+143: /* MUTANT (del_stmt) */ /*     z = fd_atan(x); */ 
+144: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+150: /* MUTANT (del_stmt) */ /*     jsdouble x, y, z; */ 
+152: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+152: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+152: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+154: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[0], &y))
+154: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &y))
+154: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[((1)+1)], &y))
+154: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[1], &y)))
+156: /* MUTANT (del_stmt) */ /*     z = fd_atan2(x, y); */ 
+157: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+163: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+165: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+165: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+165: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+167: /* MUTANT (del_stmt) */ /*     z = fd_ceil(x); */ 
+168: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+174: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+176: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+176: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+176: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+178: /* MUTANT (del_stmt) */ /*     z = fd_cos(x); */ 
+179: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+185: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+187: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+187: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+187: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+190: /* MUTANT (negate) */    if(! (!JSDOUBLE_IS_NaN(x))) {
+191: /* MUTANT (rep_op) */        if (x != *cx->runtime->jsPositiveInfinity) {
+191: /* MUTANT (negate) */        if(! (x == *cx->runtime->jsPositiveInfinity)) {
+192: /* MUTANT (del_stmt) */ /*             *rval = DOUBLE_TO_JSVAL(cx->runtime->jsPositiveInfinity); */ 
+193: /* MUTANT (del_stmt) */ /*             return JS_TRUE; */ 
+195: /* MUTANT (rep_op) */        if (x != *cx->runtime->jsNegativeInfinity) {
+195: /* MUTANT (negate) */        if(! (x == *cx->runtime->jsNegativeInfinity)) {
+196: /* MUTANT (del_stmt) */ /*             *rval = JSVAL_ZERO; */ 
+197: /* MUTANT (del_stmt) */ /*             return JS_TRUE; */ 
+202: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+208: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+210: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+210: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+210: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+212: /* MUTANT (del_stmt) */ /*     z = fd_floor(x); */ 
+213: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+219: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+221: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+221: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+221: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+223: /* MUTANT (del_stmt) */ /*     z = fd_log(x); */ 
+224: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+230: /* MUTANT (del_stmt) */ /*     jsdouble x, z = *cx->runtime->jsNegativeInfinity; */ 
+231: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+233: /* MUTANT (rep_op) */    if (argc != 0) {
+233: /* MUTANT (rep_const) */    if (argc == 1) {
+233: /* MUTANT (rep_const) */    if (argc == -1) {
+233: /* MUTANT (negate) */    if(! (argc == 0)) {
+234: /* MUTANT (del_stmt) */ /*         *rval = DOUBLE_TO_JSVAL(cx->runtime->jsNegativeInfinity); */ 
+235: /* MUTANT (del_stmt) */ /*         return JS_TRUE; */ 
+237: /* MUTANT (rep_op) */    for (i = 0; i <= argc; i++) {
+237: /* MUTANT (rep_op) */    for (i = 0; i > argc; i++) {
+237: /* MUTANT (rep_op) */    for (i = 0; i >= argc; i++) {
+237: /* MUTANT (rep_op) */    for (i = 0; i == argc; i++) {
+237: /* MUTANT (rep_op) */    for (i = 0; i != argc; i++) {
+237: /* MUTANT (rep_op) */    for (i = 0; i < argc; i--) {
+237: /* MUTANT (rep_const) */    for (i = 1; i < argc; i++) {
+237: /* MUTANT (rep_const) */    for (i = -1; i < argc; i++) {
+238: /* MUTANT (negate) */        if(! (!js_ValueToNumber(cx, argv[i], &x)))
+240: /* MUTANT (negate) */        if(! (JSDOUBLE_IS_NaN(x))) {
+241: /* MUTANT (del_stmt) */ /*             *rval = DOUBLE_TO_JSVAL(cx->runtime->jsNaN); */ 
+242: /* MUTANT (del_stmt) */ /*             return JS_TRUE; */ 
+244: /* MUTANT (rep_op) */        if ((x!=0)&&(x==z)&&(fd_copysign(1.0,z)==-1))
+244: /* MUTANT (rep_op) */        if ((x==0)||(x==z)&&(fd_copysign(1.0,z)==-1))
+244: /* MUTANT (rep_op) */        if ((x==0)&&(x!=z)&&(fd_copysign(1.0,z)==-1))
+244: /* MUTANT (rep_op) */        if ((x==0)&&(x==z)||(fd_copysign(1.0,z)==-1))
+244: /* MUTANT (rep_const) */        if ((x==1)&&(x==z)&&(fd_copysign(1.0,z)==-1))
+244: /* MUTANT (rep_const) */        if ((x==-1)&&(x==z)&&(fd_copysign(1.0,z)==-1))
+244: /* MUTANT (rep_const) */        if ((x==0)&&(x==z)&&(fd_copysign(1.1,z)==-1))
+244: /* MUTANT (rep_const) */        if ((x==0)&&(x==z)&&(fd_copysign(1.-1,z)==-1))
+244: /* MUTANT (rep_const) */        if ((x==0)&&(x==z)&&(fd_copysign(1.0,z)==0))
+244: /* MUTANT (rep_const) */        if ((x==0)&&(x==z)&&(fd_copysign(1.0,z)==1))
+244: /* MUTANT (rep_const) */        if ((x==0)&&(x==z)&&(fd_copysign(1.0,z)==((-1)+1)))
+244: /* MUTANT (rep_const) */        if ((x==0)&&(x==z)&&(fd_copysign(1.0,z)==((-1)-1)))
+244: /* MUTANT (negate) */        if(! ((x==0)&&(x==z)&&(fd_copysign(1.0,z)==-1)))
+247: /* MUTANT (rep_op) */            z = (x <= z) ? x : z;
+247: /* MUTANT (rep_op) */            z = (x < z) ? x : z;
+247: /* MUTANT (rep_op) */            z = (x >= z) ? x : z;
+247: /* MUTANT (rep_op) */            z = (x == z) ? x : z;
+247: /* MUTANT (rep_op) */            z = (x != z) ? x : z;
+255: /* MUTANT (del_stmt) */ /*     jsdouble x, z = *cx->runtime->jsPositiveInfinity; */ 
+256: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+258: /* MUTANT (rep_op) */    if (argc != 0) {
+258: /* MUTANT (rep_const) */    if (argc == 1) {
+258: /* MUTANT (rep_const) */    if (argc == -1) {
+258: /* MUTANT (negate) */    if(! (argc == 0)) {
+259: /* MUTANT (del_stmt) */ /*         *rval = DOUBLE_TO_JSVAL(cx->runtime->jsPositiveInfinity); */ 
+260: /* MUTANT (del_stmt) */ /*         return JS_TRUE; */ 
+262: /* MUTANT (rep_op) */    for (i = 0; i <= argc; i++) {
+262: /* MUTANT (rep_op) */    for (i = 0; i > argc; i++) {
+262: /* MUTANT (rep_op) */    for (i = 0; i >= argc; i++) {
+262: /* MUTANT (rep_op) */    for (i = 0; i == argc; i++) {
+262: /* MUTANT (rep_op) */    for (i = 0; i != argc; i++) {
+262: /* MUTANT (rep_op) */    for (i = 0; i < argc; i--) {
+262: /* MUTANT (rep_const) */    for (i = 1; i < argc; i++) {
+262: /* MUTANT (rep_const) */    for (i = -1; i < argc; i++) {
+263: /* MUTANT (negate) */        if(! (!js_ValueToNumber(cx, argv[i], &x)))
+265: /* MUTANT (negate) */        if(! (JSDOUBLE_IS_NaN(x))) {
+266: /* MUTANT (del_stmt) */ /*             *rval = DOUBLE_TO_JSVAL(cx->runtime->jsNaN); */ 
+267: /* MUTANT (del_stmt) */ /*             return JS_TRUE; */ 
+269: /* MUTANT (rep_op) */        if ((x!=0)&&(x==z)&&(fd_copysign(1.0,x)==-1))
+269: /* MUTANT (rep_op) */        if ((x==0)||(x==z)&&(fd_copysign(1.0,x)==-1))
+269: /* MUTANT (rep_op) */        if ((x==0)&&(x!=z)&&(fd_copysign(1.0,x)==-1))
+269: /* MUTANT (rep_op) */        if ((x==0)&&(x==z)||(fd_copysign(1.0,x)==-1))
+269: /* MUTANT (rep_const) */        if ((x==1)&&(x==z)&&(fd_copysign(1.0,x)==-1))
+269: /* MUTANT (rep_const) */        if ((x==-1)&&(x==z)&&(fd_copysign(1.0,x)==-1))
+269: /* MUTANT (rep_const) */        if ((x==0)&&(x==z)&&(fd_copysign(1.1,x)==-1))
+269: /* MUTANT (rep_const) */        if ((x==0)&&(x==z)&&(fd_copysign(1.-1,x)==-1))
+269: /* MUTANT (rep_const) */        if ((x==0)&&(x==z)&&(fd_copysign(1.0,x)==0))
+269: /* MUTANT (rep_const) */        if ((x==0)&&(x==z)&&(fd_copysign(1.0,x)==1))
+269: /* MUTANT (rep_const) */        if ((x==0)&&(x==z)&&(fd_copysign(1.0,x)==((-1)+1)))
+269: /* MUTANT (rep_const) */        if ((x==0)&&(x==z)&&(fd_copysign(1.0,x)==((-1)-1)))
+269: /* MUTANT (negate) */        if(! ((x==0)&&(x==z)&&(fd_copysign(1.0,x)==-1)))
+272: /* MUTANT (rep_op) */            z = (x <= z) ? x : z;
+272: /* MUTANT (rep_op) */            z = (x > z) ? x : z;
+272: /* MUTANT (rep_op) */            z = (x >= z) ? x : z;
+272: /* MUTANT (rep_op) */            z = (x == z) ? x : z;
+272: /* MUTANT (rep_op) */            z = (x != z) ? x : z;
+280: /* MUTANT (del_stmt) */ /*     jsdouble x, y, z; */ 
+282: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+282: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+282: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+284: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[0], &y))
+284: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &y))
+284: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[((1)+1)], &y))
+284: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[1], &y)))
+291: /* MUTANT (rep_op) */    if (!JSDOUBLE_IS_FINITE(y) || (x == 1.0 || x == -1.0)) {
+291: /* MUTANT (rep_op) */    if (!JSDOUBLE_IS_FINITE(y) && (x != 1.0 || x == -1.0)) {
+291: /* MUTANT (rep_op) */    if (!JSDOUBLE_IS_FINITE(y) && (x == 1.0 && x == -1.0)) {
+291: /* MUTANT (rep_op) */    if (!JSDOUBLE_IS_FINITE(y) && (x == 1.0 || x != -1.0)) {
+291: /* MUTANT (rep_const) */    if (!JSDOUBLE_IS_FINITE(y) && (x == 1.1 || x == -1.0)) {
+291: /* MUTANT (rep_const) */    if (!JSDOUBLE_IS_FINITE(y) && (x == 1.-1 || x == -1.0)) {
+291: /* MUTANT (rep_const) */    if (!JSDOUBLE_IS_FINITE(y) && (x == 1.0 || x == -1.1)) {
+291: /* MUTANT (rep_const) */    if (!JSDOUBLE_IS_FINITE(y) && (x == 1.0 || x == -1.-1)) {
+291: /* MUTANT (negate) */    if(! (!JSDOUBLE_IS_FINITE(y) && (x == 1.0 || x == -1.0))) {
+292: /* MUTANT (del_stmt) */ /*         *rval = DOUBLE_TO_JSVAL(cx->runtime->jsNaN); */ 
+293: /* MUTANT (del_stmt) */ /*         return JS_TRUE; */ 
+297: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+306: /* MUTANT (del_stmt) */ /*     int64 tmp; */ 
+308: /* MUTANT (del_stmt) */ /*     JSLL_I2L(tmp, 1000); */ 
+308: /* MUTANT (rep_const) */    JSLL_I2L(tmp, 0);
+308: /* MUTANT (rep_const) */    JSLL_I2L(tmp, 1);
+308: /* MUTANT (rep_const) */    JSLL_I2L(tmp, -1);
+308: /* MUTANT (rep_const) */    JSLL_I2L(tmp, ((1000)+1));
+308: /* MUTANT (rep_const) */    JSLL_I2L(tmp, ((1000)-1));
+309: /* MUTANT (del_stmt) */ /*     JSLL_DIV(seed, seed, tmp); */ 
+310: /* MUTANT (del_stmt) */ /*     JSLL_XOR(tmp, seed, rt->rngMultiplier); */ 
+311: /* MUTANT (del_stmt) */ /*     JSLL_AND(rt->rngSeed, tmp, rt->rngMask); */ 
+317: /* MUTANT (del_stmt) */ /*     int64 tmp, tmp2; */ 
+320: /* MUTANT (negate) */    if(! (rt->rngInitialized))
+322: /* MUTANT (del_stmt) */ /*     rt->rngInitialized = JS_TRUE; */ 
+325: /* MUTANT (del_stmt) */ /*     JSLL_ISHL(tmp, 0x5, 32); */ 
+325: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, 1x5, 32);
+325: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, -1x5, 32);
+325: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, 0x5, 0);
+325: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, 0x5, 1);
+325: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, 0x5, -1);
+325: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, 0x5, ((32)+1));
+325: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, 0x5, ((32)-1));
+326: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(tmp2, 0xDEECE66DL); */ 
+326: /* MUTANT (rep_const) */    JSLL_UI2L(tmp2, 1xDEECE66DL);
+326: /* MUTANT (rep_const) */    JSLL_UI2L(tmp2, -1xDEECE66DL);
+327: /* MUTANT (del_stmt) */ /*     JSLL_OR(rt->rngMultiplier, tmp, tmp2); */ 
+330: /* MUTANT (del_stmt) */ /*     JSLL_I2L(rt->rngAddend, 0xBL); */ 
+330: /* MUTANT (rep_const) */    JSLL_I2L(rt->rngAddend, 1xBL);
+330: /* MUTANT (rep_const) */    JSLL_I2L(rt->rngAddend, -1xBL);
+333: /* MUTANT (del_stmt) */ /*     JSLL_I2L(tmp, 1); */ 
+333: /* MUTANT (rep_const) */    JSLL_I2L(tmp, 0);
+333: /* MUTANT (rep_const) */    JSLL_I2L(tmp, -1);
+333: /* MUTANT (rep_const) */    JSLL_I2L(tmp, ((1)+1));
+334: /* MUTANT (del_stmt) */ /*     JSLL_SHL(tmp2, tmp, 48); */ 
+334: /* MUTANT (rep_const) */    JSLL_SHL(tmp2, tmp, 0);
+334: /* MUTANT (rep_const) */    JSLL_SHL(tmp2, tmp, 1);
+334: /* MUTANT (rep_const) */    JSLL_SHL(tmp2, tmp, -1);
+334: /* MUTANT (rep_const) */    JSLL_SHL(tmp2, tmp, ((48)+1));
+334: /* MUTANT (rep_const) */    JSLL_SHL(tmp2, tmp, ((48)-1));
+335: /* MUTANT (del_stmt) */ /*     JSLL_SUB(rt->rngMask, tmp2, tmp); */ 
+338: /* MUTANT (del_stmt) */ /*     JSLL_SHL(tmp2, tmp, 53); */ 
+338: /* MUTANT (rep_const) */    JSLL_SHL(tmp2, tmp, 0);
+338: /* MUTANT (rep_const) */    JSLL_SHL(tmp2, tmp, 1);
+338: /* MUTANT (rep_const) */    JSLL_SHL(tmp2, tmp, -1);
+338: /* MUTANT (rep_const) */    JSLL_SHL(tmp2, tmp, ((53)+1));
+338: /* MUTANT (rep_const) */    JSLL_SHL(tmp2, tmp, ((53)-1));
+339: /* MUTANT (del_stmt) */ /*     JSLL_L2D(rt->rngDscale, tmp2); */ 
+342: /* MUTANT (del_stmt) */ /*     random_setSeed(rt, PRMJ_Now()); */ 
+348: /* MUTANT (del_stmt) */ /*     int64 nextseed, tmp; */ 
+349: /* MUTANT (del_stmt) */ /*     uint32 retval; */ 
+351: /* MUTANT (del_stmt) */ /*     JSLL_MUL(nextseed, rt->rngSeed, rt->rngMultiplier); */ 
+352: /* MUTANT (del_stmt) */ /*     JSLL_ADD(nextseed, nextseed, rt->rngAddend); */ 
+353: /* MUTANT (del_stmt) */ /*     JSLL_AND(nextseed, nextseed, rt->rngMask); */ 
+354: /* MUTANT (del_stmt) */ /*     rt->rngSeed = nextseed; */ 
+355: /* MUTANT (del_stmt) */ /*     JSLL_USHR(tmp, nextseed, 48 - bits); */ 
+355: /* MUTANT (rep_const) */    JSLL_USHR(tmp, nextseed, 0 - bits);
+355: /* MUTANT (rep_const) */    JSLL_USHR(tmp, nextseed, 1 - bits);
+355: /* MUTANT (rep_const) */    JSLL_USHR(tmp, nextseed, -1 - bits);
+355: /* MUTANT (rep_const) */    JSLL_USHR(tmp, nextseed, ((48)+1) - bits);
+355: /* MUTANT (rep_const) */    JSLL_USHR(tmp, nextseed, ((48)-1) - bits);
+356: /* MUTANT (del_stmt) */ /*     JSLL_L2I(retval, tmp); */ 
+357: /* MUTANT (del_stmt) */ /*     return retval; */ 
+363: /* MUTANT (del_stmt) */ /*     int64 tmp, tmp2; */ 
+364: /* MUTANT (del_stmt) */ /*     jsdouble d; */ 
+366: /* MUTANT (del_stmt) */ /*     JSLL_ISHL(tmp, random_next(rt, 26), 27); */ 
+366: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, random_next(rt, 0), 27);
+366: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, random_next(rt, 1), 27);
+366: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, random_next(rt, -1), 27);
+366: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, random_next(rt, ((26)+1)), 27);
+366: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, random_next(rt, ((26)-1)), 27);
+366: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, random_next(rt, 26), 0);
+366: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, random_next(rt, 26), 1);
+366: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, random_next(rt, 26), -1);
+366: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, random_next(rt, 26), ((27)+1));
+366: /* MUTANT (rep_const) */    JSLL_ISHL(tmp, random_next(rt, 26), ((27)-1));
+367: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(tmp2, random_next(rt, 27)); */ 
+367: /* MUTANT (rep_const) */    JSLL_UI2L(tmp2, random_next(rt, 0));
+367: /* MUTANT (rep_const) */    JSLL_UI2L(tmp2, random_next(rt, 1));
+367: /* MUTANT (rep_const) */    JSLL_UI2L(tmp2, random_next(rt, -1));
+367: /* MUTANT (rep_const) */    JSLL_UI2L(tmp2, random_next(rt, ((27)+1)));
+367: /* MUTANT (rep_const) */    JSLL_UI2L(tmp2, random_next(rt, ((27)-1)));
+368: /* MUTANT (del_stmt) */ /*     JSLL_ADD(tmp, tmp, tmp2); */ 
+369: /* MUTANT (del_stmt) */ /*     JSLL_L2D(d, tmp); */ 
+370: /* MUTANT (del_stmt) */ /*     return d / rt->rngDscale; */ 
+376: /* MUTANT (del_stmt) */ /*     JSRuntime *rt; */ 
+377: /* MUTANT (del_stmt) */ /*     jsdouble z; */ 
+379: /* MUTANT (del_stmt) */ /*     rt = cx->runtime; */ 
+380: /* MUTANT (del_stmt) */ /*     JS_LOCK_RUNTIME(rt); */ 
+381: /* MUTANT (del_stmt) */ /*     random_init(rt); */ 
+382: /* MUTANT (del_stmt) */ /*     z = random_nextDouble(rt); */ 
+383: /* MUTANT (del_stmt) */ /*     JS_UNLOCK_RUNTIME(rt); */ 
+384: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+390: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+392: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+392: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+392: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+394: /* MUTANT (del_stmt) */ /*     z = fd_copysign(fd_floor(x + 0.5), x); */ 
+394: /* MUTANT (rep_op) */    z = fd_copysign(fd_floor(x - 0.5), x);
+394: /* MUTANT (rep_op) */    z = fd_copysign(fd_floor(x * 0.5), x);
+394: /* MUTANT (rep_op) */    z = fd_copysign(fd_floor(x % 0.5), x);
+394: /* MUTANT (rep_const) */    z = fd_copysign(fd_floor(x + 0.0), x);
+394: /* MUTANT (rep_const) */    z = fd_copysign(fd_floor(x + 0.1), x);
+394: /* MUTANT (rep_const) */    z = fd_copysign(fd_floor(x + 0.-1), x);
+394: /* MUTANT (rep_const) */    z = fd_copysign(fd_floor(x + 0.((5)+1)), x);
+394: /* MUTANT (rep_const) */    z = fd_copysign(fd_floor(x + 0.((5)-1)), x);
+395: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+401: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+403: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+403: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+403: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+405: /* MUTANT (del_stmt) */ /*     z = fd_sin(x); */ 
+406: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+412: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+414: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+414: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+414: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+416: /* MUTANT (del_stmt) */ /*     z = fd_sqrt(x); */ 
+417: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+423: /* MUTANT (del_stmt) */ /*     jsdouble x, z; */ 
+425: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[1], &x))
+425: /* MUTANT (rep_const) */    if (!js_ValueToNumber(cx, argv[-1], &x))
+425: /* MUTANT (negate) */    if(! (!js_ValueToNumber(cx, argv[0], &x)))
+427: /* MUTANT (del_stmt) */ /*     z = fd_tan(x); */ 
+428: /* MUTANT (del_stmt) */ /*     return js_NewNumberValue(cx, z, rval); */ 
+436: /* MUTANT (del_stmt) */ /*     *rval = ATOM_KEY(cx->runtime->atomState.MathAtom); */ 
+437: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+443: /* MUTANT (rep_const) */    {js_toSource_str,   math_toSource,          1, 0, 0},
+443: /* MUTANT (rep_const) */    {js_toSource_str,   math_toSource,          -1, 0, 0},
+443: /* MUTANT (rep_const) */    {js_toSource_str,   math_toSource,          0, 1, 0},
+443: /* MUTANT (rep_const) */    {js_toSource_str,   math_toSource,          0, -1, 0},
+443: /* MUTANT (rep_const) */    {js_toSource_str,   math_toSource,          0, 0, 1},
+443: /* MUTANT (rep_const) */    {js_toSource_str,   math_toSource,          0, 0, -1},
+445: /* MUTANT (rep_const) */    {"abs",             math_abs,               0, 0, 0},
+445: /* MUTANT (rep_const) */    {"abs",             math_abs,               -1, 0, 0},
+445: /* MUTANT (rep_const) */    {"abs",             math_abs,               ((1)+1), 0, 0},
+445: /* MUTANT (rep_const) */    {"abs",             math_abs,               1, 1, 0},
+445: /* MUTANT (rep_const) */    {"abs",             math_abs,               1, -1, 0},
+445: /* MUTANT (rep_const) */    {"abs",             math_abs,               1, 0, 1},
+445: /* MUTANT (rep_const) */    {"abs",             math_abs,               1, 0, -1},
+446: /* MUTANT (rep_const) */    {"acos",            math_acos,              0, 0, 0},
+446: /* MUTANT (rep_const) */    {"acos",            math_acos,              -1, 0, 0},
+446: /* MUTANT (rep_const) */    {"acos",            math_acos,              ((1)+1), 0, 0},
+446: /* MUTANT (rep_const) */    {"acos",            math_acos,              1, 1, 0},
+446: /* MUTANT (rep_const) */    {"acos",            math_acos,              1, -1, 0},
+446: /* MUTANT (rep_const) */    {"acos",            math_acos,              1, 0, 1},
+446: /* MUTANT (rep_const) */    {"acos",            math_acos,              1, 0, -1},
+447: /* MUTANT (rep_const) */    {"asin",            math_asin,              0, 0, 0},
+447: /* MUTANT (rep_const) */    {"asin",            math_asin,              -1, 0, 0},
+447: /* MUTANT (rep_const) */    {"asin",            math_asin,              ((1)+1), 0, 0},
+447: /* MUTANT (rep_const) */    {"asin",            math_asin,              1, 1, 0},
+447: /* MUTANT (rep_const) */    {"asin",            math_asin,              1, -1, 0},
+447: /* MUTANT (rep_const) */    {"asin",            math_asin,              1, 0, 1},
+447: /* MUTANT (rep_const) */    {"asin",            math_asin,              1, 0, -1},
+448: /* MUTANT (rep_const) */    {"atan",            math_atan,              0, 0, 0},
+448: /* MUTANT (rep_const) */    {"atan",            math_atan,              -1, 0, 0},
+448: /* MUTANT (rep_const) */    {"atan",            math_atan,              ((1)+1), 0, 0},
+448: /* MUTANT (rep_const) */    {"atan",            math_atan,              1, 1, 0},
+448: /* MUTANT (rep_const) */    {"atan",            math_atan,              1, -1, 0},
+448: /* MUTANT (rep_const) */    {"atan",            math_atan,              1, 0, 1},
+448: /* MUTANT (rep_const) */    {"atan",            math_atan,              1, 0, -1},
+449: /* MUTANT (rep_const) */    {"atan2",           math_atan2,             0, 0, 0},
+449: /* MUTANT (rep_const) */    {"atan2",           math_atan2,             1, 0, 0},
+449: /* MUTANT (rep_const) */    {"atan2",           math_atan2,             -1, 0, 0},
+449: /* MUTANT (rep_const) */    {"atan2",           math_atan2,             ((2)+1), 0, 0},
+449: /* MUTANT (rep_const) */    {"atan2",           math_atan2,             ((2)-1), 0, 0},
+449: /* MUTANT (rep_const) */    {"atan2",           math_atan2,             2, 1, 0},
+449: /* MUTANT (rep_const) */    {"atan2",           math_atan2,             2, -1, 0},
+449: /* MUTANT (rep_const) */    {"atan2",           math_atan2,             2, 0, 1},
+449: /* MUTANT (rep_const) */    {"atan2",           math_atan2,             2, 0, -1},
+450: /* MUTANT (rep_const) */    {"ceil",            math_ceil,              0, 0, 0},
+450: /* MUTANT (rep_const) */    {"ceil",            math_ceil,              -1, 0, 0},
+450: /* MUTANT (rep_const) */    {"ceil",            math_ceil,              ((1)+1), 0, 0},
+450: /* MUTANT (rep_const) */    {"ceil",            math_ceil,              1, 1, 0},
+450: /* MUTANT (rep_const) */    {"ceil",            math_ceil,              1, -1, 0},
+450: /* MUTANT (rep_const) */    {"ceil",            math_ceil,              1, 0, 1},
+450: /* MUTANT (rep_const) */    {"ceil",            math_ceil,              1, 0, -1},
+451: /* MUTANT (rep_const) */    {"cos",             math_cos,               0, 0, 0},
+451: /* MUTANT (rep_const) */    {"cos",             math_cos,               -1, 0, 0},
+451: /* MUTANT (rep_const) */    {"cos",             math_cos,               ((1)+1), 0, 0},
+451: /* MUTANT (rep_const) */    {"cos",             math_cos,               1, 1, 0},
+451: /* MUTANT (rep_const) */    {"cos",             math_cos,               1, -1, 0},
+451: /* MUTANT (rep_const) */    {"cos",             math_cos,               1, 0, 1},
+451: /* MUTANT (rep_const) */    {"cos",             math_cos,               1, 0, -1},
+452: /* MUTANT (rep_const) */    {"exp",             math_exp,               0, 0, 0},
+452: /* MUTANT (rep_const) */    {"exp",             math_exp,               -1, 0, 0},
+452: /* MUTANT (rep_const) */    {"exp",             math_exp,               ((1)+1), 0, 0},
+452: /* MUTANT (rep_const) */    {"exp",             math_exp,               1, 1, 0},
+452: /* MUTANT (rep_const) */    {"exp",             math_exp,               1, -1, 0},
+452: /* MUTANT (rep_const) */    {"exp",             math_exp,               1, 0, 1},
+452: /* MUTANT (rep_const) */    {"exp",             math_exp,               1, 0, -1},
+453: /* MUTANT (rep_const) */    {"floor",           math_floor,             0, 0, 0},
+453: /* MUTANT (rep_const) */    {"floor",           math_floor,             -1, 0, 0},
+453: /* MUTANT (rep_const) */    {"floor",           math_floor,             ((1)+1), 0, 0},
+453: /* MUTANT (rep_const) */    {"floor",           math_floor,             1, 1, 0},
+453: /* MUTANT (rep_const) */    {"floor",           math_floor,             1, -1, 0},
+453: /* MUTANT (rep_const) */    {"floor",           math_floor,             1, 0, 1},
+453: /* MUTANT (rep_const) */    {"floor",           math_floor,             1, 0, -1},
+454: /* MUTANT (rep_const) */    {"log",             math_log,               0, 0, 0},
+454: /* MUTANT (rep_const) */    {"log",             math_log,               -1, 0, 0},
+454: /* MUTANT (rep_const) */    {"log",             math_log,               ((1)+1), 0, 0},
+454: /* MUTANT (rep_const) */    {"log",             math_log,               1, 1, 0},
+454: /* MUTANT (rep_const) */    {"log",             math_log,               1, -1, 0},
+454: /* MUTANT (rep_const) */    {"log",             math_log,               1, 0, 1},
+454: /* MUTANT (rep_const) */    {"log",             math_log,               1, 0, -1},
+455: /* MUTANT (rep_const) */    {"max",             math_max,               0, 0, 0},
+455: /* MUTANT (rep_const) */    {"max",             math_max,               1, 0, 0},
+455: /* MUTANT (rep_const) */    {"max",             math_max,               -1, 0, 0},
+455: /* MUTANT (rep_const) */    {"max",             math_max,               ((2)+1), 0, 0},
+455: /* MUTANT (rep_const) */    {"max",             math_max,               ((2)-1), 0, 0},
+455: /* MUTANT (rep_const) */    {"max",             math_max,               2, 1, 0},
+455: /* MUTANT (rep_const) */    {"max",             math_max,               2, -1, 0},
+455: /* MUTANT (rep_const) */    {"max",             math_max,               2, 0, 1},
+455: /* MUTANT (rep_const) */    {"max",             math_max,               2, 0, -1},
+456: /* MUTANT (rep_const) */    {"min",             math_min,               0, 0, 0},
+456: /* MUTANT (rep_const) */    {"min",             math_min,               1, 0, 0},
+456: /* MUTANT (rep_const) */    {"min",             math_min,               -1, 0, 0},
+456: /* MUTANT (rep_const) */    {"min",             math_min,               ((2)+1), 0, 0},
+456: /* MUTANT (rep_const) */    {"min",             math_min,               ((2)-1), 0, 0},
+456: /* MUTANT (rep_const) */    {"min",             math_min,               2, 1, 0},
+456: /* MUTANT (rep_const) */    {"min",             math_min,               2, -1, 0},
+456: /* MUTANT (rep_const) */    {"min",             math_min,               2, 0, 1},
+456: /* MUTANT (rep_const) */    {"min",             math_min,               2, 0, -1},
+457: /* MUTANT (rep_const) */    {"pow",             math_pow,               0, 0, 0},
+457: /* MUTANT (rep_const) */    {"pow",             math_pow,               1, 0, 0},
+457: /* MUTANT (rep_const) */    {"pow",             math_pow,               -1, 0, 0},
+457: /* MUTANT (rep_const) */    {"pow",             math_pow,               ((2)+1), 0, 0},
+457: /* MUTANT (rep_const) */    {"pow",             math_pow,               ((2)-1), 0, 0},
+457: /* MUTANT (rep_const) */    {"pow",             math_pow,               2, 1, 0},
+457: /* MUTANT (rep_const) */    {"pow",             math_pow,               2, -1, 0},
+457: /* MUTANT (rep_const) */    {"pow",             math_pow,               2, 0, 1},
+457: /* MUTANT (rep_const) */    {"pow",             math_pow,               2, 0, -1},
+458: /* MUTANT (rep_const) */    {"random",          math_random,            1, 0, 0},
+458: /* MUTANT (rep_const) */    {"random",          math_random,            -1, 0, 0},
+458: /* MUTANT (rep_const) */    {"random",          math_random,            0, 1, 0},
+458: /* MUTANT (rep_const) */    {"random",          math_random,            0, -1, 0},
+458: /* MUTANT (rep_const) */    {"random",          math_random,            0, 0, 1},
+458: /* MUTANT (rep_const) */    {"random",          math_random,            0, 0, -1},
+459: /* MUTANT (rep_const) */    {"round",           math_round,             0, 0, 0},
+459: /* MUTANT (rep_const) */    {"round",           math_round,             -1, 0, 0},
+459: /* MUTANT (rep_const) */    {"round",           math_round,             ((1)+1), 0, 0},
+459: /* MUTANT (rep_const) */    {"round",           math_round,             1, 1, 0},
+459: /* MUTANT (rep_const) */    {"round",           math_round,             1, -1, 0},
+459: /* MUTANT (rep_const) */    {"round",           math_round,             1, 0, 1},
+459: /* MUTANT (rep_const) */    {"round",           math_round,             1, 0, -1},
+460: /* MUTANT (rep_const) */    {"sin",             math_sin,               0, 0, 0},
+460: /* MUTANT (rep_const) */    {"sin",             math_sin,               -1, 0, 0},
+460: /* MUTANT (rep_const) */    {"sin",             math_sin,               ((1)+1), 0, 0},
+460: /* MUTANT (rep_const) */    {"sin",             math_sin,               1, 1, 0},
+460: /* MUTANT (rep_const) */    {"sin",             math_sin,               1, -1, 0},
+460: /* MUTANT (rep_const) */    {"sin",             math_sin,               1, 0, 1},
+460: /* MUTANT (rep_const) */    {"sin",             math_sin,               1, 0, -1},
+461: /* MUTANT (rep_const) */    {"sqrt",            math_sqrt,              0, 0, 0},
+461: /* MUTANT (rep_const) */    {"sqrt",            math_sqrt,              -1, 0, 0},
+461: /* MUTANT (rep_const) */    {"sqrt",            math_sqrt,              ((1)+1), 0, 0},
+461: /* MUTANT (rep_const) */    {"sqrt",            math_sqrt,              1, 1, 0},
+461: /* MUTANT (rep_const) */    {"sqrt",            math_sqrt,              1, -1, 0},
+461: /* MUTANT (rep_const) */    {"sqrt",            math_sqrt,              1, 0, 1},
+461: /* MUTANT (rep_const) */    {"sqrt",            math_sqrt,              1, 0, -1},
+462: /* MUTANT (rep_const) */    {"tan",             math_tan,               0, 0, 0},
+462: /* MUTANT (rep_const) */    {"tan",             math_tan,               -1, 0, 0},
+462: /* MUTANT (rep_const) */    {"tan",             math_tan,               ((1)+1), 0, 0},
+462: /* MUTANT (rep_const) */    {"tan",             math_tan,               1, 1, 0},
+462: /* MUTANT (rep_const) */    {"tan",             math_tan,               1, -1, 0},
+462: /* MUTANT (rep_const) */    {"tan",             math_tan,               1, 0, 1},
+462: /* MUTANT (rep_const) */    {"tan",             math_tan,               1, 0, -1},
+463: /* MUTANT (rep_const) */    {1,0,0,0,0}
+463: /* MUTANT (rep_const) */    {-1,0,0,0,0}
+463: /* MUTANT (rep_const) */    {0,1,0,0,0}
+463: /* MUTANT (rep_const) */    {0,-1,0,0,0}
+463: /* MUTANT (rep_const) */    {0,0,1,0,0}
+463: /* MUTANT (rep_const) */    {0,0,-1,0,0}
+463: /* MUTANT (rep_const) */    {0,0,0,1,0}
+463: /* MUTANT (rep_const) */    {0,0,0,-1,0}
+463: /* MUTANT (rep_const) */    {0,0,0,0,1}
+463: /* MUTANT (rep_const) */    {0,0,0,0,-1}
+469: /* MUTANT (del_stmt) */ /*     JSObject *Math; */ 
+471: /* MUTANT (del_stmt) */ /*     Math = JS_DefineObject(cx, obj, "Math", &math_class, NULL, 0); */ 
+471: /* MUTANT (rep_const) */    Math = JS_DefineObject(cx, obj, "Math", &math_class, NULL, 1);
+471: /* MUTANT (rep_const) */    Math = JS_DefineObject(cx, obj, "Math", &math_class, NULL, -1);
+472: /* MUTANT (negate) */    if(! (!Math))
+474: /* MUTANT (negate) */    if(! (!JS_DefineFunctions(cx, Math, math_static_methods)))
+476: /* MUTANT (negate) */    if(! (!JS_DefineConstDoubles(cx, Math, math_constants)))
+478: /* MUTANT (del_stmt) */ /*     return Math; */ 

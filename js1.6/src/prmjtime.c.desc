@@ -1,0 +1,504 @@
+45: #define _REENTRANT 0 /* MUTANT (rep_const) */
+45: #define _REENTRANT -1 /* MUTANT (rep_const) */
+45: #define _REENTRANT ((1)+1) /* MUTANT (rep_const) */
+55: #define PRMJ_DO_MILLISECONDS 0 /* MUTANT (rep_const) */
+55: #define PRMJ_DO_MILLISECONDS -1 /* MUTANT (rep_const) */
+55: #define PRMJ_DO_MILLISECONDS ((1)+1) /* MUTANT (rep_const) */
+76: /* MUTANT (rep_op) */   (year == 0 && ((((year & 0x3) == 0) &&  \
+76: /* MUTANT (rep_op) */   (year != 0 || ((((year & 0x3) == 0) &&  \
+76: /* MUTANT (rep_op) */   (year != 0 && ((((year & 0x3) != 0) &&  \
+76: /* MUTANT (rep_op) */   (year != 0 && ((((year & 0x3) == 0) ||  \
+76: /* MUTANT (rep_const) */   (year != 1 && ((((year & 0x3) == 0) &&  \
+76: /* MUTANT (rep_const) */   (year != -1 && ((((year & 0x3) == 0) &&  \
+76: /* MUTANT (rep_const) */   (year != 0 && ((((year & 1x3) == 0) &&  \
+76: /* MUTANT (rep_const) */   (year != 0 && ((((year & -1x3) == 0) &&  \
+76: /* MUTANT (rep_const) */   (year != 0 && ((((year & 0x3) == 1) &&  \
+76: /* MUTANT (rep_const) */   (year != 0 && ((((year & 0x3) == -1) &&  \
+77: /* MUTANT (rep_op) */		   ((year - ((year/100) * 100)) == 0)) || \
+77: /* MUTANT (rep_op) */		   ((year - ((year/100) * 100)) != 0)) && \
+77: /* MUTANT (rep_const) */		   ((year - ((year/0) * 100)) != 0)) || \
+77: /* MUTANT (rep_const) */		   ((year - ((year/1) * 100)) != 0)) || \
+77: /* MUTANT (rep_const) */		   ((year - ((year/-1) * 100)) != 0)) || \
+77: /* MUTANT (rep_const) */		   ((year - ((year/((100)+1)) * 100)) != 0)) || \
+77: /* MUTANT (rep_const) */		   ((year - ((year/((100)-1)) * 100)) != 0)) || \
+77: /* MUTANT (rep_const) */		   ((year - ((year/100) * 0)) != 0)) || \
+77: /* MUTANT (rep_const) */		   ((year - ((year/100) * 1)) != 0)) || \
+77: /* MUTANT (rep_const) */		   ((year - ((year/100) * -1)) != 0)) || \
+77: /* MUTANT (rep_const) */		   ((year - ((year/100) * ((100)+1))) != 0)) || \
+77: /* MUTANT (rep_const) */		   ((year - ((year/100) * ((100)-1))) != 0)) || \
+77: /* MUTANT (rep_const) */		   ((year - ((year/100) * 100)) != 1)) || \
+77: /* MUTANT (rep_const) */		   ((year - ((year/100) * 100)) != -1)) || \
+78: /* MUTANT (rep_op) */		  (year - ((year/400) * 400)) != 0))
+78: /* MUTANT (rep_const) */		  (year - ((year/0) * 400)) == 0))
+78: /* MUTANT (rep_const) */		  (year - ((year/1) * 400)) == 0))
+78: /* MUTANT (rep_const) */		  (year - ((year/-1) * 400)) == 0))
+78: /* MUTANT (rep_const) */		  (year - ((year/((400)+1)) * 400)) == 0))
+78: /* MUTANT (rep_const) */		  (year - ((year/((400)-1)) * 400)) == 0))
+78: /* MUTANT (rep_const) */		  (year - ((year/400) * 0)) == 0))
+78: /* MUTANT (rep_const) */		  (year - ((year/400) * 1)) == 0))
+78: /* MUTANT (rep_const) */		  (year - ((year/400) * -1)) == 0))
+78: /* MUTANT (rep_const) */		  (year - ((year/400) * ((400)+1))) == 0))
+78: /* MUTANT (rep_const) */		  (year - ((year/400) * ((400)-1))) == 0))
+78: /* MUTANT (rep_const) */		  (year - ((year/400) * 400)) == 1))
+78: /* MUTANT (rep_const) */		  (year - ((year/400) * 400)) == -1))
+80: #define PRMJ_HOUR_SECONDS  0L /* MUTANT (rep_const) */
+80: #define PRMJ_HOUR_SECONDS  1L /* MUTANT (rep_const) */
+80: #define PRMJ_HOUR_SECONDS  -1L /* MUTANT (rep_const) */
+80: #define PRMJ_HOUR_SECONDS  ((3600)+1)L /* MUTANT (rep_const) */
+80: #define PRMJ_HOUR_SECONDS  ((3600)-1)L /* MUTANT (rep_const) */
+81: #define PRMJ_DAY_SECONDS  (0L * PRMJ_HOUR_SECONDS) /* MUTANT (rep_const) */
+81: #define PRMJ_DAY_SECONDS  (1L * PRMJ_HOUR_SECONDS) /* MUTANT (rep_const) */
+81: #define PRMJ_DAY_SECONDS  (-1L * PRMJ_HOUR_SECONDS) /* MUTANT (rep_const) */
+81: #define PRMJ_DAY_SECONDS  (((24)+1)L * PRMJ_HOUR_SECONDS) /* MUTANT (rep_const) */
+81: #define PRMJ_DAY_SECONDS  (((24)-1)L * PRMJ_HOUR_SECONDS) /* MUTANT (rep_const) */
+82: #define PRMJ_YEAR_SECONDS (PRMJ_DAY_SECONDS * 0L) /* MUTANT (rep_const) */
+82: #define PRMJ_YEAR_SECONDS (PRMJ_DAY_SECONDS * 1L) /* MUTANT (rep_const) */
+82: #define PRMJ_YEAR_SECONDS (PRMJ_DAY_SECONDS * -1L) /* MUTANT (rep_const) */
+82: #define PRMJ_YEAR_SECONDS (PRMJ_DAY_SECONDS * ((365)+1)L) /* MUTANT (rep_const) */
+82: #define PRMJ_YEAR_SECONDS (PRMJ_DAY_SECONDS * ((365)-1)L) /* MUTANT (rep_const) */
+83: #define PRMJ_MAX_UNIX_TIMET 0L  /* MUTANT (rep_const) *//*time_t value equiv. to 12/31/2037 */
+83: #define PRMJ_MAX_UNIX_TIMET 1L  /* MUTANT (rep_const) *//*time_t value equiv. to 12/31/2037 */
+83: #define PRMJ_MAX_UNIX_TIMET -1L  /* MUTANT (rep_const) *//*time_t value equiv. to 12/31/2037 */
+83: #define PRMJ_MAX_UNIX_TIMET ((2145859200)+1)L  /* MUTANT (rep_const) *//*time_t value equiv. to 12/31/2037 */
+83: #define PRMJ_MAX_UNIX_TIMET ((2145859200)-1)L  /* MUTANT (rep_const) *//*time_t value equiv. to 12/31/2037 */
+90: /* MUTANT (negate) */PRMJ_LocalGMTDif(!ference())
+96: /* MUTANT (del_stmt) */ /*     memset((char *)&ltime,0,sizeof(ltime)); */ 
+96: /* MUTANT (rep_const) */    memset((char *)&ltime,1,sizeof(ltime));
+96: /* MUTANT (rep_const) */    memset((char *)&ltime,-1,sizeof(ltime));
+97: /* MUTANT (del_stmt) */ /*     ltime.tm_mday = 2; */ 
+97: /* MUTANT (rep_const) */    ltime.tm_mday = 0;
+97: /* MUTANT (rep_const) */    ltime.tm_mday = 1;
+97: /* MUTANT (rep_const) */    ltime.tm_mday = -1;
+97: /* MUTANT (rep_const) */    ltime.tm_mday = ((2)+1);
+97: /* MUTANT (rep_const) */    ltime.tm_mday = ((2)-1);
+98: /* MUTANT (del_stmt) */ /*     ltime.tm_year = 70; */ 
+98: /* MUTANT (rep_const) */    ltime.tm_year = 0;
+98: /* MUTANT (rep_const) */    ltime.tm_year = 1;
+98: /* MUTANT (rep_const) */    ltime.tm_year = -1;
+98: /* MUTANT (rep_const) */    ltime.tm_year = ((70)+1);
+98: /* MUTANT (rep_const) */    ltime.tm_year = ((70)-1);
+100: /* MUTANT (rep_const) */    ltime.tm_zone = 1;
+100: /* MUTANT (rep_const) */    ltime.tm_zone = -1;
+101: /* MUTANT (del_stmt) */ /*     ltime.tm_gmtoff = 0; */ 
+101: /* MUTANT (rep_const) */    ltime.tm_gmtoff = 1;
+101: /* MUTANT (rep_const) */    ltime.tm_gmtoff = -1;
+102: /* MUTANT (del_stmt) */ /*     return timelocal(&ltime) - (24 * 3600); */ 
+102: /* MUTANT (rep_const) */    return timelocal(&ltime) - (0 * 3600);
+102: /* MUTANT (rep_const) */    return timelocal(&ltime) - (1 * 3600);
+102: /* MUTANT (rep_const) */    return timelocal(&ltime) - (-1 * 3600);
+102: /* MUTANT (rep_const) */    return timelocal(&ltime) - (((24)+1) * 3600);
+102: /* MUTANT (rep_const) */    return timelocal(&ltime) - (((24)-1) * 3600);
+102: /* MUTANT (rep_const) */    return timelocal(&ltime) - (24 * 0);
+102: /* MUTANT (rep_const) */    return timelocal(&ltime) - (24 * 1);
+102: /* MUTANT (rep_const) */    return timelocal(&ltime) - (24 * -1);
+102: /* MUTANT (rep_const) */    return timelocal(&ltime) - (24 * ((3600)+1));
+102: /* MUTANT (rep_const) */    return timelocal(&ltime) - (24 * ((3600)-1));
+104: /* MUTANT (rep_const) */    return mktime(&ltime) - (0L * 3600L);
+104: /* MUTANT (rep_const) */    return mktime(&ltime) - (1L * 3600L);
+104: /* MUTANT (rep_const) */    return mktime(&ltime) - (-1L * 3600L);
+104: /* MUTANT (rep_const) */    return mktime(&ltime) - (((24)+1)L * 3600L);
+104: /* MUTANT (rep_const) */    return mktime(&ltime) - (((24)-1)L * 3600L);
+104: /* MUTANT (rep_const) */    return mktime(&ltime) - (24L * 0L);
+104: /* MUTANT (rep_const) */    return mktime(&ltime) - (24L * 1L);
+104: /* MUTANT (rep_const) */    return mktime(&ltime) - (24L * -1L);
+104: /* MUTANT (rep_const) */    return mktime(&ltime) - (24L * ((3600)+1)L);
+104: /* MUTANT (rep_const) */    return mktime(&ltime) - (24L * ((3600)-1)L);
+110: #define G1970GMTMICROHI        1x00dcdcad  /* MUTANT (rep_const) *//* micro secs to 1970 hi */
+110: #define G1970GMTMICROHI        -1x00dcdcad  /* MUTANT (rep_const) *//* micro secs to 1970 hi */
+111: #define G1970GMTMICROLOW       1x8b3fa000  /* MUTANT (rep_const) *//* micro secs to 1970 low */
+111: #define G1970GMTMICROLOW       -1x8b3fa000  /* MUTANT (rep_const) *//* micro secs to 1970 low */
+113: #define G2037GMTMICROHI        1x00e45fab  /* MUTANT (rep_const) *//* micro secs to 2037 high */
+113: #define G2037GMTMICROHI        -1x00e45fab  /* MUTANT (rep_const) *//* micro secs to 2037 high */
+114: #define G2037GMTMICROLOW       1x7a238000  /* MUTANT (rep_const) *//* micro secs to 2037 low */
+114: #define G2037GMTMICROLOW       -1x7a238000  /* MUTANT (rep_const) *//* micro secs to 2037 low */
+120: /* MUTANT (del_stmt) */ /*     JSInt64 exttime; */ 
+121: /* MUTANT (del_stmt) */ /*     JSInt64 g1970GMTMicroSeconds; */ 
+122: /* MUTANT (del_stmt) */ /*     JSInt64 low; */ 
+123: /* MUTANT (del_stmt) */ /*     JSInt32 diff; */ 
+124: /* MUTANT (del_stmt) */ /*     JSInt64  tmp; */ 
+125: /* MUTANT (del_stmt) */ /*     JSInt64  tmp1; */ 
+127: /* MUTANT (del_stmt) */ /*     diff = PRMJ_LocalGMTDifference(); */ 
+127: /* MUTANT (negate) */    dif(!f = PRMJ_LocalGMTDifference());
+128: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(tmp, PRMJ_USEC_PER_SEC); */ 
+129: /* MUTANT (del_stmt) */ /*     JSLL_I2L(tmp1,diff); */ 
+130: /* MUTANT (del_stmt) */ /*     JSLL_MUL(tmp,tmp,tmp1); */ 
+132: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(g1970GMTMicroSeconds,G1970GMTMICROHI); */ 
+133: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(low,G1970GMTMICROLOW); */ 
+135: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,0);
+135: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,1);
+135: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,-1);
+135: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,((16)+1));
+135: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,((16)-1));
+136: /* MUTANT (del_stmt) */ /*     JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,16); */ 
+136: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,0);
+136: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,1);
+136: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,-1);
+136: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,((16)+1));
+136: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,((16)-1));
+138: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,0);
+138: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,1);
+138: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,-1);
+138: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,((32)+1));
+138: /* MUTANT (rep_const) */    JSLL_SHL(g1970GMTMicroSeconds,g1970GMTMicroSeconds,((32)-1));
+142: /* MUTANT (del_stmt) */ /*     JSLL_I2L(exttime,base_time); */ 
+143: /* MUTANT (del_stmt) */ /*     JSLL_ADD(exttime,exttime,g1970GMTMicroSeconds); */ 
+144: /* MUTANT (del_stmt) */ /*     JSLL_SUB(exttime,exttime,tmp); */ 
+145: /* MUTANT (del_stmt) */ /*     return exttime; */ 
+153: /* MUTANT (del_stmt) */ /*     struct timeb b; */ 
+157: /* MUTANT (rep_const) */    win2un = JSLL_INIT(1x19DB1DE, 0xD53E8000),
+157: /* MUTANT (rep_const) */    win2un = JSLL_INIT(-1x19DB1DE, 0xD53E8000),
+157: /* MUTANT (rep_const) */    win2un = JSLL_INIT(0x19DB1DE, 1xD53E8000),
+157: /* MUTANT (rep_const) */    win2un = JSLL_INIT(0x19DB1DE, -1xD53E8000),
+158: /* MUTANT (rep_const) */    ten = JSLL_INIT(1, 10);
+158: /* MUTANT (rep_const) */    ten = JSLL_INIT(-1, 10);
+158: /* MUTANT (rep_const) */    ten = JSLL_INIT(0, 0);
+158: /* MUTANT (rep_const) */    ten = JSLL_INIT(0, 1);
+158: /* MUTANT (rep_const) */    ten = JSLL_INIT(0, -1);
+158: /* MUTANT (rep_const) */    ten = JSLL_INIT(0, ((10)+1));
+158: /* MUTANT (rep_const) */    ten = JSLL_INIT(0, ((10)-1));
+159: /* MUTANT (del_stmt) */ /*     FILETIME time, midnight; */ 
+163: /* MUTANT (del_stmt) */ /*     JSInt64 s, us, s2us; */ 
+168: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(ms2us, PRMJ_USEC_PER_MSEC); */ 
+169: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(s2us, PRMJ_USEC_PER_SEC); */ 
+170: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(s, b.time); */ 
+171: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(us, b.millitm); */ 
+172: /* MUTANT (del_stmt) */ /*     JSLL_MUL(us, us, ms2us); */ 
+173: /* MUTANT (del_stmt) */ /*     JSLL_MUL(s, s, s2us); */ 
+174: /* MUTANT (del_stmt) */ /*     JSLL_ADD(s, s, us); */ 
+175: /* MUTANT (del_stmt) */ /*     return s; */ 
+186: /* MUTANT (negate) */    if(! (!time.dwLowDateTime)) {
+187: /* MUTANT (del_stmt) */ /*         GetSystemTimeAsFileTime(&midnight); */ 
+188: /* MUTANT (del_stmt) */ /*         time.dwHighDateTime = midnight.dwHighDateTime; */ 
+191: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(us, time.dwLowDateTime); */ 
+192: /* MUTANT (del_stmt) */ /*     JSLL_SHL(s, s, 32); */ 
+192: /* MUTANT (rep_const) */    JSLL_SHL(s, s, 0);
+192: /* MUTANT (rep_const) */    JSLL_SHL(s, s, 1);
+192: /* MUTANT (rep_const) */    JSLL_SHL(s, s, -1);
+192: /* MUTANT (rep_const) */    JSLL_SHL(s, s, ((32)+1));
+192: /* MUTANT (rep_const) */    JSLL_SHL(s, s, ((32)-1));
+193: /* MUTANT (del_stmt) */ /*     JSLL_ADD(s, s, us); */ 
+194: /* MUTANT (del_stmt) */ /*     JSLL_SUB(s, s, win2un); */ 
+195: /* MUTANT (del_stmt) */ /*     JSLL_DIV(s, s, ten); */ 
+196: /* MUTANT (del_stmt) */ /*     return s; */ 
+203: /* MUTANT (rep_const) */    gettimeofday(&tv, 1);
+203: /* MUTANT (rep_const) */    gettimeofday(&tv, -1);
+206: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(s, tv.tv_sec); */ 
+207: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(us, tv.tv_usec); */ 
+208: /* MUTANT (del_stmt) */ /*     JSLL_MUL(s, s, s2us); */ 
+209: /* MUTANT (del_stmt) */ /*     JSLL_ADD(s, s, us); */ 
+210: /* MUTANT (del_stmt) */ /*     return s; */ 
+218: /* MUTANT (del_stmt) */ /*     JSInt64 us2s; */ 
+219: /* MUTANT (del_stmt) */ /*     time_t local; */ 
+220: /* MUTANT (del_stmt) */ /*     JSInt32 diff; */ 
+221: /* MUTANT (del_stmt) */ /*     JSInt64  maxtimet; */ 
+222: /* MUTANT (del_stmt) */ /*     struct tm tm; */ 
+223: /* MUTANT (del_stmt) */ /*     PRMJTime prtm; */ 
+230: /* MUTANT (del_stmt) */ /*     JSLL_DIV(local_time, local_time, us2s); */ 
+233: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(maxtimet,PRMJ_MAX_UNIX_TIMET); */ 
+235: /* MUTANT (rep_op) */    if(JSLL_CMP(local_time,<=,maxtimet)){
+235: /* MUTANT (rep_op) */    if(JSLL_CMP(local_time,<,maxtimet)){
+235: /* MUTANT (rep_op) */    if(JSLL_CMP(local_time,>=,maxtimet)){
+235: /* MUTANT (rep_op) */    if(JSLL_CMP(local_time,==,maxtimet)){
+235: /* MUTANT (rep_op) */    if(JSLL_CMP(local_time,!=,maxtimet)){
+235: /* MUTANT (negate) */    if(!(JSLL_CMP(local_time,>,maxtimet))){
+236: /* MUTANT (del_stmt) */ /*         JSLL_UI2L(local_time,PRMJ_MAX_UNIX_TIMET); */ 
+237: /* MUTANT (negate) */    } else if(!(!JSLL_GE_ZERO(local_time))){
+239: /* MUTANT (del_stmt) */ /*         JSLL_UI2L(local_time,PRMJ_DAY_SECONDS); */ 
+242: /* MUTANT (del_stmt) */ /*     PRMJ_basetime(local_time,&prtm); */ 
+245: /* MUTANT (negate) */    if(!(!ptm)){
+246: /* MUTANT (del_stmt) */ /*         return JSLL_ZERO; */ 
+253: /* MUTANT (rep_op) */    diff = ((tm.tm_hour - prtm.tm_hour) * PRMJ_HOUR_SECONDS) -
+253: /* MUTANT (rep_op) */    diff = ((tm.tm_hour - prtm.tm_hour) * PRMJ_HOUR_SECONDS) *
+253: /* MUTANT (rep_op) */    diff = ((tm.tm_hour - prtm.tm_hour) * PRMJ_HOUR_SECONDS) %
+253: /* MUTANT (negate) */    dif(!f = ((tm.tm_hour - prtm.tm_hour) * PRMJ_HOUR_SECONDS)) +
+254: /* MUTANT (rep_const) */	((tm.tm_min - prtm.tm_min) * 0);
+254: /* MUTANT (rep_const) */	((tm.tm_min - prtm.tm_min) * 1);
+254: /* MUTANT (rep_const) */	((tm.tm_min - prtm.tm_min) * -1);
+254: /* MUTANT (rep_const) */	((tm.tm_min - prtm.tm_min) * ((60)+1));
+254: /* MUTANT (rep_const) */	((tm.tm_min - prtm.tm_min) * ((60)-1));
+256: /* MUTANT (rep_op) */    if(diff <= 0){
+256: /* MUTANT (rep_op) */    if(diff > 0){
+256: /* MUTANT (rep_op) */    if(diff >= 0){
+256: /* MUTANT (rep_op) */    if(diff == 0){
+256: /* MUTANT (rep_op) */    if(diff != 0){
+256: /* MUTANT (rep_const) */    if(diff < 1){
+256: /* MUTANT (rep_const) */    if(diff < -1){
+256: /* MUTANT (negate) */    if(!(diff < 0)){
+257: /* MUTANT (del_stmt) */ /* 	diff += PRMJ_DAY_SECONDS; */ 
+257: /* MUTANT (rep_op) */	diff -= PRMJ_DAY_SECONDS;
+257: /* MUTANT (rep_op) */	diff *= PRMJ_DAY_SECONDS;
+257: /* MUTANT (rep_op) */	diff %= PRMJ_DAY_SECONDS;
+262: /* MUTANT (del_stmt) */ /*     JSLL_MUL(local_time,local_time,us2s); */ 
+264: /* MUTANT (del_stmt) */ /*     return(local_time); */ 
+287: /* MUTANT (del_stmt) */ /*     memset(&a, 0, sizeof(struct tm)); */ 
+287: /* MUTANT (rep_const) */    memset(&a, 1, sizeof(struct tm));
+287: /* MUTANT (rep_const) */    memset(&a, -1, sizeof(struct tm));
+289: /* MUTANT (del_stmt) */ /*     a.tm_sec = prtm->tm_sec; */ 
+290: /* MUTANT (del_stmt) */ /*     a.tm_min = prtm->tm_min; */ 
+291: /* MUTANT (del_stmt) */ /*     a.tm_hour = prtm->tm_hour; */ 
+292: /* MUTANT (del_stmt) */ /*     a.tm_mday = prtm->tm_mday; */ 
+293: /* MUTANT (del_stmt) */ /*     a.tm_mon = prtm->tm_mon; */ 
+294: /* MUTANT (del_stmt) */ /*     a.tm_wday = prtm->tm_wday; */ 
+295: /* MUTANT (del_stmt) */ /*     a.tm_year = prtm->tm_year - 1900; */ 
+295: /* MUTANT (rep_const) */    a.tm_year = prtm->tm_year - 0;
+295: /* MUTANT (rep_const) */    a.tm_year = prtm->tm_year - 1;
+295: /* MUTANT (rep_const) */    a.tm_year = prtm->tm_year - -1;
+295: /* MUTANT (rep_const) */    a.tm_year = prtm->tm_year - ((1900)+1);
+295: /* MUTANT (rep_const) */    a.tm_year = prtm->tm_year - ((1900)-1);
+296: /* MUTANT (del_stmt) */ /*     a.tm_yday = prtm->tm_yday; */ 
+297: /* MUTANT (del_stmt) */ /*     a.tm_isdst = prtm->tm_isdst; */ 
+307: /* MUTANT (rep_op) */    if (mktime(&a) != -1) {
+307: /* MUTANT (rep_const) */    if (mktime(&a) == 0) {
+307: /* MUTANT (rep_const) */    if (mktime(&a) == 1) {
+307: /* MUTANT (rep_const) */    if (mktime(&a) == ((-1)+1)) {
+307: /* MUTANT (rep_const) */    if (mktime(&a) == ((-1)-1)) {
+307: /* MUTANT (negate) */    if(! (mktime(&a) == -1)) {
+314: /* MUTANT (del_stmt) */ /*         return 0; */ 
+314: /* MUTANT (rep_const) */        return 1;
+314: /* MUTANT (rep_const) */        return -1;
+325: /* MUTANT (rep_const) */    0,28,31,30,31,30,
+325: /* MUTANT (rep_const) */    1,28,31,30,31,30,
+325: /* MUTANT (rep_const) */    -1,28,31,30,31,30,
+325: /* MUTANT (rep_const) */    ((31)+1),28,31,30,31,30,
+325: /* MUTANT (rep_const) */    ((31)-1),28,31,30,31,30,
+325: /* MUTANT (rep_const) */    31,0,31,30,31,30,
+325: /* MUTANT (rep_const) */    31,1,31,30,31,30,
+325: /* MUTANT (rep_const) */    31,-1,31,30,31,30,
+325: /* MUTANT (rep_const) */    31,((28)+1),31,30,31,30,
+325: /* MUTANT (rep_const) */    31,((28)-1),31,30,31,30,
+325: /* MUTANT (rep_const) */    31,28,0,30,31,30,
+325: /* MUTANT (rep_const) */    31,28,1,30,31,30,
+325: /* MUTANT (rep_const) */    31,28,-1,30,31,30,
+325: /* MUTANT (rep_const) */    31,28,((31)+1),30,31,30,
+325: /* MUTANT (rep_const) */    31,28,((31)-1),30,31,30,
+325: /* MUTANT (rep_const) */    31,28,31,0,31,30,
+325: /* MUTANT (rep_const) */    31,28,31,1,31,30,
+325: /* MUTANT (rep_const) */    31,28,31,-1,31,30,
+325: /* MUTANT (rep_const) */    31,28,31,((30)+1),31,30,
+325: /* MUTANT (rep_const) */    31,28,31,((30)-1),31,30,
+325: /* MUTANT (rep_const) */    31,28,31,30,0,30,
+325: /* MUTANT (rep_const) */    31,28,31,30,1,30,
+325: /* MUTANT (rep_const) */    31,28,31,30,-1,30,
+325: /* MUTANT (rep_const) */    31,28,31,30,((31)+1),30,
+325: /* MUTANT (rep_const) */    31,28,31,30,((31)-1),30,
+325: /* MUTANT (rep_const) */    31,28,31,30,31,0,
+325: /* MUTANT (rep_const) */    31,28,31,30,31,1,
+325: /* MUTANT (rep_const) */    31,28,31,30,31,-1,
+325: /* MUTANT (rep_const) */    31,28,31,30,31,((30)+1),
+325: /* MUTANT (rep_const) */    31,28,31,30,31,((30)-1),
+327: /* MUTANT (rep_const) */    0,31,30,31,30,31
+327: /* MUTANT (rep_const) */    1,31,30,31,30,31
+327: /* MUTANT (rep_const) */    -1,31,30,31,30,31
+327: /* MUTANT (rep_const) */    ((31)+1),31,30,31,30,31
+327: /* MUTANT (rep_const) */    ((31)-1),31,30,31,30,31
+327: /* MUTANT (rep_const) */    31,0,30,31,30,31
+327: /* MUTANT (rep_const) */    31,1,30,31,30,31
+327: /* MUTANT (rep_const) */    31,-1,30,31,30,31
+327: /* MUTANT (rep_const) */    31,((31)+1),30,31,30,31
+327: /* MUTANT (rep_const) */    31,((31)-1),30,31,30,31
+327: /* MUTANT (rep_const) */    31,31,0,31,30,31
+327: /* MUTANT (rep_const) */    31,31,1,31,30,31
+327: /* MUTANT (rep_const) */    31,31,-1,31,30,31
+327: /* MUTANT (rep_const) */    31,31,((30)+1),31,30,31
+327: /* MUTANT (rep_const) */    31,31,((30)-1),31,30,31
+327: /* MUTANT (rep_const) */    31,31,30,0,30,31
+327: /* MUTANT (rep_const) */    31,31,30,1,30,31
+327: /* MUTANT (rep_const) */    31,31,30,-1,30,31
+327: /* MUTANT (rep_const) */    31,31,30,((31)+1),30,31
+327: /* MUTANT (rep_const) */    31,31,30,((31)-1),30,31
+327: /* MUTANT (rep_const) */    31,31,30,31,0,31
+327: /* MUTANT (rep_const) */    31,31,30,31,1,31
+327: /* MUTANT (rep_const) */    31,31,30,31,-1,31
+327: /* MUTANT (rep_const) */    31,31,30,31,((30)+1),31
+327: /* MUTANT (rep_const) */    31,31,30,31,((30)-1),31
+327: /* MUTANT (rep_const) */    31,31,30,31,30,0
+327: /* MUTANT (rep_const) */    31,31,30,31,30,1
+327: /* MUTANT (rep_const) */    31,31,30,31,30,-1
+327: /* MUTANT (rep_const) */    31,31,30,31,30,((31)+1)
+327: /* MUTANT (rep_const) */    31,31,30,31,30,((31)-1)
+339: /* MUTANT (del_stmt) */ /*     JSInt32 year    = 0; */ 
+339: /* MUTANT (rep_const) */    JSInt32 year    = 1;
+339: /* MUTANT (rep_const) */    JSInt32 year    = -1;
+340: /* MUTANT (del_stmt) */ /*     JSInt32 month   = 0; */ 
+340: /* MUTANT (rep_const) */    JSInt32 month   = 1;
+340: /* MUTANT (rep_const) */    JSInt32 month   = -1;
+341: /* MUTANT (del_stmt) */ /*     JSInt32 yday    = 0; */ 
+341: /* MUTANT (rep_const) */    JSInt32 yday    = 1;
+341: /* MUTANT (rep_const) */    JSInt32 yday    = -1;
+342: /* MUTANT (del_stmt) */ /*     JSInt32 mday    = 0; */ 
+342: /* MUTANT (rep_const) */    JSInt32 mday    = 1;
+342: /* MUTANT (rep_const) */    JSInt32 mday    = -1;
+343: /* MUTANT (del_stmt) */ /*     JSInt32 wday    = 6; */  /* start on a Sunday */
+343: /* MUTANT (rep_const) */    JSInt32 wday    = 0; /* start on a Sunday */
+343: /* MUTANT (rep_const) */    JSInt32 wday    = 1; /* start on a Sunday */
+343: /* MUTANT (rep_const) */    JSInt32 wday    = -1; /* start on a Sunday */
+343: /* MUTANT (rep_const) */    JSInt32 wday    = ((6)+1); /* start on a Sunday */
+343: /* MUTANT (rep_const) */    JSInt32 wday    = ((6)-1); /* start on a Sunday */
+344: /* MUTANT (del_stmt) */ /*     JSInt32 days    = 0; */ 
+344: /* MUTANT (rep_const) */    JSInt32 days    = 1;
+344: /* MUTANT (rep_const) */    JSInt32 days    = -1;
+345: /* MUTANT (del_stmt) */ /*     JSInt32 seconds = 0; */ 
+345: /* MUTANT (rep_const) */    JSInt32 seconds = 1;
+345: /* MUTANT (rep_const) */    JSInt32 seconds = -1;
+346: /* MUTANT (del_stmt) */ /*     JSInt32 minutes = 0; */ 
+346: /* MUTANT (rep_const) */    JSInt32 minutes = 1;
+346: /* MUTANT (rep_const) */    JSInt32 minutes = -1;
+347: /* MUTANT (del_stmt) */ /*     JSInt32 hours   = 0; */ 
+347: /* MUTANT (rep_const) */    JSInt32 hours   = 1;
+347: /* MUTANT (rep_const) */    JSInt32 hours   = -1;
+348: /* MUTANT (del_stmt) */ /*     JSInt32 isleap  = 0; */ 
+348: /* MUTANT (rep_const) */    JSInt32 isleap  = 1;
+348: /* MUTANT (rep_const) */    JSInt32 isleap  = -1;
+349: /* MUTANT (del_stmt) */ /*     JSInt64 result; */ 
+350: /* MUTANT (del_stmt) */ /*     JSInt64	result1; */ 
+351: /* MUTANT (del_stmt) */ /*     JSInt64	result2; */ 
+352: /* MUTANT (del_stmt) */ /*     JSInt64 base; */ 
+354: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(result,0); */ 
+354: /* MUTANT (rep_const) */    JSLL_UI2L(result,1);
+354: /* MUTANT (rep_const) */    JSLL_UI2L(result,-1);
+355: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(result1,0); */ 
+355: /* MUTANT (rep_const) */    JSLL_UI2L(result1,1);
+355: /* MUTANT (rep_const) */    JSLL_UI2L(result1,-1);
+356: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(result2,0); */ 
+356: /* MUTANT (rep_const) */    JSLL_UI2L(result2,1);
+356: /* MUTANT (rep_const) */    JSLL_UI2L(result2,-1);
+359: /* MUTANT (del_stmt) */ /*     base = PRMJ_ToExtendedTime(0); */ 
+359: /* MUTANT (rep_const) */    base = PRMJ_ToExtendedTime(1);
+359: /* MUTANT (rep_const) */    base = PRMJ_ToExtendedTime(-1);
+360: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(result,  PRMJ_USEC_PER_SEC); */ 
+361: /* MUTANT (del_stmt) */ /*     JSLL_DIV(base,base,result); */ 
+362: /* MUTANT (del_stmt) */ /*     JSLL_ADD(tsecs,tsecs,base); */ 
+364: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(result, PRMJ_YEAR_SECONDS); */ 
+365: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(result1,PRMJ_DAY_SECONDS); */ 
+366: /* MUTANT (del_stmt) */ /*     JSLL_ADD(result2,result,result1); */ 
+369: /* MUTANT (rep_op) */    while ((isleap != 0) ? !JSLL_CMP(tsecs,<,result) : !JSLL_CMP(tsecs,<,result2)) {
+369: /* MUTANT (rep_op) */    while ((isleap == 0) ? !JSLL_CMP(tsecs,<=,result) : !JSLL_CMP(tsecs,<,result2)) {
+369: /* MUTANT (rep_op) */    while ((isleap == 0) ? !JSLL_CMP(tsecs,>,result) : !JSLL_CMP(tsecs,<,result2)) {
+369: /* MUTANT (rep_op) */    while ((isleap == 0) ? !JSLL_CMP(tsecs,>=,result) : !JSLL_CMP(tsecs,<,result2)) {
+369: /* MUTANT (rep_op) */    while ((isleap == 0) ? !JSLL_CMP(tsecs,==,result) : !JSLL_CMP(tsecs,<,result2)) {
+369: /* MUTANT (rep_op) */    while ((isleap == 0) ? !JSLL_CMP(tsecs,!=,result) : !JSLL_CMP(tsecs,<,result2)) {
+369: /* MUTANT (rep_op) */    while ((isleap == 0) ? !JSLL_CMP(tsecs,<,result) : !JSLL_CMP(tsecs,<=,result2)) {
+369: /* MUTANT (rep_op) */    while ((isleap == 0) ? !JSLL_CMP(tsecs,<,result) : !JSLL_CMP(tsecs,>,result2)) {
+369: /* MUTANT (rep_op) */    while ((isleap == 0) ? !JSLL_CMP(tsecs,<,result) : !JSLL_CMP(tsecs,>=,result2)) {
+369: /* MUTANT (rep_op) */    while ((isleap == 0) ? !JSLL_CMP(tsecs,<,result) : !JSLL_CMP(tsecs,==,result2)) {
+369: /* MUTANT (rep_op) */    while ((isleap == 0) ? !JSLL_CMP(tsecs,<,result) : !JSLL_CMP(tsecs,!=,result2)) {
+369: /* MUTANT (rep_const) */    while ((isleap == 1) ? !JSLL_CMP(tsecs,<,result) : !JSLL_CMP(tsecs,<,result2)) {
+369: /* MUTANT (rep_const) */    while ((isleap == -1) ? !JSLL_CMP(tsecs,<,result) : !JSLL_CMP(tsecs,<,result2)) {
+369: /* MUTANT (negate) */    while(! ((isleap == 0) ? !JSLL_CMP(tsecs,<,result) : !JSLL_CMP(tsecs,<,result2))) {
+371: /* MUTANT (del_stmt) */ /*         JSLL_SUB(tsecs,tsecs,result); */ 
+372: /* MUTANT (del_stmt) */ /*         days += 365; */ 
+372: /* MUTANT (rep_op) */        days -= 365;
+372: /* MUTANT (rep_op) */        days *= 365;
+372: /* MUTANT (rep_op) */        days %= 365;
+372: /* MUTANT (rep_const) */        days += 0;
+372: /* MUTANT (rep_const) */        days += 1;
+372: /* MUTANT (rep_const) */        days += -1;
+372: /* MUTANT (rep_const) */        days += ((365)+1);
+372: /* MUTANT (rep_const) */        days += ((365)-1);
+374: /* MUTANT (negate) */        if(!(IS_LEAP(year))){
+375: /* MUTANT (del_stmt) */ /*             JSLL_SUB(tsecs,tsecs,result1); */ 
+376: /* MUTANT (del_stmt) */ /*             days++; */ 
+376: /* MUTANT (rep_op) */            days--;
+378: /* MUTANT (rep_op) */        year--;
+379: /* MUTANT (del_stmt) */ /*         isleap = IS_LEAP(year); */ 
+384: /* MUTANT (del_stmt) */ /*     JSLL_DIV(result,tsecs,result1); */ 
+385: /* MUTANT (del_stmt) */ /*     JSLL_L2I(mday,result); */ 
+388: /* MUTANT (rep_op) */    while(((month != 1 && isleap) ?
+388: /* MUTANT (rep_op) */    while(((month == 1 || isleap) ?
+388: /* MUTANT (rep_const) */    while(((month == 0 && isleap) ?
+388: /* MUTANT (rep_const) */    while(((month == -1 && isleap) ?
+388: /* MUTANT (rep_const) */    while(((month == ((1)+1) && isleap) ?
+389: /* MUTANT (rep_op) */            (mday <= mtab[month] + 1) :
+389: /* MUTANT (rep_op) */            (mday < mtab[month] + 1) :
+389: /* MUTANT (rep_op) */            (mday > mtab[month] + 1) :
+389: /* MUTANT (rep_op) */            (mday == mtab[month] + 1) :
+389: /* MUTANT (rep_op) */            (mday != mtab[month] + 1) :
+389: /* MUTANT (rep_op) */            (mday >= mtab[month] - 1) :
+389: /* MUTANT (rep_op) */            (mday >= mtab[month] * 1) :
+389: /* MUTANT (rep_op) */            (mday >= mtab[month] % 1) :
+389: /* MUTANT (rep_const) */            (mday >= mtab[month] + 0) :
+389: /* MUTANT (rep_const) */            (mday >= mtab[month] + -1) :
+389: /* MUTANT (rep_const) */            (mday >= mtab[month] + ((1)+1)) :
+390: /* MUTANT (rep_op) */            (mday <= mtab[month]))){
+390: /* MUTANT (rep_op) */            (mday < mtab[month]))){
+390: /* MUTANT (rep_op) */            (mday > mtab[month]))){
+390: /* MUTANT (rep_op) */            (mday == mtab[month]))){
+390: /* MUTANT (rep_op) */            (mday != mtab[month]))){
+391: /* MUTANT (del_stmt) */ /* 	 yday += mtab[month]; */ 
+391: /* MUTANT (rep_op) */	 yday -= mtab[month];
+391: /* MUTANT (rep_op) */	 yday *= mtab[month];
+391: /* MUTANT (rep_op) */	 yday %= mtab[month];
+392: /* MUTANT (del_stmt) */ /* 	 days += mtab[month]; */ 
+392: /* MUTANT (rep_op) */	 days -= mtab[month];
+392: /* MUTANT (rep_op) */	 days *= mtab[month];
+392: /* MUTANT (rep_op) */	 days %= mtab[month];
+394: /* MUTANT (del_stmt) */ /* 	 mday -= mtab[month]; */ 
+394: /* MUTANT (rep_op) */	 mday += mtab[month];
+394: /* MUTANT (rep_op) */	 mday *= mtab[month];
+394: /* MUTANT (rep_op) */	 mday %= mtab[month];
+397: /* MUTANT (rep_op) */	 if(month != 1 && isleap != 0){
+397: /* MUTANT (rep_op) */	 if(month == 1 || isleap != 0){
+397: /* MUTANT (rep_op) */	 if(month == 1 && isleap == 0){
+397: /* MUTANT (rep_const) */	 if(month == 0 && isleap != 0){
+397: /* MUTANT (rep_const) */	 if(month == -1 && isleap != 0){
+397: /* MUTANT (rep_const) */	 if(month == ((1)+1) && isleap != 0){
+397: /* MUTANT (rep_const) */	 if(month == 1 && isleap != 1){
+397: /* MUTANT (rep_const) */	 if(month == 1 && isleap != -1){
+397: /* MUTANT (negate) */	 if(!(month == 1 && isleap != 0)){
+398: /* MUTANT (del_stmt) */ /* 	     yday++; */ 
+398: /* MUTANT (rep_op) */	     yday--;
+399: /* MUTANT (del_stmt) */ /* 	     days++; */ 
+399: /* MUTANT (rep_op) */	     days--;
+400: /* MUTANT (del_stmt) */ /* 	     mday--; */ 
+400: /* MUTANT (rep_op) */	     mday++;
+402: /* MUTANT (rep_op) */	 month--;
+407: /* MUTANT (del_stmt) */ /*     JSLL_SUB(tsecs,tsecs,result); */ 
+409: /* MUTANT (del_stmt) */ /*     mday++; */  /* day of month always start with 1 */
+409: /* MUTANT (rep_op) */    mday--; /* day of month always start with 1 */
+410: /* MUTANT (del_stmt) */ /*     days += mday; */ 
+410: /* MUTANT (rep_op) */    days -= mday;
+410: /* MUTANT (rep_op) */    days *= mday;
+410: /* MUTANT (rep_op) */    days %= mday;
+411: /* MUTANT (del_stmt) */ /*     wday = (days + wday) % 7; */ 
+411: /* MUTANT (rep_op) */    wday = (days - wday) % 7;
+411: /* MUTANT (rep_op) */    wday = (days * wday) % 7;
+411: /* MUTANT (rep_op) */    wday = (days % wday) % 7;
+411: /* MUTANT (rep_op) */    wday = (days + wday) + 7;
+411: /* MUTANT (rep_op) */    wday = (days + wday) - 7;
+411: /* MUTANT (rep_op) */    wday = (days + wday) * 7;
+411: /* MUTANT (rep_const) */    wday = (days + wday) % 0;
+411: /* MUTANT (rep_const) */    wday = (days + wday) % 1;
+411: /* MUTANT (rep_const) */    wday = (days + wday) % -1;
+411: /* MUTANT (rep_const) */    wday = (days + wday) % ((7)+1);
+411: /* MUTANT (rep_const) */    wday = (days + wday) % ((7)-1);
+413: /* MUTANT (del_stmt) */ /*     yday += mday; */ 
+413: /* MUTANT (rep_op) */    yday -= mday;
+413: /* MUTANT (rep_op) */    yday *= mday;
+413: /* MUTANT (rep_op) */    yday %= mday;
+416: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(result1,PRMJ_HOUR_SECONDS); */ 
+417: /* MUTANT (del_stmt) */ /*     JSLL_DIV(result,tsecs,result1); */ 
+418: /* MUTANT (del_stmt) */ /*     JSLL_L2I(hours,result); */ 
+419: /* MUTANT (del_stmt) */ /*     JSLL_MUL(result,result,result1); */ 
+420: /* MUTANT (del_stmt) */ /*     JSLL_SUB(tsecs,tsecs,result); */ 
+423: /* MUTANT (del_stmt) */ /*     JSLL_UI2L(result1,60); */ 
+423: /* MUTANT (rep_const) */    JSLL_UI2L(result1,0);
+423: /* MUTANT (rep_const) */    JSLL_UI2L(result1,1);
+423: /* MUTANT (rep_const) */    JSLL_UI2L(result1,-1);
+423: /* MUTANT (rep_const) */    JSLL_UI2L(result1,((60)+1));
+423: /* MUTANT (rep_const) */    JSLL_UI2L(result1,((60)-1));
+424: /* MUTANT (del_stmt) */ /*     JSLL_DIV(result,tsecs,result1); */ 
+425: /* MUTANT (del_stmt) */ /*     JSLL_L2I(minutes,result); */ 
+426: /* MUTANT (del_stmt) */ /*     JSLL_MUL(result,result,result1); */ 
+427: /* MUTANT (del_stmt) */ /*     JSLL_SUB(tsecs,tsecs,result); */ 
+429: /* MUTANT (del_stmt) */ /*     JSLL_L2I(seconds,tsecs); */ 
+431: /* MUTANT (del_stmt) */ /*     prtm->tm_usec  = 0L; */ 
+431: /* MUTANT (rep_const) */    prtm->tm_usec  = 1L;
+431: /* MUTANT (rep_const) */    prtm->tm_usec  = -1L;
+432: /* MUTANT (del_stmt) */ /*     prtm->tm_sec   = (JSInt8)seconds; */ 
+433: /* MUTANT (del_stmt) */ /*     prtm->tm_min   = (JSInt8)minutes; */ 
+434: /* MUTANT (del_stmt) */ /*     prtm->tm_hour  = (JSInt8)hours; */ 
+435: /* MUTANT (del_stmt) */ /*     prtm->tm_mday  = (JSInt8)mday; */ 
+436: /* MUTANT (del_stmt) */ /*     prtm->tm_mon   = (JSInt8)month; */ 
+437: /* MUTANT (del_stmt) */ /*     prtm->tm_wday  = (JSInt8)wday; */ 
+438: /* MUTANT (del_stmt) */ /*     prtm->tm_year  = (JSInt16)year; */ 
+439: /* MUTANT (del_stmt) */ /*     prtm->tm_yday  = (JSInt16)yday; */ 

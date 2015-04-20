@@ -1,0 +1,125 @@
+72: /* MUTANT (del_stmt) */ /*     jsval v; */ 
+73: /* MUTANT (del_stmt) */ /*     char buf[32]; */ 
+73: /* MUTANT (rep_const) */    char buf[0];
+73: /* MUTANT (rep_const) */    char buf[1];
+73: /* MUTANT (rep_const) */    char buf[-1];
+73: /* MUTANT (rep_const) */    char buf[((32)+1)];
+73: /* MUTANT (rep_const) */    char buf[((32)-1)];
+74: /* MUTANT (del_stmt) */ /*     JSString *str; */ 
+76: /* MUTANT (negate) */    if(! (!JS_InstanceOf(cx, obj, &js_BooleanClass, argv)))
+78: /* MUTANT (del_stmt) */ /*     v = OBJ_GET_SLOT(cx, obj, JSSLOT_PRIVATE); */ 
+79: /* MUTANT (negate) */    if(! (!JSVAL_IS_BOOLEAN(v)))
+83: /* MUTANT (rep_const) */                js_boolean_str[JSVAL_TO_BOOLEAN(v) ? 0 : 0]);
+83: /* MUTANT (rep_const) */                js_boolean_str[JSVAL_TO_BOOLEAN(v) ? -1 : 0]);
+83: /* MUTANT (rep_const) */                js_boolean_str[JSVAL_TO_BOOLEAN(v) ? ((1)+1) : 0]);
+83: /* MUTANT (rep_const) */                js_boolean_str[JSVAL_TO_BOOLEAN(v) ? 1 : 1]);
+83: /* MUTANT (rep_const) */                js_boolean_str[JSVAL_TO_BOOLEAN(v) ? 1 : -1]);
+84: /* MUTANT (del_stmt) */ /*     str = JS_NewStringCopyZ(cx, buf); */ 
+85: /* MUTANT (negate) */    if(! (!str))
+87: /* MUTANT (del_stmt) */ /*     *rval = STRING_TO_JSVAL(str); */ 
+88: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+96: /* MUTANT (del_stmt) */ /*     jsval v; */ 
+97: /* MUTANT (del_stmt) */ /*     JSAtom *atom; */ 
+98: /* MUTANT (del_stmt) */ /*     JSString *str; */ 
+100: /* MUTANT (negate) */    if(! (!JS_InstanceOf(cx, obj, &js_BooleanClass, argv)))
+102: /* MUTANT (del_stmt) */ /*     v = OBJ_GET_SLOT(cx, obj, JSSLOT_PRIVATE); */ 
+103: /* MUTANT (negate) */    if(! (!JSVAL_IS_BOOLEAN(v)))
+105: /* MUTANT (del_stmt) */ /*     atom = cx->runtime->atomState.booleanAtoms[JSVAL_TO_BOOLEAN(v) ? 1 : 0]; */ 
+105: /* MUTANT (rep_const) */    atom = cx->runtime->atomState.booleanAtoms[JSVAL_TO_BOOLEAN(v) ? 0 : 0];
+105: /* MUTANT (rep_const) */    atom = cx->runtime->atomState.booleanAtoms[JSVAL_TO_BOOLEAN(v) ? -1 : 0];
+105: /* MUTANT (rep_const) */    atom = cx->runtime->atomState.booleanAtoms[JSVAL_TO_BOOLEAN(v) ? ((1)+1) : 0];
+105: /* MUTANT (rep_const) */    atom = cx->runtime->atomState.booleanAtoms[JSVAL_TO_BOOLEAN(v) ? 1 : 1];
+105: /* MUTANT (rep_const) */    atom = cx->runtime->atomState.booleanAtoms[JSVAL_TO_BOOLEAN(v) ? 1 : -1];
+106: /* MUTANT (del_stmt) */ /*     str = ATOM_TO_STRING(atom); */ 
+107: /* MUTANT (negate) */    if(! (!str))
+109: /* MUTANT (del_stmt) */ /*     *rval = STRING_TO_JSVAL(str); */ 
+110: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+116: /* MUTANT (negate) */    if(! (!JS_InstanceOf(cx, obj, &js_BooleanClass, argv)))
+118: /* MUTANT (del_stmt) */ /*     *rval = OBJ_GET_SLOT(cx, obj, JSSLOT_PRIVATE); */ 
+119: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+124: /* MUTANT (rep_const) */    {js_toSource_str,   bool_toSource,          1,0,0},
+124: /* MUTANT (rep_const) */    {js_toSource_str,   bool_toSource,          -1,0,0},
+124: /* MUTANT (rep_const) */    {js_toSource_str,   bool_toSource,          0,1,0},
+124: /* MUTANT (rep_const) */    {js_toSource_str,   bool_toSource,          0,-1,0},
+124: /* MUTANT (rep_const) */    {js_toSource_str,   bool_toSource,          0,0,1},
+124: /* MUTANT (rep_const) */    {js_toSource_str,   bool_toSource,          0,0,-1},
+126: /* MUTANT (rep_const) */    {js_toString_str,   bool_toString,          1,0,0},
+126: /* MUTANT (rep_const) */    {js_toString_str,   bool_toString,          -1,0,0},
+126: /* MUTANT (rep_const) */    {js_toString_str,   bool_toString,          0,1,0},
+126: /* MUTANT (rep_const) */    {js_toString_str,   bool_toString,          0,-1,0},
+126: /* MUTANT (rep_const) */    {js_toString_str,   bool_toString,          0,0,1},
+126: /* MUTANT (rep_const) */    {js_toString_str,   bool_toString,          0,0,-1},
+127: /* MUTANT (rep_const) */    {js_valueOf_str,    bool_valueOf,           1,0,0},
+127: /* MUTANT (rep_const) */    {js_valueOf_str,    bool_valueOf,           -1,0,0},
+127: /* MUTANT (rep_const) */    {js_valueOf_str,    bool_valueOf,           0,1,0},
+127: /* MUTANT (rep_const) */    {js_valueOf_str,    bool_valueOf,           0,-1,0},
+127: /* MUTANT (rep_const) */    {js_valueOf_str,    bool_valueOf,           0,0,1},
+127: /* MUTANT (rep_const) */    {js_valueOf_str,    bool_valueOf,           0,0,-1},
+128: /* MUTANT (rep_const) */    {1,0,0,0,0}
+128: /* MUTANT (rep_const) */    {-1,0,0,0,0}
+128: /* MUTANT (rep_const) */    {0,1,0,0,0}
+128: /* MUTANT (rep_const) */    {0,-1,0,0,0}
+128: /* MUTANT (rep_const) */    {0,0,1,0,0}
+128: /* MUTANT (rep_const) */    {0,0,-1,0,0}
+128: /* MUTANT (rep_const) */    {0,0,0,1,0}
+128: /* MUTANT (rep_const) */    {0,0,0,-1,0}
+128: /* MUTANT (rep_const) */    {0,0,0,0,1}
+128: /* MUTANT (rep_const) */    {0,0,0,0,-1}
+134: /* MUTANT (del_stmt) */ /*     JSBool b; */ 
+135: /* MUTANT (del_stmt) */ /*     jsval bval; */ 
+137: /* MUTANT (rep_op) */    if (argc == 0) {
+137: /* MUTANT (rep_const) */    if (argc != 1) {
+137: /* MUTANT (rep_const) */    if (argc != -1) {
+137: /* MUTANT (negate) */    if(! (argc != 0)) {
+138: /* MUTANT (rep_const) */        if (!js_ValueToBoolean(cx, argv[1], &b))
+138: /* MUTANT (rep_const) */        if (!js_ValueToBoolean(cx, argv[-1], &b))
+138: /* MUTANT (negate) */        if(! (!js_ValueToBoolean(cx, argv[0], &b)))
+140: /* MUTANT (del_stmt) */ /*         bval = BOOLEAN_TO_JSVAL(b); */ 
+142: /* MUTANT (del_stmt) */ /*         bval = JSVAL_FALSE; */ 
+144: /* MUTANT (negate) */    if(! (!(cx->fp->flags & JSFRAME_CONSTRUCTING))) {
+145: /* MUTANT (del_stmt) */ /*         *rval = bval; */ 
+146: /* MUTANT (del_stmt) */ /*         return JS_TRUE; */ 
+149: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+155: /* MUTANT (del_stmt) */ /*     JSObject *proto; */ 
+157: /* MUTANT (rep_const) */    proto = JS_InitClass(cx, obj, NULL, &js_BooleanClass, Boolean, 0,
+157: /* MUTANT (rep_const) */    proto = JS_InitClass(cx, obj, NULL, &js_BooleanClass, Boolean, -1,
+157: /* MUTANT (rep_const) */    proto = JS_InitClass(cx, obj, NULL, &js_BooleanClass, Boolean, ((1)+1),
+159: /* MUTANT (negate) */    if(! (!proto))
+161: /* MUTANT (del_stmt) */ /*     OBJ_SET_SLOT(cx, proto, JSSLOT_PRIVATE, JSVAL_FALSE); */ 
+162: /* MUTANT (del_stmt) */ /*     return proto; */ 
+168: /* MUTANT (del_stmt) */ /*     JSObject *obj; */ 
+170: /* MUTANT (del_stmt) */ /*     obj = js_NewObject(cx, &js_BooleanClass, NULL, NULL); */ 
+171: /* MUTANT (negate) */    if(! (!obj))
+173: /* MUTANT (del_stmt) */ /*     OBJ_SET_SLOT(cx, obj, JSSLOT_PRIVATE, BOOLEAN_TO_JSVAL(b)); */ 
+174: /* MUTANT (del_stmt) */ /*     return obj; */ 
+180: /* MUTANT (del_stmt) */ /*     return ATOM_TO_STRING(cx->runtime->atomState.booleanAtoms[b ? 1 : 0]); */ 
+180: /* MUTANT (rep_const) */    return ATOM_TO_STRING(cx->runtime->atomState.booleanAtoms[b ? 0 : 0]);
+180: /* MUTANT (rep_const) */    return ATOM_TO_STRING(cx->runtime->atomState.booleanAtoms[b ? -1 : 0]);
+180: /* MUTANT (rep_const) */    return ATOM_TO_STRING(cx->runtime->atomState.booleanAtoms[b ? ((1)+1) : 0]);
+180: /* MUTANT (rep_const) */    return ATOM_TO_STRING(cx->runtime->atomState.booleanAtoms[b ? 1 : 1]);
+180: /* MUTANT (rep_const) */    return ATOM_TO_STRING(cx->runtime->atomState.booleanAtoms[b ? 1 : -1]);
+186: /* MUTANT (del_stmt) */ /*     JSBool b; */ 
+187: /* MUTANT (del_stmt) */ /*     jsdouble d; */ 
+189: /* MUTANT (rep_op) */    if (JSVAL_IS_NULL(v) && JSVAL_IS_VOID(v)) {
+189: /* MUTANT (negate) */    if(! (JSVAL_IS_NULL(v) || JSVAL_IS_VOID(v))) {
+190: /* MUTANT (del_stmt) */ /*         b = JS_FALSE; */ 
+191: /* MUTANT (negate) */    } else if(! (JSVAL_IS_OBJECT(v))) {
+192: /* MUTANT (negate) */        if(! (!JS_VERSION_IS_ECMA(cx))) {
+193: /* MUTANT (negate) */            if(! (!OBJ_DEFAULT_VALUE(cx, JSVAL_TO_OBJECT(v), JSTYPE_BOOLEAN, &v)))
+195: /* MUTANT (negate) */            if(! (!JSVAL_IS_BOOLEAN(v)))
+197: /* MUTANT (del_stmt) */ /*             b = JSVAL_TO_BOOLEAN(v); */ 
+199: /* MUTANT (del_stmt) */ /*             b = JS_TRUE; */ 
+201: /* MUTANT (negate) */    } else if(! (JSVAL_IS_STRING(v))) {
+202: /* MUTANT (del_stmt) */ /*         b = JSSTRING_LENGTH(JSVAL_TO_STRING(v)) ? JS_TRUE : JS_FALSE; */ 
+203: /* MUTANT (negate) */    } else if(! (JSVAL_IS_INT(v))) {
+204: /* MUTANT (del_stmt) */ /*         b = JSVAL_TO_INT(v) ? JS_TRUE : JS_FALSE; */ 
+205: /* MUTANT (negate) */    } else if(! (JSVAL_IS_DOUBLE(v))) {
+206: /* MUTANT (del_stmt) */ /*         d = *JSVAL_TO_DOUBLE(v); */ 
+207: /* MUTANT (del_stmt) */ /*         b = (!JSDOUBLE_IS_NaN(d) && d != 0) ? JS_TRUE : JS_FALSE; */ 
+207: /* MUTANT (rep_op) */        b = (!JSDOUBLE_IS_NaN(d) || d != 0) ? JS_TRUE : JS_FALSE;
+207: /* MUTANT (rep_op) */        b = (!JSDOUBLE_IS_NaN(d) && d == 0) ? JS_TRUE : JS_FALSE;
+207: /* MUTANT (rep_const) */        b = (!JSDOUBLE_IS_NaN(d) && d != 1) ? JS_TRUE : JS_FALSE;
+207: /* MUTANT (rep_const) */        b = (!JSDOUBLE_IS_NaN(d) && d != -1) ? JS_TRUE : JS_FALSE;
+209: /* MUTANT (del_stmt) */ /*         JS_ASSERT(JSVAL_IS_BOOLEAN(v)); */ 
+210: /* MUTANT (del_stmt) */ /*         b = JSVAL_TO_BOOLEAN(v); */ 
+214: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 

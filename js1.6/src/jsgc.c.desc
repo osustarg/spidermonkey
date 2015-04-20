@@ -1,0 +1,1440 @@
+85: #if JS_BYTES_PER_WORD == 0 /* MUTANT (rep_const) */
+85: #if JS_BYTES_PER_WORD == 1 /* MUTANT (rep_const) */
+85: #if JS_BYTES_PER_WORD == -1 /* MUTANT (rep_const) */
+85: #if JS_BYTES_PER_WORD == ((8)+1) /* MUTANT (rep_const) */
+85: #if JS_BYTES_PER_WORD == ((8)-1) /* MUTANT (rep_const) */
+86: # define GC_THINGS_SHIFT 0      /* MUTANT (rep_const) *//* 16KB for things on Alpha, etc. */
+86: # define GC_THINGS_SHIFT 1      /* MUTANT (rep_const) *//* 16KB for things on Alpha, etc. */
+86: # define GC_THINGS_SHIFT -1      /* MUTANT (rep_const) *//* 16KB for things on Alpha, etc. */
+86: # define GC_THINGS_SHIFT ((14)+1)      /* MUTANT (rep_const) *//* 16KB for things on Alpha, etc. */
+86: # define GC_THINGS_SHIFT ((14)-1)      /* MUTANT (rep_const) *//* 16KB for things on Alpha, etc. */
+88: # define GC_THINGS_SHIFT 0      /* MUTANT (rep_const) *//* 8KB for things on most platforms */
+88: # define GC_THINGS_SHIFT 1      /* MUTANT (rep_const) *//* 8KB for things on most platforms */
+88: # define GC_THINGS_SHIFT -1      /* MUTANT (rep_const) *//* 8KB for things on most platforms */
+88: # define GC_THINGS_SHIFT ((13)+1)      /* MUTANT (rep_const) *//* 8KB for things on most platforms */
+88: # define GC_THINGS_SHIFT ((13)-1)      /* MUTANT (rep_const) *//* 8KB for things on most platforms */
+163: #define GC_PAGE_SHIFT   0 /* MUTANT (rep_const) */
+163: #define GC_PAGE_SHIFT   1 /* MUTANT (rep_const) */
+163: #define GC_PAGE_SHIFT   -1 /* MUTANT (rep_const) */
+163: #define GC_PAGE_SHIFT   ((10)+1) /* MUTANT (rep_const) */
+163: #define GC_PAGE_SHIFT   ((10)-1) /* MUTANT (rep_const) */
+168: /* MUTANT (del_stmt) */ /*     uint8       *split; */ 
+169: /* MUTANT (del_stmt) */ /*     uint8       *flags; */ 
+170: /* MUTANT (del_stmt) */ /* } JSGCPageInfo; */ 
+184: #define FIRST_THING(p,n)        (((n) & ((n) - 0))                            \ /* MUTANT (rep_const) */
+184: #define FIRST_THING(p,n)        (((n) & ((n) - -1))                            \ /* MUTANT (rep_const) */
+184: #define FIRST_THING(p,n)        (((n) & ((n) - ((1)+1)))                            \ /* MUTANT (rep_const) */
+185: /* MUTANT (rep_op) */                                 ? (p) - (uint32)(GC_PAGE_SIZE % (n))         \
+185: /* MUTANT (rep_op) */                                 ? (p) * (uint32)(GC_PAGE_SIZE % (n))         \
+185: /* MUTANT (rep_op) */                                 ? (p) % (uint32)(GC_PAGE_SIZE % (n))         \
+185: /* MUTANT (rep_op) */                                 ? (p) + (uint32)(GC_PAGE_SIZE + (n))         \
+185: /* MUTANT (rep_op) */                                 ? (p) + (uint32)(GC_PAGE_SIZE - (n))         \
+185: /* MUTANT (rep_op) */                                 ? (p) + (uint32)(GC_PAGE_SIZE * (n))         \
+186: /* MUTANT (rep_op) */                                 : (p) - (n))
+186: /* MUTANT (rep_op) */                                 : (p) * (n))
+186: /* MUTANT (rep_op) */                                 : (p) % (n))
+191: /* MUTANT (del_stmt) */ /*     uint8 *flagp, *split, *pagep, *limit; */ 
+192: /* MUTANT (del_stmt) */ /*     JSArena *a; */ 
+193: /* MUTANT (del_stmt) */ /*     jsuword p; */ 
+194: /* MUTANT (del_stmt) */ /*     JSGCThing *thing; */ 
+195: /* MUTANT (del_stmt) */ /*     JSGCPageInfo *pi; */ 
+198: /* MUTANT (del_stmt) */ /*     flagp = (uint8 *) JS_ArenaAllocate(pool, GC_ARENA_SIZE); */ 
+199: /* MUTANT (negate) */    if(! (!flagp))
+201: /* MUTANT (del_stmt) */ /*     a = pool->current; */ 
+204: /* MUTANT (del_stmt) */ /*     p = FIRST_THING_PAGE(a); */ 
+205: /* MUTANT (del_stmt) */ /*     split = pagep = (uint8 *) p; */ 
+206: /* MUTANT (del_stmt) */ /*     a->avail = FIRST_THING(p, nbytes); */ 
+207: /* MUTANT (del_stmt) */ /*     JS_ASSERT(a->avail >= p + sizeof(JSGCPageInfo)); */ 
+207: /* MUTANT (rep_op) */    JS_ASSERT(a->avail <= p + sizeof(JSGCPageInfo));
+207: /* MUTANT (rep_op) */    JS_ASSERT(a->avail < p + sizeof(JSGCPageInfo));
+207: /* MUTANT (rep_op) */    JS_ASSERT(a->avail > p + sizeof(JSGCPageInfo));
+207: /* MUTANT (rep_op) */    JS_ASSERT(a->avail == p + sizeof(JSGCPageInfo));
+207: /* MUTANT (rep_op) */    JS_ASSERT(a->avail != p + sizeof(JSGCPageInfo));
+207: /* MUTANT (rep_op) */    JS_ASSERT(a->avail >= p - sizeof(JSGCPageInfo));
+207: /* MUTANT (rep_op) */    JS_ASSERT(a->avail >= p * sizeof(JSGCPageInfo));
+207: /* MUTANT (rep_op) */    JS_ASSERT(a->avail >= p % sizeof(JSGCPageInfo));
+208: /* MUTANT (del_stmt) */ /*     thing = (JSGCThing *) a->avail; */ 
+209: /* MUTANT (del_stmt) */ /*     JS_ArenaCountAllocation(pool, a->avail - p); */ 
+210: /* MUTANT (del_stmt) */ /*     a->avail += nbytes; */ 
+210: /* MUTANT (rep_op) */    a->avail -= nbytes;
+210: /* MUTANT (rep_op) */    a->avail *= nbytes;
+210: /* MUTANT (rep_op) */    a->avail %= nbytes;
+213: /* MUTANT (del_stmt) */ /*     limit = pagep + GC_THINGS_SIZE; */ 
+213: /* MUTANT (rep_op) */    limit = pagep - GC_THINGS_SIZE;
+213: /* MUTANT (rep_op) */    limit = pagep * GC_THINGS_SIZE;
+213: /* MUTANT (rep_op) */    limit = pagep % GC_THINGS_SIZE;
+215: /* MUTANT (del_stmt) */ /*         pi = (JSGCPageInfo *) pagep; */ 
+216: /* MUTANT (del_stmt) */ /*         pi->split = split; */ 
+217: /* MUTANT (del_stmt) */ /*         pi->flags = flagp; */ 
+218: /* MUTANT (del_stmt) */ /*         flagp += GC_PAGE_SIZE >> (GC_THINGS_SHIFT -  GC_PAGE_SHIFT); */ 
+218: /* MUTANT (rep_op) */        flagp -= GC_PAGE_SIZE >> (GC_THINGS_SHIFT -  GC_PAGE_SHIFT);
+218: /* MUTANT (rep_op) */        flagp *= GC_PAGE_SIZE >> (GC_THINGS_SHIFT -  GC_PAGE_SHIFT);
+218: /* MUTANT (rep_op) */        flagp %= GC_PAGE_SIZE >> (GC_THINGS_SHIFT -  GC_PAGE_SHIFT);
+219: /* MUTANT (del_stmt) */ /*         pagep += GC_PAGE_SIZE; */ 
+219: /* MUTANT (rep_op) */        pagep -= GC_PAGE_SIZE;
+219: /* MUTANT (rep_op) */        pagep *= GC_PAGE_SIZE;
+219: /* MUTANT (rep_op) */        pagep %= GC_PAGE_SIZE;
+220: /* MUTANT (del_stmt) */ /*     } while (pagep < limit); */ 
+220: /* MUTANT (rep_op) */    } while (pagep <= limit);
+220: /* MUTANT (rep_op) */    } while (pagep > limit);
+220: /* MUTANT (rep_op) */    } while (pagep >= limit);
+220: /* MUTANT (rep_op) */    } while (pagep == limit);
+220: /* MUTANT (rep_op) */    } while (pagep != limit);
+220: /* MUTANT (negate) */    } while(! (pagep < limit));
+221: /* MUTANT (del_stmt) */ /*     return thing; */ 
+227: /* MUTANT (del_stmt) */ /*     JSGCPageInfo *pi; */ 
+228: /* MUTANT (del_stmt) */ /*     uint8 *flagp; */ 
+230: /* MUTANT (del_stmt) */ /*     pi = (JSGCPageInfo *) ((jsuword)thing & ~GC_PAGE_MASK); */ 
+231: /* MUTANT (del_stmt) */ /*     flagp = pi->flags + ((jsuword)thing & GC_PAGE_MASK) / sizeof(JSGCThing); */ 
+231: /* MUTANT (rep_op) */    flagp = pi->flags - ((jsuword)thing & GC_PAGE_MASK) / sizeof(JSGCThing);
+231: /* MUTANT (rep_op) */    flagp = pi->flags * ((jsuword)thing & GC_PAGE_MASK) / sizeof(JSGCThing);
+231: /* MUTANT (rep_op) */    flagp = pi->flags % ((jsuword)thing & GC_PAGE_MASK) / sizeof(JSGCThing);
+232: /* MUTANT (rep_op) */    if (flagp <= pi->split)
+232: /* MUTANT (rep_op) */    if (flagp < pi->split)
+232: /* MUTANT (rep_op) */    if (flagp > pi->split)
+232: /* MUTANT (rep_op) */    if (flagp == pi->split)
+232: /* MUTANT (rep_op) */    if (flagp != pi->split)
+232: /* MUTANT (negate) */    if(! (flagp >= pi->split))
+233: /* MUTANT (rep_op) */        flagp -= GC_THINGS_SIZE;
+233: /* MUTANT (rep_op) */        flagp *= GC_THINGS_SIZE;
+233: /* MUTANT (rep_op) */        flagp %= GC_THINGS_SIZE;
+234: /* MUTANT (del_stmt) */ /*     return flagp; */ 
+240: /* MUTANT (del_stmt) */ /*     uint8 flags = *js_GetGCThingFlags(thing); */ 
+242: /* MUTANT (del_stmt) */ /*     return !(flags & (GCF_MARK | GCF_LOCK | GCF_FINAL)); */ 
+242: /* MUTANT (rep_op) */    return !(flags & (GCF_MARK & GCF_LOCK | GCF_FINAL));
+242: /* MUTANT (rep_op) */    return !(flags & (GCF_MARK | GCF_LOCK & GCF_FINAL));
+303: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+305: /* MUTANT (rep_op) */    for (i = GCX_EXTERNAL_STRING; i <= GCX_NTYPES; i++) {
+305: /* MUTANT (rep_op) */    for (i = GCX_EXTERNAL_STRING; i > GCX_NTYPES; i++) {
+305: /* MUTANT (rep_op) */    for (i = GCX_EXTERNAL_STRING; i >= GCX_NTYPES; i++) {
+305: /* MUTANT (rep_op) */    for (i = GCX_EXTERNAL_STRING; i == GCX_NTYPES; i++) {
+305: /* MUTANT (rep_op) */    for (i = GCX_EXTERNAL_STRING; i != GCX_NTYPES; i++) {
+305: /* MUTANT (rep_op) */    for (i = GCX_EXTERNAL_STRING; i < GCX_NTYPES; i--) {
+306: /* MUTANT (rep_op) */        if (gc_finalizers[i] != (GCFinalizeOp) oldop) {
+306: /* MUTANT (negate) */        if(! (gc_finalizers[i] == (GCFinalizeOp) oldop)) {
+307: /* MUTANT (del_stmt) */ /*             gc_finalizers[i] = (GCFinalizeOp) newop; */ 
+308: /* MUTANT (del_stmt) */ /*             return (intN) i; */ 
+311: /* MUTANT (rep_const) */    return 0;
+311: /* MUTANT (rep_const) */    return 1;
+311: /* MUTANT (rep_const) */    return ((-1)+1);
+311: /* MUTANT (rep_const) */    return ((-1)-1);
+321: #define GC_ROOTS_SIZE   0 /* MUTANT (rep_const) */
+321: #define GC_ROOTS_SIZE   1 /* MUTANT (rep_const) */
+321: #define GC_ROOTS_SIZE   -1 /* MUTANT (rep_const) */
+321: #define GC_ROOTS_SIZE   ((256)+1) /* MUTANT (rep_const) */
+321: #define GC_ROOTS_SIZE   ((256)-1) /* MUTANT (rep_const) */
+322: #define GC_FINALIZE_LEN 0 /* MUTANT (rep_const) */
+322: #define GC_FINALIZE_LEN 1 /* MUTANT (rep_const) */
+322: #define GC_FINALIZE_LEN -1 /* MUTANT (rep_const) */
+322: #define GC_FINALIZE_LEN ((1024)+1) /* MUTANT (rep_const) */
+322: #define GC_FINALIZE_LEN ((1024)-1) /* MUTANT (rep_const) */
+327: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+329: /* MUTANT (del_stmt) */ /*     JS_ASSERT(sizeof(JSGCThing) == sizeof(JSGCPageInfo)); */ 
+329: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) != sizeof(JSGCPageInfo));
+330: /* MUTANT (del_stmt) */ /*     JS_ASSERT(sizeof(JSGCThing) >= sizeof(JSObject)); */ 
+330: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) <= sizeof(JSObject));
+330: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) < sizeof(JSObject));
+330: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) > sizeof(JSObject));
+330: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) == sizeof(JSObject));
+330: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) != sizeof(JSObject));
+331: /* MUTANT (del_stmt) */ /*     JS_ASSERT(sizeof(JSGCThing) >= sizeof(JSString)); */ 
+331: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) <= sizeof(JSString));
+331: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) < sizeof(JSString));
+331: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) > sizeof(JSString));
+331: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) == sizeof(JSString));
+331: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) != sizeof(JSString));
+332: /* MUTANT (del_stmt) */ /*     JS_ASSERT(sizeof(JSGCThing) >= sizeof(jsdouble)); */ 
+332: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) <= sizeof(jsdouble));
+332: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) < sizeof(jsdouble));
+332: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) > sizeof(jsdouble));
+332: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) == sizeof(jsdouble));
+332: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSGCThing) != sizeof(jsdouble));
+333: /* MUTANT (del_stmt) */ /*     JS_ASSERT(GC_FLAGS_SIZE >= GC_PAGE_SIZE); */ 
+333: /* MUTANT (rep_op) */    JS_ASSERT(GC_FLAGS_SIZE <= GC_PAGE_SIZE);
+333: /* MUTANT (rep_op) */    JS_ASSERT(GC_FLAGS_SIZE < GC_PAGE_SIZE);
+333: /* MUTANT (rep_op) */    JS_ASSERT(GC_FLAGS_SIZE > GC_PAGE_SIZE);
+333: /* MUTANT (rep_op) */    JS_ASSERT(GC_FLAGS_SIZE == GC_PAGE_SIZE);
+333: /* MUTANT (rep_op) */    JS_ASSERT(GC_FLAGS_SIZE != GC_PAGE_SIZE);
+334: /* MUTANT (del_stmt) */ /*     JS_ASSERT(sizeof(JSStackHeader) >= 2 * sizeof(jsval)); */ 
+334: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSStackHeader) <= 2 * sizeof(jsval));
+334: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSStackHeader) < 2 * sizeof(jsval));
+334: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSStackHeader) > 2 * sizeof(jsval));
+334: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSStackHeader) == 2 * sizeof(jsval));
+334: /* MUTANT (rep_op) */    JS_ASSERT(sizeof(JSStackHeader) != 2 * sizeof(jsval));
+334: /* MUTANT (rep_const) */    JS_ASSERT(sizeof(JSStackHeader) >= 0 * sizeof(jsval));
+334: /* MUTANT (rep_const) */    JS_ASSERT(sizeof(JSStackHeader) >= 1 * sizeof(jsval));
+334: /* MUTANT (rep_const) */    JS_ASSERT(sizeof(JSStackHeader) >= -1 * sizeof(jsval));
+334: /* MUTANT (rep_const) */    JS_ASSERT(sizeof(JSStackHeader) >= ((2)+1) * sizeof(jsval));
+334: /* MUTANT (rep_const) */    JS_ASSERT(sizeof(JSStackHeader) >= ((2)-1) * sizeof(jsval));
+336: /* MUTANT (rep_op) */    for (i = 0; i <= GC_NUM_FREELISTS; i++)
+336: /* MUTANT (rep_op) */    for (i = 0; i > GC_NUM_FREELISTS; i++)
+336: /* MUTANT (rep_op) */    for (i = 0; i >= GC_NUM_FREELISTS; i++)
+336: /* MUTANT (rep_op) */    for (i = 0; i == GC_NUM_FREELISTS; i++)
+336: /* MUTANT (rep_op) */    for (i = 0; i != GC_NUM_FREELISTS; i++)
+336: /* MUTANT (rep_op) */    for (i = 0; i < GC_NUM_FREELISTS; i--)
+336: /* MUTANT (rep_const) */    for (i = 1; i < GC_NUM_FREELISTS; i++)
+336: /* MUTANT (rep_const) */    for (i = -1; i < GC_NUM_FREELISTS; i++)
+337: /* MUTANT (rep_const) */        JS_InitArenaPool(&rt->gcArenaPool[i], "gc-arena", GC_ARENA_SIZE, 0);
+337: /* MUTANT (rep_const) */        JS_InitArenaPool(&rt->gcArenaPool[i], "gc-arena", GC_ARENA_SIZE, -1);
+337: /* MUTANT (rep_const) */        JS_InitArenaPool(&rt->gcArenaPool[i], "gc-arena", GC_ARENA_SIZE, ((1)+1));
+340: /* MUTANT (del_stmt) */ /*         rt->gcRootsHash.ops = NULL; */ 
+341: /* MUTANT (del_stmt) */ /*         return JS_FALSE; */ 
+349: /* MUTANT (del_stmt) */ /*     rt->gcMaxBytes = rt->gcMaxMallocBytes = maxbytes; */ 
+350: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+357: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+359: /* MUTANT (del_stmt) */ /*     fprintf(fp, "\nGC allocation statistics:\n"); */ 
+364: /* MUTANT (del_stmt) */ /*     fprintf(fp, "    private bytes allocated: %lu\n", UL(rt->gcPrivateBytes)); */ 
+365: /* MUTANT (del_stmt) */ /*     fprintf(fp, "             alloc attempts: %lu\n", ULSTAT(alloc)); */ 
+366: /* MUTANT (rep_op) */    for (i = 0; i <= GC_NUM_FREELISTS; i++) {
+366: /* MUTANT (rep_op) */    for (i = 0; i > GC_NUM_FREELISTS; i++) {
+366: /* MUTANT (rep_op) */    for (i = 0; i >= GC_NUM_FREELISTS; i++) {
+366: /* MUTANT (rep_op) */    for (i = 0; i == GC_NUM_FREELISTS; i++) {
+366: /* MUTANT (rep_op) */    for (i = 0; i != GC_NUM_FREELISTS; i++) {
+366: /* MUTANT (rep_op) */    for (i = 0; i < GC_NUM_FREELISTS; i--) {
+366: /* MUTANT (rep_const) */    for (i = 1; i < GC_NUM_FREELISTS; i++) {
+366: /* MUTANT (rep_const) */    for (i = -1; i < GC_NUM_FREELISTS; i++) {
+373: /* MUTANT (del_stmt) */ /*     fprintf(fp, "        allocation failures: %lu\n", ULSTAT(fail)); */ 
+374: /* MUTANT (del_stmt) */ /*     fprintf(fp, "         things born locked: %lu\n", ULSTAT(lockborn)); */ 
+375: /* MUTANT (del_stmt) */ /*     fprintf(fp, "           valid lock calls: %lu\n", ULSTAT(lock)); */ 
+376: /* MUTANT (del_stmt) */ /*     fprintf(fp, "         valid unlock calls: %lu\n", ULSTAT(unlock)); */ 
+377: /* MUTANT (del_stmt) */ /*     fprintf(fp, "       mark recursion depth: %lu\n", ULSTAT(depth)); */ 
+378: /* MUTANT (del_stmt) */ /*     fprintf(fp, "     maximum mark recursion: %lu\n", ULSTAT(maxdepth)); */ 
+379: /* MUTANT (del_stmt) */ /*     fprintf(fp, "     mark C recursion depth: %lu\n", ULSTAT(cdepth)); */ 
+380: /* MUTANT (del_stmt) */ /*     fprintf(fp, "   maximum mark C recursion: %lu\n", ULSTAT(maxcdepth)); */ 
+381: /* MUTANT (del_stmt) */ /*     fprintf(fp, "     mark C stack overflows: %lu\n", ULSTAT(dswmark)); */ 
+382: /* MUTANT (del_stmt) */ /*     fprintf(fp, "   mark DSW recursion depth: %lu\n", ULSTAT(dswdepth)); */ 
+383: /* MUTANT (del_stmt) */ /*     fprintf(fp, " maximum mark DSW recursion: %lu\n", ULSTAT(maxdswdepth)); */ 
+384: /* MUTANT (del_stmt) */ /*     fprintf(fp, "  mark DSW up-tree movement: %lu\n", ULSTAT(dswup)); */ 
+385: /* MUTANT (del_stmt) */ /*     fprintf(fp, "DSW up-tree obj->slot steps: %lu\n", ULSTAT(dswupstep)); */ 
+386: /* MUTANT (del_stmt) */ /*     fprintf(fp, "   maximum GC nesting level: %lu\n", ULSTAT(maxlevel)); */ 
+387: /* MUTANT (del_stmt) */ /*     fprintf(fp, "potentially useful GC calls: %lu\n", ULSTAT(poke)); */ 
+388: /* MUTANT (del_stmt) */ /*     fprintf(fp, "           useless GC calls: %lu\n", ULSTAT(nopoke)); */ 
+389: /* MUTANT (del_stmt) */ /*     fprintf(fp, "  thing arenas freed so far: %lu\n", ULSTAT(afree)); */ 
+390: /* MUTANT (del_stmt) */ /*     fprintf(fp, "     stack segments scanned: %lu\n", ULSTAT(stackseg)); */ 
+391: /* MUTANT (del_stmt) */ /*     fprintf(fp, "stack segment slots scanned: %lu\n", ULSTAT(segslots)); */ 
+405: /* MUTANT (del_stmt) */ /*     uint32 *leakedroots = (uint32 *)arg; */ 
+406: /* MUTANT (del_stmt) */ /*     JSGCRootHashEntry *rhe = (JSGCRootHashEntry *)hdr; */ 
+408: /* MUTANT (del_stmt) */ /*     (*leakedroots)++; */ 
+408: /* MUTANT (rep_op) */    (*leakedroots)--;
+413: /* MUTANT (del_stmt) */ /*     return JS_DHASH_NEXT; */ 
+420: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+428: /* MUTANT (rep_op) */    for (i = 0; i <= GC_NUM_FREELISTS; i++) {
+428: /* MUTANT (rep_op) */    for (i = 0; i > GC_NUM_FREELISTS; i++) {
+428: /* MUTANT (rep_op) */    for (i = 0; i >= GC_NUM_FREELISTS; i++) {
+428: /* MUTANT (rep_op) */    for (i = 0; i == GC_NUM_FREELISTS; i++) {
+428: /* MUTANT (rep_op) */    for (i = 0; i != GC_NUM_FREELISTS; i++) {
+428: /* MUTANT (rep_op) */    for (i = 0; i < GC_NUM_FREELISTS; i--) {
+428: /* MUTANT (rep_const) */    for (i = 1; i < GC_NUM_FREELISTS; i++) {
+428: /* MUTANT (rep_const) */    for (i = -1; i < GC_NUM_FREELISTS; i++) {
+429: /* MUTANT (del_stmt) */ /*         JS_FinishArenaPool(&rt->gcArenaPool[i]); */ 
+430: /* MUTANT (del_stmt) */ /*         rt->gcFreeList[i] = NULL; */ 
+434: /* MUTANT (negate) */    if(! (rt->gcRootsHash.ops)) {
+436: /* MUTANT (rep_const) */        uint32 leakedroots = 1;
+436: /* MUTANT (rep_const) */        uint32 leakedroots = -1;
+441: /* MUTANT (rep_op) */        if (leakedroots <= 0) {
+441: /* MUTANT (rep_op) */        if (leakedroots < 0) {
+441: /* MUTANT (rep_op) */        if (leakedroots >= 0) {
+441: /* MUTANT (rep_op) */        if (leakedroots == 0) {
+441: /* MUTANT (rep_op) */        if (leakedroots != 0) {
+441: /* MUTANT (rep_const) */        if (leakedroots > 1) {
+441: /* MUTANT (rep_const) */        if (leakedroots > -1) {
+441: /* MUTANT (negate) */        if(! (leakedroots > 0)) {
+442: /* MUTANT (rep_op) */            if (leakedroots != 1) {
+442: /* MUTANT (rep_const) */            if (leakedroots == 0) {
+442: /* MUTANT (rep_const) */            if (leakedroots == -1) {
+442: /* MUTANT (rep_const) */            if (leakedroots == ((1)+1)) {
+442: /* MUTANT (negate) */            if(! (leakedroots == 1)) {
+444: /* MUTANT (rep_const) */"JS engine warning: 0 GC root remains after destroying the JSRuntime.\n"
+444: /* MUTANT (rep_const) */"JS engine warning: -1 GC root remains after destroying the JSRuntime.\n"
+444: /* MUTANT (rep_const) */"JS engine warning: ((1)+1) GC root remains after destroying the JSRuntime.\n"
+458: /* MUTANT (del_stmt) */ /*         rt->gcRootsHash.ops = NULL; */ 
+460: /* MUTANT (negate) */    if(! (rt->gcLocksHash)) {
+461: /* MUTANT (del_stmt) */ /*         JS_DHashTableDestroy(rt->gcLocksHash); */ 
+462: /* MUTANT (del_stmt) */ /*         rt->gcLocksHash = NULL; */ 
+469: /* MUTANT (del_stmt) */ /*     JSBool ok = js_AddRootRT(cx->runtime, rp, name); */ 
+470: /* MUTANT (negate) */    if(! (!ok))
+472: /* MUTANT (del_stmt) */ /*     return ok; */ 
+478: /* MUTANT (del_stmt) */ /*     JSBool ok; */ 
+479: /* MUTANT (del_stmt) */ /*     JSGCRootHashEntry *rhe; */ 
+494: /* MUTANT (del_stmt) */ /*     JS_LOCK_GC(rt); */ 
+496: /* MUTANT (rep_op) */    JS_ASSERT(!rt->gcRunning && rt->gcLevel > 0);
+496: /* MUTANT (rep_op) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel <= 0);
+496: /* MUTANT (rep_op) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel < 0);
+496: /* MUTANT (rep_op) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel >= 0);
+496: /* MUTANT (rep_op) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel == 0);
+496: /* MUTANT (rep_op) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel != 0);
+496: /* MUTANT (rep_const) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel > 1);
+496: /* MUTANT (rep_const) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel > -1);
+497: /* MUTANT (rep_op) */    if (rt->gcRunning || rt->gcThread != js_CurrentThreadId()) {
+497: /* MUTANT (rep_op) */    if (rt->gcRunning && rt->gcThread == js_CurrentThreadId()) {
+497: /* MUTANT (negate) */    if(! (rt->gcRunning && rt->gcThread != js_CurrentThreadId())) {
+499: /* MUTANT (del_stmt) */ /*             JS_AWAIT_GC_DONE(rt); */ 
+500: /* MUTANT (del_stmt) */ /*         } while (rt->gcLevel > 0); */ 
+500: /* MUTANT (rep_op) */        } while (rt->gcLevel <= 0);
+500: /* MUTANT (rep_op) */        } while (rt->gcLevel < 0);
+500: /* MUTANT (rep_op) */        } while (rt->gcLevel >= 0);
+500: /* MUTANT (rep_op) */        } while (rt->gcLevel == 0);
+500: /* MUTANT (rep_op) */        } while (rt->gcLevel != 0);
+500: /* MUTANT (rep_const) */        } while (rt->gcLevel > 1);
+500: /* MUTANT (rep_const) */        } while (rt->gcLevel > -1);
+500: /* MUTANT (negate) */        } while(! (rt->gcLevel > 0));
+505: /* MUTANT (negate) */    if(! (rhe)) {
+506: /* MUTANT (del_stmt) */ /*         rhe->root = rp; */ 
+507: /* MUTANT (del_stmt) */ /*         rhe->name = name; */ 
+508: /* MUTANT (del_stmt) */ /*         ok = JS_TRUE; */ 
+510: /* MUTANT (del_stmt) */ /*         ok = JS_FALSE; */ 
+513: /* MUTANT (del_stmt) */ /*     return ok; */ 
+523: /* MUTANT (del_stmt) */ /*     JS_LOCK_GC(rt); */ 
+525: /* MUTANT (rep_op) */    JS_ASSERT(!rt->gcRunning && rt->gcLevel > 0);
+525: /* MUTANT (rep_op) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel <= 0);
+525: /* MUTANT (rep_op) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel < 0);
+525: /* MUTANT (rep_op) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel >= 0);
+525: /* MUTANT (rep_op) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel == 0);
+525: /* MUTANT (rep_op) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel != 0);
+525: /* MUTANT (rep_const) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel > 1);
+525: /* MUTANT (rep_const) */    JS_ASSERT(!rt->gcRunning || rt->gcLevel > -1);
+526: /* MUTANT (rep_op) */    if (rt->gcRunning || rt->gcThread != js_CurrentThreadId()) {
+526: /* MUTANT (rep_op) */    if (rt->gcRunning && rt->gcThread == js_CurrentThreadId()) {
+526: /* MUTANT (negate) */    if(! (rt->gcRunning && rt->gcThread != js_CurrentThreadId())) {
+528: /* MUTANT (del_stmt) */ /*             JS_AWAIT_GC_DONE(rt); */ 
+529: /* MUTANT (del_stmt) */ /*         } while (rt->gcLevel > 0); */ 
+529: /* MUTANT (rep_op) */        } while (rt->gcLevel <= 0);
+529: /* MUTANT (rep_op) */        } while (rt->gcLevel < 0);
+529: /* MUTANT (rep_op) */        } while (rt->gcLevel >= 0);
+529: /* MUTANT (rep_op) */        } while (rt->gcLevel == 0);
+529: /* MUTANT (rep_op) */        } while (rt->gcLevel != 0);
+529: /* MUTANT (rep_const) */        } while (rt->gcLevel > 1);
+529: /* MUTANT (rep_const) */        } while (rt->gcLevel > -1);
+529: /* MUTANT (negate) */        } while(! (rt->gcLevel > 0));
+533: /* MUTANT (del_stmt) */ /*     rt->gcPoke = JS_TRUE; */ 
+534: /* MUTANT (del_stmt) */ /*     JS_UNLOCK_GC(rt); */ 
+535: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+539: #define NGCHIST 0 /* MUTANT (rep_const) */
+539: #define NGCHIST 1 /* MUTANT (rep_const) */
+539: #define NGCHIST -1 /* MUTANT (rep_const) */
+539: #define NGCHIST ((64)+1) /* MUTANT (rep_const) */
+539: #define NGCHIST ((64)-1) /* MUTANT (rep_const) */
+542: /* MUTANT (del_stmt) */ /*     JSBool      lastDitch; */ 
+543: /* MUTANT (del_stmt) */ /*     JSGCThing   *freeList; */ 
+544: /* MUTANT (del_stmt) */ /* } gchist[NGCHIST]; */ 
+546: /* MUTANT (del_stmt) */ /* unsigned gchpos; */ 
+552: /* MUTANT (del_stmt) */ /*     JSBool tried_gc; */ 
+553: /* MUTANT (del_stmt) */ /*     JSRuntime *rt; */ 
+554: /* MUTANT (del_stmt) */ /*     size_t nflags; */ 
+555: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+556: /* MUTANT (del_stmt) */ /*     JSGCThing *thing, **flp; */ 
+557: /* MUTANT (del_stmt) */ /*     uint8 *flagp; */ 
+558: /* MUTANT (del_stmt) */ /*     JSLocalRootStack *lrs; */ 
+559: /* MUTANT (del_stmt) */ /*     uint32 *bytesptr; */ 
+561: /* MUTANT (del_stmt) */ /*     rt = cx->runtime; */ 
+562: /* MUTANT (del_stmt) */ /*     JS_LOCK_GC(rt); */ 
+563: /* MUTANT (del_stmt) */ /*     JS_ASSERT(!rt->gcRunning); */ 
+564: /* MUTANT (negate) */    if(! (rt->gcRunning)) {
+565: /* MUTANT (del_stmt) */ /*         METER(rt->gcStats.finalfail++); */ 
+565: /* MUTANT (rep_op) */        METER(rt->gcStats.finalfail--);
+566: /* MUTANT (del_stmt) */ /*         JS_UNLOCK_GC(rt); */ 
+567: /* MUTANT (del_stmt) */ /*         return NULL; */ 
+574: /* MUTANT (rep_op) */    js_GC(cx, GC_KEEP_ATOMS & GC_ALREADY_LOCKED);
+575: /* MUTANT (del_stmt) */ /*     tried_gc = JS_TRUE; */ 
+580: /* MUTANT (rep_op) */    METER(rt->gcStats.alloc--);
+581: /* MUTANT (del_stmt) */ /*     nbytes = JS_ROUNDUP(nbytes, sizeof(JSGCThing)); */ 
+582: /* MUTANT (del_stmt) */ /*     nflags = nbytes / sizeof(JSGCThing); */ 
+583: /* MUTANT (del_stmt) */ /*     i = GC_FREELIST_INDEX(nbytes); */ 
+584: /* MUTANT (del_stmt) */ /*     flp = &rt->gcFreeList[i]; */ 
+588: /* MUTANT (negate) */    if(! (thing)) {
+589: /* MUTANT (del_stmt) */ /*         *flp = thing->next; */ 
+590: /* MUTANT (del_stmt) */ /*         flagp = thing->flagp; */ 
+591: /* MUTANT (del_stmt) */ /*         METER(rt->gcStats.freelen[i]--); */ 
+591: /* MUTANT (rep_op) */        METER(rt->gcStats.freelen[i]++);
+592: /* MUTANT (del_stmt) */ /*         METER(rt->gcStats.recycle[i]++); */ 
+592: /* MUTANT (rep_op) */        METER(rt->gcStats.recycle[i]--);
+594: /* MUTANT (rep_op) */        if (rt->gcBytes <= rt->gcMaxBytes &&
+594: /* MUTANT (rep_op) */        if (rt->gcBytes > rt->gcMaxBytes &&
+594: /* MUTANT (rep_op) */        if (rt->gcBytes >= rt->gcMaxBytes &&
+594: /* MUTANT (rep_op) */        if (rt->gcBytes == rt->gcMaxBytes &&
+594: /* MUTANT (rep_op) */        if (rt->gcBytes != rt->gcMaxBytes &&
+594: /* MUTANT (rep_op) */        if (rt->gcBytes < rt->gcMaxBytes ||
+595: /* MUTANT (rep_op) */            (tried_gc && rt->gcMallocBytes < rt->gcMaxMallocBytes))
+595: /* MUTANT (rep_op) */            (tried_gc || rt->gcMallocBytes <= rt->gcMaxMallocBytes))
+595: /* MUTANT (rep_op) */            (tried_gc || rt->gcMallocBytes > rt->gcMaxMallocBytes))
+595: /* MUTANT (rep_op) */            (tried_gc || rt->gcMallocBytes >= rt->gcMaxMallocBytes))
+595: /* MUTANT (rep_op) */            (tried_gc || rt->gcMallocBytes == rt->gcMaxMallocBytes))
+595: /* MUTANT (rep_op) */            (tried_gc || rt->gcMallocBytes != rt->gcMaxMallocBytes))
+603: /* MUTANT (del_stmt) */ /*             JSArenaPool *pool = &rt->gcArenaPool[i]; */ 
+604: /* MUTANT (del_stmt) */ /*             JSArena *a = pool->current; */ 
+605: /* MUTANT (del_stmt) */ /*             jsuword p = a->avail; */ 
+606: /* MUTANT (del_stmt) */ /*             jsuword q = p + nbytes; */ 
+606: /* MUTANT (rep_op) */            jsuword q = p - nbytes;
+606: /* MUTANT (rep_op) */            jsuword q = p * nbytes;
+606: /* MUTANT (rep_op) */            jsuword q = p % nbytes;
+608: /* MUTANT (rep_op) */            if (q <= (a->limit & ~GC_PAGE_MASK)) {
+608: /* MUTANT (rep_op) */            if (q < (a->limit & ~GC_PAGE_MASK)) {
+608: /* MUTANT (rep_op) */            if (q >= (a->limit & ~GC_PAGE_MASK)) {
+608: /* MUTANT (rep_op) */            if (q == (a->limit & ~GC_PAGE_MASK)) {
+608: /* MUTANT (rep_op) */            if (q != (a->limit & ~GC_PAGE_MASK)) {
+608: /* MUTANT (negate) */            if(! (q > (a->limit & ~GC_PAGE_MASK))) {
+609: /* MUTANT (del_stmt) */ /*                 thing = gc_new_arena(pool, nbytes); */ 
+611: /* MUTANT (rep_op) */                if ((p & GC_PAGE_MASK) != 0) {
+611: /* MUTANT (rep_const) */                if ((p & GC_PAGE_MASK) == 1) {
+611: /* MUTANT (rep_const) */                if ((p & GC_PAGE_MASK) == -1) {
+611: /* MUTANT (negate) */                if(! ((p & GC_PAGE_MASK) == 0)) {
+613: /* MUTANT (del_stmt) */ /*                     p = FIRST_THING(p, nbytes); */ 
+614: /* MUTANT (del_stmt) */ /*                     q = p + nbytes; */ 
+614: /* MUTANT (rep_op) */                    q = p - nbytes;
+614: /* MUTANT (rep_op) */                    q = p * nbytes;
+614: /* MUTANT (rep_op) */                    q = p % nbytes;
+615: /* MUTANT (del_stmt) */ /*                     JS_ArenaCountAllocation(pool, p & GC_PAGE_MASK); */ 
+618: /* MUTANT (del_stmt) */ /*                 thing = (JSGCThing *)p; */ 
+633: /* MUTANT (negate) */        if(! (!thing)) {
+634: /* MUTANT (negate) */            if(! (!tried_gc)) {
+635: /* MUTANT (del_stmt) */ /*                 rt->gcPoke = JS_TRUE; */ 
+636: /* MUTANT (del_stmt) */ /*                 js_GC(cx, GC_KEEP_ATOMS | GC_ALREADY_LOCKED); */ 
+636: /* MUTANT (rep_op) */                js_GC(cx, GC_KEEP_ATOMS & GC_ALREADY_LOCKED);
+637: /* MUTANT (del_stmt) */ /*                 tried_gc = JS_TRUE; */ 
+638: /* MUTANT (del_stmt) */ /*                 METER(rt->gcStats.retry++); */ 
+638: /* MUTANT (rep_op) */                METER(rt->gcStats.retry--);
+639: /* MUTANT (del_stmt) */ /*                 goto retry; */ 
+649: /* MUTANT (negate) */    if(! (lrs)) {
+657: /* MUTANT (rep_op) */        if (js_PushLocalRoot(cx, lrs, (jsval) thing) <= 0) {
+657: /* MUTANT (rep_op) */        if (js_PushLocalRoot(cx, lrs, (jsval) thing) > 0) {
+657: /* MUTANT (rep_op) */        if (js_PushLocalRoot(cx, lrs, (jsval) thing) >= 0) {
+657: /* MUTANT (rep_op) */        if (js_PushLocalRoot(cx, lrs, (jsval) thing) == 0) {
+657: /* MUTANT (rep_op) */        if (js_PushLocalRoot(cx, lrs, (jsval) thing) != 0) {
+657: /* MUTANT (rep_const) */        if (js_PushLocalRoot(cx, lrs, (jsval) thing) < 1) {
+657: /* MUTANT (rep_const) */        if (js_PushLocalRoot(cx, lrs, (jsval) thing) < -1) {
+657: /* MUTANT (negate) */        if(! (js_PushLocalRoot(cx, lrs, (jsval) thing) < 0)) {
+665: /* MUTANT (del_stmt) */ /*             *flagp = GCF_FINAL; */ 
+666: /* MUTANT (del_stmt) */ /*             goto fail; */ 
+673: /* MUTANT (del_stmt) */ /*         cx->newborn[flags & GCF_TYPEMASK] = thing; */ 
+678: /* MUTANT (rep_op) */    bytesptr = ((flags & GCF_TYPEMASK) != GCX_PRIVATE)
+681: /* MUTANT (del_stmt) */ /*     *bytesptr += nbytes + nflags; */ 
+681: /* MUTANT (rep_op) */    *bytesptr -= nbytes + nflags;
+681: /* MUTANT (rep_op) */    *bytesptr *= nbytes + nflags;
+681: /* MUTANT (rep_op) */    *bytesptr %= nbytes + nflags;
+681: /* MUTANT (rep_op) */    *bytesptr += nbytes - nflags;
+681: /* MUTANT (rep_op) */    *bytesptr += nbytes * nflags;
+681: /* MUTANT (rep_op) */    *bytesptr += nbytes % nflags;
+687: /* MUTANT (del_stmt) */ /*     thing->next = NULL; */ 
+688: /* MUTANT (del_stmt) */ /*     thing->flagp = NULL; */ 
+691: /* MUTANT (del_stmt) */ /*     gchist[gchpos].freeList = *flp; */ 
+692: /* MUTANT (rep_op) */    if (--gchpos == NGCHIST)
+692: /* MUTANT (rep_op) */    if (++gchpos != NGCHIST)
+692: /* MUTANT (negate) */    if(! (++gchpos == NGCHIST))
+693: /* MUTANT (rep_const) */        gchpos = 1;
+693: /* MUTANT (rep_const) */        gchpos = -1;
+695: /* MUTANT (rep_op) */    METER(if (flags & GCF_LOCK) rt->gcStats.lockborn--);
+695: /* MUTANT (negate) */    METER(if(! (flags & GCF_LOCK)) rt->gcStats.lockborn++);
+696: /* MUTANT (del_stmt) */ /*     JS_UNLOCK_GC(rt); */ 
+697: /* MUTANT (del_stmt) */ /*     return thing; */ 
+700: /* MUTANT (rep_op) */    METER(rt->gcStats.fail--);
+701: /* MUTANT (del_stmt) */ /*     JS_UNLOCK_GC(rt); */ 
+702: /* MUTANT (del_stmt) */ /*     JS_ReportOutOfMemory(cx); */ 
+703: /* MUTANT (del_stmt) */ /*     return NULL; */ 
+709: /* MUTANT (del_stmt) */ /*     JSBool ok = js_LockGCThingRT(cx->runtime, thing); */ 
+710: /* MUTANT (negate) */    if(! (!ok))
+712: /* MUTANT (del_stmt) */ /*     return ok; */ 
+723: /* MUTANT (rep_op) */                                 (t) <= GCX_EXTERNAL_STRING)
+723: /* MUTANT (rep_op) */                                 (t) < GCX_EXTERNAL_STRING)
+723: /* MUTANT (rep_op) */                                 (t) > GCX_EXTERNAL_STRING)
+723: /* MUTANT (rep_op) */                                 (t) == GCX_EXTERNAL_STRING)
+723: /* MUTANT (rep_op) */                                 (t) != GCX_EXTERNAL_STRING)
+736: /* MUTANT (del_stmt) */ /*     JSBool ok, deep; */ 
+737: /* MUTANT (del_stmt) */ /*     uint8 *flagp, flags, lock, type; */ 
+738: /* MUTANT (del_stmt) */ /*     JSGCLockHashEntry *lhe; */ 
+740: /* MUTANT (del_stmt) */ /*     ok = JS_TRUE; */ 
+741: /* MUTANT (negate) */    if(! (!thing))
+744: /* MUTANT (del_stmt) */ /*     flagp = js_GetGCThingFlags(thing); */ 
+746: /* MUTANT (del_stmt) */ /*     JS_LOCK_GC(rt); */ 
+747: /* MUTANT (del_stmt) */ /*     flags = *flagp; */ 
+748: /* MUTANT (del_stmt) */ /*     lock = (flags & GCF_LOCK); */ 
+749: /* MUTANT (del_stmt) */ /*     type = (flags & GCF_TYPEMASK); */ 
+750: /* MUTANT (del_stmt) */ /*     deep = GC_THING_IS_DEEP(type, thing); */ 
+756: /* MUTANT (rep_op) */    if (lock && deep) {
+756: /* MUTANT (negate) */    if(! (lock || deep)) {
+757: /* MUTANT (negate) */        if(! (!rt->gcLocksHash)) {
+762: /* MUTANT (negate) */            if(! (!rt->gcLocksHash)) {
+763: /* MUTANT (del_stmt) */ /*                 ok = JS_FALSE; */ 
+764: /* MUTANT (del_stmt) */ /*                 goto done; */ 
+766: /* MUTANT (rep_op) */        } else if (lock != 0) {
+766: /* MUTANT (rep_const) */        } else if (lock == 1) {
+766: /* MUTANT (rep_const) */        } else if (lock == -1) {
+766: /* MUTANT (negate) */        } else if(! (lock == 0)) {
+771: /* MUTANT (del_stmt) */ /*             JS_ASSERT(JS_DHASH_ENTRY_IS_FREE(hdr)); */ 
+777: /* MUTANT (negate) */        if(! (!lhe)) {
+778: /* MUTANT (del_stmt) */ /*             ok = JS_FALSE; */ 
+779: /* MUTANT (del_stmt) */ /*             goto done; */ 
+781: /* MUTANT (negate) */        if(! (!lhe->thing)) {
+782: /* MUTANT (del_stmt) */ /*             lhe->thing = thing; */ 
+783: /* MUTANT (del_stmt) */ /*             lhe->count = deep ? 1 : 2; */ 
+783: /* MUTANT (rep_const) */            lhe->count = deep ? 0 : 2;
+783: /* MUTANT (rep_const) */            lhe->count = deep ? -1 : 2;
+783: /* MUTANT (rep_const) */            lhe->count = deep ? ((1)+1) : 2;
+783: /* MUTANT (rep_const) */            lhe->count = deep ? 1 : 0;
+783: /* MUTANT (rep_const) */            lhe->count = deep ? 1 : 1;
+783: /* MUTANT (rep_const) */            lhe->count = deep ? 1 : -1;
+783: /* MUTANT (rep_const) */            lhe->count = deep ? 1 : ((2)+1);
+783: /* MUTANT (rep_const) */            lhe->count = deep ? 1 : ((2)-1);
+785: /* MUTANT (del_stmt) */ /*             JS_ASSERT(lhe->count >= 1); */ 
+785: /* MUTANT (rep_op) */            JS_ASSERT(lhe->count <= 1);
+785: /* MUTANT (rep_op) */            JS_ASSERT(lhe->count < 1);
+785: /* MUTANT (rep_op) */            JS_ASSERT(lhe->count > 1);
+785: /* MUTANT (rep_op) */            JS_ASSERT(lhe->count == 1);
+785: /* MUTANT (rep_op) */            JS_ASSERT(lhe->count != 1);
+785: /* MUTANT (rep_const) */            JS_ASSERT(lhe->count >= 0);
+785: /* MUTANT (rep_const) */            JS_ASSERT(lhe->count >= -1);
+785: /* MUTANT (rep_const) */            JS_ASSERT(lhe->count >= ((1)+1));
+786: /* MUTANT (del_stmt) */ /*             lhe->count++; */ 
+786: /* MUTANT (rep_op) */            lhe->count--;
+790: /* MUTANT (rep_op) */    *flagp = (uint8)(flags & GCF_LOCK);
+791: /* MUTANT (del_stmt) */ /*     METER(rt->gcStats.lock++); */ 
+791: /* MUTANT (rep_op) */    METER(rt->gcStats.lock--);
+792: /* MUTANT (del_stmt) */ /*     ok = JS_TRUE; */ 
+795: /* MUTANT (del_stmt) */ /*     return ok; */ 
+801: /* MUTANT (del_stmt) */ /*     uint8 *flagp, flags; */ 
+802: /* MUTANT (del_stmt) */ /*     JSGCLockHashEntry *lhe; */ 
+804: /* MUTANT (negate) */    if(! (!thing))
+807: /* MUTANT (del_stmt) */ /*     flagp = js_GetGCThingFlags(thing); */ 
+808: /* MUTANT (del_stmt) */ /*     JS_LOCK_GC(rt); */ 
+809: /* MUTANT (del_stmt) */ /*     flags = *flagp; */ 
+811: /* MUTANT (negate) */    if(! (flags & GCF_LOCK)) {
+812: /* MUTANT (rep_op) */        if (!rt->gcLocksHash &&
+818: /* MUTANT (del_stmt) */ /*             JS_ASSERT(!GC_THING_IS_DEEP(flags & GCF_TYPEMASK, thing)); */ 
+821: /* MUTANT (rep_op) */            if (++lhe->count != 0)
+821: /* MUTANT (rep_op) */            if (--lhe->count == 0)
+821: /* MUTANT (rep_const) */            if (--lhe->count != 1)
+821: /* MUTANT (rep_const) */            if (--lhe->count != -1)
+821: /* MUTANT (negate) */            if(! (--lhe->count != 0))
+823: /* MUTANT (del_stmt) */ /*             JS_DHashTableOperate(rt->gcLocksHash, thing, JS_DHASH_REMOVE); */ 
+830: /* MUTANT (rep_op) */    METER(rt->gcStats.unlock--);
+831: /* MUTANT (del_stmt) */ /*     JS_UNLOCK_GC(rt); */ 
+832: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+841: /* MUTANT (del_stmt) */ /* JS_EXPORT_DATA(void *) js_LiveThingToFind; */ 
+850: /* MUTANT (del_stmt) */ /*     uint8 *flagp = js_GetGCThingFlags(thing); */ 
+851: /* MUTANT (del_stmt) */ /*     const char *className = ""; */ 
+852: /* MUTANT (del_stmt) */ /*     static char depbuf[32]; */ 
+852: /* MUTANT (rep_const) */    static char depbuf[0];
+852: /* MUTANT (rep_const) */    static char depbuf[1];
+852: /* MUTANT (rep_const) */    static char depbuf[-1];
+852: /* MUTANT (rep_const) */    static char depbuf[((32)+1)];
+852: /* MUTANT (rep_const) */    static char depbuf[((32)-1)];
+856: /* MUTANT (del_stmt) */ /*         JSObject  *obj = (JSObject *)thing; */ 
+857: /* MUTANT (del_stmt) */ /*         JSClass   *clasp = JSVAL_TO_PRIVATE(obj->slots[JSSLOT_CLASS]); */ 
+858: /* MUTANT (del_stmt) */ /*         className = clasp->name; */ 
+860: /* MUTANT (negate) */        if(! (clasp->flags & JSCLASS_PRIVATE_IS_NSISUPPORTS)) {
+861: /* MUTANT (del_stmt) */ /*             jsval privateValue = obj->slots[JSSLOT_PRIVATE]; */ 
+863: /* MUTANT (del_stmt) */ /*             JS_ASSERT(clasp->flags & JSCLASS_HAS_PRIVATE); */ 
+864: /* MUTANT (negate) */            if(! (!JSVAL_IS_VOID(privateValue))) {
+865: /* MUTANT (del_stmt) */ /*                 void  *privateThing = JSVAL_TO_PRIVATE(privateValue); */ 
+866: /* MUTANT (del_stmt) */ /*                 const char *xpcClassName = GetXPCObjectClassName(privateThing); */ 
+868: /* MUTANT (negate) */                if(! (xpcClassName))
+878: /* MUTANT (del_stmt) */ /*         JSString *str = (JSString *)thing; */ 
+879: /* MUTANT (negate) */        if(! (JSSTRING_IS_DEPENDENT(str))) {
+882: /* MUTANT (del_stmt) */ /*             className = depbuf; */ 
+884: /* MUTANT (del_stmt) */ /*             className = "string"; */ 
+891: /* MUTANT (del_stmt) */ /*         break; */ 
+900: /* MUTANT (del_stmt) */ /*     GCMarkNode *next = NULL; */ 
+901: /* MUTANT (del_stmt) */ /*     char *path = NULL; */ 
+903: /* MUTANT (negate) */    while(! (prev)) {
+904: /* MUTANT (del_stmt) */ /*         next = prev; */ 
+905: /* MUTANT (del_stmt) */ /*         prev = prev->prev; */ 
+907: /* MUTANT (negate) */    while(! (next)) {
+908: /* MUTANT (del_stmt) */ /*         uint8 nextFlags = *js_GetGCThingFlags(next->thing); */ 
+909: /* MUTANT (rep_op) */        if ((nextFlags & GCF_TYPEMASK) != GCX_OBJECT) {
+909: /* MUTANT (negate) */        if(! ((nextFlags & GCF_TYPEMASK) == GCX_OBJECT)) {
+910: /* MUTANT (rep_const) */            path = JS_sprintf_append(path, "%s(%s @ 1x%08p).",
+910: /* MUTANT (rep_const) */            path = JS_sprintf_append(path, "%s(%s @ -1x%08p).",
+910: /* MUTANT (rep_const) */            path = JS_sprintf_append(path, "%s(%s @ 0x%0p).",
+910: /* MUTANT (rep_const) */            path = JS_sprintf_append(path, "%s(%s @ 0x%1p).",
+910: /* MUTANT (rep_const) */            path = JS_sprintf_append(path, "%s(%s @ 0x%-1p).",
+910: /* MUTANT (rep_const) */            path = JS_sprintf_append(path, "%s(%s @ 0x%((08)+1)p).",
+910: /* MUTANT (rep_const) */            path = JS_sprintf_append(path, "%s(%s @ 0x%((08)-1)p).",
+921: /* MUTANT (negate) */    if(! (!path))
+924: /* MUTANT (del_stmt) */ /*     fprintf(fp, "%08lx ", (long)thing); */ 
+924: /* MUTANT (rep_const) */    fprintf(fp, "%0lx ", (long)thing);
+924: /* MUTANT (rep_const) */    fprintf(fp, "%1lx ", (long)thing);
+924: /* MUTANT (rep_const) */    fprintf(fp, "%-1lx ", (long)thing);
+924: /* MUTANT (rep_const) */    fprintf(fp, "%((08)+1)lx ", (long)thing);
+924: /* MUTANT (rep_const) */    fprintf(fp, "%((08)-1)lx ", (long)thing);
+928: /* MUTANT (del_stmt) */ /*         JSObject  *obj = (JSObject *)thing; */ 
+929: /* MUTANT (del_stmt) */ /*         jsval     privateValue = obj->slots[JSSLOT_PRIVATE]; */ 
+933: /* MUTANT (del_stmt) */ /*         const char *className = gc_object_class_name(thing); */ 
+934: /* MUTANT (del_stmt) */ /*         fprintf(fp, "object %8p %s", privateThing, className); */ 
+934: /* MUTANT (rep_const) */        fprintf(fp, "object %0p %s", privateThing, className);
+934: /* MUTANT (rep_const) */        fprintf(fp, "object %1p %s", privateThing, className);
+934: /* MUTANT (rep_const) */        fprintf(fp, "object %-1p %s", privateThing, className);
+934: /* MUTANT (rep_const) */        fprintf(fp, "object %((8)+1)p %s", privateThing, className);
+934: /* MUTANT (rep_const) */        fprintf(fp, "object %((8)-1)p %s", privateThing, className);
+935: /* MUTANT (del_stmt) */ /*         break; */ 
+940: /* MUTANT (del_stmt) */ /*         JSXMLNamespace *ns = (JSXMLNamespace *)thing; */ 
+943: /* MUTANT (del_stmt) */ /*         break; */ 
+947: /* MUTANT (del_stmt) */ /*         JSXMLQName *qn = (JSXMLQName *)thing; */ 
+951: /* MUTANT (del_stmt) */ /*         break; */ 
+955: /* MUTANT (del_stmt) */ /*         extern const char *js_xml_class_str[]; */ 
+956: /* MUTANT (del_stmt) */ /*         JSXML *xml = (JSXML *)thing; */ 
+957: /* MUTANT (del_stmt) */ /*         fprintf(fp, "xml %8p %s", xml, js_xml_class_str[xml->xml_class]); */ 
+957: /* MUTANT (rep_const) */        fprintf(fp, "xml %0p %s", xml, js_xml_class_str[xml->xml_class]);
+957: /* MUTANT (rep_const) */        fprintf(fp, "xml %1p %s", xml, js_xml_class_str[xml->xml_class]);
+957: /* MUTANT (rep_const) */        fprintf(fp, "xml %-1p %s", xml, js_xml_class_str[xml->xml_class]);
+957: /* MUTANT (rep_const) */        fprintf(fp, "xml %((8)+1)p %s", xml, js_xml_class_str[xml->xml_class]);
+957: /* MUTANT (rep_const) */        fprintf(fp, "xml %((8)-1)p %s", xml, js_xml_class_str[xml->xml_class]);
+958: /* MUTANT (del_stmt) */ /*         break; */ 
+963: /* MUTANT (del_stmt) */ /*         break; */ 
+965: /* MUTANT (rep_const) */        fprintf(fp, "private %0p", (void *)thing);
+965: /* MUTANT (rep_const) */        fprintf(fp, "private %1p", (void *)thing);
+965: /* MUTANT (rep_const) */        fprintf(fp, "private %-1p", (void *)thing);
+965: /* MUTANT (rep_const) */        fprintf(fp, "private %((8)+1)p", (void *)thing);
+965: /* MUTANT (rep_const) */        fprintf(fp, "private %((8)-1)p", (void *)thing);
+966: /* MUTANT (del_stmt) */ /*         break; */ 
+969: /* MUTANT (del_stmt) */ /*         break; */ 
+972: /* MUTANT (del_stmt) */ /*     free(path); */ 
+980: /* MUTANT (del_stmt) */ /*     JSContext *cx = (JSContext *) arg; */ 
+982: /* MUTANT (del_stmt) */ /*     GC_MARK(cx, thing, "atom", NULL); */ 
+988: /* MUTANT (del_stmt) */ /*     jsval key; */ 
+990: /* MUTANT (negate) */    if(! (atom->flags & ATOM_MARK))
+992: /* MUTANT (del_stmt) */ /*     atom->flags |= ATOM_MARK; */ 
+993: /* MUTANT (del_stmt) */ /*     key = ATOM_KEY(atom); */ 
+994: /* MUTANT (negate) */    if(! (JSVAL_IS_GCTHING(key))) {
+996: /* MUTANT (rep_const) */        char name[0];
+996: /* MUTANT (rep_const) */        char name[1];
+996: /* MUTANT (rep_const) */        char name[-1];
+996: /* MUTANT (rep_const) */        char name[((32)+1)];
+996: /* MUTANT (rep_const) */        char name[((32)-1)];
+998: /* MUTANT (negate) */        if(! (JSVAL_IS_STRING(key))) {
+1002: /* MUTANT (del_stmt) */ /*             JS_snprintf(name, sizeof name, "<%x>", key); */ 
+1007: /* MUTANT (negate) */    if(! (atom->flags & ATOM_HIDDEN))
+1038: /* MUTANT (del_stmt) */ /*     uint8 flags, *flagp; */ 
+1040: /* MUTANT (negate) */    if(! (!thing))
+1043: /* MUTANT (del_stmt) */ /*     flagp = js_GetGCThingFlags(thing); */ 
+1044: /* MUTANT (del_stmt) */ /*     flags = *flagp; */ 
+1045: /* MUTANT (del_stmt) */ /*     JS_ASSERT(flags != GCF_FINAL); */ 
+1045: /* MUTANT (rep_op) */    JS_ASSERT(flags == GCF_FINAL);
+1047: /* MUTANT (rep_op) */    if (js_LiveThingToFind != thing)
+1047: /* MUTANT (negate) */    if(! (js_LiveThingToFind == thing))
+1051: /* MUTANT (negate) */    if(! (flags & GCF_MARK))
+1054: /* MUTANT (del_stmt) */ /*     return flagp; */ 
+1061: /* MUTANT (del_stmt) */ /*     jsval v; */ 
+1062: /* MUTANT (del_stmt) */ /*     void *thing; */ 
+1063: /* MUTANT (del_stmt) */ /*     uint8 *flagp; */ 
+1065: /* MUTANT (rep_op) */    while (vp <= end) {
+1065: /* MUTANT (rep_op) */    while (vp > end) {
+1065: /* MUTANT (rep_op) */    while (vp >= end) {
+1065: /* MUTANT (rep_op) */    while (vp == end) {
+1065: /* MUTANT (rep_op) */    while (vp != end) {
+1065: /* MUTANT (negate) */    while(! (vp < end)) {
+1066: /* MUTANT (del_stmt) */ /*         v = *vp; */ 
+1067: /* MUTANT (negate) */        if(! (JSVAL_IS_GCTHING(v))) {
+1068: /* MUTANT (del_stmt) */ /*             thing = JSVAL_TO_GCTHING(v); */ 
+1069: /* MUTANT (del_stmt) */ /*             flagp = UNMARKED_GC_THING_FLAGS(thing, arg); */ 
+1070: /* MUTANT (negate) */            if(! (flagp)) {
+1071: /* MUTANT (del_stmt) */ /*                 *thingp = thing; */ 
+1072: /* MUTANT (del_stmt) */ /*                 *flagpp = flagp; */ 
+1073: /* MUTANT (del_stmt) */ /*                 return vp; */ 
+1076: /* MUTANT (rep_op) */        vp--;
+1087: /* MUTANT (del_stmt) */ /*     JSRuntime *rt; */ 
+1088: /* MUTANT (del_stmt) */ /*     JSObject *obj; */ 
+1089: /* MUTANT (del_stmt) */ /*     jsval v, *vp, *end; */ 
+1090: /* MUTANT (del_stmt) */ /*     JSString *str; */ 
+1091: /* MUTANT (del_stmt) */ /*     void *next_thing; */ 
+1092: /* MUTANT (del_stmt) */ /*     uint8 *next_flagp; */ 
+1098: /* MUTANT (del_stmt) */ /*     JSScopeProperty *sprop; */ 
+1099: /* MUTANT (del_stmt) */ /*     char name[32]; */ 
+1099: /* MUTANT (rep_const) */    char name[0];
+1099: /* MUTANT (rep_const) */    char name[1];
+1099: /* MUTANT (rep_const) */    char name[-1];
+1099: /* MUTANT (rep_const) */    char name[((32)+1)];
+1099: /* MUTANT (rep_const) */    char name[((32)-1)];
+1103: /* MUTANT (del_stmt) */ /*     rt = cx->runtime; */ 
+1104: /* MUTANT (del_stmt) */ /*     METER(tailCallNesting = 0); */ 
+1104: /* MUTANT (rep_const) */    METER(tailCallNesting = 1);
+1104: /* MUTANT (rep_const) */    METER(tailCallNesting = -1);
+1105: /* MUTANT (rep_op) */    METER(if (--rt->gcStats.cdepth > rt->gcStats.maxcdepth)
+1105: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.cdepth <= rt->gcStats.maxcdepth)
+1105: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.cdepth < rt->gcStats.maxcdepth)
+1105: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.cdepth >= rt->gcStats.maxcdepth)
+1105: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.cdepth == rt->gcStats.maxcdepth)
+1105: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.cdepth != rt->gcStats.maxcdepth)
+1105: /* MUTANT (negate) */    METER(if(! (++rt->gcStats.cdepth > rt->gcStats.maxcdepth))
+1112: /* MUTANT (rep_op) */    METER(if (--rt->gcStats.depth > rt->gcStats.maxdepth)
+1112: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.depth <= rt->gcStats.maxdepth)
+1112: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.depth < rt->gcStats.maxdepth)
+1112: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.depth >= rt->gcStats.maxdepth)
+1112: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.depth == rt->gcStats.maxdepth)
+1112: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.depth != rt->gcStats.maxdepth)
+1112: /* MUTANT (negate) */    METER(if(! (++rt->gcStats.depth > rt->gcStats.maxdepth))
+1114: /* MUTANT (negate) */    if(! (*flagp & GCF_MARK)) {
+1119: /* MUTANT (del_stmt) */ /*         goto out; */ 
+1125: /* MUTANT (negate) */    if(! (js_DumpGCHeap))
+1133: /* MUTANT (del_stmt) */ /*         vp = obj->slots; */ 
+1134: /* MUTANT (negate) */        if(! (!vp))
+1138: /* MUTANT (negate) */        if(! (!JS_CHECK_STACK_SIZE(cx, stackDummy))) {
+1139: /* MUTANT (del_stmt) */ /*             METER(rt->gcStats.dswmark++); */ 
+1139: /* MUTANT (rep_op) */            METER(rt->gcStats.dswmark--);
+1140: /* MUTANT (del_stmt) */ /*             DeutschSchorrWaite(cx, thing, flagp); */ 
+1141: /* MUTANT (del_stmt) */ /*             goto out; */ 
+1145: /* MUTANT (rep_op) */        if ((vp[-1] - 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1145: /* MUTANT (rep_op) */        if ((vp[-1] * 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1145: /* MUTANT (rep_op) */        if ((vp[-1] % 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1145: /* MUTANT (rep_op) */        if ((vp[-1] + 1) * sizeof(jsval) < GC_NBYTES_MAX)
+1145: /* MUTANT (rep_op) */        if ((vp[-1] + 1) * sizeof(jsval) > GC_NBYTES_MAX)
+1145: /* MUTANT (rep_op) */        if ((vp[-1] + 1) * sizeof(jsval) >= GC_NBYTES_MAX)
+1145: /* MUTANT (rep_op) */        if ((vp[-1] + 1) * sizeof(jsval) == GC_NBYTES_MAX)
+1145: /* MUTANT (rep_op) */        if ((vp[-1] + 1) * sizeof(jsval) != GC_NBYTES_MAX)
+1145: /* MUTANT (rep_const) */        if ((vp[0] + 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1145: /* MUTANT (rep_const) */        if ((vp[1] + 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1145: /* MUTANT (rep_const) */        if ((vp[((-1)+1)] + 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1145: /* MUTANT (rep_const) */        if ((vp[((-1)-1)] + 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1145: /* MUTANT (rep_const) */        if ((vp[-1] + 0) * sizeof(jsval) <= GC_NBYTES_MAX)
+1145: /* MUTANT (rep_const) */        if ((vp[-1] + -1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1145: /* MUTANT (rep_const) */        if ((vp[-1] + ((1)+1)) * sizeof(jsval) <= GC_NBYTES_MAX)
+1145: /* MUTANT (negate) */        if(! ((vp[-1] + 1) * sizeof(jsval) <= GC_NBYTES_MAX))
+1146: /* MUTANT (rep_const) */            GC_MARK(cx, vp - 0, "slots", arg);
+1146: /* MUTANT (rep_const) */            GC_MARK(cx, vp - -1, "slots", arg);
+1146: /* MUTANT (rep_const) */            GC_MARK(cx, vp - ((1)+1), "slots", arg);
+1149: /* MUTANT (rep_op) */        end = vp - ((obj->map->ops->mark)
+1149: /* MUTANT (rep_op) */        end = vp * ((obj->map->ops->mark)
+1149: /* MUTANT (rep_op) */        end = vp % ((obj->map->ops->mark)
+1153: /* MUTANT (del_stmt) */ /*         vp = NEXT_UNMARKED_GC_THING(vp, end, &thing, &flagp, arg); */ 
+1154: /* MUTANT (negate) */        if(! (!vp))
+1156: /* MUTANT (del_stmt) */ /*         v = *vp; */ 
+1167: /* MUTANT (del_stmt) */ /*             JS_ASSERT(v == *vp && JSVAL_IS_GCTHING(v)); */ 
+1167: /* MUTANT (rep_op) */            JS_ASSERT(v != *vp && JSVAL_IS_GCTHING(v));
+1167: /* MUTANT (rep_op) */            JS_ASSERT(v == *vp || JSVAL_IS_GCTHING(v));
+1168: /* MUTANT (del_stmt) */ /*             JS_ASSERT(thing == JSVAL_TO_GCTHING(v)); */ 
+1168: /* MUTANT (rep_op) */            JS_ASSERT(thing != JSVAL_TO_GCTHING(v));
+1169: /* MUTANT (del_stmt) */ /*             JS_ASSERT(flagp == js_GetGCThingFlags(thing)); */ 
+1169: /* MUTANT (rep_op) */            JS_ASSERT(flagp != js_GetGCThingFlags(thing));
+1172: /* MUTANT (negate) */            if(! (scope)) {
+1173: /* MUTANT (del_stmt) */ /*                 uint32 slot; */ 
+1174: /* MUTANT (del_stmt) */ /*                 jsval nval; */ 
+1176: /* MUTANT (del_stmt) */ /*                 slot = vp - obj->slots; */ 
+1178: /* MUTANT (negate) */                    if(! (!sprop)) {
+1182: /* MUTANT (del_stmt) */ /*                             break; */ 
+1185: /* MUTANT (del_stmt) */ /*                             break; */ 
+1190: /* MUTANT (del_stmt) */ /*                             break; */ 
+1194: /* MUTANT (rep_op) */                    if (sprop->slot != slot) {
+1194: /* MUTANT (negate) */                    if(! (sprop->slot == slot)) {
+1195: /* MUTANT (del_stmt) */ /*                         nval = ID_TO_VALUE(sprop->id); */ 
+1196: /* MUTANT (negate) */                        if(! (JSVAL_IS_INT(nval))) {
+1199: /* MUTANT (negate) */                        } else if(! (JSVAL_IS_STRING(nval))) {
+1203: /* MUTANT (del_stmt) */ /*                             strcpy(name, "**FINALIZED ATOM KEY**"); */ 
+1209: /* MUTANT (del_stmt) */ /*                 strcpy(name, "**UNKNOWN OBJECT MAP ENTRY**"); */ 
+1214: /* MUTANT (rep_op) */                vp = NEXT_UNMARKED_GC_THING(vp-1, end, &next_thing, &next_flagp,
+1214: /* MUTANT (rep_op) */                vp = NEXT_UNMARKED_GC_THING(vp*1, end, &next_thing, &next_flagp,
+1214: /* MUTANT (rep_op) */                vp = NEXT_UNMARKED_GC_THING(vp%1, end, &next_thing, &next_flagp,
+1214: /* MUTANT (rep_const) */                vp = NEXT_UNMARKED_GC_THING(vp+0, end, &next_thing, &next_flagp,
+1214: /* MUTANT (rep_const) */                vp = NEXT_UNMARKED_GC_THING(vp+-1, end, &next_thing, &next_flagp,
+1214: /* MUTANT (rep_const) */                vp = NEXT_UNMARKED_GC_THING(vp+((1)+1), end, &next_thing, &next_flagp,
+1216: /* MUTANT (negate) */                if(! (!vp)) {
+1224: /* MUTANT (del_stmt) */ /*                     goto out; */ 
+1226: /* MUTANT (rep_op) */                    METER(--tailCallNesting);
+1227: /* MUTANT (del_stmt) */ /*                     goto start; */ 
+1230: /* MUTANT (rep_op) */            } while (next_thing != thing);
+1230: /* MUTANT (negate) */            } while(! (next_thing == thing));
+1231: /* MUTANT (del_stmt) */ /*             v = *vp; */ 
+1239: /* MUTANT (del_stmt) */ /*             flagp = next_flagp; */ 
+1246: /* MUTANT (del_stmt) */ /*         JS_ASSERT(!JSSTRING_IS_DEPENDENT(str)); */ 
+1247: /* MUTANT (del_stmt) */ /*         break; */ 
+1252: /* MUTANT (negate) */        if(! (JSSTRING_IS_DEPENDENT(str))) {
+1253: /* MUTANT (del_stmt) */ /*             thing = JSSTRDEP_BASE(str); */ 
+1254: /* MUTANT (del_stmt) */ /*             flagp = UNMARKED_GC_THING_FLAGS(thing, arg); */ 
+1255: /* MUTANT (negate) */            if(! (flagp)) {
+1258: /* MUTANT (del_stmt) */ /*                 goto out; */ 
+1260: /* MUTANT (rep_op) */                METER(--tailCallNesting);
+1261: /* MUTANT (del_stmt) */ /*                 goto start; */ 
+1271: /* MUTANT (del_stmt) */ /*         break; */ 
+1275: /* MUTANT (del_stmt) */ /*         break; */ 
+1279: /* MUTANT (del_stmt) */ /*         break; */ 
+1284: /* MUTANT (rep_op) */    METER(rt->gcStats.depth += 1 + tailCallNesting);
+1284: /* MUTANT (rep_op) */    METER(rt->gcStats.depth *= 1 + tailCallNesting);
+1284: /* MUTANT (rep_op) */    METER(rt->gcStats.depth %= 1 + tailCallNesting);
+1284: /* MUTANT (rep_op) */    METER(rt->gcStats.depth -= 1 - tailCallNesting);
+1284: /* MUTANT (rep_op) */    METER(rt->gcStats.depth -= 1 * tailCallNesting);
+1284: /* MUTANT (rep_op) */    METER(rt->gcStats.depth -= 1 % tailCallNesting);
+1284: /* MUTANT (rep_const) */    METER(rt->gcStats.depth -= 0 + tailCallNesting);
+1284: /* MUTANT (rep_const) */    METER(rt->gcStats.depth -= -1 + tailCallNesting);
+1284: /* MUTANT (rep_const) */    METER(rt->gcStats.depth -= ((1)+1) + tailCallNesting);
+1285: /* MUTANT (del_stmt) */ /*     METER(rt->gcStats.cdepth--); */ 
+1285: /* MUTANT (rep_op) */    METER(rt->gcStats.cdepth++);
+1286: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+1298: #define JSVAL_EMPTY (0 << JSVAL_TAGBITS) /* MUTANT (rep_const) */
+1298: #define JSVAL_EMPTY (1 << JSVAL_TAGBITS) /* MUTANT (rep_const) */
+1298: #define JSVAL_EMPTY (-1 << JSVAL_TAGBITS) /* MUTANT (rep_const) */
+1298: #define JSVAL_EMPTY (((2)+1) << JSVAL_TAGBITS) /* MUTANT (rep_const) */
+1298: #define JSVAL_EMPTY (((2)-1) << JSVAL_TAGBITS) /* MUTANT (rep_const) */
+1311: /* MUTANT (del_stmt) */ /*     uint32 nslots, limit, index; */ 
+1312: /* MUTANT (del_stmt) */ /*     jsdouble d; */ 
+1314: /* MUTANT (del_stmt) */ /*     nslots = slots[-1]; */ 
+1314: /* MUTANT (rep_const) */    nslots = slots[0];
+1314: /* MUTANT (rep_const) */    nslots = slots[1];
+1314: /* MUTANT (rep_const) */    nslots = slots[((-1)+1)];
+1314: /* MUTANT (rep_const) */    nslots = slots[((-1)-1)];
+1315: /* MUTANT (del_stmt) */ /*     limit = JS_BIT(16); */ 
+1315: /* MUTANT (rep_const) */    limit = JS_BIT(0);
+1315: /* MUTANT (rep_const) */    limit = JS_BIT(1);
+1315: /* MUTANT (rep_const) */    limit = JS_BIT(-1);
+1315: /* MUTANT (rep_const) */    limit = JS_BIT(((16)+1));
+1315: /* MUTANT (rep_const) */    limit = JS_BIT(((16)-1));
+1316: /* MUTANT (del_stmt) */ /*     index = PTRDIFF(vp, slots, jsval); */ 
+1317: /* MUTANT (del_stmt) */ /*     JS_ASSERT(index < nslots); */ 
+1317: /* MUTANT (rep_op) */    JS_ASSERT(index <= nslots);
+1317: /* MUTANT (rep_op) */    JS_ASSERT(index > nslots);
+1317: /* MUTANT (rep_op) */    JS_ASSERT(index >= nslots);
+1317: /* MUTANT (rep_op) */    JS_ASSERT(index == nslots);
+1317: /* MUTANT (rep_op) */    JS_ASSERT(index != nslots);
+1318: /* MUTANT (rep_op) */    if (nslots <= limit) {
+1318: /* MUTANT (rep_op) */    if (nslots < limit) {
+1318: /* MUTANT (rep_op) */    if (nslots >= limit) {
+1318: /* MUTANT (rep_op) */    if (nslots == limit) {
+1318: /* MUTANT (rep_op) */    if (nslots != limit) {
+1318: /* MUTANT (negate) */    if(! (nslots > limit)) {
+1319: /* MUTANT (del_stmt) */ /*         d = ((jsdouble)index / nslots) * limit; */ 
+1320: /* MUTANT (del_stmt) */ /*         JS_ASSERT(0 <= d && d < limit); */ 
+1320: /* MUTANT (rep_op) */        JS_ASSERT(0 < d && d < limit);
+1320: /* MUTANT (rep_op) */        JS_ASSERT(0 > d && d < limit);
+1320: /* MUTANT (rep_op) */        JS_ASSERT(0 >= d && d < limit);
+1320: /* MUTANT (rep_op) */        JS_ASSERT(0 == d && d < limit);
+1320: /* MUTANT (rep_op) */        JS_ASSERT(0 != d && d < limit);
+1320: /* MUTANT (rep_op) */        JS_ASSERT(0 <= d || d < limit);
+1320: /* MUTANT (rep_op) */        JS_ASSERT(0 <= d && d <= limit);
+1320: /* MUTANT (rep_op) */        JS_ASSERT(0 <= d && d > limit);
+1320: /* MUTANT (rep_op) */        JS_ASSERT(0 <= d && d >= limit);
+1320: /* MUTANT (rep_op) */        JS_ASSERT(0 <= d && d == limit);
+1320: /* MUTANT (rep_op) */        JS_ASSERT(0 <= d && d != limit);
+1320: /* MUTANT (rep_const) */        JS_ASSERT(1 <= d && d < limit);
+1320: /* MUTANT (rep_const) */        JS_ASSERT(-1 <= d && d < limit);
+1321: /* MUTANT (del_stmt) */ /*         return (uint16) d; */ 
+1329: /* MUTANT (del_stmt) */ /*     uint32 nslots, limit; */ 
+1330: /* MUTANT (del_stmt) */ /*     jsdouble d; */ 
+1332: /* MUTANT (del_stmt) */ /*     nslots = slots[-1]; */ 
+1332: /* MUTANT (rep_const) */    nslots = slots[0];
+1332: /* MUTANT (rep_const) */    nslots = slots[1];
+1332: /* MUTANT (rep_const) */    nslots = slots[((-1)+1)];
+1332: /* MUTANT (rep_const) */    nslots = slots[((-1)-1)];
+1333: /* MUTANT (del_stmt) */ /*     limit = JS_BIT(16); */ 
+1333: /* MUTANT (rep_const) */    limit = JS_BIT(0);
+1333: /* MUTANT (rep_const) */    limit = JS_BIT(1);
+1333: /* MUTANT (rep_const) */    limit = JS_BIT(-1);
+1333: /* MUTANT (rep_const) */    limit = JS_BIT(((16)+1));
+1333: /* MUTANT (rep_const) */    limit = JS_BIT(((16)-1));
+1334: /* MUTANT (del_stmt) */ /*     JS_ASSERT(dswIndex < nslots); */ 
+1334: /* MUTANT (rep_op) */    JS_ASSERT(dswIndex <= nslots);
+1334: /* MUTANT (rep_op) */    JS_ASSERT(dswIndex > nslots);
+1334: /* MUTANT (rep_op) */    JS_ASSERT(dswIndex >= nslots);
+1334: /* MUTANT (rep_op) */    JS_ASSERT(dswIndex == nslots);
+1334: /* MUTANT (rep_op) */    JS_ASSERT(dswIndex != nslots);
+1335: /* MUTANT (rep_op) */    if (nslots <= limit) {
+1335: /* MUTANT (rep_op) */    if (nslots < limit) {
+1335: /* MUTANT (rep_op) */    if (nslots >= limit) {
+1335: /* MUTANT (rep_op) */    if (nslots == limit) {
+1335: /* MUTANT (rep_op) */    if (nslots != limit) {
+1335: /* MUTANT (negate) */    if(! (nslots > limit)) {
+1336: /* MUTANT (del_stmt) */ /*         d = ((jsdouble)dswIndex * nslots) / limit; */ 
+1337: /* MUTANT (del_stmt) */ /*         JS_ASSERT(0 <= d && d < nslots); */ 
+1337: /* MUTANT (rep_op) */        JS_ASSERT(0 < d && d < nslots);
+1337: /* MUTANT (rep_op) */        JS_ASSERT(0 > d && d < nslots);
+1337: /* MUTANT (rep_op) */        JS_ASSERT(0 >= d && d < nslots);
+1337: /* MUTANT (rep_op) */        JS_ASSERT(0 == d && d < nslots);
+1337: /* MUTANT (rep_op) */        JS_ASSERT(0 != d && d < nslots);
+1337: /* MUTANT (rep_op) */        JS_ASSERT(0 <= d || d < nslots);
+1337: /* MUTANT (rep_op) */        JS_ASSERT(0 <= d && d <= nslots);
+1337: /* MUTANT (rep_op) */        JS_ASSERT(0 <= d && d > nslots);
+1337: /* MUTANT (rep_op) */        JS_ASSERT(0 <= d && d >= nslots);
+1337: /* MUTANT (rep_op) */        JS_ASSERT(0 <= d && d == nslots);
+1337: /* MUTANT (rep_op) */        JS_ASSERT(0 <= d && d != nslots);
+1337: /* MUTANT (rep_const) */        JS_ASSERT(1 <= d && d < nslots);
+1337: /* MUTANT (rep_const) */        JS_ASSERT(-1 <= d && d < nslots);
+1338: /* MUTANT (del_stmt) */ /*         return (uint32) d; */ 
+1346: /* MUTANT (del_stmt) */ /*     jsval top, parent, v, *vp, *end; */ 
+1347: /* MUTANT (del_stmt) */ /*     JSObject *obj; */ 
+1348: /* MUTANT (del_stmt) */ /*     JSScope *scope; */ 
+1356: /* MUTANT (rep_op) */    METER(if (--rt->gcStats.dswdepth > rt->gcStats.maxdswdepth)
+1356: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.dswdepth <= rt->gcStats.maxdswdepth)
+1356: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.dswdepth < rt->gcStats.maxdswdepth)
+1356: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.dswdepth >= rt->gcStats.maxdswdepth)
+1356: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.dswdepth == rt->gcStats.maxdswdepth)
+1356: /* MUTANT (rep_op) */    METER(if (++rt->gcStats.dswdepth != rt->gcStats.maxdswdepth)
+1356: /* MUTANT (negate) */    METER(if(! (++rt->gcStats.dswdepth > rt->gcStats.maxdswdepth))
+1358: /* MUTANT (del_stmt) */ /*     obj = (JSObject *) thing; */ 
+1359: /* MUTANT (del_stmt) */ /*     parent = OBJECT_TO_JSVAL(obj); */ 
+1362: /* MUTANT (rep_op) */    scope = (OBJ_IS_NATIVE(obj) || OBJ_SCOPE(obj)->object == obj)
+1362: /* MUTANT (rep_op) */    scope = (OBJ_IS_NATIVE(obj) && OBJ_SCOPE(obj)->object != obj)
+1367: /* MUTANT (del_stmt) */ /*     vp = obj->slots; */ 
+1368: /* MUTANT (rep_op) */    if ((vp[-1] - 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1368: /* MUTANT (rep_op) */    if ((vp[-1] * 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1368: /* MUTANT (rep_op) */    if ((vp[-1] % 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1368: /* MUTANT (rep_op) */    if ((vp[-1] + 1) * sizeof(jsval) < GC_NBYTES_MAX)
+1368: /* MUTANT (rep_op) */    if ((vp[-1] + 1) * sizeof(jsval) > GC_NBYTES_MAX)
+1368: /* MUTANT (rep_op) */    if ((vp[-1] + 1) * sizeof(jsval) >= GC_NBYTES_MAX)
+1368: /* MUTANT (rep_op) */    if ((vp[-1] + 1) * sizeof(jsval) == GC_NBYTES_MAX)
+1368: /* MUTANT (rep_op) */    if ((vp[-1] + 1) * sizeof(jsval) != GC_NBYTES_MAX)
+1368: /* MUTANT (rep_const) */    if ((vp[0] + 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1368: /* MUTANT (rep_const) */    if ((vp[1] + 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1368: /* MUTANT (rep_const) */    if ((vp[((-1)+1)] + 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1368: /* MUTANT (rep_const) */    if ((vp[((-1)-1)] + 1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1368: /* MUTANT (rep_const) */    if ((vp[-1] + 0) * sizeof(jsval) <= GC_NBYTES_MAX)
+1368: /* MUTANT (rep_const) */    if ((vp[-1] + -1) * sizeof(jsval) <= GC_NBYTES_MAX)
+1368: /* MUTANT (rep_const) */    if ((vp[-1] + ((1)+1)) * sizeof(jsval) <= GC_NBYTES_MAX)
+1368: /* MUTANT (negate) */    if(! ((vp[-1] + 1) * sizeof(jsval) <= GC_NBYTES_MAX))
+1369: /* MUTANT (rep_const) */        GC_MARK(cx, vp - 0, "slots", NULL);
+1369: /* MUTANT (rep_const) */        GC_MARK(cx, vp - -1, "slots", NULL);
+1369: /* MUTANT (rep_const) */        GC_MARK(cx, vp - ((1)+1), "slots", NULL);
+1371: /* MUTANT (rep_op) */    end = vp - ((obj->map->ops->mark)
+1371: /* MUTANT (rep_op) */    end = vp * ((obj->map->ops->mark)
+1371: /* MUTANT (rep_op) */    end = vp % ((obj->map->ops->mark)
+1375: /* MUTANT (del_stmt) */ /*     *flagp |= GCF_MARK; */ 
+1379: /* MUTANT (rep_op) */               == NULL) {
+1380: /* MUTANT (del_stmt) */ /*             v = *vp; */ 
+1381: /* MUTANT (del_stmt) */ /*             JS_ASSERT(JSVAL_TO_GCTHING(v) == thing); */ 
+1381: /* MUTANT (rep_op) */            JS_ASSERT(JSVAL_TO_GCTHING(v) != thing);
+1383: /* MUTANT (negate) */            if(! (JSVAL_IS_OBJECT(v))) {
+1384: /* MUTANT (del_stmt) */ /*                 *vp = JSVAL_SETTAG(top, JSVAL_BOOLEAN); */ 
+1385: /* MUTANT (del_stmt) */ /*                 top = parent; */ 
+1386: /* MUTANT (negate) */                if(! (scope))
+1388: /* MUTANT (del_stmt) */ /*                 goto down; */ 
+1396: /* MUTANT (rep_op) */        METER(rt->gcStats.dswdepth++);
+1397: /* MUTANT (negate) */        if(! (scope))
+1398: /* MUTANT (rep_const) */            scope->dswIndex = 1;
+1398: /* MUTANT (rep_const) */            scope->dswIndex = -1;
+1399: /* MUTANT (rep_op) */        if (top != JSVAL_EMPTY)
+1399: /* MUTANT (negate) */        if(! (top == JSVAL_EMPTY))
+1403: /* MUTANT (del_stmt) */ /*         METER(rt->gcStats.dswup++); */ 
+1403: /* MUTANT (rep_op) */        METER(rt->gcStats.dswup--);
+1404: /* MUTANT (del_stmt) */ /*         obj = JSVAL_TO_OBJECT(top); */ 
+1405: /* MUTANT (del_stmt) */ /*         vp = obj->slots; */ 
+1406: /* MUTANT (del_stmt) */ /*         end = vp + vp[-1]; */ 
+1406: /* MUTANT (rep_op) */        end = vp - vp[-1];
+1406: /* MUTANT (rep_op) */        end = vp * vp[-1];
+1406: /* MUTANT (rep_op) */        end = vp % vp[-1];
+1406: /* MUTANT (rep_const) */        end = vp + vp[0];
+1406: /* MUTANT (rep_const) */        end = vp + vp[1];
+1406: /* MUTANT (rep_const) */        end = vp + vp[((-1)+1)];
+1406: /* MUTANT (rep_const) */        end = vp + vp[((-1)-1)];
+1412: /* MUTANT (rep_op) */        scope = (OBJ_IS_NATIVE(obj) || OBJ_SCOPE(obj)->object == obj)
+1412: /* MUTANT (rep_op) */        scope = (OBJ_IS_NATIVE(obj) && OBJ_SCOPE(obj)->object != obj)
+1415: /* MUTANT (negate) */        if(! (scope))
+1416: /* MUTANT (rep_op) */            vp -= DecodeDSWIndex(scope->dswIndex, vp);
+1416: /* MUTANT (rep_op) */            vp *= DecodeDSWIndex(scope->dswIndex, vp);
+1416: /* MUTANT (rep_op) */            vp %= DecodeDSWIndex(scope->dswIndex, vp);
+1430: /* MUTANT (del_stmt) */ /*         v = *vp; */ 
+1431: /* MUTANT (rep_op) */        while (v < JSVAL_TRUE || !JSVAL_IS_BOOLEAN(v)) {
+1431: /* MUTANT (rep_op) */        while (v > JSVAL_TRUE || !JSVAL_IS_BOOLEAN(v)) {
+1431: /* MUTANT (rep_op) */        while (v >= JSVAL_TRUE || !JSVAL_IS_BOOLEAN(v)) {
+1431: /* MUTANT (rep_op) */        while (v == JSVAL_TRUE || !JSVAL_IS_BOOLEAN(v)) {
+1431: /* MUTANT (rep_op) */        while (v != JSVAL_TRUE || !JSVAL_IS_BOOLEAN(v)) {
+1431: /* MUTANT (rep_op) */        while (v <= JSVAL_TRUE && !JSVAL_IS_BOOLEAN(v)) {
+1431: /* MUTANT (negate) */        while(! (v <= JSVAL_TRUE || !JSVAL_IS_BOOLEAN(v))) {
+1432: /* MUTANT (del_stmt) */ /*             METER(rt->gcStats.dswupstep++); */ 
+1432: /* MUTANT (rep_op) */            METER(rt->gcStats.dswupstep--);
+1433: /* MUTANT (del_stmt) */ /*             JS_ASSERT(vp + 1 < end); */ 
+1433: /* MUTANT (rep_op) */            JS_ASSERT(vp - 1 < end);
+1433: /* MUTANT (rep_op) */            JS_ASSERT(vp * 1 < end);
+1433: /* MUTANT (rep_op) */            JS_ASSERT(vp % 1 < end);
+1433: /* MUTANT (rep_op) */            JS_ASSERT(vp + 1 <= end);
+1433: /* MUTANT (rep_op) */            JS_ASSERT(vp + 1 > end);
+1433: /* MUTANT (rep_op) */            JS_ASSERT(vp + 1 >= end);
+1433: /* MUTANT (rep_op) */            JS_ASSERT(vp + 1 == end);
+1433: /* MUTANT (rep_op) */            JS_ASSERT(vp + 1 != end);
+1433: /* MUTANT (rep_const) */            JS_ASSERT(vp + 0 < end);
+1433: /* MUTANT (rep_const) */            JS_ASSERT(vp + -1 < end);
+1433: /* MUTANT (rep_const) */            JS_ASSERT(vp + ((1)+1) < end);
+1434: /* MUTANT (del_stmt) */ /*             v = *++vp; */ 
+1437: /* MUTANT (rep_op) */        *vp-- = parent;
+1438: /* MUTANT (del_stmt) */ /*         parent = top; */ 
+1439: /* MUTANT (del_stmt) */ /*         top = JSVAL_CLRTAG(v); */ 
+1446: /* MUTANT (del_stmt) */ /*     uint8 *flagp; */ 
+1448: /* MUTANT (del_stmt) */ /*     flagp = UNMARKED_GC_THING_FLAGS(thing, arg); */ 
+1449: /* MUTANT (negate) */    if(! (!flagp))
+1451: /* MUTANT (del_stmt) */ /*     MARK_GC_THING(cx, thing, flagp, arg); */ 
+1457: /* MUTANT (del_stmt) */ /*     JSGCRootHashEntry *rhe = (JSGCRootHashEntry *)hdr; */ 
+1458: /* MUTANT (del_stmt) */ /*     jsval *rp = (jsval *)rhe->root; */ 
+1459: /* MUTANT (del_stmt) */ /*     jsval v = *rp; */ 
+1462: /* MUTANT (rep_op) */    if (!JSVAL_IS_NULL(v) || JSVAL_IS_GCTHING(v)) {
+1462: /* MUTANT (negate) */    if(! (!JSVAL_IS_NULL(v) && JSVAL_IS_GCTHING(v))) {
+1463: /* MUTANT (del_stmt) */ /*         JSContext *cx = (JSContext *)arg; */ 
+1466: /* MUTANT (del_stmt) */ /*         JSArena *a; */ 
+1467: /* MUTANT (del_stmt) */ /*         jsuword firstpage; */ 
+1468: /* MUTANT (del_stmt) */ /*         JSBool root_points_to_gcArenaPool = JS_FALSE; */ 
+1469: /* MUTANT (del_stmt) */ /*         void *thing = JSVAL_TO_GCTHING(v); */ 
+1471: /* MUTANT (rep_op) */        for (i = 0; i <= GC_NUM_FREELISTS; i++) {
+1471: /* MUTANT (rep_op) */        for (i = 0; i > GC_NUM_FREELISTS; i++) {
+1471: /* MUTANT (rep_op) */        for (i = 0; i >= GC_NUM_FREELISTS; i++) {
+1471: /* MUTANT (rep_op) */        for (i = 0; i == GC_NUM_FREELISTS; i++) {
+1471: /* MUTANT (rep_op) */        for (i = 0; i != GC_NUM_FREELISTS; i++) {
+1471: /* MUTANT (rep_op) */        for (i = 0; i < GC_NUM_FREELISTS; i--) {
+1471: /* MUTANT (rep_const) */        for (i = 1; i < GC_NUM_FREELISTS; i++) {
+1471: /* MUTANT (rep_const) */        for (i = -1; i < GC_NUM_FREELISTS; i++) {
+1473: /* MUTANT (del_stmt) */ /*                 firstpage = FIRST_THING_PAGE(a); */ 
+1474: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(thing, firstpage) <= a->avail - firstpage) {
+1474: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(thing, firstpage) > a->avail - firstpage) {
+1474: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(thing, firstpage) >= a->avail - firstpage) {
+1474: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(thing, firstpage) == a->avail - firstpage) {
+1474: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(thing, firstpage) != a->avail - firstpage) {
+1474: /* MUTANT (negate) */                if(! (JS_UPTRDIFF(thing, firstpage) < a->avail - firstpage)) {
+1475: /* MUTANT (del_stmt) */ /*                     root_points_to_gcArenaPool = JS_TRUE; */ 
+1476: /* MUTANT (del_stmt) */ /*                     break; */ 
+1480: /* MUTANT (rep_op) */        if (!root_points_to_gcArenaPool || rhe->name) {
+1480: /* MUTANT (negate) */        if(! (!root_points_to_gcArenaPool && rhe->name)) {
+1484: /* MUTANT (rep_op) */"The root's name is \"+s\".\n",
+1484: /* MUTANT (rep_op) */"The root's name is \"-s\".\n",
+1484: /* MUTANT (rep_op) */"The root's name is \"*s\".\n",
+1498: /* MUTANT (del_stmt) */ /*     JSGCLockHashEntry *lhe = (JSGCLockHashEntry *)hdr; */ 
+1499: /* MUTANT (del_stmt) */ /*     void *thing = (void *)lhe->thing; */ 
+1500: /* MUTANT (del_stmt) */ /*     JSContext *cx = (JSContext *)arg; */ 
+1502: /* MUTANT (del_stmt) */ /*     GC_MARK(cx, thing, "locked object", NULL); */ 
+1503: /* MUTANT (del_stmt) */ /*     return JS_DHASH_NEXT; */ 
+1509: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+1511: /* MUTANT (rep_op) */    for (i = 0; i <= GCX_NTYPES; i++)
+1511: /* MUTANT (rep_op) */    for (i = 0; i > GCX_NTYPES; i++)
+1511: /* MUTANT (rep_op) */    for (i = 0; i >= GCX_NTYPES; i++)
+1511: /* MUTANT (rep_op) */    for (i = 0; i == GCX_NTYPES; i++)
+1511: /* MUTANT (rep_op) */    for (i = 0; i != GCX_NTYPES; i++)
+1511: /* MUTANT (rep_op) */    for (i = 0; i < GCX_NTYPES; i--)
+1511: /* MUTANT (rep_const) */    for (i = 1; i < GCX_NTYPES; i++)
+1511: /* MUTANT (rep_const) */    for (i = -1; i < GCX_NTYPES; i++)
+1513: /* MUTANT (del_stmt) */ /*     cx->lastAtom = NULL; */ 
+1514: /* MUTANT (del_stmt) */ /*     cx->runtime->gcPoke = JS_TRUE; */ 
+1515: /* MUTANT (del_stmt) */ /*     js_GC(cx, gcflags); */ 
+1516: /* MUTANT (del_stmt) */ /*     JS_ArenaFinish(); */ 
+1523: /* MUTANT (rep_op) */        for (_vp = vec, _end = _vp - len; _vp < _end; _vp++) {                \
+1523: /* MUTANT (rep_op) */        for (_vp = vec, _end = _vp * len; _vp < _end; _vp++) {                \
+1523: /* MUTANT (rep_op) */        for (_vp = vec, _end = _vp % len; _vp < _end; _vp++) {                \
+1523: /* MUTANT (rep_op) */        for (_vp = vec, _end = _vp + len; _vp <= _end; _vp++) {                \
+1523: /* MUTANT (rep_op) */        for (_vp = vec, _end = _vp + len; _vp > _end; _vp++) {                \
+1523: /* MUTANT (rep_op) */        for (_vp = vec, _end = _vp + len; _vp >= _end; _vp++) {                \
+1523: /* MUTANT (rep_op) */        for (_vp = vec, _end = _vp + len; _vp == _end; _vp++) {                \
+1523: /* MUTANT (rep_op) */        for (_vp = vec, _end = _vp + len; _vp != _end; _vp++) {                \
+1523: /* MUTANT (rep_op) */        for (_vp = vec, _end = _vp + len; _vp < _end; _vp--) {                \
+1525: /* MUTANT (negate) */            if(! (JSVAL_IS_GCTHING(_v)))                                         \
+1533: /* MUTANT (del_stmt) */ /*     JSRuntime *rt; */ 
+1534: /* MUTANT (del_stmt) */ /*     JSContext *iter, *acx; */ 
+1535: /* MUTANT (del_stmt) */ /*     JSStackFrame *fp, *chain; */ 
+1536: /* MUTANT (del_stmt) */ /*     uintN i, depth, nslots, type; */ 
+1537: /* MUTANT (del_stmt) */ /*     JSStackHeader *sh; */ 
+1538: /* MUTANT (del_stmt) */ /*     JSTempValueRooter *tvr; */ 
+1539: /* MUTANT (del_stmt) */ /*     size_t nbytes, nflags; */ 
+1540: /* MUTANT (del_stmt) */ /*     JSArena *a, **ap; */ 
+1541: /* MUTANT (del_stmt) */ /*     uint8 flags, *flagp, *split; */ 
+1542: /* MUTANT (del_stmt) */ /*     JSGCThing *thing, *limit, **flp, **oflp; */ 
+1543: /* MUTANT (del_stmt) */ /*     GCFinalizeOp finalizer; */ 
+1544: /* MUTANT (del_stmt) */ /*     uint32 *bytesptr; */ 
+1545: /* MUTANT (del_stmt) */ /*     JSBool all_clear; */ 
+1548: /* MUTANT (del_stmt) */ /*     uint32 requestDebit; */ 
+1563: /* MUTANT (rep_op) */    if (rt->state == JSRTS_UP && !(gcflags & GC_LAST_CONTEXT))
+1563: /* MUTANT (rep_op) */    if (rt->state != JSRTS_UP || !(gcflags & GC_LAST_CONTEXT))
+1563: /* MUTANT (negate) */    if(! (rt->state != JSRTS_UP && !(gcflags & GC_LAST_CONTEXT)))
+1570: /* MUTANT (negate) */    if(! (rt->gcCallback)) {
+1571: /* MUTANT (rep_op) */        if (!rt->gcCallback(cx, JSGC_BEGIN) || !(gcflags & GC_LAST_CONTEXT))
+1571: /* MUTANT (negate) */        if(! (!rt->gcCallback(cx, JSGC_BEGIN) && !(gcflags & GC_LAST_CONTEXT)))
+1576: /* MUTANT (negate) */    if(! (!(gcflags & GC_ALREADY_LOCKED)))
+1580: /* MUTANT (negate) */    if(! (!rt->gcPoke)) {
+1581: /* MUTANT (del_stmt) */ /*         METER(rt->gcStats.nopoke++); */ 
+1581: /* MUTANT (rep_op) */        METER(rt->gcStats.nopoke--);
+1582: /* MUTANT (negate) */        if(! (!(gcflags & GC_ALREADY_LOCKED)))
+1584: /* MUTANT (del_stmt) */ /*         return; */ 
+1586: /* MUTANT (rep_op) */    METER(rt->gcStats.poke--);
+1587: /* MUTANT (del_stmt) */ /*     rt->gcPoke = JS_FALSE; */ 
+1592: /* MUTANT (rep_op) */    if (rt->gcThread != currentThread) {
+1592: /* MUTANT (negate) */    if(! (rt->gcThread == currentThread)) {
+1593: /* MUTANT (del_stmt) */ /*         JS_ASSERT(rt->gcLevel > 0); */ 
+1593: /* MUTANT (rep_op) */        JS_ASSERT(rt->gcLevel <= 0);
+1593: /* MUTANT (rep_op) */        JS_ASSERT(rt->gcLevel < 0);
+1593: /* MUTANT (rep_op) */        JS_ASSERT(rt->gcLevel >= 0);
+1593: /* MUTANT (rep_op) */        JS_ASSERT(rt->gcLevel == 0);
+1593: /* MUTANT (rep_op) */        JS_ASSERT(rt->gcLevel != 0);
+1593: /* MUTANT (rep_const) */        JS_ASSERT(rt->gcLevel > 1);
+1593: /* MUTANT (rep_const) */        JS_ASSERT(rt->gcLevel > -1);
+1594: /* MUTANT (del_stmt) */ /*         rt->gcLevel++; */ 
+1594: /* MUTANT (rep_op) */        rt->gcLevel--;
+1595: /* MUTANT (rep_op) */        METER(if (rt->gcLevel <= rt->gcStats.maxlevel)
+1595: /* MUTANT (rep_op) */        METER(if (rt->gcLevel < rt->gcStats.maxlevel)
+1595: /* MUTANT (rep_op) */        METER(if (rt->gcLevel >= rt->gcStats.maxlevel)
+1595: /* MUTANT (rep_op) */        METER(if (rt->gcLevel == rt->gcStats.maxlevel)
+1595: /* MUTANT (rep_op) */        METER(if (rt->gcLevel != rt->gcStats.maxlevel)
+1595: /* MUTANT (negate) */        METER(if(! (rt->gcLevel > rt->gcStats.maxlevel))
+1597: /* MUTANT (negate) */        if(! (!(gcflags & GC_ALREADY_LOCKED)))
+1599: /* MUTANT (del_stmt) */ /*         return; */ 
+1608: /* MUTANT (rep_const) */    requestDebit = 1;
+1608: /* MUTANT (rep_const) */    requestDebit = -1;
+1609: /* MUTANT (negate) */    if(! (cx->thread)) {
+1614: /* MUTANT (del_stmt) */ /*         iter = NULL; */ 
+1615: /* MUTANT (rep_op) */        while ((acx = js_ContextIterator(rt, JS_FALSE, &iter)) == NULL) {
+1615: /* MUTANT (negate) */        while(! ((acx = js_ContextIterator(rt, JS_FALSE, &iter)) != NULL)) {
+1616: /* MUTANT (rep_op) */            if (acx->thread != cx->thread && acx->requestDepth)
+1616: /* MUTANT (rep_op) */            if (acx->thread == cx->thread || acx->requestDepth)
+1616: /* MUTANT (negate) */            if(! (acx->thread == cx->thread && acx->requestDepth))
+1617: /* MUTANT (rep_op) */                requestDebit--;
+1627: /* MUTANT (del_stmt) */ /*         JS_ASSERT(cx->requestDepth == 0); */ 
+1627: /* MUTANT (rep_op) */        JS_ASSERT(cx->requestDepth != 0);
+1627: /* MUTANT (rep_const) */        JS_ASSERT(cx->requestDepth == 1);
+1627: /* MUTANT (rep_const) */        JS_ASSERT(cx->requestDepth == -1);
+1628: /* MUTANT (negate) */        if(! (cx->requestDepth))
+1629: /* MUTANT (rep_const) */            requestDebit = 0;
+1629: /* MUTANT (rep_const) */            requestDebit = -1;
+1629: /* MUTANT (rep_const) */            requestDebit = ((1)+1);
+1631: /* MUTANT (negate) */    if(! (requestDebit)) {
+1632: /* MUTANT (del_stmt) */ /*         JS_ASSERT(requestDebit <= rt->requestCount); */ 
+1632: /* MUTANT (rep_op) */        JS_ASSERT(requestDebit < rt->requestCount);
+1632: /* MUTANT (rep_op) */        JS_ASSERT(requestDebit > rt->requestCount);
+1632: /* MUTANT (rep_op) */        JS_ASSERT(requestDebit >= rt->requestCount);
+1632: /* MUTANT (rep_op) */        JS_ASSERT(requestDebit == rt->requestCount);
+1632: /* MUTANT (rep_op) */        JS_ASSERT(requestDebit != rt->requestCount);
+1633: /* MUTANT (del_stmt) */ /*         rt->requestCount -= requestDebit; */ 
+1633: /* MUTANT (rep_op) */        rt->requestCount += requestDebit;
+1633: /* MUTANT (rep_op) */        rt->requestCount *= requestDebit;
+1633: /* MUTANT (rep_op) */        rt->requestCount %= requestDebit;
+1634: /* MUTANT (rep_op) */        if (rt->requestCount != 0)
+1634: /* MUTANT (rep_const) */        if (rt->requestCount == 1)
+1634: /* MUTANT (rep_const) */        if (rt->requestCount == -1)
+1634: /* MUTANT (negate) */        if(! (rt->requestCount == 0))
+1639: /* MUTANT (rep_op) */    if (rt->gcLevel <= 0) {
+1639: /* MUTANT (rep_op) */    if (rt->gcLevel < 0) {
+1639: /* MUTANT (rep_op) */    if (rt->gcLevel >= 0) {
+1639: /* MUTANT (rep_op) */    if (rt->gcLevel == 0) {
+1639: /* MUTANT (rep_op) */    if (rt->gcLevel != 0) {
+1639: /* MUTANT (rep_const) */    if (rt->gcLevel > 1) {
+1639: /* MUTANT (rep_const) */    if (rt->gcLevel > -1) {
+1639: /* MUTANT (negate) */    if(! (rt->gcLevel > 0)) {
+1641: /* MUTANT (del_stmt) */ /*         rt->gcLevel++; */ 
+1641: /* MUTANT (rep_op) */        rt->gcLevel--;
+1642: /* MUTANT (rep_op) */        METER(if (rt->gcLevel <= rt->gcStats.maxlevel)
+1642: /* MUTANT (rep_op) */        METER(if (rt->gcLevel < rt->gcStats.maxlevel)
+1642: /* MUTANT (rep_op) */        METER(if (rt->gcLevel >= rt->gcStats.maxlevel)
+1642: /* MUTANT (rep_op) */        METER(if (rt->gcLevel == rt->gcStats.maxlevel)
+1642: /* MUTANT (rep_op) */        METER(if (rt->gcLevel != rt->gcStats.maxlevel)
+1642: /* MUTANT (negate) */        METER(if(! (rt->gcLevel > rt->gcStats.maxlevel))
+1646: /* MUTANT (rep_op) */        while (rt->gcLevel <= 0)
+1646: /* MUTANT (rep_op) */        while (rt->gcLevel < 0)
+1646: /* MUTANT (rep_op) */        while (rt->gcLevel >= 0)
+1646: /* MUTANT (rep_op) */        while (rt->gcLevel == 0)
+1646: /* MUTANT (rep_op) */        while (rt->gcLevel != 0)
+1646: /* MUTANT (rep_const) */        while (rt->gcLevel > 1)
+1646: /* MUTANT (rep_const) */        while (rt->gcLevel > -1)
+1646: /* MUTANT (negate) */        while(! (rt->gcLevel > 0))
+1648: /* MUTANT (negate) */        if(! (requestDebit))
+1649: /* MUTANT (rep_op) */            rt->requestCount -= requestDebit;
+1649: /* MUTANT (rep_op) */            rt->requestCount *= requestDebit;
+1649: /* MUTANT (rep_op) */            rt->requestCount %= requestDebit;
+1650: /* MUTANT (negate) */        if(! (!(gcflags & GC_ALREADY_LOCKED)))
+1652: /* MUTANT (del_stmt) */ /*         return; */ 
+1656: /* MUTANT (rep_const) */    rt->gcLevel = 0;
+1656: /* MUTANT (rep_const) */    rt->gcLevel = -1;
+1656: /* MUTANT (rep_const) */    rt->gcLevel = ((1)+1);
+1657: /* MUTANT (del_stmt) */ /*     rt->gcThread = currentThread; */ 
+1660: /* MUTANT (rep_op) */    while (rt->requestCount <= 0)
+1660: /* MUTANT (rep_op) */    while (rt->requestCount < 0)
+1660: /* MUTANT (rep_op) */    while (rt->requestCount >= 0)
+1660: /* MUTANT (rep_op) */    while (rt->requestCount == 0)
+1660: /* MUTANT (rep_op) */    while (rt->requestCount != 0)
+1660: /* MUTANT (rep_const) */    while (rt->requestCount > 1)
+1660: /* MUTANT (rep_const) */    while (rt->requestCount > -1)
+1660: /* MUTANT (negate) */    while(! (rt->requestCount > 0))
+1666: /* MUTANT (rep_op) */    rt->gcLevel--;
+1667: /* MUTANT (rep_op) */    METER(if (rt->gcLevel <= rt->gcStats.maxlevel)
+1667: /* MUTANT (rep_op) */    METER(if (rt->gcLevel < rt->gcStats.maxlevel)
+1667: /* MUTANT (rep_op) */    METER(if (rt->gcLevel >= rt->gcStats.maxlevel)
+1667: /* MUTANT (rep_op) */    METER(if (rt->gcLevel == rt->gcStats.maxlevel)
+1667: /* MUTANT (rep_op) */    METER(if (rt->gcLevel != rt->gcStats.maxlevel)
+1667: /* MUTANT (negate) */    METER(if(! (rt->gcLevel > rt->gcStats.maxlevel))
+1669: /* MUTANT (rep_op) */    if (rt->gcLevel <= 1)
+1669: /* MUTANT (rep_op) */    if (rt->gcLevel < 1)
+1669: /* MUTANT (rep_op) */    if (rt->gcLevel >= 1)
+1669: /* MUTANT (rep_op) */    if (rt->gcLevel == 1)
+1669: /* MUTANT (rep_op) */    if (rt->gcLevel != 1)
+1669: /* MUTANT (rep_const) */    if (rt->gcLevel > 0)
+1669: /* MUTANT (rep_const) */    if (rt->gcLevel > -1)
+1669: /* MUTANT (rep_const) */    if (rt->gcLevel > ((1)+1))
+1669: /* MUTANT (negate) */    if(! (rt->gcLevel > 1))
+1683: /* MUTANT (del_stmt) */ /*     JS_UNLOCK_GC(rt); */ 
+1686: /* MUTANT (negate) */    if(! (rt->gcKeepAtoms))
+1690: /* MUTANT (del_stmt) */ /*     rt->gcMallocBytes = 0; */ 
+1690: /* MUTANT (rep_const) */    rt->gcMallocBytes = 1;
+1690: /* MUTANT (rep_const) */    rt->gcMallocBytes = -1;
+1693: /* MUTANT (del_stmt) */ /*     js_DisablePropertyCache(cx); */ 
+1694: /* MUTANT (del_stmt) */ /*     js_FlushPropertyCache(cx); */ 
+1697: /* MUTANT (del_stmt) */ /*     js_DumpScopeMeters(rt); */ 
+1702: /* MUTANT (rep_op) */    rt->gcNumber--;
+1707: /* MUTANT (del_stmt) */ /*     JS_DHashTableEnumerate(&rt->gcRootsHash, gc_root_marker, cx); */ 
+1708: /* MUTANT (negate) */    if(! (rt->gcLocksHash))
+1710: /* MUTANT (del_stmt) */ /*     js_MarkAtomState(&rt->atomState, gcflags, gc_mark_atom_key_thing, cx); */ 
+1711: /* MUTANT (del_stmt) */ /*     js_MarkWatchPoints(cx); */ 
+1712: /* MUTANT (del_stmt) */ /*     js_MarkScriptFilenames(rt, gcflags); */ 
+1713: /* MUTANT (del_stmt) */ /*     js_MarkNativeIteratorStates(cx); */ 
+1715: /* MUTANT (del_stmt) */ /*     iter = NULL; */ 
+1716: /* MUTANT (rep_op) */    while ((acx = js_ContextIterator(rt, JS_TRUE, &iter)) == NULL) {
+1716: /* MUTANT (negate) */    while(! ((acx = js_ContextIterator(rt, JS_TRUE, &iter)) != NULL)) {
+1723: /* MUTANT (del_stmt) */ /*         chain = acx->fp; */ 
+1724: /* MUTANT (negate) */        if(! (chain)) {
+1725: /* MUTANT (del_stmt) */ /*             JS_ASSERT(!chain->dormantNext); */ 
+1726: /* MUTANT (del_stmt) */ /*             chain->dormantNext = acx->dormantFrameChain; */ 
+1728: /* MUTANT (del_stmt) */ /*             chain = acx->dormantFrameChain; */ 
+1733: /* MUTANT (negate) */                if(! (fp->callobj))
+1735: /* MUTANT (negate) */                if(! (fp->argsobj))
+1737: /* MUTANT (negate) */                if(! (fp->varobj))
+1739: /* MUTANT (negate) */                if(! (fp->script)) {
+1740: /* MUTANT (del_stmt) */ /*                     js_MarkScript(cx, fp->script, NULL); */ 
+1741: /* MUTANT (negate) */                    if(! (fp->spbase)) {
+1746: /* MUTANT (del_stmt) */ /*                         depth = fp->script->depth; */ 
+1748: /* MUTANT (rep_op) */                                  <= depth * sizeof(jsval))
+1748: /* MUTANT (rep_op) */                                  > depth * sizeof(jsval))
+1748: /* MUTANT (rep_op) */                                  >= depth * sizeof(jsval))
+1748: /* MUTANT (rep_op) */                                  == depth * sizeof(jsval))
+1748: /* MUTANT (rep_op) */                                  != depth * sizeof(jsval))
+1751: /* MUTANT (del_stmt) */ /*                         GC_MARK_JSVALS(cx, nslots, fp->spbase, "operand"); */ 
+1755: /* MUTANT (negate) */                if(! (fp->argv)) {
+1756: /* MUTANT (del_stmt) */ /*                     nslots = fp->argc; */ 
+1757: /* MUTANT (negate) */                    if(! (fp->fun)) {
+1758: /* MUTANT (rep_op) */                        if (fp->fun->nargs <= nslots)
+1758: /* MUTANT (rep_op) */                        if (fp->fun->nargs < nslots)
+1758: /* MUTANT (rep_op) */                        if (fp->fun->nargs >= nslots)
+1758: /* MUTANT (rep_op) */                        if (fp->fun->nargs == nslots)
+1758: /* MUTANT (rep_op) */                        if (fp->fun->nargs != nslots)
+1758: /* MUTANT (negate) */                        if(! (fp->fun->nargs > nslots))
+1760: /* MUTANT (del_stmt) */ /*                         nslots += fp->fun->extra; */ 
+1760: /* MUTANT (rep_op) */                        nslots -= fp->fun->extra;
+1760: /* MUTANT (rep_op) */                        nslots *= fp->fun->extra;
+1760: /* MUTANT (rep_op) */                        nslots %= fp->fun->extra;
+1764: /* MUTANT (negate) */                if(! (JSVAL_IS_GCTHING(fp->rval)))
+1766: /* MUTANT (negate) */                if(! (fp->vars))
+1768: /* MUTANT (del_stmt) */ /*                 GC_MARK(cx, fp->scopeChain, "scope chain", NULL); */ 
+1769: /* MUTANT (negate) */                if(! (fp->sharpArray))
+1772: /* MUTANT (negate) */                if(! (fp->xmlNamespace))
+1774: /* MUTANT (del_stmt) */ /*             } while ((fp = fp->down) != NULL); */ 
+1774: /* MUTANT (rep_op) */            } while ((fp = fp->down) == NULL);
+1774: /* MUTANT (negate) */            } while(! ((fp = fp->down) != NULL));
+1778: /* MUTANT (negate) */        if(! (acx->fp))
+1782: /* MUTANT (del_stmt) */ /*         GC_MARK(cx, acx->globalObject, "global object", NULL); */ 
+1783: /* MUTANT (rep_op) */        for (i = 0; i <= GCX_NTYPES; i++)
+1783: /* MUTANT (rep_op) */        for (i = 0; i > GCX_NTYPES; i++)
+1783: /* MUTANT (rep_op) */        for (i = 0; i >= GCX_NTYPES; i++)
+1783: /* MUTANT (rep_op) */        for (i = 0; i == GCX_NTYPES; i++)
+1783: /* MUTANT (rep_op) */        for (i = 0; i != GCX_NTYPES; i++)
+1783: /* MUTANT (rep_op) */        for (i = 0; i < GCX_NTYPES; i--)
+1783: /* MUTANT (rep_const) */        for (i = 1; i < GCX_NTYPES; i++)
+1783: /* MUTANT (rep_const) */        for (i = -1; i < GCX_NTYPES; i++)
+1785: /* MUTANT (negate) */        if(! (acx->lastAtom))
+1787: /* MUTANT (negate) */        if(! (JSVAL_IS_GCTHING(acx->lastInternalResult))) {
+1788: /* MUTANT (del_stmt) */ /*             thing = JSVAL_TO_GCTHING(acx->lastInternalResult); */ 
+1789: /* MUTANT (negate) */            if(! (thing))
+1793: /* MUTANT (rep_op) */        if (acx->throwing || JSVAL_IS_GCTHING(acx->exception))
+1793: /* MUTANT (negate) */        if(! (acx->throwing && JSVAL_IS_GCTHING(acx->exception)))
+1797: /* MUTANT (rep_op) */        if (acx->rval2set || JSVAL_IS_GCTHING(acx->rval2))
+1797: /* MUTANT (negate) */        if(! (acx->rval2set && JSVAL_IS_GCTHING(acx->rval2)))
+1802: /* MUTANT (del_stmt) */ /*             METER(rt->gcStats.stackseg++); */ 
+1802: /* MUTANT (rep_op) */            METER(rt->gcStats.stackseg--);
+1803: /* MUTANT (del_stmt) */ /*             METER(rt->gcStats.segslots += sh->nslots); */ 
+1803: /* MUTANT (rep_op) */            METER(rt->gcStats.segslots -= sh->nslots);
+1803: /* MUTANT (rep_op) */            METER(rt->gcStats.segslots *= sh->nslots);
+1803: /* MUTANT (rep_op) */            METER(rt->gcStats.segslots %= sh->nslots);
+1804: /* MUTANT (del_stmt) */ /*             GC_MARK_JSVALS(cx, sh->nslots, JS_STACK_SEGMENT(sh), "stack"); */ 
+1807: /* MUTANT (negate) */        if(! (acx->localRootStack))
+1810: /* MUTANT (rep_op) */            if (tvr->count != -1) {
+1810: /* MUTANT (rep_const) */            if (tvr->count == 0) {
+1810: /* MUTANT (rep_const) */            if (tvr->count == 1) {
+1810: /* MUTANT (rep_const) */            if (tvr->count == ((-1)+1)) {
+1810: /* MUTANT (rep_const) */            if (tvr->count == ((-1)-1)) {
+1810: /* MUTANT (negate) */            if(! (tvr->count == -1)) {
+1811: /* MUTANT (negate) */                if(! (JSVAL_IS_GCTHING(tvr->u.value))) {
+1815: /* MUTANT (rep_op) */            } else if (tvr->count != -2) {
+1815: /* MUTANT (rep_const) */            } else if (tvr->count == 0) {
+1815: /* MUTANT (rep_const) */            } else if (tvr->count == 1) {
+1815: /* MUTANT (rep_const) */            } else if (tvr->count == -1) {
+1815: /* MUTANT (rep_const) */            } else if (tvr->count == ((-2)+1)) {
+1815: /* MUTANT (rep_const) */            } else if (tvr->count == ((-2)-1)) {
+1815: /* MUTANT (negate) */            } else if(! (tvr->count == -2)) {
+1816: /* MUTANT (del_stmt) */ /*                 tvr->u.marker(cx, tvr); */ 
+1818: /* MUTANT (del_stmt) */ /*                 JS_ASSERT(tvr->count >= 0); */ 
+1818: /* MUTANT (rep_op) */                JS_ASSERT(tvr->count <= 0);
+1818: /* MUTANT (rep_op) */                JS_ASSERT(tvr->count < 0);
+1818: /* MUTANT (rep_op) */                JS_ASSERT(tvr->count > 0);
+1818: /* MUTANT (rep_op) */                JS_ASSERT(tvr->count == 0);
+1818: /* MUTANT (rep_op) */                JS_ASSERT(tvr->count != 0);
+1818: /* MUTANT (rep_const) */                JS_ASSERT(tvr->count >= 1);
+1818: /* MUTANT (rep_const) */                JS_ASSERT(tvr->count >= -1);
+1819: /* MUTANT (del_stmt) */ /*                 GC_MARK_JSVALS(cx, tvr->count, tvr->u.array, "tvr->u.array"); */ 
+1823: /* MUTANT (rep_op) */        if (acx->sharpObjectMap.depth <= 0)
+1823: /* MUTANT (rep_op) */        if (acx->sharpObjectMap.depth < 0)
+1823: /* MUTANT (rep_op) */        if (acx->sharpObjectMap.depth >= 0)
+1823: /* MUTANT (rep_op) */        if (acx->sharpObjectMap.depth == 0)
+1823: /* MUTANT (rep_op) */        if (acx->sharpObjectMap.depth != 0)
+1823: /* MUTANT (rep_const) */        if (acx->sharpObjectMap.depth > 1)
+1823: /* MUTANT (rep_const) */        if (acx->sharpObjectMap.depth > -1)
+1823: /* MUTANT (negate) */        if(! (acx->sharpObjectMap.depth > 0))
+1830: /* MUTANT (negate) */    if(! (rt->gcCallback))
+1843: /* MUTANT (del_stmt) */ /*     js_SweepAtomState(&rt->atomState); */ 
+1844: /* MUTANT (del_stmt) */ /*     js_SweepScopeProperties(rt); */ 
+1845: /* MUTANT (rep_op) */    for (i = 0; i <= GC_NUM_FREELISTS; i++) {
+1845: /* MUTANT (rep_op) */    for (i = 0; i > GC_NUM_FREELISTS; i++) {
+1845: /* MUTANT (rep_op) */    for (i = 0; i >= GC_NUM_FREELISTS; i++) {
+1845: /* MUTANT (rep_op) */    for (i = 0; i == GC_NUM_FREELISTS; i++) {
+1845: /* MUTANT (rep_op) */    for (i = 0; i != GC_NUM_FREELISTS; i++) {
+1845: /* MUTANT (rep_op) */    for (i = 0; i < GC_NUM_FREELISTS; i--) {
+1845: /* MUTANT (rep_const) */    for (i = 1; i < GC_NUM_FREELISTS; i++) {
+1845: /* MUTANT (rep_const) */    for (i = -1; i < GC_NUM_FREELISTS; i++) {
+1846: /* MUTANT (del_stmt) */ /*         nbytes = GC_FREELIST_NBYTES(i); */ 
+1847: /* MUTANT (del_stmt) */ /*         nflags = nbytes / sizeof(JSGCThing); */ 
+1850: /* MUTANT (del_stmt) */ /*             flagp = (uint8 *) a->base; */ 
+1851: /* MUTANT (del_stmt) */ /*             split = (uint8 *) FIRST_THING_PAGE(a); */ 
+1852: /* MUTANT (del_stmt) */ /*             limit = (JSGCThing *) a->avail; */ 
+1853: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing <= limit; thing += nflags) {
+1853: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing > limit; thing += nflags) {
+1853: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing >= limit; thing += nflags) {
+1853: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing == limit; thing += nflags) {
+1853: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing != limit; thing += nflags) {
+1853: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing < limit; thing -= nflags) {
+1853: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing < limit; thing *= nflags) {
+1853: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing < limit; thing %= nflags) {
+1854: /* MUTANT (rep_op) */                if (((jsuword)thing & GC_PAGE_MASK) != 0) {
+1854: /* MUTANT (rep_const) */                if (((jsuword)thing & GC_PAGE_MASK) == 1) {
+1854: /* MUTANT (rep_const) */                if (((jsuword)thing & GC_PAGE_MASK) == -1) {
+1854: /* MUTANT (negate) */                if(! (((jsuword)thing & GC_PAGE_MASK) == 0)) {
+1855: /* MUTANT (del_stmt) */ /*                     thing = (JSGCThing *) FIRST_THING((jsuword)thing, nbytes); */ 
+1856: /* MUTANT (del_stmt) */ /*                     flagp = js_GetGCThingFlags(thing); */ 
+1859: /* MUTANT (negate) */                if(! (flags & GCF_MARK)) {
+1860: /* MUTANT (del_stmt) */ /*                     *flagp &= ~GCF_MARK; */ 
+1861: /* MUTANT (rep_op) */                } else if (!(flags & (GCF_LOCK & GCF_FINAL))) {
+1861: /* MUTANT (negate) */                } else if(! (!(flags & (GCF_LOCK | GCF_FINAL)))) {
+1863: /* MUTANT (del_stmt) */ /*                     type = flags & GCF_TYPEMASK; */ 
+1864: /* MUTANT (del_stmt) */ /*                     finalizer = gc_finalizers[type]; */ 
+1865: /* MUTANT (negate) */                    if(! (finalizer)) {
+1866: /* MUTANT (del_stmt) */ /*                         *flagp = (uint8)(flags | GCF_FINAL); */ 
+1866: /* MUTANT (rep_op) */                        *flagp = (uint8)(flags & GCF_FINAL);
+1867: /* MUTANT (rep_op) */                        if (type <= GCX_EXTERNAL_STRING)
+1867: /* MUTANT (rep_op) */                        if (type < GCX_EXTERNAL_STRING)
+1867: /* MUTANT (rep_op) */                        if (type > GCX_EXTERNAL_STRING)
+1867: /* MUTANT (rep_op) */                        if (type == GCX_EXTERNAL_STRING)
+1867: /* MUTANT (rep_op) */                        if (type != GCX_EXTERNAL_STRING)
+1867: /* MUTANT (negate) */                        if(! (type >= GCX_EXTERNAL_STRING))
+1869: /* MUTANT (del_stmt) */ /*                         finalizer(cx, thing); */ 
+1875: /* MUTANT (rep_op) */                    bytesptr = (type != GCX_PRIVATE)
+1878: /* MUTANT (del_stmt) */ /*                     JS_ASSERT(*bytesptr >= nbytes + nflags); */ 
+1878: /* MUTANT (rep_op) */                    JS_ASSERT(*bytesptr <= nbytes + nflags);
+1878: /* MUTANT (rep_op) */                    JS_ASSERT(*bytesptr < nbytes + nflags);
+1878: /* MUTANT (rep_op) */                    JS_ASSERT(*bytesptr > nbytes + nflags);
+1878: /* MUTANT (rep_op) */                    JS_ASSERT(*bytesptr == nbytes + nflags);
+1878: /* MUTANT (rep_op) */                    JS_ASSERT(*bytesptr != nbytes + nflags);
+1878: /* MUTANT (rep_op) */                    JS_ASSERT(*bytesptr >= nbytes - nflags);
+1878: /* MUTANT (rep_op) */                    JS_ASSERT(*bytesptr >= nbytes * nflags);
+1878: /* MUTANT (rep_op) */                    JS_ASSERT(*bytesptr >= nbytes % nflags);
+1879: /* MUTANT (del_stmt) */ /*                     *bytesptr -= nbytes + nflags; */ 
+1879: /* MUTANT (rep_op) */                    *bytesptr += nbytes + nflags;
+1879: /* MUTANT (rep_op) */                    *bytesptr *= nbytes + nflags;
+1879: /* MUTANT (rep_op) */                    *bytesptr %= nbytes + nflags;
+1879: /* MUTANT (rep_op) */                    *bytesptr -= nbytes - nflags;
+1879: /* MUTANT (rep_op) */                    *bytesptr -= nbytes * nflags;
+1879: /* MUTANT (rep_op) */                    *bytesptr -= nbytes % nflags;
+1881: /* MUTANT (rep_op) */                flagp -= nflags;
+1881: /* MUTANT (rep_op) */                flagp *= nflags;
+1881: /* MUTANT (rep_op) */                flagp %= nflags;
+1882: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(flagp, split) <= nflags)
+1882: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(flagp, split) > nflags)
+1882: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(flagp, split) >= nflags)
+1882: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(flagp, split) == nflags)
+1882: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(flagp, split) != nflags)
+1882: /* MUTANT (negate) */                if(! (JS_UPTRDIFF(flagp, split) < nflags))
+1883: /* MUTANT (rep_op) */                    flagp -= GC_THINGS_SIZE;
+1883: /* MUTANT (rep_op) */                    flagp *= GC_THINGS_SIZE;
+1883: /* MUTANT (rep_op) */                    flagp %= GC_THINGS_SIZE;
+1900: /* MUTANT (rep_op) */    for (i = 0; i <= GC_NUM_FREELISTS; i++) {
+1900: /* MUTANT (rep_op) */    for (i = 0; i > GC_NUM_FREELISTS; i++) {
+1900: /* MUTANT (rep_op) */    for (i = 0; i >= GC_NUM_FREELISTS; i++) {
+1900: /* MUTANT (rep_op) */    for (i = 0; i == GC_NUM_FREELISTS; i++) {
+1900: /* MUTANT (rep_op) */    for (i = 0; i != GC_NUM_FREELISTS; i++) {
+1900: /* MUTANT (rep_op) */    for (i = 0; i < GC_NUM_FREELISTS; i--) {
+1900: /* MUTANT (rep_const) */    for (i = 1; i < GC_NUM_FREELISTS; i++) {
+1900: /* MUTANT (rep_const) */    for (i = -1; i < GC_NUM_FREELISTS; i++) {
+1901: /* MUTANT (del_stmt) */ /*         ap = &rt->gcArenaPool[i].first.next; */ 
+1902: /* MUTANT (del_stmt) */ /*         a = *ap; */ 
+1903: /* MUTANT (negate) */        if(! (!a))
+1906: /* MUTANT (del_stmt) */ /*         all_clear = JS_TRUE; */ 
+1907: /* MUTANT (del_stmt) */ /*         flp = oflp = &rt->gcFreeList[i]; */ 
+1908: /* MUTANT (del_stmt) */ /*         *flp = NULL; */ 
+1909: /* MUTANT (del_stmt) */ /*         METER(rt->gcStats.freelen[i] = 0); */ 
+1909: /* MUTANT (rep_const) */        METER(rt->gcStats.freelen[i] = 1);
+1909: /* MUTANT (rep_const) */        METER(rt->gcStats.freelen[i] = -1);
+1911: /* MUTANT (del_stmt) */ /*         nbytes = GC_FREELIST_NBYTES(i); */ 
+1912: /* MUTANT (del_stmt) */ /*         nflags = nbytes / sizeof(JSGCThing); */ 
+1914: /* MUTANT (del_stmt) */ /*             flagp = (uint8 *) a->base; */ 
+1915: /* MUTANT (del_stmt) */ /*             split = (uint8 *) FIRST_THING_PAGE(a); */ 
+1916: /* MUTANT (del_stmt) */ /*             limit = (JSGCThing *) a->avail; */ 
+1917: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing <= limit; thing += nflags) {
+1917: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing > limit; thing += nflags) {
+1917: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing >= limit; thing += nflags) {
+1917: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing == limit; thing += nflags) {
+1917: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing != limit; thing += nflags) {
+1917: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing < limit; thing -= nflags) {
+1917: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing < limit; thing *= nflags) {
+1917: /* MUTANT (rep_op) */            for (thing = (JSGCThing *) split; thing < limit; thing %= nflags) {
+1918: /* MUTANT (rep_op) */                if (((jsuword)thing & GC_PAGE_MASK) != 0) {
+1918: /* MUTANT (rep_const) */                if (((jsuword)thing & GC_PAGE_MASK) == 1) {
+1918: /* MUTANT (rep_const) */                if (((jsuword)thing & GC_PAGE_MASK) == -1) {
+1918: /* MUTANT (negate) */                if(! (((jsuword)thing & GC_PAGE_MASK) == 0)) {
+1919: /* MUTANT (del_stmt) */ /*                     thing = (JSGCThing *) FIRST_THING((jsuword)thing, nbytes); */ 
+1920: /* MUTANT (del_stmt) */ /*                     flagp = js_GetGCThingFlags(thing); */ 
+1922: /* MUTANT (rep_op) */                if (*flagp == GCF_FINAL) {
+1922: /* MUTANT (negate) */                if(! (*flagp != GCF_FINAL)) {
+1923: /* MUTANT (del_stmt) */ /*                     all_clear = JS_FALSE; */ 
+1925: /* MUTANT (del_stmt) */ /*                     thing->flagp = flagp; */ 
+1926: /* MUTANT (del_stmt) */ /*                     *flp = thing; */ 
+1927: /* MUTANT (del_stmt) */ /*                     flp = &thing->next; */ 
+1928: /* MUTANT (del_stmt) */ /*                     METER(rt->gcStats.freelen[i]++); */ 
+1928: /* MUTANT (rep_op) */                    METER(rt->gcStats.freelen[i]--);
+1930: /* MUTANT (rep_op) */                flagp -= nflags;
+1930: /* MUTANT (rep_op) */                flagp *= nflags;
+1930: /* MUTANT (rep_op) */                flagp %= nflags;
+1931: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(flagp, split) <= nflags)
+1931: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(flagp, split) > nflags)
+1931: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(flagp, split) >= nflags)
+1931: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(flagp, split) == nflags)
+1931: /* MUTANT (rep_op) */                if (JS_UPTRDIFF(flagp, split) != nflags)
+1931: /* MUTANT (negate) */                if(! (JS_UPTRDIFF(flagp, split) < nflags))
+1932: /* MUTANT (rep_op) */                    flagp -= GC_THINGS_SIZE;
+1932: /* MUTANT (rep_op) */                    flagp *= GC_THINGS_SIZE;
+1932: /* MUTANT (rep_op) */                    flagp %= GC_THINGS_SIZE;
+1935: /* MUTANT (negate) */            if(! (all_clear)) {
+1936: /* MUTANT (del_stmt) */ /*                 JS_ARENA_DESTROY(&rt->gcArenaPool[i], a, ap); */ 
+1937: /* MUTANT (del_stmt) */ /*                 flp = oflp; */ 
+1938: /* MUTANT (del_stmt) */ /*                 METER(rt->gcStats.afree++); */ 
+1938: /* MUTANT (rep_op) */                METER(rt->gcStats.afree--);
+1940: /* MUTANT (del_stmt) */ /*                 ap = &a->next; */ 
+1941: /* MUTANT (del_stmt) */ /*                 all_clear = JS_TRUE; */ 
+1942: /* MUTANT (del_stmt) */ /*                 oflp = flp; */ 
+1944: /* MUTANT (rep_op) */        } while ((a = *ap) == NULL);
+1944: /* MUTANT (negate) */        } while(! ((a = *ap) != NULL));
+1947: /* MUTANT (del_stmt) */ /*         *flp = NULL; */ 
+1950: /* MUTANT (negate) */    if(! (rt->gcCallback))
+1954: /* MUTANT (del_stmt) */ /*     DumpSrcNoteSizeHist(); */ 
+1961: /* MUTANT (rep_op) */    if (rt->gcLevel <= 1 || rt->gcPoke) {
+1961: /* MUTANT (rep_op) */    if (rt->gcLevel < 1 || rt->gcPoke) {
+1961: /* MUTANT (rep_op) */    if (rt->gcLevel >= 1 || rt->gcPoke) {
+1961: /* MUTANT (rep_op) */    if (rt->gcLevel == 1 || rt->gcPoke) {
+1961: /* MUTANT (rep_op) */    if (rt->gcLevel != 1 || rt->gcPoke) {
+1961: /* MUTANT (rep_op) */    if (rt->gcLevel > 1 && rt->gcPoke) {
+1961: /* MUTANT (rep_const) */    if (rt->gcLevel > 0 || rt->gcPoke) {
+1961: /* MUTANT (rep_const) */    if (rt->gcLevel > -1 || rt->gcPoke) {
+1961: /* MUTANT (rep_const) */    if (rt->gcLevel > ((1)+1) || rt->gcPoke) {
+1961: /* MUTANT (negate) */    if(! (rt->gcLevel > 1 || rt->gcPoke)) {
+1962: /* MUTANT (del_stmt) */ /*         rt->gcLevel = 1; */ 
+1962: /* MUTANT (rep_const) */        rt->gcLevel = 0;
+1962: /* MUTANT (rep_const) */        rt->gcLevel = -1;
+1962: /* MUTANT (rep_const) */        rt->gcLevel = ((1)+1);
+1963: /* MUTANT (del_stmt) */ /*         rt->gcPoke = JS_FALSE; */ 
+1964: /* MUTANT (del_stmt) */ /*         JS_UNLOCK_GC(rt); */ 
+1965: /* MUTANT (del_stmt) */ /*         goto restart; */ 
+1968: /* MUTANT (del_stmt) */ /*     rt->gcLevel = 0; */ 
+1968: /* MUTANT (rep_const) */    rt->gcLevel = 1;
+1968: /* MUTANT (rep_const) */    rt->gcLevel = -1;
+1969: /* MUTANT (del_stmt) */ /*     rt->gcLastBytes = rt->gcBytes; */ 
+1970: /* MUTANT (del_stmt) */ /*     rt->gcRunning = JS_FALSE; */ 
+1974: /* MUTANT (negate) */    if(! (requestDebit))
+1975: /* MUTANT (rep_op) */        rt->requestCount -= requestDebit;
+1975: /* MUTANT (rep_op) */        rt->requestCount *= requestDebit;
+1975: /* MUTANT (rep_op) */        rt->requestCount %= requestDebit;
+1976: /* MUTANT (del_stmt) */ /*     rt->gcThread = 0; */ 
+1976: /* MUTANT (rep_const) */    rt->gcThread = 1;
+1976: /* MUTANT (rep_const) */    rt->gcThread = -1;
+1977: /* MUTANT (del_stmt) */ /*     JS_NOTIFY_GC_DONE(rt); */ 
+1978: /* MUTANT (negate) */    if(! (!(gcflags & GC_ALREADY_LOCKED)))
+1982: /* MUTANT (negate) */    if(! (rt->gcCallback)) {
+1983: /* MUTANT (negate) */        if(! (gcflags & GC_ALREADY_LOCKED))
+1985: /* MUTANT (del_stmt) */ /*         (void) rt->gcCallback(cx, JSGC_END); */ 
+1986: /* MUTANT (negate) */        if(! (gcflags & GC_ALREADY_LOCKED))

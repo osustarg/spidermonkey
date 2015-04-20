@@ -1,0 +1,765 @@
+62: /* MUTANT (del_stmt) */ /*     return malloc(nbytes); */ 
+68: /* MUTANT (del_stmt) */ /*     free(ptr); */ 
+74: /* MUTANT (del_stmt) */ /*     JSDHashNumber h; */ 
+75: /* MUTANT (del_stmt) */ /*     const unsigned char *s; */ 
+77: /* MUTANT (del_stmt) */ /*     h = 0; */ 
+77: /* MUTANT (rep_const) */    h = 1;
+77: /* MUTANT (rep_const) */    h = -1;
+78: /* MUTANT (rep_op) */    for (s = key; *s == '\0'; s++)
+78: /* MUTANT (rep_op) */    for (s = key; *s != '\0'; s--)
+78: /* MUTANT (rep_const) */    for (s = key; *s != '\1'; s++)
+78: /* MUTANT (rep_const) */    for (s = key; *s != '\-1'; s++)
+79: /* MUTANT (rep_const) */        h = (h >> (JS_DHASH_BITS - 0)) ^ (h << 4) ^ *s;
+79: /* MUTANT (rep_const) */        h = (h >> (JS_DHASH_BITS - 1)) ^ (h << 4) ^ *s;
+79: /* MUTANT (rep_const) */        h = (h >> (JS_DHASH_BITS - -1)) ^ (h << 4) ^ *s;
+79: /* MUTANT (rep_const) */        h = (h >> (JS_DHASH_BITS - ((4)+1))) ^ (h << 4) ^ *s;
+79: /* MUTANT (rep_const) */        h = (h >> (JS_DHASH_BITS - ((4)-1))) ^ (h << 4) ^ *s;
+79: /* MUTANT (rep_const) */        h = (h >> (JS_DHASH_BITS - 4)) ^ (h << 0) ^ *s;
+79: /* MUTANT (rep_const) */        h = (h >> (JS_DHASH_BITS - 4)) ^ (h << 1) ^ *s;
+79: /* MUTANT (rep_const) */        h = (h >> (JS_DHASH_BITS - 4)) ^ (h << -1) ^ *s;
+79: /* MUTANT (rep_const) */        h = (h >> (JS_DHASH_BITS - 4)) ^ (h << ((4)+1)) ^ *s;
+79: /* MUTANT (rep_const) */        h = (h >> (JS_DHASH_BITS - 4)) ^ (h << ((4)-1)) ^ *s;
+80: /* MUTANT (del_stmt) */ /*     return h; */ 
+86: /* MUTANT (del_stmt) */ /*     JSDHashEntryStub *stub = (JSDHashEntryStub *)entry; */ 
+88: /* MUTANT (del_stmt) */ /*     return stub->key; */ 
+94: /* MUTANT (del_stmt) */ /*     return (JSDHashNumber)(unsigned long)key >> 2; */ 
+94: /* MUTANT (rep_const) */    return (JSDHashNumber)(unsigned long)key >> 0;
+94: /* MUTANT (rep_const) */    return (JSDHashNumber)(unsigned long)key >> 1;
+94: /* MUTANT (rep_const) */    return (JSDHashNumber)(unsigned long)key >> -1;
+94: /* MUTANT (rep_const) */    return (JSDHashNumber)(unsigned long)key >> ((2)+1);
+94: /* MUTANT (rep_const) */    return (JSDHashNumber)(unsigned long)key >> ((2)-1);
+102: /* MUTANT (del_stmt) */ /*     const JSDHashEntryStub *stub = (const JSDHashEntryStub *)entry; */ 
+104: /* MUTANT (del_stmt) */ /*     return stub->key == key; */ 
+104: /* MUTANT (rep_op) */    return stub->key != key;
+112: /* MUTANT (del_stmt) */ /*     const JSDHashEntryStub *stub = (const JSDHashEntryStub *)entry; */ 
+115: /* MUTANT (rep_op) */    return stub->key != key ||
+115: /* MUTANT (rep_op) */    return stub->key == key &&
+116: /* MUTANT (rep_op) */           (stub->key || key && strcmp(stub->key, key) == 0);
+116: /* MUTANT (rep_op) */           (stub->key && key || strcmp(stub->key, key) == 0);
+116: /* MUTANT (rep_op) */           (stub->key && key && strcmp(stub->key, key) != 0);
+116: /* MUTANT (rep_const) */           (stub->key && key && strcmp(stub->key, key) == 1);
+116: /* MUTANT (rep_const) */           (stub->key && key && strcmp(stub->key, key) == -1);
+124: /* MUTANT (del_stmt) */ /*     memcpy(to, from, table->entrySize); */ 
+130: /* MUTANT (del_stmt) */ /*     memset(entry, 0, table->entrySize); */ 
+130: /* MUTANT (rep_const) */    memset(entry, 1, table->entrySize);
+130: /* MUTANT (rep_const) */    memset(entry, -1, table->entrySize);
+136: /* MUTANT (del_stmt) */ /*     const JSDHashEntryStub *stub = (const JSDHashEntryStub *)entry; */ 
+138: /* MUTANT (del_stmt) */ /*     free((void *) stub->key); */ 
+139: /* MUTANT (del_stmt) */ /*     memset(entry, 0, table->entrySize); */ 
+139: /* MUTANT (rep_const) */    memset(entry, 1, table->entrySize);
+139: /* MUTANT (rep_const) */    memset(entry, -1, table->entrySize);
+162: /* MUTANT (del_stmt) */ /*     return &stub_ops; */ 
+169: /* MUTANT (del_stmt) */ /*     JSDHashTable *table; */ 
+171: /* MUTANT (del_stmt) */ /*     table = (JSDHashTable *) malloc(sizeof *table); */ 
+172: /* MUTANT (negate) */    if(! (!table))
+174: /* MUTANT (negate) */    if(! (!JS_DHashTableInit(table, ops, data, entrySize, capacity))) {
+175: /* MUTANT (del_stmt) */ /*         free(table); */ 
+176: /* MUTANT (del_stmt) */ /*         return NULL; */ 
+184: /* MUTANT (del_stmt) */ /*     JS_DHashTableFinish(table); */ 
+185: /* MUTANT (del_stmt) */ /*     free(table); */ 
+192: /* MUTANT (del_stmt) */ /*     int log2; */ 
+193: /* MUTANT (del_stmt) */ /*     uint32 nbytes; */ 
+196: /* MUTANT (rep_op) */    if (entrySize <= 10 * sizeof(void *)) {
+196: /* MUTANT (rep_op) */    if (entrySize < 10 * sizeof(void *)) {
+196: /* MUTANT (rep_op) */    if (entrySize >= 10 * sizeof(void *)) {
+196: /* MUTANT (rep_op) */    if (entrySize == 10 * sizeof(void *)) {
+196: /* MUTANT (rep_op) */    if (entrySize != 10 * sizeof(void *)) {
+196: /* MUTANT (rep_const) */    if (entrySize > 0 * sizeof(void *)) {
+196: /* MUTANT (rep_const) */    if (entrySize > 1 * sizeof(void *)) {
+196: /* MUTANT (rep_const) */    if (entrySize > -1 * sizeof(void *)) {
+196: /* MUTANT (rep_const) */    if (entrySize > ((10)+1) * sizeof(void *)) {
+196: /* MUTANT (rep_const) */    if (entrySize > ((10)-1) * sizeof(void *)) {
+196: /* MUTANT (negate) */    if(! (entrySize > 10 * sizeof(void *))) {
+202: /* MUTANT (rep_op) */                (entrySize <= 16 * sizeof(void*)) ? "definitely" : "probably");
+202: /* MUTANT (rep_op) */                (entrySize < 16 * sizeof(void*)) ? "definitely" : "probably");
+202: /* MUTANT (rep_op) */                (entrySize >= 16 * sizeof(void*)) ? "definitely" : "probably");
+202: /* MUTANT (rep_op) */                (entrySize == 16 * sizeof(void*)) ? "definitely" : "probably");
+202: /* MUTANT (rep_op) */                (entrySize != 16 * sizeof(void*)) ? "definitely" : "probably");
+202: /* MUTANT (rep_const) */                (entrySize > 0 * sizeof(void*)) ? "definitely" : "probably");
+202: /* MUTANT (rep_const) */                (entrySize > 1 * sizeof(void*)) ? "definitely" : "probably");
+202: /* MUTANT (rep_const) */                (entrySize > -1 * sizeof(void*)) ? "definitely" : "probably");
+202: /* MUTANT (rep_const) */                (entrySize > ((16)+1) * sizeof(void*)) ? "definitely" : "probably");
+202: /* MUTANT (rep_const) */                (entrySize > ((16)-1) * sizeof(void*)) ? "definitely" : "probably");
+207: /* MUTANT (del_stmt) */ /*     table->data = data; */ 
+208: /* MUTANT (rep_op) */    if (capacity <= JS_DHASH_MIN_SIZE)
+208: /* MUTANT (rep_op) */    if (capacity > JS_DHASH_MIN_SIZE)
+208: /* MUTANT (rep_op) */    if (capacity >= JS_DHASH_MIN_SIZE)
+208: /* MUTANT (rep_op) */    if (capacity == JS_DHASH_MIN_SIZE)
+208: /* MUTANT (rep_op) */    if (capacity != JS_DHASH_MIN_SIZE)
+208: /* MUTANT (negate) */    if(! (capacity < JS_DHASH_MIN_SIZE))
+211: /* MUTANT (del_stmt) */ /*     JS_CEILING_LOG2(log2, capacity); */ 
+213: /* MUTANT (del_stmt) */ /*     capacity = JS_BIT(log2); */ 
+214: /* MUTANT (rep_op) */    if (capacity <= JS_DHASH_SIZE_LIMIT)
+214: /* MUTANT (rep_op) */    if (capacity < JS_DHASH_SIZE_LIMIT)
+214: /* MUTANT (rep_op) */    if (capacity > JS_DHASH_SIZE_LIMIT)
+214: /* MUTANT (rep_op) */    if (capacity == JS_DHASH_SIZE_LIMIT)
+214: /* MUTANT (rep_op) */    if (capacity != JS_DHASH_SIZE_LIMIT)
+214: /* MUTANT (negate) */    if(! (capacity >= JS_DHASH_SIZE_LIMIT))
+216: /* MUTANT (del_stmt) */ /*     table->hashShift = JS_DHASH_BITS - log2; */ 
+217: /* MUTANT (del_stmt) */ /*     table->maxAlphaFrac = 0xC0; */                  /* .75 */
+217: /* MUTANT (rep_const) */    table->maxAlphaFrac = 1xC0;                 /* .75 */
+217: /* MUTANT (rep_const) */    table->maxAlphaFrac = -1xC0;                 /* .75 */
+218: /* MUTANT (del_stmt) */ /*     table->minAlphaFrac = 0x40; */                  /* .25 */
+218: /* MUTANT (rep_const) */    table->minAlphaFrac = 1x40;                 /* .25 */
+218: /* MUTANT (rep_const) */    table->minAlphaFrac = -1x40;                 /* .25 */
+219: /* MUTANT (del_stmt) */ /*     table->entrySize = entrySize; */ 
+220: /* MUTANT (del_stmt) */ /*     table->entryCount = table->removedCount = 0; */ 
+220: /* MUTANT (rep_const) */    table->entryCount = table->removedCount = 1;
+220: /* MUTANT (rep_const) */    table->entryCount = table->removedCount = -1;
+221: /* MUTANT (del_stmt) */ /*     table->generation = 0; */ 
+221: /* MUTANT (rep_const) */    table->generation = 1;
+221: /* MUTANT (rep_const) */    table->generation = -1;
+222: /* MUTANT (del_stmt) */ /*     nbytes = capacity * entrySize; */ 
+224: /* MUTANT (del_stmt) */ /*     table->entryStore = ops->allocTable(table, nbytes); */ 
+225: /* MUTANT (negate) */    if(! (!table->entryStore))
+227: /* MUTANT (del_stmt) */ /*     memset(table->entryStore, 0, nbytes); */ 
+227: /* MUTANT (rep_const) */    memset(table->entryStore, 1, nbytes);
+227: /* MUTANT (rep_const) */    memset(table->entryStore, -1, nbytes);
+228: /* MUTANT (del_stmt) */ /*     METER(memset(&table->stats, 0, sizeof table->stats)); */ 
+228: /* MUTANT (rep_const) */    METER(memset(&table->stats, 1, sizeof table->stats));
+228: /* MUTANT (rep_const) */    METER(memset(&table->stats, -1, sizeof table->stats));
+229: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+235: #define MAX_LOAD(table, size)   (((table)->maxAlphaFrac * (size)) >> 0) /* MUTANT (rep_const) */
+235: #define MAX_LOAD(table, size)   (((table)->maxAlphaFrac * (size)) >> 1) /* MUTANT (rep_const) */
+235: #define MAX_LOAD(table, size)   (((table)->maxAlphaFrac * (size)) >> -1) /* MUTANT (rep_const) */
+235: #define MAX_LOAD(table, size)   (((table)->maxAlphaFrac * (size)) >> ((8)+1)) /* MUTANT (rep_const) */
+235: #define MAX_LOAD(table, size)   (((table)->maxAlphaFrac * (size)) >> ((8)-1)) /* MUTANT (rep_const) */
+236: #define MIN_LOAD(table, size)   (((table)->minAlphaFrac * (size)) >> 0) /* MUTANT (rep_const) */
+236: #define MIN_LOAD(table, size)   (((table)->minAlphaFrac * (size)) >> 1) /* MUTANT (rep_const) */
+236: #define MIN_LOAD(table, size)   (((table)->minAlphaFrac * (size)) >> -1) /* MUTANT (rep_const) */
+236: #define MIN_LOAD(table, size)   (((table)->minAlphaFrac * (size)) >> ((8)+1)) /* MUTANT (rep_const) */
+236: #define MIN_LOAD(table, size)   (((table)->minAlphaFrac * (size)) >> ((8)-1)) /* MUTANT (rep_const) */
+243: /* MUTANT (del_stmt) */ /*     uint32 size; */ 
+249: /* MUTANT (del_stmt) */ /*     JS_ASSERT(0.5 <= maxAlpha && maxAlpha < 1 && 0 <= minAlpha); */ 
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 < maxAlpha && maxAlpha < 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 > maxAlpha && maxAlpha < 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 >= maxAlpha && maxAlpha < 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 == maxAlpha && maxAlpha < 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 != maxAlpha && maxAlpha < 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 <= maxAlpha || maxAlpha < 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha <= 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha > 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha >= 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha == 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha != 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha < 1 || 0 <= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha < 1 && 0 < minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha < 1 && 0 > minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha < 1 && 0 >= minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha < 1 && 0 == minAlpha);
+249: /* MUTANT (rep_op) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha < 1 && 0 != minAlpha);
+249: /* MUTANT (rep_const) */    JS_ASSERT(0.0 <= maxAlpha && maxAlpha < 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_const) */    JS_ASSERT(0.1 <= maxAlpha && maxAlpha < 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_const) */    JS_ASSERT(0.-1 <= maxAlpha && maxAlpha < 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_const) */    JS_ASSERT(0.((5)+1) <= maxAlpha && maxAlpha < 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_const) */    JS_ASSERT(0.((5)-1) <= maxAlpha && maxAlpha < 1 && 0 <= minAlpha);
+249: /* MUTANT (rep_const) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha < 0 && 0 <= minAlpha);
+249: /* MUTANT (rep_const) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha < -1 && 0 <= minAlpha);
+249: /* MUTANT (rep_const) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha < ((1)+1) && 0 <= minAlpha);
+249: /* MUTANT (rep_const) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha < 1 && 1 <= minAlpha);
+249: /* MUTANT (rep_const) */    JS_ASSERT(0.5 <= maxAlpha && maxAlpha < 1 && -1 <= minAlpha);
+250: /* MUTANT (rep_op) */    if (maxAlpha <= 0.5 || 1 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha > 0.5 || 1 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha >= 0.5 || 1 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha == 0.5 || 1 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha != 0.5 || 1 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha < 0.5 && 1 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha < 0.5 || 1 < maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha < 0.5 || 1 > maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha < 0.5 || 1 >= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha < 0.5 || 1 == maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha < 0.5 || 1 != maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha < 0.5 || 1 <= maxAlpha && minAlpha < 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha < 0.5 || 1 <= maxAlpha || minAlpha <= 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha < 0.5 || 1 <= maxAlpha || minAlpha > 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha < 0.5 || 1 <= maxAlpha || minAlpha >= 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha < 0.5 || 1 <= maxAlpha || minAlpha == 0)
+250: /* MUTANT (rep_op) */    if (maxAlpha < 0.5 || 1 <= maxAlpha || minAlpha != 0)
+250: /* MUTANT (rep_const) */    if (maxAlpha < 0.0 || 1 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_const) */    if (maxAlpha < 0.1 || 1 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_const) */    if (maxAlpha < 0.-1 || 1 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_const) */    if (maxAlpha < 0.((5)+1) || 1 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_const) */    if (maxAlpha < 0.((5)-1) || 1 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_const) */    if (maxAlpha < 0.5 || 0 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_const) */    if (maxAlpha < 0.5 || -1 <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_const) */    if (maxAlpha < 0.5 || ((1)+1) <= maxAlpha || minAlpha < 0)
+250: /* MUTANT (rep_const) */    if (maxAlpha < 0.5 || 1 <= maxAlpha || minAlpha < 1)
+250: /* MUTANT (rep_const) */    if (maxAlpha < 0.5 || 1 <= maxAlpha || minAlpha < -1)
+250: /* MUTANT (negate) */    if(! (maxAlpha < 0.5 || 1 <= maxAlpha || minAlpha < 0))
+258: /* MUTANT (del_stmt) */ /*     JS_ASSERT(JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) >= 1); */ 
+258: /* MUTANT (rep_op) */    JS_ASSERT(JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) <= 1);
+258: /* MUTANT (rep_op) */    JS_ASSERT(JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) < 1);
+258: /* MUTANT (rep_op) */    JS_ASSERT(JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) > 1);
+258: /* MUTANT (rep_op) */    JS_ASSERT(JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) == 1);
+258: /* MUTANT (rep_op) */    JS_ASSERT(JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) != 1);
+258: /* MUTANT (rep_const) */    JS_ASSERT(JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) >= 0);
+258: /* MUTANT (rep_const) */    JS_ASSERT(JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) >= -1);
+258: /* MUTANT (rep_const) */    JS_ASSERT(JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) >= ((1)+1));
+259: /* MUTANT (rep_op) */    if (JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) <= 1) {
+259: /* MUTANT (rep_op) */    if (JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) > 1) {
+259: /* MUTANT (rep_op) */    if (JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) >= 1) {
+259: /* MUTANT (rep_op) */    if (JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) == 1) {
+259: /* MUTANT (rep_op) */    if (JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) != 1) {
+259: /* MUTANT (rep_const) */    if (JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) < 0) {
+259: /* MUTANT (rep_const) */    if (JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) < -1) {
+259: /* MUTANT (rep_const) */    if (JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) < ((1)+1)) {
+259: /* MUTANT (negate) */    if(! (JS_DHASH_MIN_SIZE - (maxAlpha * JS_DHASH_MIN_SIZE) < 1)) {
+261: /* MUTANT (rep_const) */                   (JS_DHASH_MIN_SIZE - JS_MAX(JS_DHASH_MIN_SIZE / 0, 1))
+261: /* MUTANT (rep_const) */                   (JS_DHASH_MIN_SIZE - JS_MAX(JS_DHASH_MIN_SIZE / 1, 1))
+261: /* MUTANT (rep_const) */                   (JS_DHASH_MIN_SIZE - JS_MAX(JS_DHASH_MIN_SIZE / -1, 1))
+261: /* MUTANT (rep_const) */                   (JS_DHASH_MIN_SIZE - JS_MAX(JS_DHASH_MIN_SIZE / ((256)+1), 1))
+261: /* MUTANT (rep_const) */                   (JS_DHASH_MIN_SIZE - JS_MAX(JS_DHASH_MIN_SIZE / ((256)-1), 1))
+261: /* MUTANT (rep_const) */                   (JS_DHASH_MIN_SIZE - JS_MAX(JS_DHASH_MIN_SIZE / 256, 0))
+261: /* MUTANT (rep_const) */                   (JS_DHASH_MIN_SIZE - JS_MAX(JS_DHASH_MIN_SIZE / 256, -1))
+261: /* MUTANT (rep_const) */                   (JS_DHASH_MIN_SIZE - JS_MAX(JS_DHASH_MIN_SIZE / 256, ((1)+1)))
+270: /* MUTANT (rep_op) */    JS_ASSERT(minAlpha <= maxAlpha / 2);
+270: /* MUTANT (rep_op) */    JS_ASSERT(minAlpha > maxAlpha / 2);
+270: /* MUTANT (rep_op) */    JS_ASSERT(minAlpha >= maxAlpha / 2);
+270: /* MUTANT (rep_op) */    JS_ASSERT(minAlpha == maxAlpha / 2);
+270: /* MUTANT (rep_op) */    JS_ASSERT(minAlpha != maxAlpha / 2);
+270: /* MUTANT (rep_const) */    JS_ASSERT(minAlpha < maxAlpha / 0);
+270: /* MUTANT (rep_const) */    JS_ASSERT(minAlpha < maxAlpha / 1);
+270: /* MUTANT (rep_const) */    JS_ASSERT(minAlpha < maxAlpha / -1);
+270: /* MUTANT (rep_const) */    JS_ASSERT(minAlpha < maxAlpha / ((2)+1));
+270: /* MUTANT (rep_const) */    JS_ASSERT(minAlpha < maxAlpha / ((2)-1));
+271: /* MUTANT (rep_op) */    if (minAlpha <= maxAlpha / 2) {
+271: /* MUTANT (rep_op) */    if (minAlpha < maxAlpha / 2) {
+271: /* MUTANT (rep_op) */    if (minAlpha > maxAlpha / 2) {
+271: /* MUTANT (rep_op) */    if (minAlpha == maxAlpha / 2) {
+271: /* MUTANT (rep_op) */    if (minAlpha != maxAlpha / 2) {
+271: /* MUTANT (rep_const) */    if (minAlpha >= maxAlpha / 0) {
+271: /* MUTANT (rep_const) */    if (minAlpha >= maxAlpha / 1) {
+271: /* MUTANT (rep_const) */    if (minAlpha >= maxAlpha / -1) {
+271: /* MUTANT (rep_const) */    if (minAlpha >= maxAlpha / ((2)+1)) {
+271: /* MUTANT (rep_const) */    if (minAlpha >= maxAlpha / ((2)-1)) {
+271: /* MUTANT (negate) */    if(! (minAlpha >= maxAlpha / 2)) {
+272: /* MUTANT (del_stmt) */ /*         size = JS_DHASH_TABLE_SIZE(table); */ 
+273: /* MUTANT (del_stmt) */ /*         minAlpha = (size * maxAlpha - JS_MAX(size / 256, 1)) / (2 * size); */ 
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / 0, 1)) / (2 * size);
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / 1, 1)) / (2 * size);
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / -1, 1)) / (2 * size);
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / ((256)+1), 1)) / (2 * size);
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / ((256)-1), 1)) / (2 * size);
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / 256, 0)) / (2 * size);
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / 256, -1)) / (2 * size);
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / 256, ((1)+1))) / (2 * size);
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / 256, 1)) / (0 * size);
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / 256, 1)) / (1 * size);
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / 256, 1)) / (-1 * size);
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / 256, 1)) / (((2)+1) * size);
+273: /* MUTANT (rep_const) */        minAlpha = (size * maxAlpha - JS_MAX(size / 256, 1)) / (((2)-1) * size);
+276: /* MUTANT (rep_const) */    table->maxAlphaFrac = (uint8)(maxAlpha * 0);
+276: /* MUTANT (rep_const) */    table->maxAlphaFrac = (uint8)(maxAlpha * 1);
+276: /* MUTANT (rep_const) */    table->maxAlphaFrac = (uint8)(maxAlpha * -1);
+276: /* MUTANT (rep_const) */    table->maxAlphaFrac = (uint8)(maxAlpha * ((256)+1));
+276: /* MUTANT (rep_const) */    table->maxAlphaFrac = (uint8)(maxAlpha * ((256)-1));
+277: /* MUTANT (del_stmt) */ /*     table->minAlphaFrac = (uint8)(minAlpha * 256); */ 
+277: /* MUTANT (rep_const) */    table->minAlphaFrac = (uint8)(minAlpha * 0);
+277: /* MUTANT (rep_const) */    table->minAlphaFrac = (uint8)(minAlpha * 1);
+277: /* MUTANT (rep_const) */    table->minAlphaFrac = (uint8)(minAlpha * -1);
+277: /* MUTANT (rep_const) */    table->minAlphaFrac = (uint8)(minAlpha * ((256)+1));
+277: /* MUTANT (rep_const) */    table->minAlphaFrac = (uint8)(minAlpha * ((256)-1));
+285: #define HASH2(hash0,log2,shift)     ((((hash0) << (log2)) >> (shift)) | 0) /* MUTANT (rep_const) */
+285: #define HASH2(hash0,log2,shift)     ((((hash0) << (log2)) >> (shift)) | -1) /* MUTANT (rep_const) */
+285: #define HASH2(hash0,log2,shift)     ((((hash0) << (log2)) >> (shift)) | ((1)+1)) /* MUTANT (rep_const) */
+299: #define COLLISION_FLAG              ((JSDHashNumber) 0) /* MUTANT (rep_const) */
+299: #define COLLISION_FLAG              ((JSDHashNumber) -1) /* MUTANT (rep_const) */
+299: #define COLLISION_FLAG              ((JSDHashNumber) ((1)+1)) /* MUTANT (rep_const) */
+300: #define MARK_ENTRY_FREE(entry)      ((entry)->keyHash = 1) /* MUTANT (rep_const) */
+300: #define MARK_ENTRY_FREE(entry)      ((entry)->keyHash = -1) /* MUTANT (rep_const) */
+301: #define MARK_ENTRY_REMOVED(entry)   ((entry)->keyHash = 0) /* MUTANT (rep_const) */
+301: #define MARK_ENTRY_REMOVED(entry)   ((entry)->keyHash = -1) /* MUTANT (rep_const) */
+301: #define MARK_ENTRY_REMOVED(entry)   ((entry)->keyHash = ((1)+1)) /* MUTANT (rep_const) */
+302: #define ENTRY_IS_REMOVED(entry)     ((entry)->keyHash == 0) /* MUTANT (rep_const) */
+302: #define ENTRY_IS_REMOVED(entry)     ((entry)->keyHash == -1) /* MUTANT (rep_const) */
+302: #define ENTRY_IS_REMOVED(entry)     ((entry)->keyHash == ((1)+1)) /* MUTANT (rep_const) */
+304: #define ENSURE_LIVE_KEYHASH(hash0)  if (hash0 < 0) hash0 -= 2; else (void)0 /* MUTANT (rep_const) */
+304: #define ENSURE_LIVE_KEYHASH(hash0)  if (hash0 < 1) hash0 -= 2; else (void)0 /* MUTANT (rep_const) */
+304: #define ENSURE_LIVE_KEYHASH(hash0)  if (hash0 < -1) hash0 -= 2; else (void)0 /* MUTANT (rep_const) */
+304: #define ENSURE_LIVE_KEYHASH(hash0)  if (hash0 < ((2)+1)) hash0 -= 2; else (void)0 /* MUTANT (rep_const) */
+304: #define ENSURE_LIVE_KEYHASH(hash0)  if (hash0 < ((2)-1)) hash0 -= 2; else (void)0 /* MUTANT (rep_const) */
+304: #define ENSURE_LIVE_KEYHASH(hash0)  if (hash0 < 2) hash0 -= 0; else (void)0 /* MUTANT (rep_const) */
+304: #define ENSURE_LIVE_KEYHASH(hash0)  if (hash0 < 2) hash0 -= 1; else (void)0 /* MUTANT (rep_const) */
+304: #define ENSURE_LIVE_KEYHASH(hash0)  if (hash0 < 2) hash0 -= -1; else (void)0 /* MUTANT (rep_const) */
+304: #define ENSURE_LIVE_KEYHASH(hash0)  if (hash0 < 2) hash0 -= ((2)+1); else (void)0 /* MUTANT (rep_const) */
+304: #define ENSURE_LIVE_KEYHASH(hash0)  if (hash0 < 2) hash0 -= ((2)-1); else (void)0 /* MUTANT (rep_const) */
+304: #define ENSURE_LIVE_KEYHASH(hash0)  if (hash0 < 2) hash0 -= 2; else (void)1 /* MUTANT (rep_const) */
+304: #define ENSURE_LIVE_KEYHASH(hash0)  if (hash0 < 2) hash0 -= 2; else (void)-1 /* MUTANT (rep_const) */
+308: /* MUTANT (rep_op) */    (((entry)->keyHash & ~COLLISION_FLAG) != (hash0))
+312: /* MUTANT (rep_op) */    ((JSDHashEntryHdr *)((table)->entryStore - (index) * (table)->entrySize))
+312: /* MUTANT (rep_op) */    ((JSDHashEntryHdr *)((table)->entryStore * (index) * (table)->entrySize))
+312: /* MUTANT (rep_op) */    ((JSDHashEntryHdr *)((table)->entryStore % (index) * (table)->entrySize))
+317: /* MUTANT (del_stmt) */ /*     char *entryAddr, *entryLimit; */ 
+318: /* MUTANT (del_stmt) */ /*     uint32 entrySize; */ 
+319: /* MUTANT (del_stmt) */ /*     JSDHashEntryHdr *entry; */ 
+323: /* MUTANT (del_stmt) */ /*     if (!dumpfp) dumpfp = fopen("/tmp/jsdhash.bigdump", "w"); */ 
+323: /* MUTANT (negate) */    if(! (!dumpfp)) dumpfp = fopen("/tmp/jsdhash.bigdump", "w");
+324: /* MUTANT (negate) */    if(! (dumpfp)) {
+326: /* MUTANT (rep_const) */        NS_TraceStack(0, dumpfp);
+326: /* MUTANT (rep_const) */        NS_TraceStack(-1, dumpfp);
+326: /* MUTANT (rep_const) */        NS_TraceStack(((1)+1), dumpfp);
+329: /* MUTANT (del_stmt) */ /*         fputc('\n', dumpfp); */ 
+337: /* MUTANT (del_stmt) */ /*     entryAddr = table->entryStore; */ 
+338: /* MUTANT (del_stmt) */ /*     entrySize = table->entrySize; */ 
+339: /* MUTANT (del_stmt) */ /*     entryLimit = entryAddr + JS_DHASH_TABLE_SIZE(table) * entrySize; */ 
+339: /* MUTANT (rep_op) */    entryLimit = entryAddr - JS_DHASH_TABLE_SIZE(table) * entrySize;
+339: /* MUTANT (rep_op) */    entryLimit = entryAddr * JS_DHASH_TABLE_SIZE(table) * entrySize;
+339: /* MUTANT (rep_op) */    entryLimit = entryAddr % JS_DHASH_TABLE_SIZE(table) * entrySize;
+340: /* MUTANT (rep_op) */    while (entryAddr <= entryLimit) {
+340: /* MUTANT (rep_op) */    while (entryAddr > entryLimit) {
+340: /* MUTANT (rep_op) */    while (entryAddr >= entryLimit) {
+340: /* MUTANT (rep_op) */    while (entryAddr == entryLimit) {
+340: /* MUTANT (rep_op) */    while (entryAddr != entryLimit) {
+340: /* MUTANT (negate) */    while(! (entryAddr < entryLimit)) {
+341: /* MUTANT (del_stmt) */ /*         entry = (JSDHashEntryHdr *)entryAddr; */ 
+342: /* MUTANT (negate) */        if(! (ENTRY_IS_LIVE(entry))) {
+343: /* MUTANT (del_stmt) */ /*             METER(table->stats.removeEnums++); */ 
+343: /* MUTANT (rep_op) */            METER(table->stats.removeEnums--);
+344: /* MUTANT (del_stmt) */ /*             table->ops->clearEntry(table, entry); */ 
+346: /* MUTANT (rep_op) */        entryAddr -= entrySize;
+346: /* MUTANT (rep_op) */        entryAddr *= entrySize;
+346: /* MUTANT (rep_op) */        entryAddr %= entrySize;
+357: /* MUTANT (del_stmt) */ /*     JSDHashNumber hash1, hash2; */ 
+358: /* MUTANT (del_stmt) */ /*     int hashShift, sizeLog2; */ 
+359: /* MUTANT (del_stmt) */ /*     JSDHashEntryHdr *entry, *firstRemoved; */ 
+360: /* MUTANT (del_stmt) */ /*     JSDHashMatchEntry matchEntry; */ 
+361: /* MUTANT (del_stmt) */ /*     uint32 sizeMask; */ 
+363: /* MUTANT (del_stmt) */ /*     METER(table->stats.searches++); */ 
+363: /* MUTANT (rep_op) */    METER(table->stats.searches--);
+364: /* MUTANT (del_stmt) */ /*     JS_ASSERT(!(keyHash & COLLISION_FLAG)); */ 
+367: /* MUTANT (del_stmt) */ /*     hashShift = table->hashShift; */ 
+368: /* MUTANT (del_stmt) */ /*     hash1 = HASH1(keyHash, hashShift); */ 
+369: /* MUTANT (del_stmt) */ /*     entry = ADDRESS_ENTRY(table, hash1); */ 
+372: /* MUTANT (negate) */    if(! (JS_DHASH_ENTRY_IS_FREE(entry))) {
+373: /* MUTANT (del_stmt) */ /*         METER(table->stats.misses++); */ 
+373: /* MUTANT (rep_op) */        METER(table->stats.misses--);
+374: /* MUTANT (del_stmt) */ /*         return entry; */ 
+379: /* MUTANT (rep_op) */    if (MATCH_ENTRY_KEYHASH(entry, keyHash) || matchEntry(table, entry, key)) {
+379: /* MUTANT (negate) */    if(! (MATCH_ENTRY_KEYHASH(entry, keyHash) && matchEntry(table, entry, key))) {
+380: /* MUTANT (del_stmt) */ /*         METER(table->stats.hits++); */ 
+380: /* MUTANT (rep_op) */        METER(table->stats.hits--);
+381: /* MUTANT (del_stmt) */ /*         return entry; */ 
+386: /* MUTANT (del_stmt) */ /*     hash2 = HASH2(keyHash, sizeLog2, hashShift); */ 
+387: /* MUTANT (del_stmt) */ /*     sizeMask = JS_BITMASK(sizeLog2); */ 
+390: /* MUTANT (negate) */    if(! (ENTRY_IS_REMOVED(entry))) {
+391: /* MUTANT (del_stmt) */ /*         firstRemoved = entry; */ 
+393: /* MUTANT (del_stmt) */ /*         firstRemoved = NULL; */ 
+394: /* MUTANT (rep_op) */        if (op != JS_DHASH_ADD)
+394: /* MUTANT (negate) */        if(! (op == JS_DHASH_ADD))
+399: /* MUTANT (del_stmt) */ /*         METER(table->stats.steps++); */ 
+399: /* MUTANT (rep_op) */        METER(table->stats.steps--);
+400: /* MUTANT (del_stmt) */ /*         hash1 -= hash2; */ 
+400: /* MUTANT (rep_op) */        hash1 += hash2;
+400: /* MUTANT (rep_op) */        hash1 *= hash2;
+400: /* MUTANT (rep_op) */        hash1 %= hash2;
+401: /* MUTANT (del_stmt) */ /*         hash1 &= sizeMask; */ 
+403: /* MUTANT (del_stmt) */ /*         entry = ADDRESS_ENTRY(table, hash1); */ 
+404: /* MUTANT (negate) */        if(! (JS_DHASH_ENTRY_IS_FREE(entry))) {
+405: /* MUTANT (del_stmt) */ /*             METER(table->stats.misses++); */ 
+405: /* MUTANT (rep_op) */            METER(table->stats.misses--);
+406: /* MUTANT (del_stmt) */ /*             return (firstRemoved && op == JS_DHASH_ADD) ? firstRemoved : entry; */ 
+406: /* MUTANT (rep_op) */            return (firstRemoved || op == JS_DHASH_ADD) ? firstRemoved : entry;
+406: /* MUTANT (rep_op) */            return (firstRemoved && op != JS_DHASH_ADD) ? firstRemoved : entry;
+409: /* MUTANT (rep_op) */        if (MATCH_ENTRY_KEYHASH(entry, keyHash) ||
+411: /* MUTANT (del_stmt) */ /*             METER(table->stats.hits++); */ 
+411: /* MUTANT (rep_op) */            METER(table->stats.hits--);
+412: /* MUTANT (del_stmt) */ /*             return entry; */ 
+415: /* MUTANT (negate) */        if(! (ENTRY_IS_REMOVED(entry))) {
+416: /* MUTANT (negate) */            if(! (!firstRemoved))
+419: /* MUTANT (rep_op) */            if (op != JS_DHASH_ADD)
+419: /* MUTANT (negate) */            if(! (op == JS_DHASH_ADD))
+431: /* MUTANT (del_stmt) */ /*     int oldLog2, newLog2; */ 
+432: /* MUTANT (del_stmt) */ /*     uint32 oldCapacity, newCapacity; */ 
+433: /* MUTANT (del_stmt) */ /*     char *newEntryStore, *oldEntryStore, *oldEntryAddr; */ 
+434: /* MUTANT (del_stmt) */ /*     uint32 entrySize, i, nbytes; */ 
+435: /* MUTANT (del_stmt) */ /*     JSDHashEntryHdr *oldEntry, *newEntry; */ 
+436: /* MUTANT (del_stmt) */ /*     JSDHashGetKey getKey; */ 
+437: /* MUTANT (del_stmt) */ /*     JSDHashMoveEntry moveEntry; */ 
+440: /* MUTANT (del_stmt) */ /*     oldLog2 = JS_DHASH_BITS - table->hashShift; */ 
+441: /* MUTANT (del_stmt) */ /*     newLog2 = oldLog2 + deltaLog2; */ 
+441: /* MUTANT (rep_op) */    newLog2 = oldLog2 - deltaLog2;
+441: /* MUTANT (rep_op) */    newLog2 = oldLog2 * deltaLog2;
+441: /* MUTANT (rep_op) */    newLog2 = oldLog2 % deltaLog2;
+442: /* MUTANT (del_stmt) */ /*     oldCapacity = JS_BIT(oldLog2); */ 
+443: /* MUTANT (del_stmt) */ /*     newCapacity = JS_BIT(newLog2); */ 
+444: /* MUTANT (rep_op) */    if (newCapacity <= JS_DHASH_SIZE_LIMIT)
+444: /* MUTANT (rep_op) */    if (newCapacity < JS_DHASH_SIZE_LIMIT)
+444: /* MUTANT (rep_op) */    if (newCapacity > JS_DHASH_SIZE_LIMIT)
+444: /* MUTANT (rep_op) */    if (newCapacity == JS_DHASH_SIZE_LIMIT)
+444: /* MUTANT (rep_op) */    if (newCapacity != JS_DHASH_SIZE_LIMIT)
+444: /* MUTANT (negate) */    if(! (newCapacity >= JS_DHASH_SIZE_LIMIT))
+446: /* MUTANT (del_stmt) */ /*     entrySize = table->entrySize; */ 
+447: /* MUTANT (del_stmt) */ /*     nbytes = newCapacity * entrySize; */ 
+449: /* MUTANT (del_stmt) */ /*     newEntryStore = table->ops->allocTable(table, nbytes); */ 
+450: /* MUTANT (negate) */    if(! (!newEntryStore))
+454: /* MUTANT (del_stmt) */ /*     table->hashShift = JS_DHASH_BITS - newLog2; */ 
+455: /* MUTANT (del_stmt) */ /*     table->removedCount = 0; */ 
+455: /* MUTANT (rep_const) */    table->removedCount = 1;
+455: /* MUTANT (rep_const) */    table->removedCount = -1;
+456: /* MUTANT (del_stmt) */ /*     table->generation++; */ 
+456: /* MUTANT (rep_op) */    table->generation--;
+459: /* MUTANT (del_stmt) */ /*     memset(newEntryStore, 0, nbytes); */ 
+459: /* MUTANT (rep_const) */    memset(newEntryStore, 1, nbytes);
+459: /* MUTANT (rep_const) */    memset(newEntryStore, -1, nbytes);
+460: /* MUTANT (del_stmt) */ /*     oldEntryAddr = oldEntryStore = table->entryStore; */ 
+461: /* MUTANT (del_stmt) */ /*     table->entryStore = newEntryStore; */ 
+462: /* MUTANT (del_stmt) */ /*     getKey = table->ops->getKey; */ 
+463: /* MUTANT (del_stmt) */ /*     moveEntry = table->ops->moveEntry; */ 
+466: /* MUTANT (rep_op) */    for (i = 0; i <= oldCapacity; i++) {
+466: /* MUTANT (rep_op) */    for (i = 0; i > oldCapacity; i++) {
+466: /* MUTANT (rep_op) */    for (i = 0; i >= oldCapacity; i++) {
+466: /* MUTANT (rep_op) */    for (i = 0; i == oldCapacity; i++) {
+466: /* MUTANT (rep_op) */    for (i = 0; i != oldCapacity; i++) {
+466: /* MUTANT (rep_op) */    for (i = 0; i < oldCapacity; i--) {
+466: /* MUTANT (rep_const) */    for (i = 1; i < oldCapacity; i++) {
+466: /* MUTANT (rep_const) */    for (i = -1; i < oldCapacity; i++) {
+467: /* MUTANT (del_stmt) */ /*         oldEntry = (JSDHashEntryHdr *)oldEntryAddr; */ 
+468: /* MUTANT (negate) */        if(! (ENTRY_IS_LIVE(oldEntry))) {
+469: /* MUTANT (del_stmt) */ /*             oldEntry->keyHash &= ~COLLISION_FLAG; */ 
+472: /* MUTANT (del_stmt) */ /*             JS_ASSERT(JS_DHASH_ENTRY_IS_FREE(newEntry)); */ 
+473: /* MUTANT (del_stmt) */ /*             moveEntry(table, oldEntry, newEntry); */ 
+474: /* MUTANT (del_stmt) */ /*             newEntry->keyHash = oldEntry->keyHash; */ 
+476: /* MUTANT (rep_op) */        oldEntryAddr -= entrySize;
+476: /* MUTANT (rep_op) */        oldEntryAddr *= entrySize;
+476: /* MUTANT (rep_op) */        oldEntryAddr %= entrySize;
+480: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+486: /* MUTANT (del_stmt) */ /*     JSDHashNumber keyHash; */ 
+487: /* MUTANT (del_stmt) */ /*     JSDHashEntryHdr *entry; */ 
+488: /* MUTANT (del_stmt) */ /*     uint32 size; */ 
+489: /* MUTANT (del_stmt) */ /*     int deltaLog2; */ 
+491: /* MUTANT (del_stmt) */ /*     keyHash = table->ops->hashKey(table, key); */ 
+492: /* MUTANT (del_stmt) */ /*     keyHash *= JS_DHASH_GOLDEN_RATIO; */ 
+492: /* MUTANT (rep_op) */    keyHash += JS_DHASH_GOLDEN_RATIO;
+492: /* MUTANT (rep_op) */    keyHash -= JS_DHASH_GOLDEN_RATIO;
+492: /* MUTANT (rep_op) */    keyHash %= JS_DHASH_GOLDEN_RATIO;
+495: /* MUTANT (del_stmt) */ /*     ENSURE_LIVE_KEYHASH(keyHash); */ 
+496: /* MUTANT (del_stmt) */ /*     keyHash &= ~COLLISION_FLAG; */ 
+500: /* MUTANT (rep_op) */        METER(table->stats.lookups--);
+501: /* MUTANT (del_stmt) */ /*         entry = SearchTable(table, key, keyHash, op); */ 
+502: /* MUTANT (del_stmt) */ /*         break; */ 
+511: /* MUTANT (rep_op) */        if (table->entryCount - table->removedCount >= MAX_LOAD(table, size)) {
+511: /* MUTANT (rep_op) */        if (table->entryCount * table->removedCount >= MAX_LOAD(table, size)) {
+511: /* MUTANT (rep_op) */        if (table->entryCount % table->removedCount >= MAX_LOAD(table, size)) {
+511: /* MUTANT (rep_op) */        if (table->entryCount + table->removedCount <= MAX_LOAD(table, size)) {
+511: /* MUTANT (rep_op) */        if (table->entryCount + table->removedCount < MAX_LOAD(table, size)) {
+511: /* MUTANT (rep_op) */        if (table->entryCount + table->removedCount > MAX_LOAD(table, size)) {
+511: /* MUTANT (rep_op) */        if (table->entryCount + table->removedCount == MAX_LOAD(table, size)) {
+511: /* MUTANT (rep_op) */        if (table->entryCount + table->removedCount != MAX_LOAD(table, size)) {
+511: /* MUTANT (negate) */        if(! (table->entryCount + table->removedCount >= MAX_LOAD(table, size))) {
+513: /* MUTANT (rep_op) */            if (table->removedCount <= size >> 2) {
+513: /* MUTANT (rep_op) */            if (table->removedCount < size >> 2) {
+513: /* MUTANT (rep_op) */            if (table->removedCount > size >> 2) {
+513: /* MUTANT (rep_op) */            if (table->removedCount == size >> 2) {
+513: /* MUTANT (rep_op) */            if (table->removedCount != size >> 2) {
+513: /* MUTANT (rep_const) */            if (table->removedCount >= size >> 0) {
+513: /* MUTANT (rep_const) */            if (table->removedCount >= size >> 1) {
+513: /* MUTANT (rep_const) */            if (table->removedCount >= size >> -1) {
+513: /* MUTANT (rep_const) */            if (table->removedCount >= size >> ((2)+1)) {
+513: /* MUTANT (rep_const) */            if (table->removedCount >= size >> ((2)-1)) {
+513: /* MUTANT (negate) */            if(! (table->removedCount >= size >> 2)) {
+514: /* MUTANT (del_stmt) */ /*                 METER(table->stats.compresses++); */ 
+514: /* MUTANT (rep_op) */                METER(table->stats.compresses--);
+515: /* MUTANT (del_stmt) */ /*                 deltaLog2 = 0; */ 
+515: /* MUTANT (rep_const) */                deltaLog2 = 1;
+515: /* MUTANT (rep_const) */                deltaLog2 = -1;
+517: /* MUTANT (del_stmt) */ /*                 METER(table->stats.grows++); */ 
+517: /* MUTANT (rep_op) */                METER(table->stats.grows--);
+518: /* MUTANT (del_stmt) */ /*                 deltaLog2 = 1; */ 
+518: /* MUTANT (rep_const) */                deltaLog2 = 0;
+518: /* MUTANT (rep_const) */                deltaLog2 = -1;
+518: /* MUTANT (rep_const) */                deltaLog2 = ((1)+1);
+525: /* MUTANT (rep_op) */            if (!ChangeTable(table, deltaLog2) ||
+526: /* MUTANT (rep_op) */                table->entryCount - table->removedCount == size - 1) {
+526: /* MUTANT (rep_op) */                table->entryCount * table->removedCount == size - 1) {
+526: /* MUTANT (rep_op) */                table->entryCount % table->removedCount == size - 1) {
+526: /* MUTANT (rep_op) */                table->entryCount + table->removedCount != size - 1) {
+526: /* MUTANT (rep_const) */                table->entryCount + table->removedCount == size - 0) {
+526: /* MUTANT (rep_const) */                table->entryCount + table->removedCount == size - -1) {
+526: /* MUTANT (rep_const) */                table->entryCount + table->removedCount == size - ((1)+1)) {
+527: /* MUTANT (del_stmt) */ /*                 METER(table->stats.addFailures++); */ 
+527: /* MUTANT (rep_op) */                METER(table->stats.addFailures--);
+528: /* MUTANT (del_stmt) */ /*                 return NULL; */ 
+537: /* MUTANT (negate) */        if(! (!ENTRY_IS_LIVE(entry))) {
+539: /* MUTANT (del_stmt) */ /*             METER(table->stats.addMisses++); */ 
+539: /* MUTANT (rep_op) */            METER(table->stats.addMisses--);
+540: /* MUTANT (negate) */            if(! (ENTRY_IS_REMOVED(entry))) {
+541: /* MUTANT (del_stmt) */ /*                 METER(table->stats.addOverRemoved++); */ 
+541: /* MUTANT (rep_op) */                METER(table->stats.addOverRemoved--);
+542: /* MUTANT (del_stmt) */ /*                 table->removedCount--; */ 
+542: /* MUTANT (rep_op) */                table->removedCount++;
+543: /* MUTANT (del_stmt) */ /*                 keyHash |= COLLISION_FLAG; */ 
+545: /* MUTANT (rep_op) */            if (table->ops->initEntry ||
+548: /* MUTANT (del_stmt) */ /*                 memset(entry + 1, 0, table->entrySize - sizeof *entry); */ 
+548: /* MUTANT (rep_op) */                memset(entry - 1, 0, table->entrySize - sizeof *entry);
+548: /* MUTANT (rep_op) */                memset(entry * 1, 0, table->entrySize - sizeof *entry);
+548: /* MUTANT (rep_op) */                memset(entry % 1, 0, table->entrySize - sizeof *entry);
+548: /* MUTANT (rep_const) */                memset(entry + 0, 0, table->entrySize - sizeof *entry);
+548: /* MUTANT (rep_const) */                memset(entry + -1, 0, table->entrySize - sizeof *entry);
+548: /* MUTANT (rep_const) */                memset(entry + ((1)+1), 0, table->entrySize - sizeof *entry);
+548: /* MUTANT (rep_const) */                memset(entry + 1, 1, table->entrySize - sizeof *entry);
+548: /* MUTANT (rep_const) */                memset(entry + 1, -1, table->entrySize - sizeof *entry);
+549: /* MUTANT (del_stmt) */ /*                 return NULL; */ 
+552: /* MUTANT (del_stmt) */ /*             table->entryCount++; */ 
+552: /* MUTANT (rep_op) */            table->entryCount--;
+554: /* MUTANT (rep_op) */        METER(else table->stats.addHits--);
+555: /* MUTANT (del_stmt) */ /*         break; */ 
+559: /* MUTANT (negate) */        if(! (ENTRY_IS_LIVE(entry))) {
+561: /* MUTANT (del_stmt) */ /*             METER(table->stats.removeHits++); */ 
+561: /* MUTANT (rep_op) */            METER(table->stats.removeHits--);
+562: /* MUTANT (del_stmt) */ /*             JS_DHashTableRawRemove(table, entry); */ 
+565: /* MUTANT (del_stmt) */ /*             size = JS_DHASH_TABLE_SIZE(table); */ 
+566: /* MUTANT (rep_op) */            if (size <= JS_DHASH_MIN_SIZE &&
+566: /* MUTANT (rep_op) */            if (size < JS_DHASH_MIN_SIZE &&
+566: /* MUTANT (rep_op) */            if (size >= JS_DHASH_MIN_SIZE &&
+566: /* MUTANT (rep_op) */            if (size == JS_DHASH_MIN_SIZE &&
+566: /* MUTANT (rep_op) */            if (size != JS_DHASH_MIN_SIZE &&
+566: /* MUTANT (rep_op) */            if (size > JS_DHASH_MIN_SIZE ||
+567: /* MUTANT (rep_op) */                table->entryCount < MIN_LOAD(table, size)) {
+567: /* MUTANT (rep_op) */                table->entryCount > MIN_LOAD(table, size)) {
+567: /* MUTANT (rep_op) */                table->entryCount >= MIN_LOAD(table, size)) {
+567: /* MUTANT (rep_op) */                table->entryCount == MIN_LOAD(table, size)) {
+567: /* MUTANT (rep_op) */                table->entryCount != MIN_LOAD(table, size)) {
+568: /* MUTANT (del_stmt) */ /*                 METER(table->stats.shrinks++); */ 
+568: /* MUTANT (rep_op) */                METER(table->stats.shrinks--);
+569: /* MUTANT (del_stmt) */ /*                 (void) ChangeTable(table, -1); */ 
+569: /* MUTANT (rep_const) */                (void) ChangeTable(table, 0);
+569: /* MUTANT (rep_const) */                (void) ChangeTable(table, 1);
+569: /* MUTANT (rep_const) */                (void) ChangeTable(table, ((-1)+1));
+569: /* MUTANT (rep_const) */                (void) ChangeTable(table, ((-1)-1));
+572: /* MUTANT (rep_op) */        METER(else table->stats.removeMisses--);
+573: /* MUTANT (del_stmt) */ /*         entry = NULL; */ 
+574: /* MUTANT (del_stmt) */ /*         break; */ 
+577: /* MUTANT (rep_const) */        JS_ASSERT(1);
+577: /* MUTANT (rep_const) */        JS_ASSERT(-1);
+578: /* MUTANT (del_stmt) */ /*         entry = NULL; */ 
+587: /* MUTANT (del_stmt) */ /*     JSDHashNumber keyHash; */       /* load first in case clearEntry goofs it */
+589: /* MUTANT (del_stmt) */ /*     JS_ASSERT(JS_DHASH_ENTRY_IS_LIVE(entry)); */ 
+590: /* MUTANT (del_stmt) */ /*     keyHash = entry->keyHash; */ 
+591: /* MUTANT (del_stmt) */ /*     table->ops->clearEntry(table, entry); */ 
+592: /* MUTANT (negate) */    if(! (keyHash & COLLISION_FLAG)) {
+593: /* MUTANT (del_stmt) */ /*         MARK_ENTRY_REMOVED(entry); */ 
+594: /* MUTANT (del_stmt) */ /*         table->removedCount++; */ 
+594: /* MUTANT (rep_op) */        table->removedCount--;
+596: /* MUTANT (del_stmt) */ /*         METER(table->stats.removeFrees++); */ 
+596: /* MUTANT (rep_op) */        METER(table->stats.removeFrees--);
+597: /* MUTANT (del_stmt) */ /*         MARK_ENTRY_FREE(entry); */ 
+599: /* MUTANT (rep_op) */    table->entryCount++;
+605: /* MUTANT (del_stmt) */ /*     char *entryAddr, *entryLimit; */ 
+606: /* MUTANT (del_stmt) */ /*     uint32 i, capacity, entrySize, ceiling; */ 
+607: /* MUTANT (del_stmt) */ /*     JSBool didRemove; */ 
+608: /* MUTANT (del_stmt) */ /*     JSDHashEntryHdr *entry; */ 
+609: /* MUTANT (del_stmt) */ /*     JSDHashOperator op; */ 
+611: /* MUTANT (del_stmt) */ /*     entryAddr = table->entryStore; */ 
+612: /* MUTANT (del_stmt) */ /*     entrySize = table->entrySize; */ 
+613: /* MUTANT (del_stmt) */ /*     capacity = JS_DHASH_TABLE_SIZE(table); */ 
+614: /* MUTANT (del_stmt) */ /*     entryLimit = entryAddr + capacity * entrySize; */ 
+614: /* MUTANT (rep_op) */    entryLimit = entryAddr - capacity * entrySize;
+614: /* MUTANT (rep_op) */    entryLimit = entryAddr * capacity * entrySize;
+614: /* MUTANT (rep_op) */    entryLimit = entryAddr % capacity * entrySize;
+615: /* MUTANT (del_stmt) */ /*     i = 0; */ 
+615: /* MUTANT (rep_const) */    i = 1;
+615: /* MUTANT (rep_const) */    i = -1;
+616: /* MUTANT (del_stmt) */ /*     didRemove = JS_FALSE; */ 
+617: /* MUTANT (rep_op) */    while (entryAddr <= entryLimit) {
+617: /* MUTANT (rep_op) */    while (entryAddr > entryLimit) {
+617: /* MUTANT (rep_op) */    while (entryAddr >= entryLimit) {
+617: /* MUTANT (rep_op) */    while (entryAddr == entryLimit) {
+617: /* MUTANT (rep_op) */    while (entryAddr != entryLimit) {
+617: /* MUTANT (negate) */    while(! (entryAddr < entryLimit)) {
+618: /* MUTANT (del_stmt) */ /*         entry = (JSDHashEntryHdr *)entryAddr; */ 
+619: /* MUTANT (negate) */        if(! (ENTRY_IS_LIVE(entry))) {
+620: /* MUTANT (del_stmt) */ /*             op = etor(table, entry, i++, arg); */ 
+620: /* MUTANT (rep_op) */            op = etor(table, entry, i--, arg);
+621: /* MUTANT (negate) */            if(! (op & JS_DHASH_REMOVE)) {
+622: /* MUTANT (del_stmt) */ /*                 METER(table->stats.removeEnums++); */ 
+622: /* MUTANT (rep_op) */                METER(table->stats.removeEnums--);
+623: /* MUTANT (del_stmt) */ /*                 JS_DHashTableRawRemove(table, entry); */ 
+624: /* MUTANT (del_stmt) */ /*                 didRemove = JS_TRUE; */ 
+626: /* MUTANT (negate) */            if(! (op & JS_DHASH_STOP))
+629: /* MUTANT (rep_op) */        entryAddr -= entrySize;
+629: /* MUTANT (rep_op) */        entryAddr *= entrySize;
+629: /* MUTANT (rep_op) */        entryAddr %= entrySize;
+639: /* MUTANT (rep_op) */    if (didRemove ||
+640: /* MUTANT (rep_op) */        (table->removedCount <= capacity >> 2 ||
+640: /* MUTANT (rep_op) */        (table->removedCount < capacity >> 2 ||
+640: /* MUTANT (rep_op) */        (table->removedCount > capacity >> 2 ||
+640: /* MUTANT (rep_op) */        (table->removedCount == capacity >> 2 ||
+640: /* MUTANT (rep_op) */        (table->removedCount != capacity >> 2 ||
+640: /* MUTANT (rep_op) */        (table->removedCount >= capacity >> 2 &&
+640: /* MUTANT (rep_const) */        (table->removedCount >= capacity >> 0 ||
+640: /* MUTANT (rep_const) */        (table->removedCount >= capacity >> 1 ||
+640: /* MUTANT (rep_const) */        (table->removedCount >= capacity >> -1 ||
+640: /* MUTANT (rep_const) */        (table->removedCount >= capacity >> ((2)+1) ||
+640: /* MUTANT (rep_const) */        (table->removedCount >= capacity >> ((2)-1) ||
+641: /* MUTANT (rep_op) */         (capacity <= JS_DHASH_MIN_SIZE &&
+641: /* MUTANT (rep_op) */         (capacity < JS_DHASH_MIN_SIZE &&
+641: /* MUTANT (rep_op) */         (capacity >= JS_DHASH_MIN_SIZE &&
+641: /* MUTANT (rep_op) */         (capacity == JS_DHASH_MIN_SIZE &&
+641: /* MUTANT (rep_op) */         (capacity != JS_DHASH_MIN_SIZE &&
+641: /* MUTANT (rep_op) */         (capacity > JS_DHASH_MIN_SIZE ||
+642: /* MUTANT (rep_op) */          table->entryCount < MIN_LOAD(table, capacity)))) {
+642: /* MUTANT (rep_op) */          table->entryCount > MIN_LOAD(table, capacity)))) {
+642: /* MUTANT (rep_op) */          table->entryCount >= MIN_LOAD(table, capacity)))) {
+642: /* MUTANT (rep_op) */          table->entryCount == MIN_LOAD(table, capacity)))) {
+642: /* MUTANT (rep_op) */          table->entryCount != MIN_LOAD(table, capacity)))) {
+643: /* MUTANT (del_stmt) */ /*         METER(table->stats.enumShrinks++); */ 
+643: /* MUTANT (rep_op) */        METER(table->stats.enumShrinks--);
+644: /* MUTANT (del_stmt) */ /*         capacity = table->entryCount; */ 
+645: /* MUTANT (del_stmt) */ /*         capacity += capacity >> 1; */ 
+645: /* MUTANT (rep_op) */        capacity -= capacity >> 1;
+645: /* MUTANT (rep_op) */        capacity *= capacity >> 1;
+645: /* MUTANT (rep_op) */        capacity %= capacity >> 1;
+645: /* MUTANT (rep_const) */        capacity += capacity >> 0;
+645: /* MUTANT (rep_const) */        capacity += capacity >> -1;
+645: /* MUTANT (rep_const) */        capacity += capacity >> ((1)+1);
+646: /* MUTANT (rep_op) */        if (capacity <= JS_DHASH_MIN_SIZE)
+646: /* MUTANT (rep_op) */        if (capacity > JS_DHASH_MIN_SIZE)
+646: /* MUTANT (rep_op) */        if (capacity >= JS_DHASH_MIN_SIZE)
+646: /* MUTANT (rep_op) */        if (capacity == JS_DHASH_MIN_SIZE)
+646: /* MUTANT (rep_op) */        if (capacity != JS_DHASH_MIN_SIZE)
+646: /* MUTANT (negate) */        if(! (capacity < JS_DHASH_MIN_SIZE))
+649: /* MUTANT (del_stmt) */ /*         JS_CEILING_LOG2(ceiling, capacity); */ 
+650: /* MUTANT (del_stmt) */ /*         ceiling -= JS_DHASH_BITS - table->hashShift; */ 
+650: /* MUTANT (rep_op) */        ceiling += JS_DHASH_BITS - table->hashShift;
+650: /* MUTANT (rep_op) */        ceiling *= JS_DHASH_BITS - table->hashShift;
+650: /* MUTANT (rep_op) */        ceiling %= JS_DHASH_BITS - table->hashShift;
+652: /* MUTANT (del_stmt) */ /*         (void) ChangeTable(table, ceiling); */ 
+663: /* MUTANT (del_stmt) */ /*     char *entryAddr; */ 
+664: /* MUTANT (del_stmt) */ /*     uint32 entrySize, entryCount; */ 
+665: /* MUTANT (del_stmt) */ /*     int hashShift, sizeLog2; */ 
+666: /* MUTANT (del_stmt) */ /*     uint32 i, tableSize, sizeMask, chainLen, maxChainLen, chainCount; */ 
+667: /* MUTANT (del_stmt) */ /*     JSDHashNumber hash1, hash2, saveHash1, maxChainHash1, maxChainHash2; */ 
+668: /* MUTANT (del_stmt) */ /*     double sqsum, mean, variance, sigma; */ 
+669: /* MUTANT (del_stmt) */ /*     JSDHashEntryHdr *entry, *probe; */ 
+671: /* MUTANT (del_stmt) */ /*     entryAddr = table->entryStore; */ 
+672: /* MUTANT (del_stmt) */ /*     entrySize = table->entrySize; */ 
+673: /* MUTANT (del_stmt) */ /*     hashShift = table->hashShift; */ 
+674: /* MUTANT (del_stmt) */ /*     sizeLog2 = JS_DHASH_BITS - hashShift; */ 
+675: /* MUTANT (del_stmt) */ /*     tableSize = JS_DHASH_TABLE_SIZE(table); */ 
+676: /* MUTANT (del_stmt) */ /*     sizeMask = JS_BITMASK(sizeLog2); */ 
+677: /* MUTANT (del_stmt) */ /*     chainCount = maxChainLen = 0; */ 
+677: /* MUTANT (rep_const) */    chainCount = maxChainLen = 1;
+677: /* MUTANT (rep_const) */    chainCount = maxChainLen = -1;
+678: /* MUTANT (del_stmt) */ /*     hash2 = 0; */ 
+678: /* MUTANT (rep_const) */    hash2 = 1;
+678: /* MUTANT (rep_const) */    hash2 = -1;
+679: /* MUTANT (del_stmt) */ /*     sqsum = 0; */ 
+679: /* MUTANT (rep_const) */    sqsum = 1;
+679: /* MUTANT (rep_const) */    sqsum = -1;
+681: /* MUTANT (rep_op) */    for (i = 0; i <= tableSize; i++) {
+681: /* MUTANT (rep_op) */    for (i = 0; i > tableSize; i++) {
+681: /* MUTANT (rep_op) */    for (i = 0; i >= tableSize; i++) {
+681: /* MUTANT (rep_op) */    for (i = 0; i == tableSize; i++) {
+681: /* MUTANT (rep_op) */    for (i = 0; i != tableSize; i++) {
+681: /* MUTANT (rep_op) */    for (i = 0; i < tableSize; i--) {
+681: /* MUTANT (rep_const) */    for (i = 1; i < tableSize; i++) {
+681: /* MUTANT (rep_const) */    for (i = -1; i < tableSize; i++) {
+682: /* MUTANT (del_stmt) */ /*         entry = (JSDHashEntryHdr *)entryAddr; */ 
+683: /* MUTANT (del_stmt) */ /*         entryAddr += entrySize; */ 
+683: /* MUTANT (rep_op) */        entryAddr -= entrySize;
+683: /* MUTANT (rep_op) */        entryAddr *= entrySize;
+683: /* MUTANT (rep_op) */        entryAddr %= entrySize;
+684: /* MUTANT (negate) */        if(! (!ENTRY_IS_LIVE(entry)))
+686: /* MUTANT (del_stmt) */ /*         hash1 = HASH1(entry->keyHash & ~COLLISION_FLAG, hashShift); */ 
+687: /* MUTANT (del_stmt) */ /*         saveHash1 = hash1; */ 
+688: /* MUTANT (del_stmt) */ /*         probe = ADDRESS_ENTRY(table, hash1); */ 
+689: /* MUTANT (del_stmt) */ /*         chainLen = 1; */ 
+689: /* MUTANT (rep_const) */        chainLen = 0;
+689: /* MUTANT (rep_const) */        chainLen = -1;
+689: /* MUTANT (rep_const) */        chainLen = ((1)+1);
+690: /* MUTANT (rep_op) */        if (probe != entry) {
+690: /* MUTANT (negate) */        if(! (probe == entry)) {
+692: /* MUTANT (del_stmt) */ /*             chainCount++; */ 
+692: /* MUTANT (rep_op) */            chainCount--;
+697: /* MUTANT (del_stmt) */ /*                 chainLen++; */ 
+697: /* MUTANT (rep_op) */                chainLen--;
+698: /* MUTANT (del_stmt) */ /*                 hash1 -= hash2; */ 
+698: /* MUTANT (rep_op) */                hash1 += hash2;
+698: /* MUTANT (rep_op) */                hash1 *= hash2;
+698: /* MUTANT (rep_op) */                hash1 %= hash2;
+699: /* MUTANT (del_stmt) */ /*                 hash1 &= sizeMask; */ 
+700: /* MUTANT (del_stmt) */ /*                 probe = ADDRESS_ENTRY(table, hash1); */ 
+701: /* MUTANT (del_stmt) */ /*             } while (probe != entry); */ 
+701: /* MUTANT (rep_op) */            } while (probe == entry);
+701: /* MUTANT (negate) */            } while(! (probe != entry));
+703: /* MUTANT (rep_op) */        sqsum -= chainLen * chainLen;
+703: /* MUTANT (rep_op) */        sqsum *= chainLen * chainLen;
+703: /* MUTANT (rep_op) */        sqsum %= chainLen * chainLen;
+704: /* MUTANT (rep_op) */        if (chainLen <= maxChainLen) {
+704: /* MUTANT (rep_op) */        if (chainLen < maxChainLen) {
+704: /* MUTANT (rep_op) */        if (chainLen >= maxChainLen) {
+704: /* MUTANT (rep_op) */        if (chainLen == maxChainLen) {
+704: /* MUTANT (rep_op) */        if (chainLen != maxChainLen) {
+704: /* MUTANT (negate) */        if(! (chainLen > maxChainLen)) {
+705: /* MUTANT (del_stmt) */ /*             maxChainLen = chainLen; */ 
+706: /* MUTANT (del_stmt) */ /*             maxChainHash1 = saveHash1; */ 
+707: /* MUTANT (del_stmt) */ /*             maxChainHash2 = hash2; */ 
+712: /* MUTANT (rep_op) */    if (entryCount || chainCount) {
+712: /* MUTANT (negate) */    if(! (entryCount && chainCount)) {
+713: /* MUTANT (del_stmt) */ /*         mean = (double)entryCount / chainCount; */ 
+714: /* MUTANT (del_stmt) */ /*         variance = chainCount * sqsum - entryCount * entryCount; */ 
+715: /* MUTANT (rep_op) */        if (variance <= 0 || chainCount == 1)
+715: /* MUTANT (rep_op) */        if (variance > 0 || chainCount == 1)
+715: /* MUTANT (rep_op) */        if (variance >= 0 || chainCount == 1)
+715: /* MUTANT (rep_op) */        if (variance == 0 || chainCount == 1)
+715: /* MUTANT (rep_op) */        if (variance != 0 || chainCount == 1)
+715: /* MUTANT (rep_op) */        if (variance < 0 && chainCount == 1)
+715: /* MUTANT (rep_op) */        if (variance < 0 || chainCount != 1)
+715: /* MUTANT (rep_const) */        if (variance < 1 || chainCount == 1)
+715: /* MUTANT (rep_const) */        if (variance < -1 || chainCount == 1)
+715: /* MUTANT (rep_const) */        if (variance < 0 || chainCount == 0)
+715: /* MUTANT (rep_const) */        if (variance < 0 || chainCount == -1)
+715: /* MUTANT (rep_const) */        if (variance < 0 || chainCount == ((1)+1))
+715: /* MUTANT (negate) */        if(! (variance < 0 || chainCount == 1))
+716: /* MUTANT (rep_const) */            variance = 1;
+716: /* MUTANT (rep_const) */            variance = -1;
+718: /* MUTANT (rep_const) */            variance /= chainCount * (chainCount - 0);
+718: /* MUTANT (rep_const) */            variance /= chainCount * (chainCount - -1);
+718: /* MUTANT (rep_const) */            variance /= chainCount * (chainCount - ((1)+1));
+719: /* MUTANT (del_stmt) */ /*         sigma = sqrt(variance); */ 
+721: /* MUTANT (del_stmt) */ /*         mean = sigma = 0; */ 
+721: /* MUTANT (rep_const) */        mean = sigma = 1;
+721: /* MUTANT (rep_const) */        mean = sigma = -1;
+725: /* MUTANT (del_stmt) */ /*     fprintf(fp, "    table size (in entries): %u\n", tableSize); */ 
+726: /* MUTANT (del_stmt) */ /*     fprintf(fp, "          number of entries: %u\n", table->entryCount); */ 
+727: /* MUTANT (del_stmt) */ /*     fprintf(fp, "  number of removed entries: %u\n", table->removedCount); */ 
+728: /* MUTANT (del_stmt) */ /*     fprintf(fp, "         number of searches: %u\n", table->stats.searches); */ 
+729: /* MUTANT (del_stmt) */ /*     fprintf(fp, "             number of hits: %u\n", table->stats.hits); */ 
+730: /* MUTANT (del_stmt) */ /*     fprintf(fp, "           number of misses: %u\n", table->stats.misses); */ 
+735: /* MUTANT (del_stmt) */ /*     fprintf(fp, "     mean hash chain length: %g\n", mean); */ 
+736: /* MUTANT (del_stmt) */ /*     fprintf(fp, "         standard deviation: %g\n", sigma); */ 
+737: /* MUTANT (del_stmt) */ /*     fprintf(fp, "  maximum hash chain length: %u\n", maxChainLen); */ 
+738: /* MUTANT (del_stmt) */ /*     fprintf(fp, "          number of lookups: %u\n", table->stats.lookups); */ 
+739: /* MUTANT (del_stmt) */ /*     fprintf(fp, " adds that made a new entry: %u\n", table->stats.addMisses); */ 
+740: /* MUTANT (del_stmt) */ /*     fprintf(fp, "adds that recycled removeds: %u\n", table->stats.addOverRemoved); */ 
+741: /* MUTANT (del_stmt) */ /*     fprintf(fp, "   adds that found an entry: %u\n", table->stats.addHits); */ 
+742: /* MUTANT (del_stmt) */ /*     fprintf(fp, "               add failures: %u\n", table->stats.addFailures); */ 
+743: /* MUTANT (del_stmt) */ /*     fprintf(fp, "             useful removes: %u\n", table->stats.removeHits); */ 
+744: /* MUTANT (del_stmt) */ /*     fprintf(fp, "            useless removes: %u\n", table->stats.removeMisses); */ 
+745: /* MUTANT (del_stmt) */ /*     fprintf(fp, "removes that freed an entry: %u\n", table->stats.removeFrees); */ 
+746: /* MUTANT (del_stmt) */ /*     fprintf(fp, "  removes while enumerating: %u\n", table->stats.removeEnums); */ 
+747: /* MUTANT (del_stmt) */ /*     fprintf(fp, "            number of grows: %u\n", table->stats.grows); */ 
+748: /* MUTANT (del_stmt) */ /*     fprintf(fp, "          number of shrinks: %u\n", table->stats.shrinks); */ 
+749: /* MUTANT (del_stmt) */ /*     fprintf(fp, "       number of compresses: %u\n", table->stats.compresses); */ 
+750: /* MUTANT (del_stmt) */ /*     fprintf(fp, "number of enumerate shrinks: %u\n", table->stats.enumShrinks); */ 
+752: /* MUTANT (rep_op) */    if (dump || maxChainLen && hash2) {
+752: /* MUTANT (rep_op) */    if (dump && maxChainLen || hash2) {
+752: /* MUTANT (negate) */    if(! (dump && maxChainLen && hash2)) {
+753: /* MUTANT (del_stmt) */ /*         fputs("Maximum hash chain:\n", fp); */ 
+754: /* MUTANT (del_stmt) */ /*         hash1 = maxChainHash1; */ 
+755: /* MUTANT (del_stmt) */ /*         hash2 = maxChainHash2; */ 
+756: /* MUTANT (del_stmt) */ /*         entry = ADDRESS_ENTRY(table, hash1); */ 
+757: /* MUTANT (del_stmt) */ /*         i = 0; */ 
+757: /* MUTANT (rep_const) */        i = 1;
+757: /* MUTANT (rep_const) */        i = -1;
+759: /* MUTANT (rep_op) */            if (dump(table, entry, i--, fp) != JS_DHASH_NEXT)
+759: /* MUTANT (rep_op) */            if (dump(table, entry, i++, fp) == JS_DHASH_NEXT)
+759: /* MUTANT (negate) */            if(! (dump(table, entry, i++, fp) != JS_DHASH_NEXT))
+761: /* MUTANT (del_stmt) */ /*             hash1 -= hash2; */ 
+761: /* MUTANT (rep_op) */            hash1 += hash2;
+761: /* MUTANT (rep_op) */            hash1 *= hash2;
+761: /* MUTANT (rep_op) */            hash1 %= hash2;
+762: /* MUTANT (del_stmt) */ /*             hash1 &= sizeMask; */ 
+763: /* MUTANT (del_stmt) */ /*             entry = ADDRESS_ENTRY(table, hash1); */ 
+764: /* MUTANT (del_stmt) */ /*         } while (JS_DHASH_ENTRY_IS_BUSY(entry)); */ 
+764: /* MUTANT (negate) */        } while(! (JS_DHASH_ENTRY_IS_BUSY(entry)));

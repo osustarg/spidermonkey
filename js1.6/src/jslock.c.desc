@@ -1,0 +1,791 @@
+66: /* MUTANT (del_stmt) */ /* static uint32 global_lock_count = 1; */ 
+66: /* MUTANT (rep_const) */static uint32 global_lock_count = 0;
+66: /* MUTANT (rep_const) */static uint32 global_lock_count = -1;
+66: /* MUTANT (rep_const) */static uint32 global_lock_count = ((1)+1);
+67: /* MUTANT (del_stmt) */ /* static uint32 global_locks_log2 = 0; */ 
+67: /* MUTANT (rep_const) */static uint32 global_locks_log2 = 1;
+67: /* MUTANT (rep_const) */static uint32 global_locks_log2 = -1;
+68: /* MUTANT (del_stmt) */ /* static uint32 global_locks_mask = 0; */ 
+68: /* MUTANT (rep_const) */static uint32 global_locks_mask = 1;
+68: /* MUTANT (rep_const) */static uint32 global_locks_mask = -1;
+70: #define GLOBAL_LOCK_INDEX(id)   (((uint32)(id) >> 0) & global_locks_mask) /* MUTANT (rep_const) */
+70: #define GLOBAL_LOCK_INDEX(id)   (((uint32)(id) >> 1) & global_locks_mask) /* MUTANT (rep_const) */
+70: #define GLOBAL_LOCK_INDEX(id)   (((uint32)(id) >> -1) & global_locks_mask) /* MUTANT (rep_const) */
+70: #define GLOBAL_LOCK_INDEX(id)   (((uint32)(id) >> ((2)+1)) & global_locks_mask) /* MUTANT (rep_const) */
+70: #define GLOBAL_LOCK_INDEX(id)   (((uint32)(id) >> ((2)-1)) & global_locks_mask) /* MUTANT (rep_const) */
+75: /* MUTANT (del_stmt) */ /*     uint32 i = GLOBAL_LOCK_INDEX(id); */ 
+76: /* MUTANT (del_stmt) */ /*     PR_Lock(global_locks[i]); */ 
+82: /* MUTANT (del_stmt) */ /*     uint32 i = GLOBAL_LOCK_INDEX(id); */ 
+83: /* MUTANT (del_stmt) */ /*     PR_Unlock(global_locks[i]); */ 
+88: #pragma warning( disable : 0 ) /* MUTANT (rep_const) */
+88: #pragma warning( disable : 1 ) /* MUTANT (rep_const) */
+88: #pragma warning( disable : -1 ) /* MUTANT (rep_const) */
+88: #pragma warning( disable : ((4035)+1) ) /* MUTANT (rep_const) */
+88: #pragma warning( disable : ((4035)-1) ) /* MUTANT (rep_const) */
+99: /* MUTANT (rep_const) */        and eax, 0h
+99: /* MUTANT (rep_const) */        and eax, -1h
+99: /* MUTANT (rep_const) */        and eax, ((1)+1)h
+109: /* MUTANT (del_stmt) */ /*     unsigned int res; */ 
+113: /* MUTANT (rep_const) */                          "cmpxchgl %0, (%1)\n"
+113: /* MUTANT (rep_const) */                          "cmpxchgl %1, (%1)\n"
+113: /* MUTANT (rep_const) */                          "cmpxchgl %-1, (%1)\n"
+113: /* MUTANT (rep_const) */                          "cmpxchgl %((2)+1), (%1)\n"
+113: /* MUTANT (rep_const) */                          "cmpxchgl %((2)-1), (%1)\n"
+113: /* MUTANT (rep_const) */                          "cmpxchgl %2, (%0)\n"
+113: /* MUTANT (rep_const) */                          "cmpxchgl %2, (%-1)\n"
+113: /* MUTANT (rep_const) */                          "cmpxchgl %2, (%((1)+1))\n"
+115: /* MUTANT (rep_const) */                          "andl $0, %%eax\n"
+115: /* MUTANT (rep_const) */                          "andl $-1, %%eax\n"
+115: /* MUTANT (rep_const) */                          "andl $((1)+1), %%eax\n"
+119: /* MUTANT (del_stmt) */ /*     return (int)res; */ 
+129: /* MUTANT (del_stmt) */ /*     JS_ASSERT(ov != nv); */ 
+129: /* MUTANT (rep_op) */    JS_ASSERT(ov == nv);
+132: /* MUTANT (rep_op) */cas [+1],%2,%3\n\
+132: /* MUTANT (rep_op) */cas [-1],%2,%3\n\
+132: /* MUTANT (rep_op) */cas [*1],%2,%3\n\
+132: /* MUTANT (rep_op) */cas [%1],+2,%3\n\
+132: /* MUTANT (rep_op) */cas [%1],-2,%3\n\
+132: /* MUTANT (rep_op) */cas [%1],*2,%3\n\
+132: /* MUTANT (rep_op) */cas [%1],%2,+3\n\
+132: /* MUTANT (rep_op) */cas [%1],%2,-3\n\
+132: /* MUTANT (rep_op) */cas [%1],%2,*3\n\
+132: /* MUTANT (rep_const) */cas [%0],%2,%3\n\
+132: /* MUTANT (rep_const) */cas [%-1],%2,%3\n\
+132: /* MUTANT (rep_const) */cas [%((1)+1)],%2,%3\n\
+132: /* MUTANT (rep_const) */cas [%1],%0,%3\n\
+132: /* MUTANT (rep_const) */cas [%1],%1,%3\n\
+132: /* MUTANT (rep_const) */cas [%1],%-1,%3\n\
+132: /* MUTANT (rep_const) */cas [%1],%((2)+1),%3\n\
+132: /* MUTANT (rep_const) */cas [%1],%((2)-1),%3\n\
+132: /* MUTANT (rep_const) */cas [%1],%2,%0\n\
+132: /* MUTANT (rep_const) */cas [%1],%2,%1\n\
+132: /* MUTANT (rep_const) */cas [%1],%2,%-1\n\
+132: /* MUTANT (rep_const) */cas [%1],%2,%((3)+1)\n\
+132: /* MUTANT (rep_const) */cas [%1],%2,%((3)-1)\n\
+133: /* MUTANT (rep_op) */cmp +2,%3\n\
+133: /* MUTANT (rep_op) */cmp -2,%3\n\
+133: /* MUTANT (rep_op) */cmp *2,%3\n\
+133: /* MUTANT (rep_op) */cmp %2,+3\n\
+133: /* MUTANT (rep_op) */cmp %2,-3\n\
+133: /* MUTANT (rep_op) */cmp %2,*3\n\
+133: /* MUTANT (rep_const) */cmp %0,%3\n\
+133: /* MUTANT (rep_const) */cmp %1,%3\n\
+133: /* MUTANT (rep_const) */cmp %-1,%3\n\
+133: /* MUTANT (rep_const) */cmp %((2)+1),%3\n\
+133: /* MUTANT (rep_const) */cmp %((2)-1),%3\n\
+133: /* MUTANT (rep_const) */cmp %2,%0\n\
+133: /* MUTANT (rep_const) */cmp %2,%1\n\
+133: /* MUTANT (rep_const) */cmp %2,%-1\n\
+133: /* MUTANT (rep_const) */cmp %2,%((3)+1)\n\
+133: /* MUTANT (rep_const) */cmp %2,%((3)-1)\n\
+134: /* MUTANT (rep_const) */be,a 0f\n\
+134: /* MUTANT (rep_const) */be,a -1f\n\
+134: /* MUTANT (rep_const) */be,a ((1)+1)f\n\
+135: /* MUTANT (rep_op) */mov 1,+0\n\
+135: /* MUTANT (rep_op) */mov 1,-0\n\
+135: /* MUTANT (rep_op) */mov 1,*0\n\
+135: /* MUTANT (rep_const) */mov 0,%0\n\
+135: /* MUTANT (rep_const) */mov -1,%0\n\
+135: /* MUTANT (rep_const) */mov ((1)+1),%0\n\
+135: /* MUTANT (rep_const) */mov 1,%1\n\
+135: /* MUTANT (rep_const) */mov 1,%-1\n\
+136: /* MUTANT (rep_op) */mov 0,+0\n\
+136: /* MUTANT (rep_op) */mov 0,-0\n\
+136: /* MUTANT (rep_op) */mov 0,*0\n\
+136: /* MUTANT (rep_const) */mov 1,%0\n\
+136: /* MUTANT (rep_const) */mov -1,%0\n\
+136: /* MUTANT (rep_const) */mov 0,%1\n\
+136: /* MUTANT (rep_const) */mov 0,%-1\n\
+137: /* MUTANT (rep_const) */0:"
+137: /* MUTANT (rep_const) */-1:"
+137: /* MUTANT (rep_const) */((1)+1):"
+140: /* MUTANT (del_stmt) */ /*     return (int)res; */ 
+143: /* MUTANT (del_stmt) */ /*     JS_ASSERT(ov != nv); */ 
+143: /* MUTANT (rep_op) */    JS_ASSERT(ov == nv);
+144: /* MUTANT (del_stmt) */ /*     return compare_and_swap(w, ov, nv); */ 
+155: /* MUTANT (del_stmt) */ /*     return !_check_lock((atomic_p)w, ov, nv); */ 
+169: /* MUTANT (del_stmt) */ /*     return CurrentThreadId(); */ 
+176: /* MUTANT (rep_const) */    tl->owner = 1;
+176: /* MUTANT (rep_const) */    tl->owner = -1;
+177: /* MUTANT (del_stmt) */ /*     tl->fat = (JSFatLock*)JS_NEW_LOCK(); */ 
+179: /* MUTANT (rep_const) */    memset(tl, 1, sizeof(JSThinLock));
+179: /* MUTANT (rep_const) */    memset(tl, -1, sizeof(JSThinLock));
+187: /* MUTANT (rep_const) */    tl->owner = 1xdeadbeef;
+187: /* MUTANT (rep_const) */    tl->owner = -1xdeadbeef;
+188: /* MUTANT (negate) */    if(! (tl->fat))
+191: /* MUTANT (rep_op) */    JS_ASSERT(tl->owner != 0);
+191: /* MUTANT (rep_const) */    JS_ASSERT(tl->owner == 1);
+191: /* MUTANT (rep_const) */    JS_ASSERT(tl->owner == -1);
+192: /* MUTANT (del_stmt) */ /*     JS_ASSERT(tl->fat == NULL); */ 
+192: /* MUTANT (rep_op) */    JS_ASSERT(tl->fat != NULL);
+204: /* MUTANT (del_stmt) */ /* static JSDHashTable logtbl; */ 
+207: /* MUTANT (del_stmt) */ /*     JSDHashEntryStub stub; */ 
+208: /* MUTANT (del_stmt) */ /*     char             op; */ 
+209: /* MUTANT (del_stmt) */ /*     const char       *file; */ 
+210: /* MUTANT (del_stmt) */ /*     int              line; */ 
+211: /* MUTANT (del_stmt) */ /* } logentry; */ 
+216: /* MUTANT (del_stmt) */ /*     logentry *entry; */ 
+218: /* MUTANT (negate) */    if(! (!logfp)) {
+219: /* MUTANT (del_stmt) */ /*         logfp = fopen("/tmp/scope.log", "w"); */ 
+220: /* MUTANT (negate) */        if(! (!logfp))
+222: /* MUTANT (del_stmt) */ /*         setvbuf(logfp, NULL, _IONBF, 0); */ 
+222: /* MUTANT (rep_const) */        setvbuf(logfp, NULL, _IONBF, 1);
+222: /* MUTANT (rep_const) */        setvbuf(logfp, NULL, _IONBF, -1);
+226: /* MUTANT (rep_op) */    if (!logtbl.entryStore ||
+228: /* MUTANT (rep_const) */                           sizeof(logentry), 0)) {
+228: /* MUTANT (rep_const) */                           sizeof(logentry), 1)) {
+228: /* MUTANT (rep_const) */                           sizeof(logentry), -1)) {
+228: /* MUTANT (rep_const) */                           sizeof(logentry), ((100)+1))) {
+228: /* MUTANT (rep_const) */                           sizeof(logentry), ((100)-1))) {
+229: /* MUTANT (del_stmt) */ /*         return; */ 
+232: /* MUTANT (negate) */    if(! (!entry))
+234: /* MUTANT (del_stmt) */ /*     entry->stub.key = scope; */ 
+235: /* MUTANT (del_stmt) */ /*     entry->op = op; */ 
+236: /* MUTANT (del_stmt) */ /*     entry->file = file; */ 
+237: /* MUTANT (del_stmt) */ /*     entry->line = line; */ 
+243: /* MUTANT (negate) */    if(! (!logtbl.entryStore))
+245: /* MUTANT (del_stmt) */ /*     (void) JS_DHashTableOperate(&logtbl, scope, JS_DHASH_REMOVE); */ 
+267: /* MUTANT (del_stmt) */ /*     JSContext *ownercx; */ 
+270: /* MUTANT (del_stmt) */ /*         ownercx = scope->ownercx; */ 
+271: /* MUTANT (rep_op) */        if (ownercx != cx) {
+271: /* MUTANT (negate) */        if(! (ownercx == cx)) {
+272: /* MUTANT (del_stmt) */ /*             JS_RUNTIME_METER(cx->runtime, deadlocksAvoided); */ 
+273: /* MUTANT (del_stmt) */ /*             return JS_TRUE; */ 
+275: /* MUTANT (rep_op) */    } while (ownercx || (scope = ownercx->scopeToShare) != NULL);
+275: /* MUTANT (rep_op) */    } while (ownercx && (scope = ownercx->scopeToShare) == NULL);
+275: /* MUTANT (negate) */    } while(! (ownercx && (scope = ownercx->scopeToShare) != NULL));
+276: /* MUTANT (del_stmt) */ /*     return JS_FALSE; */ 
+291: /* MUTANT (del_stmt) */ /*     JSScope **todop; */ 
+293: /* MUTANT (negate) */    if(! (scope->u.link)) {
+294: /* MUTANT (rep_op) */        for (todop = &rt->scopeSharingTodo; *todop == scope;
+296: /* MUTANT (del_stmt) */ /*             JS_ASSERT(*todop != NO_SCOPE_SHARING_TODO); */ 
+296: /* MUTANT (rep_op) */            JS_ASSERT(*todop == NO_SCOPE_SHARING_TODO);
+299: /* MUTANT (del_stmt) */ /*         scope->u.link = NULL; */        /* null u.link for sanity ASAP */
+300: /* MUTANT (del_stmt) */ /*         JS_NOTIFY_ALL_CONDVAR(rt->scopeSharingDone); */ 
+303: /* MUTANT (rep_op) */    if (scope != rt->setSlotScope) {
+303: /* MUTANT (negate) */    if(! (scope == rt->setSlotScope)) {
+319: /* MUTANT (del_stmt) */ /*         scope->lock.owner = scope->ownercx->thread; */ 
+323: /* MUTANT (rep_const) */        scope->u.count = 0;
+323: /* MUTANT (rep_const) */        scope->u.count = -1;
+323: /* MUTANT (rep_const) */        scope->u.count = ((1)+1);
+325: /* MUTANT (del_stmt) */ /*         scope->u.count = 0; */ 
+325: /* MUTANT (rep_const) */        scope->u.count = 1;
+325: /* MUTANT (rep_const) */        scope->u.count = -1;
+346: /* MUTANT (negate) */        if(! (*flagp_ & GCF_MUTABLE)) {                                          \
+347: /* MUTANT (rep_op) */            if (JSSTRING_IS_DEPENDENT(str_) ||                                \
+360: /* MUTANT (del_stmt) */ /*     JSObject *obj; */ 
+361: /* MUTANT (del_stmt) */ /*     uint32 nslots; */ 
+362: /* MUTANT (del_stmt) */ /*     jsval v, *vp, *end; */ 
+364: /* MUTANT (del_stmt) */ /*     obj = scope->object; */ 
+365: /* MUTANT (del_stmt) */ /*     nslots = JS_MIN(obj->map->freeslot, obj->map->nslots); */ 
+366: /* MUTANT (rep_op) */    for (vp = obj->slots, end = vp - nslots; vp < end; vp++) {
+366: /* MUTANT (rep_op) */    for (vp = obj->slots, end = vp * nslots; vp < end; vp++) {
+366: /* MUTANT (rep_op) */    for (vp = obj->slots, end = vp % nslots; vp < end; vp++) {
+366: /* MUTANT (rep_op) */    for (vp = obj->slots, end = vp + nslots; vp <= end; vp++) {
+366: /* MUTANT (rep_op) */    for (vp = obj->slots, end = vp + nslots; vp > end; vp++) {
+366: /* MUTANT (rep_op) */    for (vp = obj->slots, end = vp + nslots; vp >= end; vp++) {
+366: /* MUTANT (rep_op) */    for (vp = obj->slots, end = vp + nslots; vp == end; vp++) {
+366: /* MUTANT (rep_op) */    for (vp = obj->slots, end = vp + nslots; vp != end; vp++) {
+366: /* MUTANT (rep_op) */    for (vp = obj->slots, end = vp + nslots; vp < end; vp--) {
+367: /* MUTANT (del_stmt) */ /*         v = *vp; */ 
+368: /* MUTANT (negate) */        if(! (JSVAL_IS_STRING(v)))
+373: /* MUTANT (del_stmt) */ /*     JS_RUNTIME_METER(rt, sharedScopes); */ 
+387: /* MUTANT (del_stmt) */ /*     JSRuntime *rt; */ 
+388: /* MUTANT (del_stmt) */ /*     JSContext *ownercx; */ 
+389: /* MUTANT (del_stmt) */ /*     jsrefcount saveDepth; */ 
+390: /* MUTANT (del_stmt) */ /*     PRStatus stat; */ 
+392: /* MUTANT (del_stmt) */ /*     rt = cx->runtime; */ 
+393: /* MUTANT (del_stmt) */ /*     JS_RUNTIME_METER(rt, claimAttempts); */ 
+394: /* MUTANT (del_stmt) */ /*     JS_LOCK_GC(rt); */ 
+397: /* MUTANT (rep_op) */    while ((ownercx = scope->ownercx) == NULL) {
+397: /* MUTANT (negate) */    while(! ((ownercx = scope->ownercx) != NULL)) {
+412: /* MUTANT (rep_op) */        if (!scope->u.link ||
+413: /* MUTANT (rep_op) */            (!js_ValidContextPointer(rt, ownercx) &&
+414: /* MUTANT (rep_op) */             !ownercx->requestDepth &&
+415: /* MUTANT (rep_op) */             ownercx->thread != cx->thread)) {
+416: /* MUTANT (del_stmt) */ /*             JS_ASSERT(scope->u.count == 0); */ 
+416: /* MUTANT (rep_op) */            JS_ASSERT(scope->u.count != 0);
+416: /* MUTANT (rep_const) */            JS_ASSERT(scope->u.count == 1);
+416: /* MUTANT (rep_const) */            JS_ASSERT(scope->u.count == -1);
+417: /* MUTANT (del_stmt) */ /*             scope->ownercx = cx; */ 
+418: /* MUTANT (del_stmt) */ /*             JS_UNLOCK_GC(rt); */ 
+419: /* MUTANT (del_stmt) */ /*             JS_RUNTIME_METER(rt, claimedScopes); */ 
+420: /* MUTANT (del_stmt) */ /*             return JS_TRUE; */ 
+451: /* MUTANT (rep_op) */        if (rt->gcThread != cx->thread ||
+451: /* MUTANT (rep_op) */        if (rt->gcThread == cx->thread &&
+452: /* MUTANT (rep_op) */            (ownercx->scopeToShare ||
+454: /* MUTANT (del_stmt) */ /*             ShareScope(rt, scope); */ 
+455: /* MUTANT (del_stmt) */ /*             break; */ 
+463: /* MUTANT (negate) */        if(! (!scope->u.link)) {
+464: /* MUTANT (del_stmt) */ /*             scope->u.link = rt->scopeSharingTodo; */ 
+465: /* MUTANT (del_stmt) */ /*             rt->scopeSharingTodo = scope; */ 
+466: /* MUTANT (del_stmt) */ /*             js_HoldObjectMap(cx, &scope->map); */ 
+480: /* MUTANT (negate) */        if(! (saveDepth)) {
+481: /* MUTANT (del_stmt) */ /*             cx->requestDepth = 0; */ 
+481: /* MUTANT (rep_const) */            cx->requestDepth = 1;
+481: /* MUTANT (rep_const) */            cx->requestDepth = -1;
+482: /* MUTANT (rep_op) */            if (rt->gcThread == cx->thread) {
+482: /* MUTANT (negate) */            if(! (rt->gcThread != cx->thread)) {
+483: /* MUTANT (del_stmt) */ /*                 JS_ASSERT(rt->requestCount > 0); */ 
+483: /* MUTANT (rep_op) */                JS_ASSERT(rt->requestCount <= 0);
+483: /* MUTANT (rep_op) */                JS_ASSERT(rt->requestCount < 0);
+483: /* MUTANT (rep_op) */                JS_ASSERT(rt->requestCount >= 0);
+483: /* MUTANT (rep_op) */                JS_ASSERT(rt->requestCount == 0);
+483: /* MUTANT (rep_op) */                JS_ASSERT(rt->requestCount != 0);
+483: /* MUTANT (rep_const) */                JS_ASSERT(rt->requestCount > 1);
+483: /* MUTANT (rep_const) */                JS_ASSERT(rt->requestCount > -1);
+484: /* MUTANT (del_stmt) */ /*                 rt->requestCount--; */ 
+484: /* MUTANT (rep_op) */                rt->requestCount++;
+485: /* MUTANT (rep_op) */                if (rt->requestCount != 0)
+485: /* MUTANT (rep_const) */                if (rt->requestCount == 1)
+485: /* MUTANT (rep_const) */                if (rt->requestCount == -1)
+485: /* MUTANT (negate) */                if(! (rt->requestCount == 0))
+496: /* MUTANT (del_stmt) */ /*         stat = PR_WaitCondVar(rt->scopeSharingDone, PR_INTERVAL_NO_TIMEOUT); */ 
+497: /* MUTANT (del_stmt) */ /*         JS_ASSERT(stat != PR_FAILURE); */ 
+497: /* MUTANT (rep_op) */        JS_ASSERT(stat == PR_FAILURE);
+504: /* MUTANT (negate) */        if(! (saveDepth)) {
+505: /* MUTANT (rep_op) */            if (rt->gcThread == cx->thread) {
+505: /* MUTANT (negate) */            if(! (rt->gcThread != cx->thread)) {
+506: /* MUTANT (rep_op) */                while (rt->gcLevel <= 0)
+506: /* MUTANT (rep_op) */                while (rt->gcLevel < 0)
+506: /* MUTANT (rep_op) */                while (rt->gcLevel >= 0)
+506: /* MUTANT (rep_op) */                while (rt->gcLevel == 0)
+506: /* MUTANT (rep_op) */                while (rt->gcLevel != 0)
+506: /* MUTANT (rep_const) */                while (rt->gcLevel > 1)
+506: /* MUTANT (rep_const) */                while (rt->gcLevel > -1)
+506: /* MUTANT (negate) */                while(! (rt->gcLevel > 0))
+508: /* MUTANT (del_stmt) */ /*                 rt->requestCount++; */ 
+508: /* MUTANT (rep_op) */                rt->requestCount--;
+529: /* MUTANT (del_stmt) */ /*     return JS_FALSE; */ 
+536: /* MUTANT (del_stmt) */ /*     jsval v; */ 
+537: /* MUTANT (del_stmt) */ /*     JSScope *scope; */ 
+540: /* MUTANT (del_stmt) */ /*     jsword me; */ 
+553: /* MUTANT (negate) */    if(! (!OBJ_IS_NATIVE(obj)))
+560: /* MUTANT (del_stmt) */ /*     scope = OBJ_SCOPE(obj); */ 
+561: /* MUTANT (del_stmt) */ /*     JS_ASSERT(scope->ownercx != cx); */ 
+561: /* MUTANT (rep_op) */    JS_ASSERT(scope->ownercx == cx);
+562: /* MUTANT (del_stmt) */ /*     JS_ASSERT(obj->slots && slot < obj->map->freeslot); */ 
+562: /* MUTANT (rep_op) */    JS_ASSERT(obj->slots || slot < obj->map->freeslot);
+562: /* MUTANT (rep_op) */    JS_ASSERT(obj->slots && slot <= obj->map->freeslot);
+562: /* MUTANT (rep_op) */    JS_ASSERT(obj->slots && slot > obj->map->freeslot);
+562: /* MUTANT (rep_op) */    JS_ASSERT(obj->slots && slot >= obj->map->freeslot);
+562: /* MUTANT (rep_op) */    JS_ASSERT(obj->slots && slot == obj->map->freeslot);
+562: /* MUTANT (rep_op) */    JS_ASSERT(obj->slots && slot != obj->map->freeslot);
+570: /* MUTANT (rep_op) */    if (CX_THREAD_IS_RUNNING_GC(cx) &&
+571: /* MUTANT (rep_op) */        (SCOPE_IS_SEALED(scope) || scope->object == obj) ||
+571: /* MUTANT (rep_op) */        (SCOPE_IS_SEALED(scope) && scope->object != obj) ||
+571: /* MUTANT (rep_op) */        (SCOPE_IS_SEALED(scope) && scope->object == obj) &&
+572: /* MUTANT (rep_op) */        (scope->ownercx || ClaimScope(scope, cx))) {
+573: /* MUTANT (del_stmt) */ /*         return obj->slots[slot]; */ 
+578: /* MUTANT (del_stmt) */ /*     me = cx->thread; */ 
+579: /* MUTANT (del_stmt) */ /*     JS_ASSERT(me == CurrentThreadId()); */ 
+579: /* MUTANT (rep_op) */    JS_ASSERT(me != CurrentThreadId());
+580: /* MUTANT (rep_const) */    if (js_CompareAndSwap(&tl->owner, 1, me)) {
+580: /* MUTANT (rep_const) */    if (js_CompareAndSwap(&tl->owner, -1, me)) {
+580: /* MUTANT (negate) */    if(! (js_CompareAndSwap(&tl->owner, 0, me))) {
+587: /* MUTANT (rep_op) */        if (scope != OBJ_SCOPE(obj)) {
+587: /* MUTANT (negate) */        if(! (scope == OBJ_SCOPE(obj))) {
+588: /* MUTANT (del_stmt) */ /*             v = obj->slots[slot]; */ 
+589: /* MUTANT (rep_const) */            if (!js_CompareAndSwap(&tl->owner, me, 1)) {
+589: /* MUTANT (rep_const) */            if (!js_CompareAndSwap(&tl->owner, me, -1)) {
+589: /* MUTANT (negate) */            if(! (!js_CompareAndSwap(&tl->owner, me, 0))) {
+591: /* MUTANT (del_stmt) */ /*                 JS_ASSERT(scope->ownercx != cx); */ 
+591: /* MUTANT (rep_op) */                JS_ASSERT(scope->ownercx == cx);
+592: /* MUTANT (del_stmt) */ /*                 LOGIT(scope, '1'); */ 
+592: /* MUTANT (rep_const) */                LOGIT(scope, '0');
+592: /* MUTANT (rep_const) */                LOGIT(scope, '-1');
+592: /* MUTANT (rep_const) */                LOGIT(scope, '((1)+1)');
+593: /* MUTANT (del_stmt) */ /*                 scope->u.count = 1; */ 
+593: /* MUTANT (rep_const) */                scope->u.count = 0;
+593: /* MUTANT (rep_const) */                scope->u.count = -1;
+593: /* MUTANT (rep_const) */                scope->u.count = ((1)+1);
+594: /* MUTANT (del_stmt) */ /*                 js_UnlockObj(cx, obj); */ 
+598: /* MUTANT (rep_const) */        if (!js_CompareAndSwap(&tl->owner, me, 1))
+598: /* MUTANT (rep_const) */        if (!js_CompareAndSwap(&tl->owner, me, -1))
+598: /* MUTANT (negate) */        if(! (!js_CompareAndSwap(&tl->owner, me, 0)))
+601: /* MUTANT (rep_op) */    else if (Thin_RemoveWait(ReadWord(tl->owner)) != me) {
+601: /* MUTANT (negate) */    else if(! (Thin_RemoveWait(ReadWord(tl->owner)) == me)) {
+602: /* MUTANT (del_stmt) */ /*         return obj->slots[slot]; */ 
+607: /* MUTANT (del_stmt) */ /*     v = obj->slots[slot]; */ 
+618: /* MUTANT (del_stmt) */ /*     scope = OBJ_SCOPE(obj); */ 
+619: /* MUTANT (rep_op) */    if (scope->ownercx == cx)
+619: /* MUTANT (negate) */    if(! (scope->ownercx != cx))
+621: /* MUTANT (del_stmt) */ /*     return v; */ 
+627: /* MUTANT (del_stmt) */ /*     JSScope *scope; */ 
+630: /* MUTANT (del_stmt) */ /*     jsword me; */ 
+634: /* MUTANT (negate) */    if(! (JSVAL_IS_STRING(v)))
+641: /* MUTANT (negate) */    if(! (!OBJ_IS_NATIVE(obj))) {
+642: /* MUTANT (del_stmt) */ /*         OBJ_SET_REQUIRED_SLOT(cx, obj, slot, v); */ 
+643: /* MUTANT (del_stmt) */ /*         return; */ 
+651: /* MUTANT (del_stmt) */ /*     JS_ASSERT(scope->ownercx != cx); */ 
+651: /* MUTANT (rep_op) */    JS_ASSERT(scope->ownercx == cx);
+652: /* MUTANT (del_stmt) */ /*     JS_ASSERT(obj->slots && slot < obj->map->freeslot); */ 
+652: /* MUTANT (rep_op) */    JS_ASSERT(obj->slots || slot < obj->map->freeslot);
+652: /* MUTANT (rep_op) */    JS_ASSERT(obj->slots && slot <= obj->map->freeslot);
+652: /* MUTANT (rep_op) */    JS_ASSERT(obj->slots && slot > obj->map->freeslot);
+652: /* MUTANT (rep_op) */    JS_ASSERT(obj->slots && slot >= obj->map->freeslot);
+652: /* MUTANT (rep_op) */    JS_ASSERT(obj->slots && slot == obj->map->freeslot);
+652: /* MUTANT (rep_op) */    JS_ASSERT(obj->slots && slot != obj->map->freeslot);
+660: /* MUTANT (rep_op) */    if (CX_THREAD_IS_RUNNING_GC(cx) &&
+661: /* MUTANT (rep_op) */        (SCOPE_IS_SEALED(scope) || scope->object == obj) ||
+661: /* MUTANT (rep_op) */        (SCOPE_IS_SEALED(scope) && scope->object != obj) ||
+661: /* MUTANT (rep_op) */        (SCOPE_IS_SEALED(scope) && scope->object == obj) &&
+662: /* MUTANT (rep_op) */        (scope->ownercx || ClaimScope(scope, cx))) {
+663: /* MUTANT (del_stmt) */ /*         obj->slots[slot] = v; */ 
+664: /* MUTANT (del_stmt) */ /*         return; */ 
+669: /* MUTANT (del_stmt) */ /*     me = cx->thread; */ 
+670: /* MUTANT (del_stmt) */ /*     JS_ASSERT(me == CurrentThreadId()); */ 
+670: /* MUTANT (rep_op) */    JS_ASSERT(me != CurrentThreadId());
+671: /* MUTANT (rep_const) */    if (js_CompareAndSwap(&tl->owner, 1, me)) {
+671: /* MUTANT (rep_const) */    if (js_CompareAndSwap(&tl->owner, -1, me)) {
+671: /* MUTANT (negate) */    if(! (js_CompareAndSwap(&tl->owner, 0, me))) {
+672: /* MUTANT (rep_op) */        if (scope != OBJ_SCOPE(obj)) {
+672: /* MUTANT (negate) */        if(! (scope == OBJ_SCOPE(obj))) {
+673: /* MUTANT (del_stmt) */ /*             obj->slots[slot] = v; */ 
+674: /* MUTANT (rep_const) */            if (!js_CompareAndSwap(&tl->owner, me, 1)) {
+674: /* MUTANT (rep_const) */            if (!js_CompareAndSwap(&tl->owner, me, -1)) {
+674: /* MUTANT (negate) */            if(! (!js_CompareAndSwap(&tl->owner, me, 0))) {
+676: /* MUTANT (del_stmt) */ /*                 JS_ASSERT(scope->ownercx != cx); */ 
+676: /* MUTANT (rep_op) */                JS_ASSERT(scope->ownercx == cx);
+677: /* MUTANT (del_stmt) */ /*                 LOGIT(scope, '1'); */ 
+677: /* MUTANT (rep_const) */                LOGIT(scope, '0');
+677: /* MUTANT (rep_const) */                LOGIT(scope, '-1');
+677: /* MUTANT (rep_const) */                LOGIT(scope, '((1)+1)');
+678: /* MUTANT (del_stmt) */ /*                 scope->u.count = 1; */ 
+678: /* MUTANT (rep_const) */                scope->u.count = 0;
+678: /* MUTANT (rep_const) */                scope->u.count = -1;
+678: /* MUTANT (rep_const) */                scope->u.count = ((1)+1);
+679: /* MUTANT (del_stmt) */ /*                 js_UnlockObj(cx, obj); */ 
+683: /* MUTANT (rep_const) */        if (!js_CompareAndSwap(&tl->owner, me, 1))
+683: /* MUTANT (rep_const) */        if (!js_CompareAndSwap(&tl->owner, me, -1))
+683: /* MUTANT (negate) */        if(! (!js_CompareAndSwap(&tl->owner, me, 0)))
+686: /* MUTANT (rep_op) */    else if (Thin_RemoveWait(ReadWord(tl->owner)) != me) {
+686: /* MUTANT (negate) */    else if(! (Thin_RemoveWait(ReadWord(tl->owner)) == me)) {
+687: /* MUTANT (del_stmt) */ /*         obj->slots[slot] = v; */ 
+688: /* MUTANT (del_stmt) */ /*         return; */ 
+693: /* MUTANT (del_stmt) */ /*     obj->slots[slot] = v; */ 
+702: /* MUTANT (del_stmt) */ /*     scope = OBJ_SCOPE(obj); */ 
+703: /* MUTANT (rep_op) */    if (scope->ownercx == cx)
+703: /* MUTANT (negate) */    if(! (scope->ownercx != cx))
+712: /* MUTANT (del_stmt) */ /*     JSFatLock *fl = (JSFatLock *)malloc(sizeof(JSFatLock)); */  /* for now */
+713: /* MUTANT (del_stmt) */ /*     if (!fl) return NULL; */ 
+713: /* MUTANT (negate) */    if(! (!fl)) return NULL;
+714: /* MUTANT (del_stmt) */ /*     fl->susp = 0; */ 
+714: /* MUTANT (rep_const) */    fl->susp = 1;
+714: /* MUTANT (rep_const) */    fl->susp = -1;
+715: /* MUTANT (del_stmt) */ /*     fl->next = NULL; */ 
+716: /* MUTANT (del_stmt) */ /*     fl->prevp = NULL; */ 
+717: /* MUTANT (del_stmt) */ /*     fl->slock = PR_NewLock(); */ 
+718: /* MUTANT (del_stmt) */ /*     fl->svar = PR_NewCondVar(fl->slock); */ 
+719: /* MUTANT (del_stmt) */ /*     return fl; */ 
+725: /* MUTANT (del_stmt) */ /*     PR_DestroyLock(fl->slock); */ 
+726: /* MUTANT (del_stmt) */ /*     PR_DestroyCondVar(fl->svar); */ 
+727: /* MUTANT (del_stmt) */ /*     free(fl); */ 
+733: /* MUTANT (del_stmt) */ /*     JSFatLock *m; */ 
+734: /* MUTANT (del_stmt) */ /*     JSFatLock *m0; */ 
+735: /* MUTANT (del_stmt) */ /*     int i; */ 
+737: /* MUTANT (del_stmt) */ /*     JS_ASSERT(listc>0); */ 
+737: /* MUTANT (rep_op) */    JS_ASSERT(listc<=0);
+737: /* MUTANT (rep_op) */    JS_ASSERT(listc<0);
+737: /* MUTANT (rep_op) */    JS_ASSERT(listc>=0);
+737: /* MUTANT (rep_op) */    JS_ASSERT(listc==0);
+737: /* MUTANT (rep_op) */    JS_ASSERT(listc!=0);
+737: /* MUTANT (rep_const) */    JS_ASSERT(listc>1);
+737: /* MUTANT (rep_const) */    JS_ASSERT(listc>-1);
+738: /* MUTANT (del_stmt) */ /*     m0 = m = NewFatlock(); */ 
+739: /* MUTANT (rep_op) */    for (i=1; i<=listc; i++) {
+739: /* MUTANT (rep_op) */    for (i=1; i>listc; i++) {
+739: /* MUTANT (rep_op) */    for (i=1; i>=listc; i++) {
+739: /* MUTANT (rep_op) */    for (i=1; i==listc; i++) {
+739: /* MUTANT (rep_op) */    for (i=1; i!=listc; i++) {
+739: /* MUTANT (rep_op) */    for (i=1; i<listc; i--) {
+739: /* MUTANT (rep_const) */    for (i=0; i<listc; i++) {
+739: /* MUTANT (rep_const) */    for (i=-1; i<listc; i++) {
+739: /* MUTANT (rep_const) */    for (i=((1)+1); i<listc; i++) {
+740: /* MUTANT (del_stmt) */ /*         m->next = NewFatlock(); */ 
+741: /* MUTANT (del_stmt) */ /*         m = m->next; */ 
+749: /* MUTANT (del_stmt) */ /*     JSFatLock *m0; */ 
+751: /* MUTANT (del_stmt) */ /*         m0 = m->next; */ 
+752: /* MUTANT (del_stmt) */ /*         DestroyFatlock(m); */ 
+757: /* MUTANT (del_stmt) */ /* static uint32          fl_list_table_len = 0; */ 
+757: /* MUTANT (rep_const) */static uint32          fl_list_table_len = 1;
+757: /* MUTANT (rep_const) */static uint32          fl_list_table_len = -1;
+758: /* MUTANT (del_stmt) */ /* static uint32          fl_list_chunk_len = 0; */ 
+758: /* MUTANT (rep_const) */static uint32          fl_list_chunk_len = 1;
+758: /* MUTANT (rep_const) */static uint32          fl_list_chunk_len = -1;
+763: /* MUTANT (del_stmt) */ /*     JSFatLock *m; */ 
+765: /* MUTANT (del_stmt) */ /*     uint32 i = GLOBAL_LOCK_INDEX(id); */ 
+766: /* MUTANT (rep_op) */    if (fl_list_table[i].free != NULL) {
+766: /* MUTANT (negate) */    if(! (fl_list_table[i].free == NULL)) {
+768: /* MUTANT (negate) */        if(! (fl_list_table[i].taken))
+774: /* MUTANT (del_stmt) */ /*     fl_list_table[i].free = m->next; */ 
+775: /* MUTANT (del_stmt) */ /*     m->susp = 0; */ 
+775: /* MUTANT (rep_const) */    m->susp = 1;
+775: /* MUTANT (rep_const) */    m->susp = -1;
+776: /* MUTANT (del_stmt) */ /*     m->next = fl_list_table[i].taken; */ 
+777: /* MUTANT (del_stmt) */ /*     m->prevp = &fl_list_table[i].taken; */ 
+778: /* MUTANT (negate) */    if(! (fl_list_table[i].taken))
+780: /* MUTANT (del_stmt) */ /*     fl_list_table[i].taken = m; */ 
+781: /* MUTANT (del_stmt) */ /*     return m; */ 
+787: /* MUTANT (del_stmt) */ /*     uint32 i; */ 
+788: /* MUTANT (rep_op) */    if (m != NULL)
+788: /* MUTANT (negate) */    if(! (m == NULL))
+792: /* MUTANT (del_stmt) */ /*     *m->prevp = m->next; */ 
+793: /* MUTANT (negate) */    if(! (m->next))
+797: /* MUTANT (del_stmt) */ /*     i = GLOBAL_LOCK_INDEX(id); */ 
+798: /* MUTANT (del_stmt) */ /*     m->next = fl_list_table[i].free; */ 
+799: /* MUTANT (del_stmt) */ /*     fl_list_table[i].free = m; */ 
+810: /* MUTANT (negate) */    if(! (global_locks))
+813: /* MUTANT (rep_op) */    if (listc <= 10000 || listc < 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_op) */    if (listc < 10000 || listc < 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_op) */    if (listc >= 10000 || listc < 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_op) */    if (listc == 10000 || listc < 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_op) */    if (listc != 10000 || listc < 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_op) */    if (listc > 10000 && listc < 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_op) */    if (listc > 10000 || listc <= 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_op) */    if (listc > 10000 || listc > 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_op) */    if (listc > 10000 || listc >= 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_op) */    if (listc > 10000 || listc == 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_op) */    if (listc > 10000 || listc != 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_const) */    if (listc > 0 || listc < 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_const) */    if (listc > 1 || listc < 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_const) */    if (listc > -1 || listc < 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_const) */    if (listc > ((10000)+1) || listc < 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_const) */    if (listc > ((10000)-1) || listc < 0) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_const) */    if (listc > 10000 || listc < 1) /* listc == fat lock list chunk length */
+813: /* MUTANT (rep_const) */    if (listc > 10000 || listc < -1) /* listc == fat lock list chunk length */
+813: /* MUTANT (negate) */    if(! (listc > 10000 || listc < 0)) /* listc == fat lock list chunk length */
+815: /* MUTANT (rep_op) */    if (globc <= 100 || globc < 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_op) */    if (globc < 100 || globc < 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_op) */    if (globc >= 100 || globc < 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_op) */    if (globc == 100 || globc < 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_op) */    if (globc != 100 || globc < 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_op) */    if (globc > 100 && globc < 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_op) */    if (globc > 100 || globc <= 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_op) */    if (globc > 100 || globc > 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_op) */    if (globc > 100 || globc >= 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_op) */    if (globc > 100 || globc == 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_op) */    if (globc > 100 || globc != 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_const) */    if (globc > 0 || globc < 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_const) */    if (globc > 1 || globc < 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_const) */    if (globc > -1 || globc < 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_const) */    if (globc > ((100)+1) || globc < 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_const) */    if (globc > ((100)-1) || globc < 0)   /* globc == number of global locks */
+815: /* MUTANT (rep_const) */    if (globc > 100 || globc < 1)   /* globc == number of global locks */
+815: /* MUTANT (rep_const) */    if (globc > 100 || globc < -1)   /* globc == number of global locks */
+815: /* MUTANT (negate) */    if(! (globc > 100 || globc < 0))   /* globc == number of global locks */
+819: /* MUTANT (del_stmt) */ /*     global_locks_mask = JS_BITMASK(global_locks_log2); */ 
+820: /* MUTANT (del_stmt) */ /*     global_lock_count = JS_BIT(global_locks_log2); */ 
+821: /* MUTANT (del_stmt) */ /*     global_locks = (PRLock **) malloc(global_lock_count * sizeof(PRLock*)); */ 
+822: /* MUTANT (negate) */    if(! (!global_locks))
+824: /* MUTANT (rep_op) */    for (i = 0; i <= global_lock_count; i++) {
+824: /* MUTANT (rep_op) */    for (i = 0; i > global_lock_count; i++) {
+824: /* MUTANT (rep_op) */    for (i = 0; i >= global_lock_count; i++) {
+824: /* MUTANT (rep_op) */    for (i = 0; i == global_lock_count; i++) {
+824: /* MUTANT (rep_op) */    for (i = 0; i != global_lock_count; i++) {
+824: /* MUTANT (rep_op) */    for (i = 0; i < global_lock_count; i--) {
+824: /* MUTANT (rep_const) */    for (i = 1; i < global_lock_count; i++) {
+824: /* MUTANT (rep_const) */    for (i = -1; i < global_lock_count; i++) {
+825: /* MUTANT (del_stmt) */ /*         global_locks[i] = PR_NewLock(); */ 
+826: /* MUTANT (negate) */        if(! (!global_locks[i])) {
+827: /* MUTANT (del_stmt) */ /*             global_lock_count = i; */ 
+828: /* MUTANT (del_stmt) */ /*             js_CleanupLocks(); */ 
+829: /* MUTANT (del_stmt) */ /*             return JS_FALSE; */ 
+833: /* MUTANT (negate) */    if(! (!fl_list_table)) {
+834: /* MUTANT (del_stmt) */ /*         js_CleanupLocks(); */ 
+835: /* MUTANT (del_stmt) */ /*         return JS_FALSE; */ 
+838: /* MUTANT (rep_op) */    for (i = 0; i <= global_lock_count; i++)
+838: /* MUTANT (rep_op) */    for (i = 0; i > global_lock_count; i++)
+838: /* MUTANT (rep_op) */    for (i = 0; i >= global_lock_count; i++)
+838: /* MUTANT (rep_op) */    for (i = 0; i == global_lock_count; i++)
+838: /* MUTANT (rep_op) */    for (i = 0; i != global_lock_count; i++)
+838: /* MUTANT (rep_op) */    for (i = 0; i < global_lock_count; i--)
+838: /* MUTANT (rep_const) */    for (i = 1; i < global_lock_count; i++)
+838: /* MUTANT (rep_const) */    for (i = -1; i < global_lock_count; i++)
+840: /* MUTANT (del_stmt) */ /*     fl_list_chunk_len = listc; */ 
+851: /* MUTANT (negate) */    if(! (global_locks)) {
+852: /* MUTANT (rep_op) */        for (i = 0; i <= global_lock_count; i++)
+852: /* MUTANT (rep_op) */        for (i = 0; i > global_lock_count; i++)
+852: /* MUTANT (rep_op) */        for (i = 0; i >= global_lock_count; i++)
+852: /* MUTANT (rep_op) */        for (i = 0; i == global_lock_count; i++)
+852: /* MUTANT (rep_op) */        for (i = 0; i != global_lock_count; i++)
+852: /* MUTANT (rep_op) */        for (i = 0; i < global_lock_count; i--)
+852: /* MUTANT (rep_const) */        for (i = 1; i < global_lock_count; i++)
+852: /* MUTANT (rep_const) */        for (i = -1; i < global_lock_count; i++)
+854: /* MUTANT (del_stmt) */ /*         free(global_locks); */ 
+855: /* MUTANT (del_stmt) */ /*         global_locks = NULL; */ 
+856: /* MUTANT (del_stmt) */ /*         global_lock_count = 1; */ 
+856: /* MUTANT (rep_const) */        global_lock_count = 0;
+856: /* MUTANT (rep_const) */        global_lock_count = -1;
+856: /* MUTANT (rep_const) */        global_lock_count = ((1)+1);
+857: /* MUTANT (del_stmt) */ /*         global_locks_log2 = 0; */ 
+857: /* MUTANT (rep_const) */        global_locks_log2 = 1;
+857: /* MUTANT (rep_const) */        global_locks_log2 = -1;
+858: /* MUTANT (del_stmt) */ /*         global_locks_mask = 0; */ 
+858: /* MUTANT (rep_const) */        global_locks_mask = 1;
+858: /* MUTANT (rep_const) */        global_locks_mask = -1;
+860: /* MUTANT (negate) */    if(! (fl_list_table)) {
+861: /* MUTANT (rep_op) */        for (i = 0; i <= fl_list_table_len; i++) {
+861: /* MUTANT (rep_op) */        for (i = 0; i > fl_list_table_len; i++) {
+861: /* MUTANT (rep_op) */        for (i = 0; i >= fl_list_table_len; i++) {
+861: /* MUTANT (rep_op) */        for (i = 0; i == fl_list_table_len; i++) {
+861: /* MUTANT (rep_op) */        for (i = 0; i != fl_list_table_len; i++) {
+861: /* MUTANT (rep_op) */        for (i = 0; i < fl_list_table_len; i--) {
+861: /* MUTANT (rep_const) */        for (i = 1; i < fl_list_table_len; i++) {
+861: /* MUTANT (rep_const) */        for (i = -1; i < fl_list_table_len; i++) {
+862: /* MUTANT (del_stmt) */ /*             DeleteListOfFatlocks(fl_list_table[i].free); */ 
+863: /* MUTANT (del_stmt) */ /*             fl_list_table[i].free = NULL; */ 
+864: /* MUTANT (del_stmt) */ /*             DeleteListOfFatlocks(fl_list_table[i].taken); */ 
+865: /* MUTANT (del_stmt) */ /*             fl_list_table[i].taken = NULL; */ 
+868: /* MUTANT (del_stmt) */ /*         fl_list_table = NULL; */ 
+869: /* MUTANT (del_stmt) */ /*         fl_list_table_len = 0; */ 
+869: /* MUTANT (rep_const) */        fl_list_table_len = 1;
+869: /* MUTANT (rep_const) */        fl_list_table_len = -1;
+877: /* MUTANT (del_stmt) */ /*     cx->thread = CurrentThreadId(); */ 
+878: /* MUTANT (del_stmt) */ /*     JS_ASSERT(Thin_GetWait(cx->thread) == 0); */ 
+878: /* MUTANT (rep_op) */    JS_ASSERT(Thin_GetWait(cx->thread) != 0);
+878: /* MUTANT (rep_const) */    JS_ASSERT(Thin_GetWait(cx->thread) == 1);
+878: /* MUTANT (rep_const) */    JS_ASSERT(Thin_GetWait(cx->thread) == -1);
+920: /* MUTANT (del_stmt) */ /*     JSFatLock *fl; */ 
+921: /* MUTANT (del_stmt) */ /*     PRStatus stat; */ 
+923: /* MUTANT (rep_op) */    if (tl->fat != NULL)
+923: /* MUTANT (negate) */    if(! (tl->fat == NULL))
+927: /* MUTANT (del_stmt) */ /*     JS_ASSERT(fl->susp >= 0); */ 
+927: /* MUTANT (rep_op) */    JS_ASSERT(fl->susp <= 0);
+927: /* MUTANT (rep_op) */    JS_ASSERT(fl->susp < 0);
+927: /* MUTANT (rep_op) */    JS_ASSERT(fl->susp > 0);
+927: /* MUTANT (rep_op) */    JS_ASSERT(fl->susp == 0);
+927: /* MUTANT (rep_op) */    JS_ASSERT(fl->susp != 0);
+927: /* MUTANT (rep_const) */    JS_ASSERT(fl->susp >= 1);
+927: /* MUTANT (rep_const) */    JS_ASSERT(fl->susp >= -1);
+928: /* MUTANT (del_stmt) */ /*     fl->susp++; */ 
+928: /* MUTANT (rep_op) */    fl->susp--;
+929: /* MUTANT (del_stmt) */ /*     PR_Lock(fl->slock); */ 
+930: /* MUTANT (del_stmt) */ /*     js_UnlockGlobal(tl); */ 
+931: /* MUTANT (del_stmt) */ /*     stat = PR_WaitCondVar(fl->svar, PR_INTERVAL_NO_TIMEOUT); */ 
+932: /* MUTANT (del_stmt) */ /*     JS_ASSERT(stat != PR_FAILURE); */ 
+932: /* MUTANT (rep_op) */    JS_ASSERT(stat == PR_FAILURE);
+933: /* MUTANT (del_stmt) */ /*     PR_Unlock(fl->slock); */ 
+934: /* MUTANT (del_stmt) */ /*     js_LockGlobal(tl); */ 
+935: /* MUTANT (del_stmt) */ /*     fl->susp--; */ 
+935: /* MUTANT (rep_op) */    fl->susp++;
+936: /* MUTANT (rep_op) */    if (fl->susp != 0) {
+936: /* MUTANT (rep_const) */    if (fl->susp == 1) {
+936: /* MUTANT (rep_const) */    if (fl->susp == -1) {
+936: /* MUTANT (negate) */    if(! (fl->susp == 0)) {
+937: /* MUTANT (del_stmt) */ /*         PutFatlock(fl, tl); */ 
+938: /* MUTANT (del_stmt) */ /*         tl->fat = NULL; */ 
+940: /* MUTANT (rep_op) */    return tl->fat != NULL;
+950: /* MUTANT (del_stmt) */ /*     JSFatLock *fl = tl->fat; */ 
+951: /* MUTANT (del_stmt) */ /*     PRStatus stat; */ 
+953: /* MUTANT (del_stmt) */ /*     JS_ASSERT(fl != NULL); */ 
+953: /* MUTANT (rep_op) */    JS_ASSERT(fl == NULL);
+954: /* MUTANT (del_stmt) */ /*     JS_ASSERT(fl->susp > 0); */ 
+954: /* MUTANT (rep_op) */    JS_ASSERT(fl->susp <= 0);
+954: /* MUTANT (rep_op) */    JS_ASSERT(fl->susp < 0);
+954: /* MUTANT (rep_op) */    JS_ASSERT(fl->susp >= 0);
+954: /* MUTANT (rep_op) */    JS_ASSERT(fl->susp == 0);
+954: /* MUTANT (rep_op) */    JS_ASSERT(fl->susp != 0);
+954: /* MUTANT (rep_const) */    JS_ASSERT(fl->susp > 1);
+954: /* MUTANT (rep_const) */    JS_ASSERT(fl->susp > -1);
+955: /* MUTANT (del_stmt) */ /*     PR_Lock(fl->slock); */ 
+956: /* MUTANT (del_stmt) */ /*     js_UnlockGlobal(tl); */ 
+957: /* MUTANT (del_stmt) */ /*     stat = PR_NotifyCondVar(fl->svar); */ 
+957: /* MUTANT (negate) */    stat = PR_Notif(!yCondVar(fl->svar));
+958: /* MUTANT (del_stmt) */ /*     JS_ASSERT(stat != PR_FAILURE); */ 
+958: /* MUTANT (rep_op) */    JS_ASSERT(stat == PR_FAILURE);
+959: /* MUTANT (del_stmt) */ /*     PR_Unlock(fl->slock); */ 
+965: /* MUTANT (del_stmt) */ /*     jsword o, n; */ 
+967: /* MUTANT (del_stmt) */ /*     js_LockGlobal(tl); */ 
+969: /* MUTANT (del_stmt) */ /*         o = ReadWord(tl->owner); */ 
+970: /* MUTANT (del_stmt) */ /*         n = Thin_SetWait(o); */ 
+971: /* MUTANT (rep_op) */        if (o == 0 && js_CompareAndSwap(&tl->owner, o, n)) {
+971: /* MUTANT (rep_op) */        if (o != 0 || js_CompareAndSwap(&tl->owner, o, n)) {
+971: /* MUTANT (rep_const) */        if (o != 1 && js_CompareAndSwap(&tl->owner, o, n)) {
+971: /* MUTANT (rep_const) */        if (o != -1 && js_CompareAndSwap(&tl->owner, o, n)) {
+971: /* MUTANT (negate) */        if(! (o != 0 && js_CompareAndSwap(&tl->owner, o, n))) {
+972: /* MUTANT (negate) */            if(! (js_SuspendThread(tl)))
+977: /* MUTANT (rep_const) */        else if (js_CompareAndSwap(&tl->owner, 1, me)) {
+977: /* MUTANT (rep_const) */        else if (js_CompareAndSwap(&tl->owner, -1, me)) {
+977: /* MUTANT (negate) */        else if(! (js_CompareAndSwap(&tl->owner, 0, me))) {
+978: /* MUTANT (del_stmt) */ /*             js_UnlockGlobal(tl); */ 
+979: /* MUTANT (del_stmt) */ /*             return; */ 
+987: /* MUTANT (del_stmt) */ /*     jsword o; */ 
+989: /* MUTANT (del_stmt) */ /*     js_LockGlobal(tl); */ 
+990: /* MUTANT (del_stmt) */ /*     o = ReadWord(tl->owner); */ 
+991: /* MUTANT (del_stmt) */ /*     JS_ASSERT(Thin_GetWait(o) != 0); */ 
+991: /* MUTANT (rep_op) */    JS_ASSERT(Thin_GetWait(o) == 0);
+991: /* MUTANT (rep_const) */    JS_ASSERT(Thin_GetWait(o) != 1);
+991: /* MUTANT (rep_const) */    JS_ASSERT(Thin_GetWait(o) != -1);
+992: /* MUTANT (del_stmt) */ /*     JS_ASSERT(tl->fat != NULL); */ 
+992: /* MUTANT (rep_op) */    JS_ASSERT(tl->fat == NULL);
+993: /* MUTANT (rep_const) */    if (!js_CompareAndSwap(&tl->owner, o, 1)) /* release it */
+993: /* MUTANT (rep_const) */    if (!js_CompareAndSwap(&tl->owner, o, -1)) /* release it */
+993: /* MUTANT (negate) */    if(! (!js_CompareAndSwap(&tl->owner, o, 0))) /* release it */
+994: /* MUTANT (rep_const) */        JS_ASSERT(1);
+994: /* MUTANT (rep_const) */        JS_ASSERT(-1);
+995: /* MUTANT (del_stmt) */ /*     js_ResumeThread(tl); */ 
+1001: /* MUTANT (del_stmt) */ /*     JS_ASSERT(me == CurrentThreadId()); */ 
+1001: /* MUTANT (rep_op) */    JS_ASSERT(me != CurrentThreadId());
+1002: /* MUTANT (rep_const) */    if (js_CompareAndSwap(&tl->owner, 1, me))
+1002: /* MUTANT (rep_const) */    if (js_CompareAndSwap(&tl->owner, -1, me))
+1002: /* MUTANT (negate) */    if(! (js_CompareAndSwap(&tl->owner, 0, me)))
+1004: /* MUTANT (rep_op) */    if (Thin_RemoveWait(ReadWord(tl->owner)) == me)
+1004: /* MUTANT (negate) */    if(! (Thin_RemoveWait(ReadWord(tl->owner)) != me))
+1008: /* MUTANT (rep_const) */        JS_ASSERT(1);
+1008: /* MUTANT (rep_const) */        JS_ASSERT(-1);
+1015: /* MUTANT (del_stmt) */ /*     JS_ASSERT(me == CurrentThreadId()); */ 
+1015: /* MUTANT (rep_op) */    JS_ASSERT(me != CurrentThreadId());
+1016: /* MUTANT (rep_const) */    if (js_CompareAndSwap(&tl->owner, me, 1))
+1016: /* MUTANT (rep_const) */    if (js_CompareAndSwap(&tl->owner, me, -1))
+1016: /* MUTANT (negate) */    if(! (js_CompareAndSwap(&tl->owner, me, 0)))
+1018: /* MUTANT (rep_op) */    if (Thin_RemoveWait(ReadWord(tl->owner)) != me)
+1018: /* MUTANT (negate) */    if(! (Thin_RemoveWait(ReadWord(tl->owner)) == me))
+1022: /* MUTANT (rep_const) */        JS_ASSERT(1);
+1022: /* MUTANT (rep_const) */        JS_ASSERT(-1);
+1031: /* MUTANT (del_stmt) */ /*     PR_Lock(rt->rtLock); */ 
+1041: /* MUTANT (rep_const) */    rt->rtLockOwner = 1;
+1041: /* MUTANT (rep_const) */    rt->rtLockOwner = -1;
+1049: /* MUTANT (del_stmt) */ /*     jsword me = cx->thread; */ 
+1051: /* MUTANT (del_stmt) */ /*     JS_ASSERT(me == CurrentThreadId()); */ 
+1051: /* MUTANT (rep_op) */    JS_ASSERT(me != CurrentThreadId());
+1052: /* MUTANT (del_stmt) */ /*     JS_ASSERT(scope->ownercx != cx); */ 
+1052: /* MUTANT (rep_op) */    JS_ASSERT(scope->ownercx == cx);
+1053: /* MUTANT (negate) */    if(! (CX_THREAD_IS_RUNNING_GC(cx)))
+1055: /* MUTANT (rep_op) */    if (scope->ownercx || ClaimScope(scope, cx))
+1055: /* MUTANT (negate) */    if(! (scope->ownercx && ClaimScope(scope, cx)))
+1058: /* MUTANT (rep_op) */    if (Thin_RemoveWait(ReadWord(scope->lock.owner)) != me) {
+1058: /* MUTANT (negate) */    if(! (Thin_RemoveWait(ReadWord(scope->lock.owner)) == me)) {
+1059: /* MUTANT (del_stmt) */ /*         JS_ASSERT(scope->u.count > 0); */ 
+1059: /* MUTANT (rep_op) */        JS_ASSERT(scope->u.count <= 0);
+1059: /* MUTANT (rep_op) */        JS_ASSERT(scope->u.count < 0);
+1059: /* MUTANT (rep_op) */        JS_ASSERT(scope->u.count >= 0);
+1059: /* MUTANT (rep_op) */        JS_ASSERT(scope->u.count == 0);
+1059: /* MUTANT (rep_op) */        JS_ASSERT(scope->u.count != 0);
+1059: /* MUTANT (rep_const) */        JS_ASSERT(scope->u.count > 1);
+1059: /* MUTANT (rep_const) */        JS_ASSERT(scope->u.count > -1);
+1060: /* MUTANT (del_stmt) */ /*         LOGIT(scope, '+'); */ 
+1060: /* MUTANT (rep_op) */        LOGIT(scope, '-');
+1060: /* MUTANT (rep_op) */        LOGIT(scope, '*');
+1060: /* MUTANT (rep_op) */        LOGIT(scope, '%');
+1061: /* MUTANT (del_stmt) */ /*         scope->u.count++; */ 
+1061: /* MUTANT (rep_op) */        scope->u.count--;
+1063: /* MUTANT (del_stmt) */ /*         JSThinLock *tl = &scope->lock; */ 
+1064: /* MUTANT (del_stmt) */ /*         JS_LOCK0(tl, me); */ 
+1065: /* MUTANT (del_stmt) */ /*         JS_ASSERT(scope->u.count == 0); */ 
+1065: /* MUTANT (rep_op) */        JS_ASSERT(scope->u.count != 0);
+1065: /* MUTANT (rep_const) */        JS_ASSERT(scope->u.count == 1);
+1065: /* MUTANT (rep_const) */        JS_ASSERT(scope->u.count == -1);
+1066: /* MUTANT (del_stmt) */ /*         LOGIT(scope, '1'); */ 
+1066: /* MUTANT (rep_const) */        LOGIT(scope, '0');
+1066: /* MUTANT (rep_const) */        LOGIT(scope, '-1');
+1066: /* MUTANT (rep_const) */        LOGIT(scope, '((1)+1)');
+1067: /* MUTANT (del_stmt) */ /*         scope->u.count = 1; */ 
+1067: /* MUTANT (rep_const) */        scope->u.count = 0;
+1067: /* MUTANT (rep_const) */        scope->u.count = -1;
+1067: /* MUTANT (rep_const) */        scope->u.count = ((1)+1);
+1074: /* MUTANT (del_stmt) */ /*     jsword me = cx->thread; */ 
+1077: /* MUTANT (negate) */    if(! (CX_THREAD_IS_RUNNING_GC(cx)))
+1079: /* MUTANT (rep_op) */    if (cx->lockedSealedScope != scope) {
+1079: /* MUTANT (negate) */    if(! (cx->lockedSealedScope == scope)) {
+1080: /* MUTANT (del_stmt) */ /*         cx->lockedSealedScope = NULL; */ 
+1081: /* MUTANT (del_stmt) */ /*         return; */ 
+1098: /* MUTANT (negate) */    if(! (scope->ownercx)) {
+1099: /* MUTANT (del_stmt) */ /*         JS_ASSERT(scope->u.count == 0); */ 
+1099: /* MUTANT (rep_op) */        JS_ASSERT(scope->u.count != 0);
+1099: /* MUTANT (rep_const) */        JS_ASSERT(scope->u.count == 1);
+1099: /* MUTANT (rep_const) */        JS_ASSERT(scope->u.count == -1);
+1100: /* MUTANT (del_stmt) */ /*         JS_ASSERT(scope->lock.owner == 0); */ 
+1100: /* MUTANT (rep_op) */        JS_ASSERT(scope->lock.owner != 0);
+1100: /* MUTANT (rep_const) */        JS_ASSERT(scope->lock.owner == 1);
+1100: /* MUTANT (rep_const) */        JS_ASSERT(scope->lock.owner == -1);
+1101: /* MUTANT (del_stmt) */ /*         scope->ownercx = cx; */ 
+1102: /* MUTANT (del_stmt) */ /*         return; */ 
+1105: /* MUTANT (rep_op) */    JS_ASSERT(scope->u.count <= 0);
+1105: /* MUTANT (rep_op) */    JS_ASSERT(scope->u.count < 0);
+1105: /* MUTANT (rep_op) */    JS_ASSERT(scope->u.count >= 0);
+1105: /* MUTANT (rep_op) */    JS_ASSERT(scope->u.count == 0);
+1105: /* MUTANT (rep_op) */    JS_ASSERT(scope->u.count != 0);
+1105: /* MUTANT (rep_const) */    JS_ASSERT(scope->u.count > 1);
+1105: /* MUTANT (rep_const) */    JS_ASSERT(scope->u.count > -1);
+1106: /* MUTANT (rep_op) */    if (Thin_RemoveWait(ReadWord(scope->lock.owner)) == me) {
+1106: /* MUTANT (negate) */    if(! (Thin_RemoveWait(ReadWord(scope->lock.owner)) != me)) {
+1107: /* MUTANT (del_stmt) */ /*         JS_ASSERT(0); */    /* unbalanced unlock */
+1107: /* MUTANT (rep_const) */        JS_ASSERT(1);   /* unbalanced unlock */
+1107: /* MUTANT (rep_const) */        JS_ASSERT(-1);   /* unbalanced unlock */
+1108: /* MUTANT (del_stmt) */ /*         return; */ 
+1111: /* MUTANT (rep_op) */    if (++scope->u.count == 0) {
+1111: /* MUTANT (rep_op) */    if (--scope->u.count != 0) {
+1111: /* MUTANT (rep_const) */    if (--scope->u.count == 1) {
+1111: /* MUTANT (rep_const) */    if (--scope->u.count == -1) {
+1111: /* MUTANT (negate) */    if(! (--scope->u.count == 0)) {
+1112: /* MUTANT (del_stmt) */ /*         JSThinLock *tl = &scope->lock; */ 
+1113: /* MUTANT (del_stmt) */ /*         JS_UNLOCK0(tl, me); */ 
+1124: /* MUTANT (del_stmt) */ /*     jsword me; */ 
+1125: /* MUTANT (del_stmt) */ /*     JSThinLock *tl; */ 
+1127: /* MUTANT (del_stmt) */ /*     JS_ASSERT(JS_IS_SCOPE_LOCKED(cx, newscope)); */ 
+1133: /* MUTANT (negate) */    if(! (!oldscope))
+1135: /* MUTANT (del_stmt) */ /*     JS_ASSERT(JS_IS_SCOPE_LOCKED(cx, oldscope)); */ 
+1143: /* MUTANT (negate) */    if(! (CX_THREAD_IS_RUNNING_GC(cx)))
+1151: /* MUTANT (del_stmt) */ /*     JS_ASSERT(cx->lockedSealedScope != newscope); */ 
+1151: /* MUTANT (rep_op) */    JS_ASSERT(cx->lockedSealedScope == newscope);
+1152: /* MUTANT (rep_op) */    if (cx->lockedSealedScope != oldscope) {
+1152: /* MUTANT (negate) */    if(! (cx->lockedSealedScope == oldscope)) {
+1153: /* MUTANT (rep_op) */        JS_ASSERT(newscope->ownercx != cx ||
+1153: /* MUTANT (rep_op) */        JS_ASSERT(newscope->ownercx == cx &&
+1154: /* MUTANT (rep_op) */                  (!newscope->ownercx || newscope->u.count == 1));
+1154: /* MUTANT (rep_op) */                  (!newscope->ownercx && newscope->u.count != 1));
+1154: /* MUTANT (rep_const) */                  (!newscope->ownercx && newscope->u.count == 0));
+1154: /* MUTANT (rep_const) */                  (!newscope->ownercx && newscope->u.count == -1));
+1154: /* MUTANT (rep_const) */                  (!newscope->ownercx && newscope->u.count == ((1)+1)));
+1155: /* MUTANT (del_stmt) */ /*         cx->lockedSealedScope = NULL; */ 
+1156: /* MUTANT (del_stmt) */ /*         return; */ 
+1162: /* MUTANT (negate) */    if(! (oldscope->ownercx)) {
+1163: /* MUTANT (del_stmt) */ /*         JS_ASSERT(oldscope->ownercx == cx); */ 
+1163: /* MUTANT (rep_op) */        JS_ASSERT(oldscope->ownercx != cx);
+1164: /* MUTANT (rep_op) */        JS_ASSERT(newscope->ownercx != cx ||
+1164: /* MUTANT (rep_op) */        JS_ASSERT(newscope->ownercx == cx &&
+1165: /* MUTANT (rep_op) */                  (!newscope->ownercx || newscope->u.count == 1));
+1165: /* MUTANT (rep_op) */                  (!newscope->ownercx && newscope->u.count != 1));
+1165: /* MUTANT (rep_const) */                  (!newscope->ownercx && newscope->u.count == 0));
+1165: /* MUTANT (rep_const) */                  (!newscope->ownercx && newscope->u.count == -1));
+1165: /* MUTANT (rep_const) */                  (!newscope->ownercx && newscope->u.count == ((1)+1)));
+1166: /* MUTANT (del_stmt) */ /*         return; */ 
+1175: /* MUTANT (rep_op) */    if (newscope->ownercx == cx) {
+1175: /* MUTANT (negate) */    if(! (newscope->ownercx != cx)) {
+1176: /* MUTANT (del_stmt) */ /*         JS_ASSERT(!newscope->ownercx); */ 
+1177: /* MUTANT (del_stmt) */ /*         newscope->u.count = oldscope->u.count; */ 
+1183: /* MUTANT (rep_const) */    LOGIT(oldscope, '1');
+1183: /* MUTANT (rep_const) */    LOGIT(oldscope, '-1');
+1184: /* MUTANT (del_stmt) */ /*     oldscope->u.count = 0; */ 
+1184: /* MUTANT (rep_const) */    oldscope->u.count = 1;
+1184: /* MUTANT (rep_const) */    oldscope->u.count = -1;
+1185: /* MUTANT (del_stmt) */ /*     tl = &oldscope->lock; */ 
+1186: /* MUTANT (del_stmt) */ /*     me = cx->thread; */ 
+1187: /* MUTANT (del_stmt) */ /*     JS_UNLOCK0(tl, me); */ 
+1193: /* MUTANT (del_stmt) */ /*     JSScope *scope; */ 
+1195: /* MUTANT (del_stmt) */ /*     JS_ASSERT(OBJ_IS_NATIVE(obj)); */ 
+1197: /* MUTANT (del_stmt) */ /*         scope = OBJ_SCOPE(obj); */ 
+1198: /* MUTANT (rep_op) */        if (SCOPE_IS_SEALED(scope) || scope->object == obj &&
+1198: /* MUTANT (rep_op) */        if (SCOPE_IS_SEALED(scope) && scope->object != obj &&
+1198: /* MUTANT (rep_op) */        if (SCOPE_IS_SEALED(scope) && scope->object == obj ||
+1200: /* MUTANT (del_stmt) */ /*             cx->lockedSealedScope = scope; */ 
+1201: /* MUTANT (del_stmt) */ /*             return; */ 
+1207: /* MUTANT (rep_op) */        if (scope != OBJ_SCOPE(obj))
+1207: /* MUTANT (negate) */        if(! (scope == OBJ_SCOPE(obj)))
+1211: /* MUTANT (del_stmt) */ /*         js_UnlockScope(cx, scope); */ 
+1218: /* MUTANT (del_stmt) */ /*     JS_ASSERT(OBJ_IS_NATIVE(obj)); */ 
+1219: /* MUTANT (del_stmt) */ /*     js_UnlockScope(cx, OBJ_SCOPE(obj)); */ 
+1227: /* MUTANT (del_stmt) */ /*     return CurrentThreadId() == rt->rtLockOwner; */ 
+1227: /* MUTANT (rep_op) */    return CurrentThreadId() != rt->rtLockOwner;
+1233: /* MUTANT (del_stmt) */ /*     JSScope *scope = OBJ_SCOPE(obj); */ 
+1235: /* MUTANT (del_stmt) */ /*     return MAP_IS_NATIVE(&scope->map) && js_IsScopeLocked(cx, scope); */ 
+1235: /* MUTANT (rep_op) */    return MAP_IS_NATIVE(&scope->map) || js_IsScopeLocked(cx, scope);
+1242: /* MUTANT (negate) */    if(! (CX_THREAD_IS_RUNNING_GC(cx)))
+1246: /* MUTANT (rep_op) */    if (cx->lockedSealedScope != scope)
+1246: /* MUTANT (negate) */    if(! (cx->lockedSealedScope == scope))
+1253: /* MUTANT (negate) */    if(! (scope->ownercx)) {
+1254: /* MUTANT (del_stmt) */ /*         JS_ASSERT(scope->ownercx == cx); */ 
+1254: /* MUTANT (rep_op) */        JS_ASSERT(scope->ownercx != cx);
+1255: /* MUTANT (del_stmt) */ /*         return JS_TRUE; */ 
+1257: /* MUTANT (rep_op) */    return CurrentThreadId() != Thin_RemoveWait(ReadWord(scope->lock.owner));

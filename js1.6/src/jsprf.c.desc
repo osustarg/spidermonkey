@@ -1,0 +1,1769 @@
+62: #define VARARGS_ASSIGN(foo, bar)        foo[1] = bar[0] /* MUTANT (rep_const) */
+62: #define VARARGS_ASSIGN(foo, bar)        foo[-1] = bar[0] /* MUTANT (rep_const) */
+62: #define VARARGS_ASSIGN(foo, bar)        foo[0] = bar[1] /* MUTANT (rep_const) */
+62: #define VARARGS_ASSIGN(foo, bar)        foo[0] = bar[-1] /* MUTANT (rep_const) */
+78: /* MUTANT (del_stmt) */ /*     int (*stuff)(SprintfState *ss, const char *sp, JSUint32 len); */ 
+80: /* MUTANT (del_stmt) */ /*     char *base; */ 
+81: /* MUTANT (del_stmt) */ /*     char *cur; */ 
+82: /* MUTANT (del_stmt) */ /*     JSUint32 maxlen; */ 
+84: /* MUTANT (del_stmt) */ /*     int (*func)(void *arg, const char *sp, JSUint32 len); */ 
+85: /* MUTANT (del_stmt) */ /*     void *arg; */ 
+86: /* MUTANT (del_stmt) */ /* }; */ 
+92: /* MUTANT (del_stmt) */ /*     int     type; */                /* type of the current ap                    */
+93: /* MUTANT (del_stmt) */ /*     va_list ap; */                  /* point to the corresponding position on ap */
+94: /* MUTANT (del_stmt) */ /* }; */ 
+96: #define NAS_DEFAULT_NUM 0   /* MUTANT (rep_const) *//* default number of NumberedArgumentState array */
+96: #define NAS_DEFAULT_NUM 1   /* MUTANT (rep_const) *//* default number of NumberedArgumentState array */
+96: #define NAS_DEFAULT_NUM -1   /* MUTANT (rep_const) *//* default number of NumberedArgumentState array */
+96: #define NAS_DEFAULT_NUM ((20)+1)   /* MUTANT (rep_const) *//* default number of NumberedArgumentState array */
+96: #define NAS_DEFAULT_NUM ((20)-1)   /* MUTANT (rep_const) *//* default number of NumberedArgumentState array */
+99: #define TYPE_INT16      1 /* MUTANT (rep_const) */
+99: #define TYPE_INT16      -1 /* MUTANT (rep_const) */
+100: #define TYPE_UINT16     0 /* MUTANT (rep_const) */
+100: #define TYPE_UINT16     -1 /* MUTANT (rep_const) */
+100: #define TYPE_UINT16     ((1)+1) /* MUTANT (rep_const) */
+101: #define TYPE_INTN       0 /* MUTANT (rep_const) */
+101: #define TYPE_INTN       1 /* MUTANT (rep_const) */
+101: #define TYPE_INTN       -1 /* MUTANT (rep_const) */
+101: #define TYPE_INTN       ((2)+1) /* MUTANT (rep_const) */
+101: #define TYPE_INTN       ((2)-1) /* MUTANT (rep_const) */
+102: #define TYPE_UINTN      0 /* MUTANT (rep_const) */
+102: #define TYPE_UINTN      1 /* MUTANT (rep_const) */
+102: #define TYPE_UINTN      -1 /* MUTANT (rep_const) */
+102: #define TYPE_UINTN      ((3)+1) /* MUTANT (rep_const) */
+102: #define TYPE_UINTN      ((3)-1) /* MUTANT (rep_const) */
+103: #define TYPE_INT32      0 /* MUTANT (rep_const) */
+103: #define TYPE_INT32      1 /* MUTANT (rep_const) */
+103: #define TYPE_INT32      -1 /* MUTANT (rep_const) */
+103: #define TYPE_INT32      ((4)+1) /* MUTANT (rep_const) */
+103: #define TYPE_INT32      ((4)-1) /* MUTANT (rep_const) */
+104: #define TYPE_UINT32     0 /* MUTANT (rep_const) */
+104: #define TYPE_UINT32     1 /* MUTANT (rep_const) */
+104: #define TYPE_UINT32     -1 /* MUTANT (rep_const) */
+104: #define TYPE_UINT32     ((5)+1) /* MUTANT (rep_const) */
+104: #define TYPE_UINT32     ((5)-1) /* MUTANT (rep_const) */
+105: #define TYPE_INT64      0 /* MUTANT (rep_const) */
+105: #define TYPE_INT64      1 /* MUTANT (rep_const) */
+105: #define TYPE_INT64      -1 /* MUTANT (rep_const) */
+105: #define TYPE_INT64      ((6)+1) /* MUTANT (rep_const) */
+105: #define TYPE_INT64      ((6)-1) /* MUTANT (rep_const) */
+106: #define TYPE_UINT64     0 /* MUTANT (rep_const) */
+106: #define TYPE_UINT64     1 /* MUTANT (rep_const) */
+106: #define TYPE_UINT64     -1 /* MUTANT (rep_const) */
+106: #define TYPE_UINT64     ((7)+1) /* MUTANT (rep_const) */
+106: #define TYPE_UINT64     ((7)-1) /* MUTANT (rep_const) */
+107: #define TYPE_STRING     0 /* MUTANT (rep_const) */
+107: #define TYPE_STRING     1 /* MUTANT (rep_const) */
+107: #define TYPE_STRING     -1 /* MUTANT (rep_const) */
+107: #define TYPE_STRING     ((8)+1) /* MUTANT (rep_const) */
+107: #define TYPE_STRING     ((8)-1) /* MUTANT (rep_const) */
+108: #define TYPE_DOUBLE     0 /* MUTANT (rep_const) */
+108: #define TYPE_DOUBLE     1 /* MUTANT (rep_const) */
+108: #define TYPE_DOUBLE     -1 /* MUTANT (rep_const) */
+108: #define TYPE_DOUBLE     ((9)+1) /* MUTANT (rep_const) */
+108: #define TYPE_DOUBLE     ((9)-1) /* MUTANT (rep_const) */
+109: #define TYPE_INTSTR     0 /* MUTANT (rep_const) */
+109: #define TYPE_INTSTR     1 /* MUTANT (rep_const) */
+109: #define TYPE_INTSTR     -1 /* MUTANT (rep_const) */
+109: #define TYPE_INTSTR     ((10)+1) /* MUTANT (rep_const) */
+109: #define TYPE_INTSTR     ((10)-1) /* MUTANT (rep_const) */
+110: #define TYPE_WSTRING    0 /* MUTANT (rep_const) */
+110: #define TYPE_WSTRING    1 /* MUTANT (rep_const) */
+110: #define TYPE_WSTRING    -1 /* MUTANT (rep_const) */
+110: #define TYPE_WSTRING    ((11)+1) /* MUTANT (rep_const) */
+110: #define TYPE_WSTRING    ((11)-1) /* MUTANT (rep_const) */
+111: #define TYPE_UNKNOWN    0 /* MUTANT (rep_const) */
+111: #define TYPE_UNKNOWN    1 /* MUTANT (rep_const) */
+111: #define TYPE_UNKNOWN    -1 /* MUTANT (rep_const) */
+111: #define TYPE_UNKNOWN    ((20)+1) /* MUTANT (rep_const) */
+111: #define TYPE_UNKNOWN    ((20)-1) /* MUTANT (rep_const) */
+113: #define FLAG_LEFT       1x1 /* MUTANT (rep_const) */
+113: #define FLAG_LEFT       -1x1 /* MUTANT (rep_const) */
+114: #define FLAG_SIGNED     1x2 /* MUTANT (rep_const) */
+114: #define FLAG_SIGNED     -1x2 /* MUTANT (rep_const) */
+115: #define FLAG_SPACED     1x4 /* MUTANT (rep_const) */
+115: #define FLAG_SPACED     -1x4 /* MUTANT (rep_const) */
+116: #define FLAG_ZEROS      1x8 /* MUTANT (rep_const) */
+116: #define FLAG_ZEROS      -1x8 /* MUTANT (rep_const) */
+117: #define FLAG_NEG        1x10 /* MUTANT (rep_const) */
+117: #define FLAG_NEG        -1x10 /* MUTANT (rep_const) */
+125: /* MUTANT (del_stmt) */ /*     char space = ' '; */ 
+126: /* MUTANT (del_stmt) */ /*     int rv; */ 
+128: /* MUTANT (del_stmt) */ /*     width -= srclen; */ 
+128: /* MUTANT (rep_op) */    width += srclen;
+128: /* MUTANT (rep_op) */    width *= srclen;
+128: /* MUTANT (rep_op) */    width %= srclen;
+129: /* MUTANT (rep_op) */    if ((width <= 0) && ((flags & FLAG_LEFT) == 0)) {    /* Right adjusting */
+129: /* MUTANT (rep_op) */    if ((width < 0) && ((flags & FLAG_LEFT) == 0)) {    /* Right adjusting */
+129: /* MUTANT (rep_op) */    if ((width >= 0) && ((flags & FLAG_LEFT) == 0)) {    /* Right adjusting */
+129: /* MUTANT (rep_op) */    if ((width == 0) && ((flags & FLAG_LEFT) == 0)) {    /* Right adjusting */
+129: /* MUTANT (rep_op) */    if ((width != 0) && ((flags & FLAG_LEFT) == 0)) {    /* Right adjusting */
+129: /* MUTANT (rep_op) */    if ((width > 0) || ((flags & FLAG_LEFT) == 0)) {    /* Right adjusting */
+129: /* MUTANT (rep_op) */    if ((width > 0) && ((flags & FLAG_LEFT) != 0)) {    /* Right adjusting */
+129: /* MUTANT (rep_const) */    if ((width > 1) && ((flags & FLAG_LEFT) == 0)) {    /* Right adjusting */
+129: /* MUTANT (rep_const) */    if ((width > -1) && ((flags & FLAG_LEFT) == 0)) {    /* Right adjusting */
+129: /* MUTANT (rep_const) */    if ((width > 0) && ((flags & FLAG_LEFT) == 1)) {    /* Right adjusting */
+129: /* MUTANT (rep_const) */    if ((width > 0) && ((flags & FLAG_LEFT) == -1)) {    /* Right adjusting */
+129: /* MUTANT (negate) */    if(! ((width > 0) && ((flags & FLAG_LEFT) == 0))) {    /* Right adjusting */
+130: /* MUTANT (negate) */        if(! (flags & FLAG_ZEROS)) {
+131: /* MUTANT (del_stmt) */ /*             space = '0'; */ 
+131: /* MUTANT (rep_const) */            space = '1';
+131: /* MUTANT (rep_const) */            space = '-1';
+133: /* MUTANT (rep_op) */        while (++width >= 0) {
+133: /* MUTANT (rep_op) */        while (--width <= 0) {
+133: /* MUTANT (rep_op) */        while (--width < 0) {
+133: /* MUTANT (rep_op) */        while (--width > 0) {
+133: /* MUTANT (rep_op) */        while (--width == 0) {
+133: /* MUTANT (rep_op) */        while (--width != 0) {
+133: /* MUTANT (rep_const) */        while (--width >= 1) {
+133: /* MUTANT (rep_const) */        while (--width >= -1) {
+133: /* MUTANT (negate) */        while(! (--width >= 0)) {
+134: /* MUTANT (del_stmt) */ /*             rv = (*ss->stuff)(ss, &space, 1); */ 
+134: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, &space, 0);
+134: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, &space, -1);
+134: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, &space, ((1)+1));
+135: /* MUTANT (rep_op) */            if (rv <= 0) {
+135: /* MUTANT (rep_op) */            if (rv > 0) {
+135: /* MUTANT (rep_op) */            if (rv >= 0) {
+135: /* MUTANT (rep_op) */            if (rv == 0) {
+135: /* MUTANT (rep_op) */            if (rv != 0) {
+135: /* MUTANT (rep_const) */            if (rv < 1) {
+135: /* MUTANT (rep_const) */            if (rv < -1) {
+135: /* MUTANT (negate) */            if(! (rv < 0)) {
+136: /* MUTANT (del_stmt) */ /*                 return rv; */ 
+143: /* MUTANT (rep_op) */    if (rv <= 0) {
+143: /* MUTANT (rep_op) */    if (rv > 0) {
+143: /* MUTANT (rep_op) */    if (rv >= 0) {
+143: /* MUTANT (rep_op) */    if (rv == 0) {
+143: /* MUTANT (rep_op) */    if (rv != 0) {
+143: /* MUTANT (rep_const) */    if (rv < 1) {
+143: /* MUTANT (rep_const) */    if (rv < -1) {
+143: /* MUTANT (negate) */    if(! (rv < 0)) {
+144: /* MUTANT (del_stmt) */ /*         return rv; */ 
+147: /* MUTANT (rep_op) */    if ((width <= 0) && ((flags & FLAG_LEFT) != 0)) {    /* Left adjusting */
+147: /* MUTANT (rep_op) */    if ((width < 0) && ((flags & FLAG_LEFT) != 0)) {    /* Left adjusting */
+147: /* MUTANT (rep_op) */    if ((width >= 0) && ((flags & FLAG_LEFT) != 0)) {    /* Left adjusting */
+147: /* MUTANT (rep_op) */    if ((width == 0) && ((flags & FLAG_LEFT) != 0)) {    /* Left adjusting */
+147: /* MUTANT (rep_op) */    if ((width != 0) && ((flags & FLAG_LEFT) != 0)) {    /* Left adjusting */
+147: /* MUTANT (rep_op) */    if ((width > 0) || ((flags & FLAG_LEFT) != 0)) {    /* Left adjusting */
+147: /* MUTANT (rep_op) */    if ((width > 0) && ((flags & FLAG_LEFT) == 0)) {    /* Left adjusting */
+147: /* MUTANT (rep_const) */    if ((width > 1) && ((flags & FLAG_LEFT) != 0)) {    /* Left adjusting */
+147: /* MUTANT (rep_const) */    if ((width > -1) && ((flags & FLAG_LEFT) != 0)) {    /* Left adjusting */
+147: /* MUTANT (rep_const) */    if ((width > 0) && ((flags & FLAG_LEFT) != 1)) {    /* Left adjusting */
+147: /* MUTANT (rep_const) */    if ((width > 0) && ((flags & FLAG_LEFT) != -1)) {    /* Left adjusting */
+147: /* MUTANT (negate) */    if(! ((width > 0) && ((flags & FLAG_LEFT) != 0))) {    /* Left adjusting */
+148: /* MUTANT (rep_op) */        while (++width >= 0) {
+148: /* MUTANT (rep_op) */        while (--width <= 0) {
+148: /* MUTANT (rep_op) */        while (--width < 0) {
+148: /* MUTANT (rep_op) */        while (--width > 0) {
+148: /* MUTANT (rep_op) */        while (--width == 0) {
+148: /* MUTANT (rep_op) */        while (--width != 0) {
+148: /* MUTANT (rep_const) */        while (--width >= 1) {
+148: /* MUTANT (rep_const) */        while (--width >= -1) {
+148: /* MUTANT (negate) */        while(! (--width >= 0)) {
+149: /* MUTANT (del_stmt) */ /*             rv = (*ss->stuff)(ss, &space, 1); */ 
+149: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, &space, 0);
+149: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, &space, -1);
+149: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, &space, ((1)+1));
+150: /* MUTANT (rep_op) */            if (rv <= 0) {
+150: /* MUTANT (rep_op) */            if (rv > 0) {
+150: /* MUTANT (rep_op) */            if (rv >= 0) {
+150: /* MUTANT (rep_op) */            if (rv == 0) {
+150: /* MUTANT (rep_op) */            if (rv != 0) {
+150: /* MUTANT (rep_const) */            if (rv < 1) {
+150: /* MUTANT (rep_const) */            if (rv < -1) {
+150: /* MUTANT (negate) */            if(! (rv < 0)) {
+151: /* MUTANT (del_stmt) */ /*                 return rv; */ 
+155: /* MUTANT (rep_const) */    return 1;
+155: /* MUTANT (rep_const) */    return -1;
+164: /* MUTANT (del_stmt) */ /*     int zerowidth = 0; */ 
+164: /* MUTANT (rep_const) */    int zerowidth = 1;
+164: /* MUTANT (rep_const) */    int zerowidth = -1;
+165: /* MUTANT (del_stmt) */ /*     int precwidth = 0; */ 
+165: /* MUTANT (rep_const) */    int precwidth = 1;
+165: /* MUTANT (rep_const) */    int precwidth = -1;
+166: /* MUTANT (del_stmt) */ /*     int signwidth = 0; */ 
+166: /* MUTANT (rep_const) */    int signwidth = 1;
+166: /* MUTANT (rep_const) */    int signwidth = -1;
+167: /* MUTANT (del_stmt) */ /*     int leftspaces = 0; */ 
+167: /* MUTANT (rep_const) */    int leftspaces = 1;
+167: /* MUTANT (rep_const) */    int leftspaces = -1;
+168: /* MUTANT (del_stmt) */ /*     int rightspaces = 0; */ 
+168: /* MUTANT (rep_const) */    int rightspaces = 1;
+168: /* MUTANT (rep_const) */    int rightspaces = -1;
+169: /* MUTANT (del_stmt) */ /*     int cvtwidth; */ 
+170: /* MUTANT (del_stmt) */ /*     int rv; */ 
+171: /* MUTANT (del_stmt) */ /*     char sign; */ 
+173: /* MUTANT (rep_op) */    if ((type & 1) != 0) {
+173: /* MUTANT (rep_const) */    if ((type & 0) == 0) {
+173: /* MUTANT (rep_const) */    if ((type & -1) == 0) {
+173: /* MUTANT (rep_const) */    if ((type & ((1)+1)) == 0) {
+173: /* MUTANT (rep_const) */    if ((type & 1) == 1) {
+173: /* MUTANT (rep_const) */    if ((type & 1) == -1) {
+173: /* MUTANT (negate) */    if(! ((type & 1) == 0)) {
+174: /* MUTANT (negate) */        if(! (flags & FLAG_NEG)) {
+175: /* MUTANT (del_stmt) */ /*             sign = '-'; */ 
+176: /* MUTANT (del_stmt) */ /*             signwidth = 1; */ 
+176: /* MUTANT (rep_const) */            signwidth = 0;
+176: /* MUTANT (rep_const) */            signwidth = -1;
+176: /* MUTANT (rep_const) */            signwidth = ((1)+1);
+177: /* MUTANT (negate) */        } else if(! (flags & FLAG_SIGNED)) {
+178: /* MUTANT (del_stmt) */ /*             sign = '+'; */ 
+178: /* MUTANT (rep_op) */            sign = '-';
+178: /* MUTANT (rep_op) */            sign = '*';
+178: /* MUTANT (rep_op) */            sign = '%';
+179: /* MUTANT (del_stmt) */ /*             signwidth = 1; */ 
+179: /* MUTANT (rep_const) */            signwidth = 0;
+179: /* MUTANT (rep_const) */            signwidth = -1;
+179: /* MUTANT (rep_const) */            signwidth = ((1)+1);
+180: /* MUTANT (negate) */        } else if(! (flags & FLAG_SPACED)) {
+181: /* MUTANT (del_stmt) */ /*             sign = ' '; */ 
+182: /* MUTANT (del_stmt) */ /*             signwidth = 1; */ 
+182: /* MUTANT (rep_const) */            signwidth = 0;
+182: /* MUTANT (rep_const) */            signwidth = -1;
+182: /* MUTANT (rep_const) */            signwidth = ((1)+1);
+185: /* MUTANT (rep_op) */    cvtwidth = signwidth - srclen;
+185: /* MUTANT (rep_op) */    cvtwidth = signwidth * srclen;
+185: /* MUTANT (rep_op) */    cvtwidth = signwidth % srclen;
+187: /* MUTANT (rep_op) */    if (prec <= 0) {
+187: /* MUTANT (rep_op) */    if (prec < 0) {
+187: /* MUTANT (rep_op) */    if (prec >= 0) {
+187: /* MUTANT (rep_op) */    if (prec == 0) {
+187: /* MUTANT (rep_op) */    if (prec != 0) {
+187: /* MUTANT (rep_const) */    if (prec > 1) {
+187: /* MUTANT (rep_const) */    if (prec > -1) {
+187: /* MUTANT (negate) */    if(! (prec > 0)) {
+188: /* MUTANT (rep_op) */        if (prec <= srclen) {
+188: /* MUTANT (rep_op) */        if (prec < srclen) {
+188: /* MUTANT (rep_op) */        if (prec >= srclen) {
+188: /* MUTANT (rep_op) */        if (prec == srclen) {
+188: /* MUTANT (rep_op) */        if (prec != srclen) {
+188: /* MUTANT (negate) */        if(! (prec > srclen)) {
+189: /* MUTANT (del_stmt) */ /*             precwidth = prec - srclen; */           /* Need zero filling */
+190: /* MUTANT (del_stmt) */ /*             cvtwidth += precwidth; */ 
+190: /* MUTANT (rep_op) */            cvtwidth -= precwidth;
+190: /* MUTANT (rep_op) */            cvtwidth *= precwidth;
+190: /* MUTANT (rep_op) */            cvtwidth %= precwidth;
+194: /* MUTANT (rep_op) */    if ((flags & FLAG_ZEROS) || (prec < 0)) {
+194: /* MUTANT (rep_op) */    if ((flags & FLAG_ZEROS) && (prec <= 0)) {
+194: /* MUTANT (rep_op) */    if ((flags & FLAG_ZEROS) && (prec > 0)) {
+194: /* MUTANT (rep_op) */    if ((flags & FLAG_ZEROS) && (prec >= 0)) {
+194: /* MUTANT (rep_op) */    if ((flags & FLAG_ZEROS) && (prec == 0)) {
+194: /* MUTANT (rep_op) */    if ((flags & FLAG_ZEROS) && (prec != 0)) {
+194: /* MUTANT (rep_const) */    if ((flags & FLAG_ZEROS) && (prec < 1)) {
+194: /* MUTANT (rep_const) */    if ((flags & FLAG_ZEROS) && (prec < -1)) {
+194: /* MUTANT (negate) */    if(! ((flags & FLAG_ZEROS) && (prec < 0))) {
+195: /* MUTANT (rep_op) */        if (width <= cvtwidth) {
+195: /* MUTANT (rep_op) */        if (width < cvtwidth) {
+195: /* MUTANT (rep_op) */        if (width >= cvtwidth) {
+195: /* MUTANT (rep_op) */        if (width == cvtwidth) {
+195: /* MUTANT (rep_op) */        if (width != cvtwidth) {
+195: /* MUTANT (negate) */        if(! (width > cvtwidth)) {
+196: /* MUTANT (del_stmt) */ /*             zerowidth = width - cvtwidth; */        /* Zero filling */
+197: /* MUTANT (del_stmt) */ /*             cvtwidth += zerowidth; */ 
+197: /* MUTANT (rep_op) */            cvtwidth -= zerowidth;
+197: /* MUTANT (rep_op) */            cvtwidth *= zerowidth;
+197: /* MUTANT (rep_op) */            cvtwidth %= zerowidth;
+201: /* MUTANT (negate) */    if(! (flags & FLAG_LEFT)) {
+202: /* MUTANT (rep_op) */        if (width <= cvtwidth) {
+202: /* MUTANT (rep_op) */        if (width < cvtwidth) {
+202: /* MUTANT (rep_op) */        if (width >= cvtwidth) {
+202: /* MUTANT (rep_op) */        if (width == cvtwidth) {
+202: /* MUTANT (rep_op) */        if (width != cvtwidth) {
+202: /* MUTANT (negate) */        if(! (width > cvtwidth)) {
+204: /* MUTANT (del_stmt) */ /*             rightspaces = width - cvtwidth; */ 
+207: /* MUTANT (rep_op) */        if (width <= cvtwidth) {
+207: /* MUTANT (rep_op) */        if (width < cvtwidth) {
+207: /* MUTANT (rep_op) */        if (width >= cvtwidth) {
+207: /* MUTANT (rep_op) */        if (width == cvtwidth) {
+207: /* MUTANT (rep_op) */        if (width != cvtwidth) {
+207: /* MUTANT (negate) */        if(! (width > cvtwidth)) {
+209: /* MUTANT (del_stmt) */ /*             leftspaces = width - cvtwidth; */ 
+212: /* MUTANT (rep_op) */    while (++leftspaces >= 0) {
+212: /* MUTANT (rep_op) */    while (--leftspaces <= 0) {
+212: /* MUTANT (rep_op) */    while (--leftspaces < 0) {
+212: /* MUTANT (rep_op) */    while (--leftspaces > 0) {
+212: /* MUTANT (rep_op) */    while (--leftspaces == 0) {
+212: /* MUTANT (rep_op) */    while (--leftspaces != 0) {
+212: /* MUTANT (rep_const) */    while (--leftspaces >= 1) {
+212: /* MUTANT (rep_const) */    while (--leftspaces >= -1) {
+212: /* MUTANT (negate) */    while(! (--leftspaces >= 0)) {
+213: /* MUTANT (del_stmt) */ /*         rv = (*ss->stuff)(ss, " ", 1); */ 
+213: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, " ", 0);
+213: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, " ", -1);
+213: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, " ", ((1)+1));
+214: /* MUTANT (rep_op) */        if (rv <= 0) {
+214: /* MUTANT (rep_op) */        if (rv > 0) {
+214: /* MUTANT (rep_op) */        if (rv >= 0) {
+214: /* MUTANT (rep_op) */        if (rv == 0) {
+214: /* MUTANT (rep_op) */        if (rv != 0) {
+214: /* MUTANT (rep_const) */        if (rv < 1) {
+214: /* MUTANT (rep_const) */        if (rv < -1) {
+214: /* MUTANT (negate) */        if(! (rv < 0)) {
+215: /* MUTANT (del_stmt) */ /*             return rv; */ 
+218: /* MUTANT (negate) */    if(! (signwidth)) {
+219: /* MUTANT (del_stmt) */ /*         rv = (*ss->stuff)(ss, &sign, 1); */ 
+219: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, &sign, 0);
+219: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, &sign, -1);
+219: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, &sign, ((1)+1));
+220: /* MUTANT (rep_op) */        if (rv <= 0) {
+220: /* MUTANT (rep_op) */        if (rv > 0) {
+220: /* MUTANT (rep_op) */        if (rv >= 0) {
+220: /* MUTANT (rep_op) */        if (rv == 0) {
+220: /* MUTANT (rep_op) */        if (rv != 0) {
+220: /* MUTANT (rep_const) */        if (rv < 1) {
+220: /* MUTANT (rep_const) */        if (rv < -1) {
+220: /* MUTANT (negate) */        if(! (rv < 0)) {
+221: /* MUTANT (del_stmt) */ /*             return rv; */ 
+224: /* MUTANT (rep_op) */    while (++precwidth >= 0) {
+224: /* MUTANT (rep_op) */    while (--precwidth <= 0) {
+224: /* MUTANT (rep_op) */    while (--precwidth < 0) {
+224: /* MUTANT (rep_op) */    while (--precwidth > 0) {
+224: /* MUTANT (rep_op) */    while (--precwidth == 0) {
+224: /* MUTANT (rep_op) */    while (--precwidth != 0) {
+224: /* MUTANT (rep_const) */    while (--precwidth >= 1) {
+224: /* MUTANT (rep_const) */    while (--precwidth >= -1) {
+224: /* MUTANT (negate) */    while(! (--precwidth >= 0)) {
+225: /* MUTANT (del_stmt) */ /*         rv = (*ss->stuff)(ss, "0", 1); */ 
+225: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, "1", 1);
+225: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, "-1", 1);
+225: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, "0", 0);
+225: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, "0", -1);
+225: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, "0", ((1)+1));
+226: /* MUTANT (rep_op) */        if (rv <= 0) {
+226: /* MUTANT (rep_op) */        if (rv > 0) {
+226: /* MUTANT (rep_op) */        if (rv >= 0) {
+226: /* MUTANT (rep_op) */        if (rv == 0) {
+226: /* MUTANT (rep_op) */        if (rv != 0) {
+226: /* MUTANT (rep_const) */        if (rv < 1) {
+226: /* MUTANT (rep_const) */        if (rv < -1) {
+226: /* MUTANT (negate) */        if(! (rv < 0)) {
+227: /* MUTANT (del_stmt) */ /*             return rv; */ 
+230: /* MUTANT (rep_op) */    while (++zerowidth >= 0) {
+230: /* MUTANT (rep_op) */    while (--zerowidth <= 0) {
+230: /* MUTANT (rep_op) */    while (--zerowidth < 0) {
+230: /* MUTANT (rep_op) */    while (--zerowidth > 0) {
+230: /* MUTANT (rep_op) */    while (--zerowidth == 0) {
+230: /* MUTANT (rep_op) */    while (--zerowidth != 0) {
+230: /* MUTANT (rep_const) */    while (--zerowidth >= 1) {
+230: /* MUTANT (rep_const) */    while (--zerowidth >= -1) {
+230: /* MUTANT (negate) */    while(! (--zerowidth >= 0)) {
+231: /* MUTANT (del_stmt) */ /*         rv = (*ss->stuff)(ss, "0", 1); */ 
+231: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, "1", 1);
+231: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, "-1", 1);
+231: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, "0", 0);
+231: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, "0", -1);
+231: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, "0", ((1)+1));
+232: /* MUTANT (rep_op) */        if (rv <= 0) {
+232: /* MUTANT (rep_op) */        if (rv > 0) {
+232: /* MUTANT (rep_op) */        if (rv >= 0) {
+232: /* MUTANT (rep_op) */        if (rv == 0) {
+232: /* MUTANT (rep_op) */        if (rv != 0) {
+232: /* MUTANT (rep_const) */        if (rv < 1) {
+232: /* MUTANT (rep_const) */        if (rv < -1) {
+232: /* MUTANT (negate) */        if(! (rv < 0)) {
+233: /* MUTANT (del_stmt) */ /*             return rv; */ 
+237: /* MUTANT (rep_op) */    if (rv <= 0) {
+237: /* MUTANT (rep_op) */    if (rv > 0) {
+237: /* MUTANT (rep_op) */    if (rv >= 0) {
+237: /* MUTANT (rep_op) */    if (rv == 0) {
+237: /* MUTANT (rep_op) */    if (rv != 0) {
+237: /* MUTANT (rep_const) */    if (rv < 1) {
+237: /* MUTANT (rep_const) */    if (rv < -1) {
+237: /* MUTANT (negate) */    if(! (rv < 0)) {
+238: /* MUTANT (del_stmt) */ /*         return rv; */ 
+240: /* MUTANT (rep_op) */    while (++rightspaces >= 0) {
+240: /* MUTANT (rep_op) */    while (--rightspaces <= 0) {
+240: /* MUTANT (rep_op) */    while (--rightspaces < 0) {
+240: /* MUTANT (rep_op) */    while (--rightspaces > 0) {
+240: /* MUTANT (rep_op) */    while (--rightspaces == 0) {
+240: /* MUTANT (rep_op) */    while (--rightspaces != 0) {
+240: /* MUTANT (rep_const) */    while (--rightspaces >= 1) {
+240: /* MUTANT (rep_const) */    while (--rightspaces >= -1) {
+240: /* MUTANT (negate) */    while(! (--rightspaces >= 0)) {
+241: /* MUTANT (del_stmt) */ /*         rv = (*ss->stuff)(ss, " ", 1); */ 
+241: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, " ", 0);
+241: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, " ", -1);
+241: /* MUTANT (rep_const) */        rv = (*ss->stuff)(ss, " ", ((1)+1));
+242: /* MUTANT (rep_op) */        if (rv <= 0) {
+242: /* MUTANT (rep_op) */        if (rv > 0) {
+242: /* MUTANT (rep_op) */        if (rv >= 0) {
+242: /* MUTANT (rep_op) */        if (rv == 0) {
+242: /* MUTANT (rep_op) */        if (rv != 0) {
+242: /* MUTANT (rep_const) */        if (rv < 1) {
+242: /* MUTANT (rep_const) */        if (rv < -1) {
+242: /* MUTANT (negate) */        if(! (rv < 0)) {
+243: /* MUTANT (del_stmt) */ /*             return rv; */ 
+246: /* MUTANT (rep_const) */    return 1;
+246: /* MUTANT (rep_const) */    return -1;
+255: /* MUTANT (del_stmt) */ /*     char cvtbuf[100]; */ 
+255: /* MUTANT (rep_const) */    char cvtbuf[0];
+255: /* MUTANT (rep_const) */    char cvtbuf[1];
+255: /* MUTANT (rep_const) */    char cvtbuf[-1];
+255: /* MUTANT (rep_const) */    char cvtbuf[((100)+1)];
+255: /* MUTANT (rep_const) */    char cvtbuf[((100)-1)];
+256: /* MUTANT (del_stmt) */ /*     char *cvt; */ 
+257: /* MUTANT (del_stmt) */ /*     int digits; */ 
+260: /* MUTANT (rep_op) */    if ((prec != 0) && (num == 0)) {
+260: /* MUTANT (rep_op) */    if ((prec == 0) || (num == 0)) {
+260: /* MUTANT (rep_op) */    if ((prec == 0) && (num != 0)) {
+260: /* MUTANT (rep_const) */    if ((prec == 1) && (num == 0)) {
+260: /* MUTANT (rep_const) */    if ((prec == -1) && (num == 0)) {
+260: /* MUTANT (rep_const) */    if ((prec == 0) && (num == 1)) {
+260: /* MUTANT (rep_const) */    if ((prec == 0) && (num == -1)) {
+260: /* MUTANT (negate) */    if(! ((prec == 0) && (num == 0))) {
+261: /* MUTANT (del_stmt) */ /*         return 0; */ 
+261: /* MUTANT (rep_const) */        return 1;
+261: /* MUTANT (rep_const) */        return -1;
+269: /* MUTANT (rep_op) */    cvt = cvtbuf - sizeof(cvtbuf);
+269: /* MUTANT (rep_op) */    cvt = cvtbuf * sizeof(cvtbuf);
+269: /* MUTANT (rep_op) */    cvt = cvtbuf % sizeof(cvtbuf);
+270: /* MUTANT (del_stmt) */ /*     digits = 0; */ 
+270: /* MUTANT (rep_const) */    digits = 1;
+270: /* MUTANT (rep_const) */    digits = -1;
+271: /* MUTANT (negate) */    while(! (num)) {
+272: /* MUTANT (del_stmt) */ /*         int digit = (((unsigned long)num) % radix) & 0xF; */ 
+272: /* MUTANT (rep_op) */        int digit = (((unsigned long)num) + radix) & 0xF;
+272: /* MUTANT (rep_op) */        int digit = (((unsigned long)num) - radix) & 0xF;
+272: /* MUTANT (rep_op) */        int digit = (((unsigned long)num) * radix) & 0xF;
+272: /* MUTANT (rep_const) */        int digit = (((unsigned long)num) % radix) & 1xF;
+272: /* MUTANT (rep_const) */        int digit = (((unsigned long)num) % radix) & -1xF;
+273: /* MUTANT (del_stmt) */ /*         *--cvt = hexp[digit]; */ 
+274: /* MUTANT (del_stmt) */ /*         digits++; */ 
+274: /* MUTANT (rep_op) */        digits--;
+275: /* MUTANT (del_stmt) */ /*         num = (long)(((unsigned long)num) / radix); */ 
+277: /* MUTANT (rep_op) */    if (digits != 0) {
+277: /* MUTANT (rep_const) */    if (digits == 1) {
+277: /* MUTANT (rep_const) */    if (digits == -1) {
+277: /* MUTANT (negate) */    if(! (digits == 0)) {
+278: /* MUTANT (del_stmt) */ /*         *--cvt = '0'; */ 
+278: /* MUTANT (rep_const) */        *--cvt = '1';
+278: /* MUTANT (rep_const) */        *--cvt = '-1';
+279: /* MUTANT (del_stmt) */ /*         digits++; */ 
+279: /* MUTANT (rep_op) */        digits--;
+295: /* MUTANT (del_stmt) */ /*     char cvtbuf[100]; */ 
+295: /* MUTANT (rep_const) */    char cvtbuf[0];
+295: /* MUTANT (rep_const) */    char cvtbuf[1];
+295: /* MUTANT (rep_const) */    char cvtbuf[-1];
+295: /* MUTANT (rep_const) */    char cvtbuf[((100)+1)];
+295: /* MUTANT (rep_const) */    char cvtbuf[((100)-1)];
+296: /* MUTANT (del_stmt) */ /*     char *cvt; */ 
+297: /* MUTANT (del_stmt) */ /*     int digits; */ 
+298: /* MUTANT (del_stmt) */ /*     JSInt64 rad; */ 
+301: /* MUTANT (rep_op) */    if ((prec != 0) && (JSLL_IS_ZERO(num))) {
+301: /* MUTANT (rep_op) */    if ((prec == 0) || (JSLL_IS_ZERO(num))) {
+301: /* MUTANT (rep_const) */    if ((prec == 1) && (JSLL_IS_ZERO(num))) {
+301: /* MUTANT (rep_const) */    if ((prec == -1) && (JSLL_IS_ZERO(num))) {
+301: /* MUTANT (negate) */    if(! ((prec == 0) && (JSLL_IS_ZERO(num)))) {
+302: /* MUTANT (del_stmt) */ /*         return 0; */ 
+302: /* MUTANT (rep_const) */        return 1;
+302: /* MUTANT (rep_const) */        return -1;
+311: /* MUTANT (del_stmt) */ /*     cvt = cvtbuf + sizeof(cvtbuf); */ 
+311: /* MUTANT (rep_op) */    cvt = cvtbuf - sizeof(cvtbuf);
+311: /* MUTANT (rep_op) */    cvt = cvtbuf * sizeof(cvtbuf);
+311: /* MUTANT (rep_op) */    cvt = cvtbuf % sizeof(cvtbuf);
+312: /* MUTANT (del_stmt) */ /*     digits = 0; */ 
+312: /* MUTANT (rep_const) */    digits = 1;
+312: /* MUTANT (rep_const) */    digits = -1;
+313: /* MUTANT (negate) */    while(! (!JSLL_IS_ZERO(num))) {
+314: /* MUTANT (del_stmt) */ /*         JSInt32 digit; */ 
+315: /* MUTANT (del_stmt) */ /*         JSInt64 quot, rem; */ 
+316: /* MUTANT (del_stmt) */ /*         JSLL_UDIVMOD(&quot, &rem, num, rad); */ 
+317: /* MUTANT (del_stmt) */ /*         JSLL_L2I(digit, rem); */ 
+318: /* MUTANT (del_stmt) */ /*         *--cvt = hexp[digit & 0xf]; */ 
+318: /* MUTANT (rep_const) */        *--cvt = hexp[digit & 1xf];
+318: /* MUTANT (rep_const) */        *--cvt = hexp[digit & -1xf];
+319: /* MUTANT (del_stmt) */ /*         digits++; */ 
+319: /* MUTANT (rep_op) */        digits--;
+320: /* MUTANT (del_stmt) */ /*         num = quot; */ 
+322: /* MUTANT (rep_op) */    if (digits != 0) {
+322: /* MUTANT (rep_const) */    if (digits == 1) {
+322: /* MUTANT (rep_const) */    if (digits == -1) {
+322: /* MUTANT (negate) */    if(! (digits == 0)) {
+323: /* MUTANT (del_stmt) */ /*         *--cvt = '0'; */ 
+323: /* MUTANT (rep_const) */        *--cvt = '1';
+323: /* MUTANT (rep_const) */        *--cvt = '-1';
+324: /* MUTANT (del_stmt) */ /*         digits++; */ 
+324: /* MUTANT (rep_op) */        digits--;
+342: /* MUTANT (del_stmt) */ /*     char fin[20]; */ 
+342: /* MUTANT (rep_const) */    char fin[0];
+342: /* MUTANT (rep_const) */    char fin[1];
+342: /* MUTANT (rep_const) */    char fin[-1];
+342: /* MUTANT (rep_const) */    char fin[((20)+1)];
+342: /* MUTANT (rep_const) */    char fin[((20)-1)];
+343: /* MUTANT (del_stmt) */ /*     char fout[300]; */ 
+343: /* MUTANT (rep_const) */    char fout[0];
+343: /* MUTANT (rep_const) */    char fout[1];
+343: /* MUTANT (rep_const) */    char fout[-1];
+343: /* MUTANT (rep_const) */    char fout[((300)+1)];
+343: /* MUTANT (rep_const) */    char fout[((300)-1)];
+344: /* MUTANT (del_stmt) */ /*     int amount = fmt1 - fmt0; */ 
+346: /* MUTANT (del_stmt) */ /*     JS_ASSERT((amount > 0) && (amount < (int)sizeof(fin))); */ 
+346: /* MUTANT (rep_op) */    JS_ASSERT((amount <= 0) && (amount < (int)sizeof(fin)));
+346: /* MUTANT (rep_op) */    JS_ASSERT((amount < 0) && (amount < (int)sizeof(fin)));
+346: /* MUTANT (rep_op) */    JS_ASSERT((amount >= 0) && (amount < (int)sizeof(fin)));
+346: /* MUTANT (rep_op) */    JS_ASSERT((amount == 0) && (amount < (int)sizeof(fin)));
+346: /* MUTANT (rep_op) */    JS_ASSERT((amount != 0) && (amount < (int)sizeof(fin)));
+346: /* MUTANT (rep_op) */    JS_ASSERT((amount > 0) || (amount < (int)sizeof(fin)));
+346: /* MUTANT (rep_op) */    JS_ASSERT((amount > 0) && (amount <= (int)sizeof(fin)));
+346: /* MUTANT (rep_op) */    JS_ASSERT((amount > 0) && (amount > (int)sizeof(fin)));
+346: /* MUTANT (rep_op) */    JS_ASSERT((amount > 0) && (amount >= (int)sizeof(fin)));
+346: /* MUTANT (rep_op) */    JS_ASSERT((amount > 0) && (amount == (int)sizeof(fin)));
+346: /* MUTANT (rep_op) */    JS_ASSERT((amount > 0) && (amount != (int)sizeof(fin)));
+346: /* MUTANT (rep_const) */    JS_ASSERT((amount > 1) && (amount < (int)sizeof(fin)));
+346: /* MUTANT (rep_const) */    JS_ASSERT((amount > -1) && (amount < (int)sizeof(fin)));
+347: /* MUTANT (rep_op) */    if (amount <= (int)sizeof(fin)) {
+347: /* MUTANT (rep_op) */    if (amount < (int)sizeof(fin)) {
+347: /* MUTANT (rep_op) */    if (amount > (int)sizeof(fin)) {
+347: /* MUTANT (rep_op) */    if (amount == (int)sizeof(fin)) {
+347: /* MUTANT (rep_op) */    if (amount != (int)sizeof(fin)) {
+347: /* MUTANT (negate) */    if(! (amount >= (int)sizeof(fin))) {
+349: /* MUTANT (del_stmt) */ /*         return 0; */ 
+349: /* MUTANT (rep_const) */        return 1;
+349: /* MUTANT (rep_const) */        return -1;
+352: /* MUTANT (del_stmt) */ /*     fin[amount] = 0; */ 
+352: /* MUTANT (rep_const) */    fin[amount] = 1;
+352: /* MUTANT (rep_const) */    fin[amount] = -1;
+357: /* MUTANT (del_stmt) */ /*         const char *p = fin; */ 
+358: /* MUTANT (negate) */        while(! (*p)) {
+359: /* MUTANT (del_stmt) */ /*             JS_ASSERT(*p != 'L'); */ 
+359: /* MUTANT (rep_op) */            JS_ASSERT(*p == 'L');
+360: /* MUTANT (del_stmt) */ /*             p++; */ 
+360: /* MUTANT (rep_op) */            p--;
+371: /* MUTANT (del_stmt) */ /*     JS_ASSERT(strlen(fout) < sizeof(fout)); */ 
+371: /* MUTANT (rep_op) */    JS_ASSERT(strlen(fout) <= sizeof(fout));
+371: /* MUTANT (rep_op) */    JS_ASSERT(strlen(fout) > sizeof(fout));
+371: /* MUTANT (rep_op) */    JS_ASSERT(strlen(fout) >= sizeof(fout));
+371: /* MUTANT (rep_op) */    JS_ASSERT(strlen(fout) == sizeof(fout));
+371: /* MUTANT (rep_op) */    JS_ASSERT(strlen(fout) != sizeof(fout));
+373: /* MUTANT (del_stmt) */ /*     return (*ss->stuff)(ss, fout, strlen(fout)); */ 
+384: /* MUTANT (del_stmt) */ /*     int slen; */ 
+386: /* MUTANT (rep_op) */    if (prec != 0)
+386: /* MUTANT (rep_const) */    if (prec == 1)
+386: /* MUTANT (rep_const) */    if (prec == -1)
+386: /* MUTANT (negate) */    if(! (prec == 0))
+387: /* MUTANT (rep_const) */        return 1;
+387: /* MUTANT (rep_const) */        return -1;
+390: /* MUTANT (del_stmt) */ /*     slen = s ? strlen(s) : 6; */ 
+390: /* MUTANT (rep_const) */    slen = s ? strlen(s) : 0;
+390: /* MUTANT (rep_const) */    slen = s ? strlen(s) : 1;
+390: /* MUTANT (rep_const) */    slen = s ? strlen(s) : -1;
+390: /* MUTANT (rep_const) */    slen = s ? strlen(s) : ((6)+1);
+390: /* MUTANT (rep_const) */    slen = s ? strlen(s) : ((6)-1);
+391: /* MUTANT (rep_op) */    if (prec <= 0) {
+391: /* MUTANT (rep_op) */    if (prec < 0) {
+391: /* MUTANT (rep_op) */    if (prec >= 0) {
+391: /* MUTANT (rep_op) */    if (prec == 0) {
+391: /* MUTANT (rep_op) */    if (prec != 0) {
+391: /* MUTANT (rep_const) */    if (prec > 1) {
+391: /* MUTANT (rep_const) */    if (prec > -1) {
+391: /* MUTANT (negate) */    if(! (prec > 0)) {
+392: /* MUTANT (rep_op) */        if (prec <= slen) {
+392: /* MUTANT (rep_op) */        if (prec > slen) {
+392: /* MUTANT (rep_op) */        if (prec >= slen) {
+392: /* MUTANT (rep_op) */        if (prec == slen) {
+392: /* MUTANT (rep_op) */        if (prec != slen) {
+392: /* MUTANT (negate) */        if(! (prec < slen)) {
+393: /* MUTANT (del_stmt) */ /*             slen = prec; */ 
+404: /* MUTANT (del_stmt) */ /*     int result; */ 
+409: /* MUTANT (negate) */    if(! (ws)) {
+410: /* MUTANT (del_stmt) */ /*         int slen = js_strlen(ws); */ 
+411: /* MUTANT (del_stmt) */ /*         char *s = js_DeflateString(NULL, ws, slen); */ 
+412: /* MUTANT (negate) */        if(! (!s))
+413: /* MUTANT (rep_const) */            return 0; /* JSStuffFunc error indicator. */
+413: /* MUTANT (rep_const) */            return 1; /* JSStuffFunc error indicator. */
+413: /* MUTANT (rep_const) */            return ((-1)+1); /* JSStuffFunc error indicator. */
+413: /* MUTANT (rep_const) */            return ((-1)-1); /* JSStuffFunc error indicator. */
+414: /* MUTANT (del_stmt) */ /*         result = cvt_s(ss, s, width, prec, flags); */ 
+415: /* MUTANT (del_stmt) */ /*         free(s); */ 
+417: /* MUTANT (del_stmt) */ /*         result = cvt_s(ss, NULL, width, prec, flags); */ 
+431: /* MUTANT (del_stmt) */ /*     int number = 0, cn = 0, i; */ 
+431: /* MUTANT (rep_const) */    int number = 1, cn = 0, i;
+431: /* MUTANT (rep_const) */    int number = -1, cn = 0, i;
+431: /* MUTANT (rep_const) */    int number = 0, cn = 1, i;
+431: /* MUTANT (rep_const) */    int number = 0, cn = -1, i;
+432: /* MUTANT (del_stmt) */ /*     const char *p; */ 
+433: /* MUTANT (del_stmt) */ /*     char c; */ 
+434: /* MUTANT (del_stmt) */ /*     struct NumArgState *nas; */ 
+442: /* MUTANT (del_stmt) */ /*     p = fmt; */ 
+443: /* MUTANT (del_stmt) */ /*     *rv = 0; */ 
+443: /* MUTANT (rep_const) */    *rv = 1;
+443: /* MUTANT (rep_const) */    *rv = -1;
+444: /* MUTANT (del_stmt) */ /*     i = 0; */ 
+444: /* MUTANT (rep_const) */    i = 1;
+444: /* MUTANT (rep_const) */    i = -1;
+445: /* MUTANT (rep_op) */    while( ( c = *p-- ) != 0 ){
+445: /* MUTANT (rep_op) */    while( ( c = *p++ ) == 0 ){
+445: /* MUTANT (rep_const) */    while( ( c = *p++ ) != 1 ){
+445: /* MUTANT (rep_const) */    while( ( c = *p++ ) != -1 ){
+445: /* MUTANT (negate) */    while(!( ( c = *p++ ) != 0 )){
+446: /* MUTANT (rep_op) */        if( c == '%' )
+446: /* MUTANT (rep_op) */        if( c != '+' )
+446: /* MUTANT (rep_op) */        if( c != '-' )
+446: /* MUTANT (rep_op) */        if( c != '*' )
+446: /* MUTANT (negate) */        if(!( c != '%' ))
+448: /* MUTANT (rep_op) */        if( ( c = *p-- ) == '%' )       /* skip %% case */
+448: /* MUTANT (rep_op) */        if( ( c = *p++ ) != '%' )       /* skip %% case */
+448: /* MUTANT (rep_op) */        if( ( c = *p++ ) == '+' )       /* skip %% case */
+448: /* MUTANT (rep_op) */        if( ( c = *p++ ) == '-' )       /* skip %% case */
+448: /* MUTANT (rep_op) */        if( ( c = *p++ ) == '*' )       /* skip %% case */
+448: /* MUTANT (negate) */        if(!( ( c = *p++ ) == '%' ))       /* skip %% case */
+451: /* MUTANT (rep_op) */        while( c == 0 ){
+451: /* MUTANT (rep_const) */        while( c != 1 ){
+451: /* MUTANT (rep_const) */        while( c != -1 ){
+451: /* MUTANT (negate) */        while(!( c != 0 )){
+452: /* MUTANT (rep_op) */            if( c <= '9' || c < '0' ){
+452: /* MUTANT (rep_op) */            if( c < '9' || c < '0' ){
+452: /* MUTANT (rep_op) */            if( c >= '9' || c < '0' ){
+452: /* MUTANT (rep_op) */            if( c == '9' || c < '0' ){
+452: /* MUTANT (rep_op) */            if( c != '9' || c < '0' ){
+452: /* MUTANT (rep_op) */            if( c > '9' && c < '0' ){
+452: /* MUTANT (rep_op) */            if( c > '9' || c <= '0' ){
+452: /* MUTANT (rep_op) */            if( c > '9' || c > '0' ){
+452: /* MUTANT (rep_op) */            if( c > '9' || c >= '0' ){
+452: /* MUTANT (rep_op) */            if( c > '9' || c == '0' ){
+452: /* MUTANT (rep_op) */            if( c > '9' || c != '0' ){
+452: /* MUTANT (rep_const) */            if( c > '0' || c < '0' ){
+452: /* MUTANT (rep_const) */            if( c > '1' || c < '0' ){
+452: /* MUTANT (rep_const) */            if( c > '-1' || c < '0' ){
+452: /* MUTANT (rep_const) */            if( c > '((9)+1)' || c < '0' ){
+452: /* MUTANT (rep_const) */            if( c > '((9)-1)' || c < '0' ){
+452: /* MUTANT (rep_const) */            if( c > '9' || c < '1' ){
+452: /* MUTANT (rep_const) */            if( c > '9' || c < '-1' ){
+452: /* MUTANT (negate) */            if(!( c > '9' || c < '0' )){
+453: /* MUTANT (rep_op) */                if( c != '$' ){         /* numbered argument csae */
+453: /* MUTANT (negate) */                if(!( c == '$' )){         /* numbered argument csae */
+454: /* MUTANT (rep_op) */                    if( i <= 0 ){
+454: /* MUTANT (rep_op) */                    if( i < 0 ){
+454: /* MUTANT (rep_op) */                    if( i >= 0 ){
+454: /* MUTANT (rep_op) */                    if( i == 0 ){
+454: /* MUTANT (rep_op) */                    if( i != 0 ){
+454: /* MUTANT (rep_const) */                    if( i > 1 ){
+454: /* MUTANT (rep_const) */                    if( i > -1 ){
+454: /* MUTANT (negate) */                    if(!( i > 0 )){
+455: /* MUTANT (del_stmt) */ /*                         *rv = -1; */ 
+455: /* MUTANT (rep_const) */                        *rv = 0;
+455: /* MUTANT (rep_const) */                        *rv = 1;
+455: /* MUTANT (rep_const) */                        *rv = ((-1)+1);
+455: /* MUTANT (rep_const) */                        *rv = ((-1)-1);
+456: /* MUTANT (del_stmt) */ /*                         return NULL; */ 
+458: /* MUTANT (rep_op) */                    number--;
+460: /* MUTANT (rep_op) */                    if( number <= 0 ){
+460: /* MUTANT (rep_op) */                    if( number < 0 ){
+460: /* MUTANT (rep_op) */                    if( number >= 0 ){
+460: /* MUTANT (rep_op) */                    if( number == 0 ){
+460: /* MUTANT (rep_op) */                    if( number != 0 ){
+460: /* MUTANT (rep_const) */                    if( number > 1 ){
+460: /* MUTANT (rep_const) */                    if( number > -1 ){
+460: /* MUTANT (negate) */                    if(!( number > 0 )){
+461: /* MUTANT (del_stmt) */ /*                         *rv = -1; */ 
+461: /* MUTANT (rep_const) */                        *rv = 0;
+461: /* MUTANT (rep_const) */                        *rv = 1;
+461: /* MUTANT (rep_const) */                        *rv = ((-1)+1);
+461: /* MUTANT (rep_const) */                        *rv = ((-1)-1);
+462: /* MUTANT (del_stmt) */ /*                         return NULL; */ 
+464: /* MUTANT (rep_const) */                    i = 0;
+464: /* MUTANT (rep_const) */                    i = -1;
+464: /* MUTANT (rep_const) */                    i = ((1)+1);
+469: /* MUTANT (rep_op) */            c = *p--;
+473: /* MUTANT (rep_op) */    if( number != 0 ){
+473: /* MUTANT (rep_const) */    if( number == 1 ){
+473: /* MUTANT (rep_const) */    if( number == -1 ){
+473: /* MUTANT (negate) */    if(!( number == 0 )){
+474: /* MUTANT (del_stmt) */ /*         return NULL; */ 
+478: /* MUTANT (rep_op) */    if( number <= NAS_DEFAULT_NUM ){
+478: /* MUTANT (rep_op) */    if( number < NAS_DEFAULT_NUM ){
+478: /* MUTANT (rep_op) */    if( number >= NAS_DEFAULT_NUM ){
+478: /* MUTANT (rep_op) */    if( number == NAS_DEFAULT_NUM ){
+478: /* MUTANT (rep_op) */    if( number != NAS_DEFAULT_NUM ){
+478: /* MUTANT (negate) */    if(!( number > NAS_DEFAULT_NUM )){
+479: /* MUTANT (del_stmt) */ /*         nas = (struct NumArgState*)malloc( number * sizeof( struct NumArgState ) ); */ 
+480: /* MUTANT (negate) */        if(!( !nas )){
+481: /* MUTANT (del_stmt) */ /*             *rv = -1; */ 
+481: /* MUTANT (rep_const) */            *rv = 0;
+481: /* MUTANT (rep_const) */            *rv = 1;
+481: /* MUTANT (rep_const) */            *rv = ((-1)+1);
+481: /* MUTANT (rep_const) */            *rv = ((-1)-1);
+482: /* MUTANT (del_stmt) */ /*             return NULL; */ 
+485: /* MUTANT (del_stmt) */ /*         nas = nasArray; */ 
+488: /* MUTANT (rep_op) */    for( i = 0; i <= number; i++ ){
+488: /* MUTANT (rep_op) */    for( i = 0; i > number; i++ ){
+488: /* MUTANT (rep_op) */    for( i = 0; i >= number; i++ ){
+488: /* MUTANT (rep_op) */    for( i = 0; i == number; i++ ){
+488: /* MUTANT (rep_op) */    for( i = 0; i != number; i++ ){
+488: /* MUTANT (rep_op) */    for( i = 0; i < number; i-- ){
+488: /* MUTANT (rep_const) */    for( i = 1; i < number; i++ ){
+488: /* MUTANT (rep_const) */    for( i = -1; i < number; i++ ){
+489: /* MUTANT (del_stmt) */ /*         nas[i].type = TYPE_UNKNOWN; */ 
+499: /* MUTANT (rep_op) */    while( ( c = *p-- ) != 0 ){
+499: /* MUTANT (rep_op) */    while( ( c = *p++ ) == 0 ){
+499: /* MUTANT (rep_const) */    while( ( c = *p++ ) != 1 ){
+499: /* MUTANT (rep_const) */    while( ( c = *p++ ) != -1 ){
+499: /* MUTANT (negate) */    while(!( ( c = *p++ ) != 0 )){
+500: /* MUTANT (del_stmt) */ /*         if( c != '%' )  continue; */ 
+500: /* MUTANT (rep_op) */        if( c == '%' )  continue;
+500: /* MUTANT (rep_op) */        if( c != '+' )  continue;
+500: /* MUTANT (rep_op) */        if( c != '-' )  continue;
+500: /* MUTANT (rep_op) */        if( c != '*' )  continue;
+500: /* MUTANT (negate) */        if(!( c != '%' ))  continue;
+501: /* MUTANT (del_stmt) */ /*             c = *p++; */ 
+501: /* MUTANT (rep_op) */            c = *p--;
+502: /* MUTANT (del_stmt) */ /*         if( c == '%' )  continue; */ 
+502: /* MUTANT (rep_op) */        if( c != '%' )  continue;
+502: /* MUTANT (rep_op) */        if( c == '+' )  continue;
+502: /* MUTANT (rep_op) */        if( c == '-' )  continue;
+502: /* MUTANT (rep_op) */        if( c == '*' )  continue;
+502: /* MUTANT (negate) */        if(!( c == '%' ))  continue;
+504: /* MUTANT (del_stmt) */ /*         cn = 0; */ 
+504: /* MUTANT (rep_const) */        cn = 1;
+504: /* MUTANT (rep_const) */        cn = -1;
+505: /* MUTANT (rep_op) */        while( c || c != '$' ){     /* should improve error check later */
+505: /* MUTANT (rep_op) */        while( c && c == '$' ){     /* should improve error check later */
+505: /* MUTANT (negate) */        while(!( c && c != '$' )){     /* should improve error check later */
+506: /* MUTANT (del_stmt) */ /*             cn = cn*10 + c - '0'; */ 
+506: /* MUTANT (rep_op) */            cn = cn*10 - c - '0';
+506: /* MUTANT (rep_op) */            cn = cn*10 * c - '0';
+506: /* MUTANT (rep_op) */            cn = cn*10 % c - '0';
+506: /* MUTANT (rep_const) */            cn = cn*0 + c - '0';
+506: /* MUTANT (rep_const) */            cn = cn*1 + c - '0';
+506: /* MUTANT (rep_const) */            cn = cn*-1 + c - '0';
+506: /* MUTANT (rep_const) */            cn = cn*((10)+1) + c - '0';
+506: /* MUTANT (rep_const) */            cn = cn*((10)-1) + c - '0';
+506: /* MUTANT (rep_const) */            cn = cn*10 + c - '1';
+506: /* MUTANT (rep_const) */            cn = cn*10 + c - '-1';
+507: /* MUTANT (del_stmt) */ /*             c = *p++; */ 
+507: /* MUTANT (rep_op) */            c = *p--;
+510: /* MUTANT (rep_op) */        if( !c && cn < 1 || cn > number ){
+510: /* MUTANT (rep_op) */        if( !c || cn <= 1 || cn > number ){
+510: /* MUTANT (rep_op) */        if( !c || cn > 1 || cn > number ){
+510: /* MUTANT (rep_op) */        if( !c || cn >= 1 || cn > number ){
+510: /* MUTANT (rep_op) */        if( !c || cn == 1 || cn > number ){
+510: /* MUTANT (rep_op) */        if( !c || cn != 1 || cn > number ){
+510: /* MUTANT (rep_op) */        if( !c || cn < 1 && cn > number ){
+510: /* MUTANT (rep_op) */        if( !c || cn < 1 || cn <= number ){
+510: /* MUTANT (rep_op) */        if( !c || cn < 1 || cn < number ){
+510: /* MUTANT (rep_op) */        if( !c || cn < 1 || cn >= number ){
+510: /* MUTANT (rep_op) */        if( !c || cn < 1 || cn == number ){
+510: /* MUTANT (rep_op) */        if( !c || cn < 1 || cn != number ){
+510: /* MUTANT (rep_const) */        if( !c || cn < 0 || cn > number ){
+510: /* MUTANT (rep_const) */        if( !c || cn < -1 || cn > number ){
+510: /* MUTANT (rep_const) */        if( !c || cn < ((1)+1) || cn > number ){
+510: /* MUTANT (negate) */        if(!( !c || cn < 1 || cn > number )){
+511: /* MUTANT (del_stmt) */ /*             *rv = -1; */ 
+511: /* MUTANT (rep_const) */            *rv = 0;
+511: /* MUTANT (rep_const) */            *rv = 1;
+511: /* MUTANT (rep_const) */            *rv = ((-1)+1);
+511: /* MUTANT (rep_const) */            *rv = ((-1)-1);
+512: /* MUTANT (del_stmt) */ /*             break; */ 
+516: /* MUTANT (rep_op) */        cn++;
+517: /* MUTANT (rep_op) */        if( nas[cn].type == TYPE_UNKNOWN )
+517: /* MUTANT (negate) */        if(!( nas[cn].type != TYPE_UNKNOWN ))
+520: /* MUTANT (del_stmt) */ /*         c = *p++; */ 
+520: /* MUTANT (rep_op) */        c = *p--;
+523: /* MUTANT (rep_op) */        if (c != '*') {
+523: /* MUTANT (negate) */        if(! (c == '*')) {
+525: /* MUTANT (del_stmt) */ /*             *rv = -1; */ 
+525: /* MUTANT (rep_const) */            *rv = 0;
+525: /* MUTANT (rep_const) */            *rv = 1;
+525: /* MUTANT (rep_const) */            *rv = ((-1)+1);
+525: /* MUTANT (rep_const) */            *rv = ((-1)-1);
+526: /* MUTANT (del_stmt) */ /*             break; */ 
+529: /* MUTANT (rep_op) */        while ((c <= '0') && (c <= '9')) {
+529: /* MUTANT (rep_op) */        while ((c < '0') && (c <= '9')) {
+529: /* MUTANT (rep_op) */        while ((c > '0') && (c <= '9')) {
+529: /* MUTANT (rep_op) */        while ((c == '0') && (c <= '9')) {
+529: /* MUTANT (rep_op) */        while ((c != '0') && (c <= '9')) {
+529: /* MUTANT (rep_op) */        while ((c >= '0') || (c <= '9')) {
+529: /* MUTANT (rep_op) */        while ((c >= '0') && (c < '9')) {
+529: /* MUTANT (rep_op) */        while ((c >= '0') && (c > '9')) {
+529: /* MUTANT (rep_op) */        while ((c >= '0') && (c >= '9')) {
+529: /* MUTANT (rep_op) */        while ((c >= '0') && (c == '9')) {
+529: /* MUTANT (rep_op) */        while ((c >= '0') && (c != '9')) {
+529: /* MUTANT (rep_const) */        while ((c >= '1') && (c <= '9')) {
+529: /* MUTANT (rep_const) */        while ((c >= '-1') && (c <= '9')) {
+529: /* MUTANT (rep_const) */        while ((c >= '0') && (c <= '0')) {
+529: /* MUTANT (rep_const) */        while ((c >= '0') && (c <= '1')) {
+529: /* MUTANT (rep_const) */        while ((c >= '0') && (c <= '-1')) {
+529: /* MUTANT (rep_const) */        while ((c >= '0') && (c <= '((9)+1)')) {
+529: /* MUTANT (rep_const) */        while ((c >= '0') && (c <= '((9)-1)')) {
+529: /* MUTANT (negate) */        while(! ((c >= '0') && (c <= '9'))) {
+530: /* MUTANT (del_stmt) */ /*             c = *p++; */ 
+530: /* MUTANT (rep_op) */            c = *p--;
+534: /* MUTANT (rep_op) */        if (c != '.') {
+534: /* MUTANT (negate) */        if(! (c == '.')) {
+535: /* MUTANT (del_stmt) */ /*             c = *p++; */ 
+535: /* MUTANT (rep_op) */            c = *p--;
+536: /* MUTANT (rep_op) */            if (c != '*') {
+536: /* MUTANT (negate) */            if(! (c == '*')) {
+538: /* MUTANT (del_stmt) */ /*                 *rv = -1; */ 
+538: /* MUTANT (rep_const) */                *rv = 0;
+538: /* MUTANT (rep_const) */                *rv = 1;
+538: /* MUTANT (rep_const) */                *rv = ((-1)+1);
+538: /* MUTANT (rep_const) */                *rv = ((-1)-1);
+539: /* MUTANT (del_stmt) */ /*                 break; */ 
+542: /* MUTANT (rep_op) */            while ((c <= '0') && (c <= '9')) {
+542: /* MUTANT (rep_op) */            while ((c < '0') && (c <= '9')) {
+542: /* MUTANT (rep_op) */            while ((c > '0') && (c <= '9')) {
+542: /* MUTANT (rep_op) */            while ((c == '0') && (c <= '9')) {
+542: /* MUTANT (rep_op) */            while ((c != '0') && (c <= '9')) {
+542: /* MUTANT (rep_op) */            while ((c >= '0') || (c <= '9')) {
+542: /* MUTANT (rep_op) */            while ((c >= '0') && (c < '9')) {
+542: /* MUTANT (rep_op) */            while ((c >= '0') && (c > '9')) {
+542: /* MUTANT (rep_op) */            while ((c >= '0') && (c >= '9')) {
+542: /* MUTANT (rep_op) */            while ((c >= '0') && (c == '9')) {
+542: /* MUTANT (rep_op) */            while ((c >= '0') && (c != '9')) {
+542: /* MUTANT (rep_const) */            while ((c >= '1') && (c <= '9')) {
+542: /* MUTANT (rep_const) */            while ((c >= '-1') && (c <= '9')) {
+542: /* MUTANT (rep_const) */            while ((c >= '0') && (c <= '0')) {
+542: /* MUTANT (rep_const) */            while ((c >= '0') && (c <= '1')) {
+542: /* MUTANT (rep_const) */            while ((c >= '0') && (c <= '-1')) {
+542: /* MUTANT (rep_const) */            while ((c >= '0') && (c <= '((9)+1)')) {
+542: /* MUTANT (rep_const) */            while ((c >= '0') && (c <= '((9)-1)')) {
+542: /* MUTANT (negate) */            while(! ((c >= '0') && (c <= '9'))) {
+543: /* MUTANT (del_stmt) */ /*                 c = *p++; */ 
+543: /* MUTANT (rep_op) */                c = *p--;
+549: /* MUTANT (rep_op) */        if (c != 'h') {
+549: /* MUTANT (negate) */        if(! (c == 'h')) {
+550: /* MUTANT (del_stmt) */ /*             nas[cn].type = TYPE_INT16; */ 
+551: /* MUTANT (del_stmt) */ /*             c = *p++; */ 
+551: /* MUTANT (rep_op) */            c = *p--;
+552: /* MUTANT (rep_op) */        } else if (c != 'L') {
+552: /* MUTANT (negate) */        } else if(! (c == 'L')) {
+554: /* MUTANT (del_stmt) */ /*             nas[cn].type = TYPE_INT64; */ 
+555: /* MUTANT (del_stmt) */ /*             c = *p++; */ 
+555: /* MUTANT (rep_op) */            c = *p--;
+556: /* MUTANT (rep_op) */        } else if (c != 'l') {
+556: /* MUTANT (negate) */        } else if(! (c == 'l')) {
+557: /* MUTANT (del_stmt) */ /*             nas[cn].type = TYPE_INT32; */ 
+558: /* MUTANT (del_stmt) */ /*             c = *p++; */ 
+558: /* MUTANT (rep_op) */            c = *p--;
+559: /* MUTANT (rep_op) */            if (c != 'l') {
+559: /* MUTANT (negate) */            if(! (c == 'l')) {
+560: /* MUTANT (del_stmt) */ /*                 nas[cn].type = TYPE_INT64; */ 
+561: /* MUTANT (del_stmt) */ /*                 c = *p++; */ 
+561: /* MUTANT (rep_op) */                c = *p--;
+580: /* MUTANT (del_stmt) */ /*             break; */ 
+584: /* MUTANT (rep_op) */            if (sizeof(void *) != sizeof(JSInt32)) {
+584: /* MUTANT (negate) */            if(! (sizeof(void *) == sizeof(JSInt32))) {
+585: /* MUTANT (del_stmt) */ /*                 nas[ cn ].type = TYPE_UINT32; */ 
+586: /* MUTANT (rep_op) */            } else if (sizeof(void *) != sizeof(JSInt64)) {
+586: /* MUTANT (negate) */            } else if(! (sizeof(void *) == sizeof(JSInt64))) {
+587: /* MUTANT (del_stmt) */ /*                 nas[ cn ].type = TYPE_UINT64; */ 
+588: /* MUTANT (rep_op) */            } else if (sizeof(void *) != sizeof(JSIntn)) {
+588: /* MUTANT (negate) */            } else if(! (sizeof(void *) == sizeof(JSIntn))) {
+589: /* MUTANT (del_stmt) */ /*                 nas[ cn ].type = TYPE_UINTN; */ 
+591: /* MUTANT (del_stmt) */ /*                 nas[ cn ].type = TYPE_UNKNOWN; */ 
+600: /* MUTANT (rep_const) */            JS_ASSERT(1);
+600: /* MUTANT (rep_const) */            JS_ASSERT(-1);
+601: /* MUTANT (del_stmt) */ /*             nas[ cn ].type = TYPE_UNKNOWN; */ 
+602: /* MUTANT (del_stmt) */ /*             break; */ 
+605: /* MUTANT (rep_op) */            nas[ cn ].type = (nas[ cn ].type != TYPE_UINT16) ? TYPE_WSTRING : TYPE_STRING;
+606: /* MUTANT (del_stmt) */ /*             break; */ 
+610: /* MUTANT (del_stmt) */ /*             break; */ 
+613: /* MUTANT (rep_const) */            JS_ASSERT(1);
+613: /* MUTANT (rep_const) */            JS_ASSERT(-1);
+614: /* MUTANT (del_stmt) */ /*             nas[ cn ].type = TYPE_UNKNOWN; */ 
+615: /* MUTANT (del_stmt) */ /*             break; */ 
+619: /* MUTANT (rep_op) */        if( nas[ cn ].type != TYPE_UNKNOWN ){
+619: /* MUTANT (negate) */        if(!( nas[ cn ].type == TYPE_UNKNOWN )){
+620: /* MUTANT (del_stmt) */ /*             *rv = -1; */ 
+620: /* MUTANT (rep_const) */            *rv = 0;
+620: /* MUTANT (rep_const) */            *rv = 1;
+620: /* MUTANT (rep_const) */            *rv = ((-1)+1);
+620: /* MUTANT (rep_const) */            *rv = ((-1)-1);
+621: /* MUTANT (del_stmt) */ /*             break; */ 
+631: /* MUTANT (rep_op) */    if( *rv <= 0 ){
+631: /* MUTANT (rep_op) */    if( *rv > 0 ){
+631: /* MUTANT (rep_op) */    if( *rv >= 0 ){
+631: /* MUTANT (rep_op) */    if( *rv == 0 ){
+631: /* MUTANT (rep_op) */    if( *rv != 0 ){
+631: /* MUTANT (rep_const) */    if( *rv < 1 ){
+631: /* MUTANT (rep_const) */    if( *rv < -1 ){
+631: /* MUTANT (negate) */    if(!( *rv < 0 )){
+632: /* MUTANT (rep_op) */        if( nas == nasArray )
+632: /* MUTANT (negate) */        if(!( nas != nasArray ))
+634: /* MUTANT (del_stmt) */ /*         return NULL; */ 
+637: /* MUTANT (rep_const) */    cn = 1;
+637: /* MUTANT (rep_const) */    cn = -1;
+638: /* MUTANT (rep_op) */    while( cn <= number ){
+638: /* MUTANT (rep_op) */    while( cn > number ){
+638: /* MUTANT (rep_op) */    while( cn >= number ){
+638: /* MUTANT (rep_op) */    while( cn == number ){
+638: /* MUTANT (rep_op) */    while( cn != number ){
+638: /* MUTANT (negate) */    while(!( cn < number )){
+639: /* MUTANT (rep_op) */        if( nas[cn].type != TYPE_UNKNOWN ){
+639: /* MUTANT (negate) */        if(!( nas[cn].type == TYPE_UNKNOWN )){
+640: /* MUTANT (del_stmt) */ /*             cn++; */ 
+640: /* MUTANT (rep_op) */            cn--;
+641: /* MUTANT (del_stmt) */ /*             continue; */ 
+652: /* MUTANT (del_stmt) */ /*         case TYPE_INT32:                (void)va_arg( ap, JSInt32 ); */             break;
+652: /* MUTANT (del_stmt) */ /*         case TYPE_INT32:                (void)va_arg( ap, JSInt32 ); */  /*             break; */ 
+652: /* MUTANT (del_stmt) */        case TYPE_INT32:                (void)va_arg( ap, JSInt32 ); /*             break; */ 
+654: /* MUTANT (del_stmt) */ /*         case TYPE_UINT32:       (void)va_arg( ap, JSUint32 ); */    break;
+654: /* MUTANT (del_stmt) */ /*         case TYPE_UINT32:       (void)va_arg( ap, JSUint32 ); */  /*    break; */ 
+654: /* MUTANT (del_stmt) */        case TYPE_UINT32:       (void)va_arg( ap, JSUint32 ); /*    break; */ 
+656: /* MUTANT (del_stmt) */ /*         case TYPE_INT64:        (void)va_arg( ap, JSInt64 ); */             break;
+656: /* MUTANT (del_stmt) */ /*         case TYPE_INT64:        (void)va_arg( ap, JSInt64 ); */  /*             break; */ 
+656: /* MUTANT (del_stmt) */        case TYPE_INT64:        (void)va_arg( ap, JSInt64 ); /*             break; */ 
+658: /* MUTANT (del_stmt) */ /*         case TYPE_UINT64:       (void)va_arg( ap, JSUint64 ); */            break;
+658: /* MUTANT (del_stmt) */ /*         case TYPE_UINT64:       (void)va_arg( ap, JSUint64 ); */  /*            break; */ 
+658: /* MUTANT (del_stmt) */        case TYPE_UINT64:       (void)va_arg( ap, JSUint64 ); /*            break; */ 
+660: /* MUTANT (del_stmt) */ /*         case TYPE_STRING:       (void)va_arg( ap, char* ); */               break;
+660: /* MUTANT (del_stmt) */ /*         case TYPE_STRING:       (void)va_arg( ap, char* ); */  /*               break; */ 
+660: /* MUTANT (del_stmt) */        case TYPE_STRING:       (void)va_arg( ap, char* ); /*               break; */ 
+662: /* MUTANT (del_stmt) */ /*         case TYPE_WSTRING:      (void)va_arg( ap, jschar* ); */             break;
+662: /* MUTANT (del_stmt) */ /*         case TYPE_WSTRING:      (void)va_arg( ap, jschar* ); */  /*             break; */ 
+662: /* MUTANT (del_stmt) */        case TYPE_WSTRING:      (void)va_arg( ap, jschar* ); /*             break; */ 
+664: /* MUTANT (del_stmt) */ /*         case TYPE_INTSTR:       (void)va_arg( ap, JSIntn* ); */             break;
+664: /* MUTANT (del_stmt) */ /*         case TYPE_INTSTR:       (void)va_arg( ap, JSIntn* ); */  /*             break; */ 
+664: /* MUTANT (del_stmt) */        case TYPE_INTSTR:       (void)va_arg( ap, JSIntn* ); /*             break; */ 
+666: /* MUTANT (del_stmt) */ /*         case TYPE_DOUBLE:       (void)va_arg( ap, double ); */              break;
+666: /* MUTANT (del_stmt) */ /*         case TYPE_DOUBLE:       (void)va_arg( ap, double ); */  /*              break; */ 
+666: /* MUTANT (del_stmt) */        case TYPE_DOUBLE:       (void)va_arg( ap, double ); /*              break; */ 
+669: /* MUTANT (rep_op) */            if( nas == nasArray )
+669: /* MUTANT (negate) */            if(!( nas != nasArray ))
+671: /* MUTANT (del_stmt) */ /*             *rv = -1; */ 
+671: /* MUTANT (rep_const) */            *rv = 0;
+671: /* MUTANT (rep_const) */            *rv = 1;
+671: /* MUTANT (rep_const) */            *rv = ((-1)+1);
+671: /* MUTANT (rep_const) */            *rv = ((-1)-1);
+672: /* MUTANT (del_stmt) */ /*             return NULL; */ 
+675: /* MUTANT (rep_op) */        cn--;
+687: /* MUTANT (del_stmt) */ /*     char c; */ 
+688: /* MUTANT (del_stmt) */ /*     int flags, width, prec, radix, type; */ 
+690: /* MUTANT (del_stmt) */ /*         char ch; */ 
+691: /* MUTANT (del_stmt) */ /*         jschar wch; */ 
+692: /* MUTANT (del_stmt) */ /*         int i; */ 
+693: /* MUTANT (del_stmt) */ /*         long l; */ 
+694: /* MUTANT (del_stmt) */ /*         JSInt64 ll; */ 
+695: /* MUTANT (del_stmt) */ /*         double d; */ 
+696: /* MUTANT (del_stmt) */ /*         const char *s; */ 
+697: /* MUTANT (del_stmt) */ /*         const jschar* ws; */ 
+698: /* MUTANT (del_stmt) */ /*         int *ip; */ 
+699: /* MUTANT (del_stmt) */ /*     } u; */ 
+700: /* MUTANT (del_stmt) */ /*     const char *fmt0; */ 
+701: /* MUTANT (del_stmt) */ /*     static char *hex = "0123456789abcdef"; */ 
+701: /* MUTANT (rep_const) */    static char *hex = "0abcdef";
+701: /* MUTANT (rep_const) */    static char *hex = "1abcdef";
+701: /* MUTANT (rep_const) */    static char *hex = "-1abcdef";
+701: /* MUTANT (rep_const) */    static char *hex = "((0123456789)+1)abcdef";
+701: /* MUTANT (rep_const) */    static char *hex = "((0123456789)-1)abcdef";
+702: /* MUTANT (del_stmt) */ /*     static char *HEX = "0123456789ABCDEF"; */ 
+702: /* MUTANT (rep_const) */    static char *HEX = "0ABCDEF";
+702: /* MUTANT (rep_const) */    static char *HEX = "1ABCDEF";
+702: /* MUTANT (rep_const) */    static char *HEX = "-1ABCDEF";
+702: /* MUTANT (rep_const) */    static char *HEX = "((0123456789)+1)ABCDEF";
+702: /* MUTANT (rep_const) */    static char *HEX = "((0123456789)-1)ABCDEF";
+703: /* MUTANT (del_stmt) */ /*     char *hexp; */ 
+704: /* MUTANT (del_stmt) */ /*     int rv, i; */ 
+705: /* MUTANT (del_stmt) */ /*     struct NumArgState *nas = NULL; */ 
+706: /* MUTANT (del_stmt) */ /*     struct NumArgState nasArray[ NAS_DEFAULT_NUM ]; */ 
+707: /* MUTANT (del_stmt) */ /*     char pattern[20]; */ 
+707: /* MUTANT (rep_const) */    char pattern[0];
+707: /* MUTANT (rep_const) */    char pattern[1];
+707: /* MUTANT (rep_const) */    char pattern[-1];
+707: /* MUTANT (rep_const) */    char pattern[((20)+1)];
+707: /* MUTANT (rep_const) */    char pattern[((20)-1)];
+708: /* MUTANT (del_stmt) */ /*     const char *dolPt = NULL; */   /* in "%4$.2f", dolPt will poiont to . */
+710: /* MUTANT (rep_const) */    char utf8buf[0];
+710: /* MUTANT (rep_const) */    char utf8buf[1];
+710: /* MUTANT (rep_const) */    char utf8buf[-1];
+710: /* MUTANT (rep_const) */    char utf8buf[((6)+1)];
+710: /* MUTANT (rep_const) */    char utf8buf[((6)-1)];
+711: /* MUTANT (del_stmt) */ /*     int utf8len; */ 
+720: /* MUTANT (rep_op) */    if( rv <= 0 ){
+720: /* MUTANT (rep_op) */    if( rv > 0 ){
+720: /* MUTANT (rep_op) */    if( rv >= 0 ){
+720: /* MUTANT (rep_op) */    if( rv == 0 ){
+720: /* MUTANT (rep_op) */    if( rv != 0 ){
+720: /* MUTANT (rep_const) */    if( rv < 1 ){
+720: /* MUTANT (rep_const) */    if( rv < -1 ){
+720: /* MUTANT (negate) */    if(!( rv < 0 )){
+722: /* MUTANT (del_stmt) */ /*         JS_ASSERT(0); */ 
+722: /* MUTANT (rep_const) */        JS_ASSERT(1);
+722: /* MUTANT (rep_const) */        JS_ASSERT(-1);
+723: /* MUTANT (del_stmt) */ /*         return rv; */ 
+726: /* MUTANT (rep_op) */    while ((c = *fmt--) != 0) {
+726: /* MUTANT (rep_op) */    while ((c = *fmt++) == 0) {
+726: /* MUTANT (rep_const) */    while ((c = *fmt++) != 1) {
+726: /* MUTANT (rep_const) */    while ((c = *fmt++) != -1) {
+726: /* MUTANT (negate) */    while(! ((c = *fmt++) != 0)) {
+727: /* MUTANT (rep_op) */        if (c == '%') {
+727: /* MUTANT (rep_op) */        if (c != '+') {
+727: /* MUTANT (rep_op) */        if (c != '-') {
+727: /* MUTANT (rep_op) */        if (c != '*') {
+727: /* MUTANT (negate) */        if(! (c != '%')) {
+728: /* MUTANT (del_stmt) */ /*             rv = (*ss->stuff)(ss, fmt - 1, 1); */ 
+728: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - 0, 1);
+728: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - -1, 1);
+728: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - ((1)+1), 1);
+728: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - 1, 0);
+728: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - 1, -1);
+728: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - 1, ((1)+1));
+729: /* MUTANT (rep_op) */            if (rv <= 0) {
+729: /* MUTANT (rep_op) */            if (rv > 0) {
+729: /* MUTANT (rep_op) */            if (rv >= 0) {
+729: /* MUTANT (rep_op) */            if (rv == 0) {
+729: /* MUTANT (rep_op) */            if (rv != 0) {
+729: /* MUTANT (rep_const) */            if (rv < 1) {
+729: /* MUTANT (rep_const) */            if (rv < -1) {
+729: /* MUTANT (negate) */            if(! (rv < 0)) {
+730: /* MUTANT (del_stmt) */ /*                 return rv; */ 
+734: /* MUTANT (rep_const) */        fmt0 = fmt - 0;
+734: /* MUTANT (rep_const) */        fmt0 = fmt - -1;
+734: /* MUTANT (rep_const) */        fmt0 = fmt - ((1)+1);
+740: /* MUTANT (del_stmt) */ /*         flags = 0; */ 
+740: /* MUTANT (rep_const) */        flags = 1;
+740: /* MUTANT (rep_const) */        flags = -1;
+741: /* MUTANT (del_stmt) */ /*         c = *fmt++; */ 
+741: /* MUTANT (rep_op) */        c = *fmt--;
+742: /* MUTANT (rep_op) */        if (c != '%') {
+742: /* MUTANT (rep_op) */        if (c == '+') {
+742: /* MUTANT (rep_op) */        if (c == '-') {
+742: /* MUTANT (rep_op) */        if (c == '*') {
+742: /* MUTANT (negate) */        if(! (c == '%')) {
+744: /* MUTANT (del_stmt) */ /*             rv = (*ss->stuff)(ss, fmt - 1, 1); */ 
+744: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - 0, 1);
+744: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - -1, 1);
+744: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - ((1)+1), 1);
+744: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - 1, 0);
+744: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - 1, -1);
+744: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - 1, ((1)+1));
+745: /* MUTANT (rep_op) */            if (rv <= 0) {
+745: /* MUTANT (rep_op) */            if (rv > 0) {
+745: /* MUTANT (rep_op) */            if (rv >= 0) {
+745: /* MUTANT (rep_op) */            if (rv == 0) {
+745: /* MUTANT (rep_op) */            if (rv != 0) {
+745: /* MUTANT (rep_const) */            if (rv < 1) {
+745: /* MUTANT (rep_const) */            if (rv < -1) {
+745: /* MUTANT (negate) */            if(! (rv < 0)) {
+746: /* MUTANT (del_stmt) */ /*                 return rv; */ 
+751: /* MUTANT (rep_op) */        if( nas == NULL ){
+751: /* MUTANT (negate) */        if(!( nas != NULL )){
+753: /* MUTANT (del_stmt) */ /*             i = 0; */ 
+753: /* MUTANT (rep_const) */            i = 1;
+753: /* MUTANT (rep_const) */            i = -1;
+754: /* MUTANT (rep_op) */            while( c || c != '$' ){         /* should imporve error check later */
+754: /* MUTANT (rep_op) */            while( c && c == '$' ){         /* should imporve error check later */
+754: /* MUTANT (negate) */            while(!( c && c != '$' )){         /* should imporve error check later */
+755: /* MUTANT (del_stmt) */ /*                 i = ( i * 10 ) + ( c - '0' ); */ 
+755: /* MUTANT (rep_op) */                i = ( i * 10 ) - ( c - '0' );
+755: /* MUTANT (rep_op) */                i = ( i * 10 ) * ( c - '0' );
+755: /* MUTANT (rep_op) */                i = ( i * 10 ) % ( c - '0' );
+755: /* MUTANT (rep_const) */                i = ( i * 0 ) + ( c - '0' );
+755: /* MUTANT (rep_const) */                i = ( i * 1 ) + ( c - '0' );
+755: /* MUTANT (rep_const) */                i = ( i * -1 ) + ( c - '0' );
+755: /* MUTANT (rep_const) */                i = ( i * ((10)+1) ) + ( c - '0' );
+755: /* MUTANT (rep_const) */                i = ( i * ((10)-1) ) + ( c - '0' );
+755: /* MUTANT (rep_const) */                i = ( i * 10 ) + ( c - '1' );
+755: /* MUTANT (rep_const) */                i = ( i * 10 ) + ( c - '-1' );
+756: /* MUTANT (del_stmt) */ /*                 c = *fmt++; */ 
+756: /* MUTANT (rep_op) */                c = *fmt--;
+759: /* MUTANT (rep_op) */            if( nas[i-1].type != TYPE_UNKNOWN ){
+759: /* MUTANT (rep_const) */            if( nas[i-0].type == TYPE_UNKNOWN ){
+759: /* MUTANT (rep_const) */            if( nas[i--1].type == TYPE_UNKNOWN ){
+759: /* MUTANT (rep_const) */            if( nas[i-((1)+1)].type == TYPE_UNKNOWN ){
+759: /* MUTANT (negate) */            if(!( nas[i-1].type == TYPE_UNKNOWN )){
+760: /* MUTANT (rep_op) */                if( nas || ( nas != nasArray ) )
+760: /* MUTANT (rep_op) */                if( nas && ( nas == nasArray ) )
+760: /* MUTANT (negate) */                if(!( nas && ( nas != nasArray ) ))
+762: /* MUTANT (del_stmt) */ /*                 return -1; */ 
+762: /* MUTANT (rep_const) */                return 0;
+762: /* MUTANT (rep_const) */                return 1;
+762: /* MUTANT (rep_const) */                return ((-1)+1);
+762: /* MUTANT (rep_const) */                return ((-1)-1);
+765: /* MUTANT (rep_const) */            ap = nas[i-0].ap;
+765: /* MUTANT (rep_const) */            ap = nas[i--1].ap;
+765: /* MUTANT (rep_const) */            ap = nas[i-((1)+1)].ap;
+766: /* MUTANT (del_stmt) */ /*             dolPt = fmt; */ 
+767: /* MUTANT (del_stmt) */ /*             c = *fmt++; */ 
+767: /* MUTANT (rep_op) */            c = *fmt--;
+777: /* MUTANT (rep_op) */        while ((c != '-') || (c == '+') || (c == ' ') || (c == '0')) {
+777: /* MUTANT (rep_op) */        while ((c == '-') && (c == '+') || (c == ' ') || (c == '0')) {
+777: /* MUTANT (rep_op) */        while ((c == '-') || (c != '+') || (c == ' ') || (c == '0')) {
+777: /* MUTANT (rep_op) */        while ((c == '-') || (c == '-') || (c == ' ') || (c == '0')) {
+777: /* MUTANT (rep_op) */        while ((c == '-') || (c == '*') || (c == ' ') || (c == '0')) {
+777: /* MUTANT (rep_op) */        while ((c == '-') || (c == '%') || (c == ' ') || (c == '0')) {
+777: /* MUTANT (rep_op) */        while ((c == '-') || (c == '+') && (c == ' ') || (c == '0')) {
+777: /* MUTANT (rep_op) */        while ((c == '-') || (c == '+') || (c != ' ') || (c == '0')) {
+777: /* MUTANT (rep_op) */        while ((c == '-') || (c == '+') || (c == ' ') && (c == '0')) {
+777: /* MUTANT (rep_op) */        while ((c == '-') || (c == '+') || (c == ' ') || (c != '0')) {
+777: /* MUTANT (rep_const) */        while ((c == '-') || (c == '+') || (c == ' ') || (c == '1')) {
+777: /* MUTANT (rep_const) */        while ((c == '-') || (c == '+') || (c == ' ') || (c == '-1')) {
+777: /* MUTANT (negate) */        while(! ((c == '-') || (c == '+') || (c == ' ') || (c == '0'))) {
+778: /* MUTANT (del_stmt) */ /*             if (c == '-') flags |= FLAG_LEFT; */ 
+778: /* MUTANT (rep_op) */            if (c != '-') flags |= FLAG_LEFT;
+778: /* MUTANT (negate) */            if(! (c == '-')) flags |= FLAG_LEFT;
+779: /* MUTANT (del_stmt) */ /*             if (c == '+') flags |= FLAG_SIGNED; */ 
+779: /* MUTANT (rep_op) */            if (c != '+') flags |= FLAG_SIGNED;
+779: /* MUTANT (rep_op) */            if (c == '-') flags |= FLAG_SIGNED;
+779: /* MUTANT (rep_op) */            if (c == '*') flags |= FLAG_SIGNED;
+779: /* MUTANT (rep_op) */            if (c == '%') flags |= FLAG_SIGNED;
+779: /* MUTANT (negate) */            if(! (c == '+')) flags |= FLAG_SIGNED;
+780: /* MUTANT (del_stmt) */ /*             if (c == ' ') flags |= FLAG_SPACED; */ 
+780: /* MUTANT (rep_op) */            if (c != ' ') flags |= FLAG_SPACED;
+780: /* MUTANT (negate) */            if(! (c == ' ')) flags |= FLAG_SPACED;
+781: /* MUTANT (del_stmt) */ /*             if (c == '0') flags |= FLAG_ZEROS; */ 
+781: /* MUTANT (rep_op) */            if (c != '0') flags |= FLAG_ZEROS;
+781: /* MUTANT (rep_const) */            if (c == '1') flags |= FLAG_ZEROS;
+781: /* MUTANT (rep_const) */            if (c == '-1') flags |= FLAG_ZEROS;
+781: /* MUTANT (negate) */            if(! (c == '0')) flags |= FLAG_ZEROS;
+782: /* MUTANT (del_stmt) */ /*             c = *fmt++; */ 
+782: /* MUTANT (rep_op) */            c = *fmt--;
+784: /* MUTANT (negate) */        if(! (flags & FLAG_SIGNED)) flags &= ~FLAG_SPACED;
+785: /* MUTANT (del_stmt) */ /*         if (flags & FLAG_LEFT) flags &= ~FLAG_ZEROS; */ 
+785: /* MUTANT (negate) */        if(! (flags & FLAG_LEFT)) flags &= ~FLAG_ZEROS;
+788: /* MUTANT (rep_op) */        if (c != '*') {
+788: /* MUTANT (negate) */        if(! (c == '*')) {
+789: /* MUTANT (del_stmt) */ /*             c = *fmt++; */ 
+789: /* MUTANT (rep_op) */            c = *fmt--;
+790: /* MUTANT (del_stmt) */ /*             width = va_arg(ap, int); */ 
+792: /* MUTANT (del_stmt) */ /*             width = 0; */ 
+792: /* MUTANT (rep_const) */            width = 1;
+792: /* MUTANT (rep_const) */            width = -1;
+793: /* MUTANT (rep_op) */            while ((c <= '0') && (c <= '9')) {
+793: /* MUTANT (rep_op) */            while ((c < '0') && (c <= '9')) {
+793: /* MUTANT (rep_op) */            while ((c > '0') && (c <= '9')) {
+793: /* MUTANT (rep_op) */            while ((c == '0') && (c <= '9')) {
+793: /* MUTANT (rep_op) */            while ((c != '0') && (c <= '9')) {
+793: /* MUTANT (rep_op) */            while ((c >= '0') || (c <= '9')) {
+793: /* MUTANT (rep_op) */            while ((c >= '0') && (c < '9')) {
+793: /* MUTANT (rep_op) */            while ((c >= '0') && (c > '9')) {
+793: /* MUTANT (rep_op) */            while ((c >= '0') && (c >= '9')) {
+793: /* MUTANT (rep_op) */            while ((c >= '0') && (c == '9')) {
+793: /* MUTANT (rep_op) */            while ((c >= '0') && (c != '9')) {
+793: /* MUTANT (rep_const) */            while ((c >= '1') && (c <= '9')) {
+793: /* MUTANT (rep_const) */            while ((c >= '-1') && (c <= '9')) {
+793: /* MUTANT (rep_const) */            while ((c >= '0') && (c <= '0')) {
+793: /* MUTANT (rep_const) */            while ((c >= '0') && (c <= '1')) {
+793: /* MUTANT (rep_const) */            while ((c >= '0') && (c <= '-1')) {
+793: /* MUTANT (rep_const) */            while ((c >= '0') && (c <= '((9)+1)')) {
+793: /* MUTANT (rep_const) */            while ((c >= '0') && (c <= '((9)-1)')) {
+793: /* MUTANT (negate) */            while(! ((c >= '0') && (c <= '9'))) {
+794: /* MUTANT (del_stmt) */ /*                 width = (width * 10) + (c - '0'); */ 
+794: /* MUTANT (rep_op) */                width = (width * 10) - (c - '0');
+794: /* MUTANT (rep_op) */                width = (width * 10) * (c - '0');
+794: /* MUTANT (rep_op) */                width = (width * 10) % (c - '0');
+794: /* MUTANT (rep_const) */                width = (width * 0) + (c - '0');
+794: /* MUTANT (rep_const) */                width = (width * 1) + (c - '0');
+794: /* MUTANT (rep_const) */                width = (width * -1) + (c - '0');
+794: /* MUTANT (rep_const) */                width = (width * ((10)+1)) + (c - '0');
+794: /* MUTANT (rep_const) */                width = (width * ((10)-1)) + (c - '0');
+794: /* MUTANT (rep_const) */                width = (width * 10) + (c - '1');
+794: /* MUTANT (rep_const) */                width = (width * 10) + (c - '-1');
+795: /* MUTANT (del_stmt) */ /*                 c = *fmt++; */ 
+795: /* MUTANT (rep_op) */                c = *fmt--;
+800: /* MUTANT (rep_const) */        prec = 0;
+800: /* MUTANT (rep_const) */        prec = 1;
+800: /* MUTANT (rep_const) */        prec = ((-1)+1);
+800: /* MUTANT (rep_const) */        prec = ((-1)-1);
+801: /* MUTANT (rep_op) */        if (c != '.') {
+801: /* MUTANT (negate) */        if(! (c == '.')) {
+802: /* MUTANT (del_stmt) */ /*             c = *fmt++; */ 
+802: /* MUTANT (rep_op) */            c = *fmt--;
+803: /* MUTANT (rep_op) */            if (c != '*') {
+803: /* MUTANT (negate) */            if(! (c == '*')) {
+804: /* MUTANT (del_stmt) */ /*                 c = *fmt++; */ 
+804: /* MUTANT (rep_op) */                c = *fmt--;
+805: /* MUTANT (del_stmt) */ /*                 prec = va_arg(ap, int); */ 
+807: /* MUTANT (del_stmt) */ /*                 prec = 0; */ 
+807: /* MUTANT (rep_const) */                prec = 1;
+807: /* MUTANT (rep_const) */                prec = -1;
+808: /* MUTANT (rep_op) */                while ((c <= '0') && (c <= '9')) {
+808: /* MUTANT (rep_op) */                while ((c < '0') && (c <= '9')) {
+808: /* MUTANT (rep_op) */                while ((c > '0') && (c <= '9')) {
+808: /* MUTANT (rep_op) */                while ((c == '0') && (c <= '9')) {
+808: /* MUTANT (rep_op) */                while ((c != '0') && (c <= '9')) {
+808: /* MUTANT (rep_op) */                while ((c >= '0') || (c <= '9')) {
+808: /* MUTANT (rep_op) */                while ((c >= '0') && (c < '9')) {
+808: /* MUTANT (rep_op) */                while ((c >= '0') && (c > '9')) {
+808: /* MUTANT (rep_op) */                while ((c >= '0') && (c >= '9')) {
+808: /* MUTANT (rep_op) */                while ((c >= '0') && (c == '9')) {
+808: /* MUTANT (rep_op) */                while ((c >= '0') && (c != '9')) {
+808: /* MUTANT (rep_const) */                while ((c >= '1') && (c <= '9')) {
+808: /* MUTANT (rep_const) */                while ((c >= '-1') && (c <= '9')) {
+808: /* MUTANT (rep_const) */                while ((c >= '0') && (c <= '0')) {
+808: /* MUTANT (rep_const) */                while ((c >= '0') && (c <= '1')) {
+808: /* MUTANT (rep_const) */                while ((c >= '0') && (c <= '-1')) {
+808: /* MUTANT (rep_const) */                while ((c >= '0') && (c <= '((9)+1)')) {
+808: /* MUTANT (rep_const) */                while ((c >= '0') && (c <= '((9)-1)')) {
+808: /* MUTANT (negate) */                while(! ((c >= '0') && (c <= '9'))) {
+809: /* MUTANT (del_stmt) */ /*                     prec = (prec * 10) + (c - '0'); */ 
+809: /* MUTANT (rep_op) */                    prec = (prec * 10) - (c - '0');
+809: /* MUTANT (rep_op) */                    prec = (prec * 10) * (c - '0');
+809: /* MUTANT (rep_op) */                    prec = (prec * 10) % (c - '0');
+809: /* MUTANT (rep_const) */                    prec = (prec * 0) + (c - '0');
+809: /* MUTANT (rep_const) */                    prec = (prec * 1) + (c - '0');
+809: /* MUTANT (rep_const) */                    prec = (prec * -1) + (c - '0');
+809: /* MUTANT (rep_const) */                    prec = (prec * ((10)+1)) + (c - '0');
+809: /* MUTANT (rep_const) */                    prec = (prec * ((10)-1)) + (c - '0');
+809: /* MUTANT (rep_const) */                    prec = (prec * 10) + (c - '1');
+809: /* MUTANT (rep_const) */                    prec = (prec * 10) + (c - '-1');
+810: /* MUTANT (del_stmt) */ /*                     c = *fmt++; */ 
+810: /* MUTANT (rep_op) */                    c = *fmt--;
+817: /* MUTANT (rep_op) */        if (c != 'h') {
+817: /* MUTANT (negate) */        if(! (c == 'h')) {
+818: /* MUTANT (del_stmt) */ /*             type = TYPE_INT16; */ 
+819: /* MUTANT (del_stmt) */ /*             c = *fmt++; */ 
+819: /* MUTANT (rep_op) */            c = *fmt--;
+820: /* MUTANT (rep_op) */        } else if (c != 'L') {
+820: /* MUTANT (negate) */        } else if(! (c == 'L')) {
+822: /* MUTANT (del_stmt) */ /*             type = TYPE_INT64; */ 
+823: /* MUTANT (del_stmt) */ /*             c = *fmt++; */ 
+823: /* MUTANT (rep_op) */            c = *fmt--;
+824: /* MUTANT (rep_op) */        } else if (c != 'l') {
+824: /* MUTANT (negate) */        } else if(! (c == 'l')) {
+825: /* MUTANT (del_stmt) */ /*             type = TYPE_INT32; */ 
+826: /* MUTANT (del_stmt) */ /*             c = *fmt++; */ 
+826: /* MUTANT (rep_op) */            c = *fmt--;
+827: /* MUTANT (rep_op) */            if (c != 'l') {
+827: /* MUTANT (negate) */            if(! (c == 'l')) {
+828: /* MUTANT (del_stmt) */ /*                 type = TYPE_INT64; */ 
+829: /* MUTANT (del_stmt) */ /*                 c = *fmt++; */ 
+829: /* MUTANT (rep_op) */                c = *fmt--;
+837: /* MUTANT (rep_const) */            radix = 0;
+837: /* MUTANT (rep_const) */            radix = 1;
+837: /* MUTANT (rep_const) */            radix = -1;
+837: /* MUTANT (rep_const) */            radix = ((10)+1);
+837: /* MUTANT (rep_const) */            radix = ((10)-1);
+838: /* MUTANT (del_stmt) */ /*             goto fetch_and_convert; */ 
+841: /* MUTANT (rep_const) */            radix = 0;
+841: /* MUTANT (rep_const) */            radix = 1;
+841: /* MUTANT (rep_const) */            radix = -1;
+841: /* MUTANT (rep_const) */            radix = ((8)+1);
+841: /* MUTANT (rep_const) */            radix = ((8)-1);
+842: /* MUTANT (del_stmt) */ /*             type |= 1; */ 
+842: /* MUTANT (rep_const) */            type |= 0;
+842: /* MUTANT (rep_const) */            type |= -1;
+842: /* MUTANT (rep_const) */            type |= ((1)+1);
+843: /* MUTANT (del_stmt) */ /*             goto fetch_and_convert; */ 
+846: /* MUTANT (rep_const) */            radix = 0;
+846: /* MUTANT (rep_const) */            radix = 1;
+846: /* MUTANT (rep_const) */            radix = -1;
+846: /* MUTANT (rep_const) */            radix = ((10)+1);
+846: /* MUTANT (rep_const) */            radix = ((10)-1);
+847: /* MUTANT (del_stmt) */ /*             type |= 1; */ 
+847: /* MUTANT (rep_const) */            type |= 0;
+847: /* MUTANT (rep_const) */            type |= -1;
+847: /* MUTANT (rep_const) */            type |= ((1)+1);
+848: /* MUTANT (del_stmt) */ /*             goto fetch_and_convert; */ 
+851: /* MUTANT (rep_const) */            radix = 0;
+851: /* MUTANT (rep_const) */            radix = 1;
+851: /* MUTANT (rep_const) */            radix = -1;
+851: /* MUTANT (rep_const) */            radix = ((16)+1);
+851: /* MUTANT (rep_const) */            radix = ((16)-1);
+852: /* MUTANT (del_stmt) */ /*             type |= 1; */ 
+852: /* MUTANT (rep_const) */            type |= 0;
+852: /* MUTANT (rep_const) */            type |= -1;
+852: /* MUTANT (rep_const) */            type |= ((1)+1);
+853: /* MUTANT (del_stmt) */ /*             goto fetch_and_convert; */ 
+856: /* MUTANT (rep_const) */            radix = 0;
+856: /* MUTANT (rep_const) */            radix = 1;
+856: /* MUTANT (rep_const) */            radix = -1;
+856: /* MUTANT (rep_const) */            radix = ((16)+1);
+856: /* MUTANT (rep_const) */            radix = ((16)-1);
+857: /* MUTANT (del_stmt) */ /*             hexp = HEX; */ 
+858: /* MUTANT (del_stmt) */ /*             type |= 1; */ 
+858: /* MUTANT (rep_const) */            type |= 0;
+858: /* MUTANT (rep_const) */            type |= -1;
+858: /* MUTANT (rep_const) */            type |= ((1)+1);
+859: /* MUTANT (del_stmt) */ /*             goto fetch_and_convert; */ 
+865: /* MUTANT (rep_op) */                if (u.l <= 0) {
+865: /* MUTANT (rep_op) */                if (u.l > 0) {
+865: /* MUTANT (rep_op) */                if (u.l >= 0) {
+865: /* MUTANT (rep_op) */                if (u.l == 0) {
+865: /* MUTANT (rep_op) */                if (u.l != 0) {
+865: /* MUTANT (rep_const) */                if (u.l < 1) {
+865: /* MUTANT (rep_const) */                if (u.l < -1) {
+865: /* MUTANT (negate) */                if(! (u.l < 0)) {
+866: /* MUTANT (del_stmt) */ /*                     u.l = -u.l; */ 
+867: /* MUTANT (del_stmt) */ /*                     flags |= FLAG_NEG; */ 
+871: /* MUTANT (rep_const) */                u.l = va_arg(ap, int) & 1xffff;
+871: /* MUTANT (rep_const) */                u.l = va_arg(ap, int) & -1xffff;
+872: /* MUTANT (del_stmt) */ /*                 goto do_long; */ 
+875: /* MUTANT (rep_op) */                if (u.l <= 0) {
+875: /* MUTANT (rep_op) */                if (u.l > 0) {
+875: /* MUTANT (rep_op) */                if (u.l >= 0) {
+875: /* MUTANT (rep_op) */                if (u.l == 0) {
+875: /* MUTANT (rep_op) */                if (u.l != 0) {
+875: /* MUTANT (rep_const) */                if (u.l < 1) {
+875: /* MUTANT (rep_const) */                if (u.l < -1) {
+875: /* MUTANT (negate) */                if(! (u.l < 0)) {
+876: /* MUTANT (del_stmt) */ /*                     u.l = -u.l; */ 
+877: /* MUTANT (del_stmt) */ /*                     flags |= FLAG_NEG; */ 
+882: /* MUTANT (del_stmt) */ /*                 goto do_long; */ 
+886: /* MUTANT (rep_op) */                if (u.l <= 0) {
+886: /* MUTANT (rep_op) */                if (u.l > 0) {
+886: /* MUTANT (rep_op) */                if (u.l >= 0) {
+886: /* MUTANT (rep_op) */                if (u.l == 0) {
+886: /* MUTANT (rep_op) */                if (u.l != 0) {
+886: /* MUTANT (rep_const) */                if (u.l < 1) {
+886: /* MUTANT (rep_const) */                if (u.l < -1) {
+886: /* MUTANT (negate) */                if(! (u.l < 0)) {
+887: /* MUTANT (del_stmt) */ /*                     u.l = -u.l; */ 
+888: /* MUTANT (del_stmt) */ /*                     flags |= FLAG_NEG; */ 
+895: /* MUTANT (rep_op) */                if (rv <= 0) {
+895: /* MUTANT (rep_op) */                if (rv > 0) {
+895: /* MUTANT (rep_op) */                if (rv >= 0) {
+895: /* MUTANT (rep_op) */                if (rv == 0) {
+895: /* MUTANT (rep_op) */                if (rv != 0) {
+895: /* MUTANT (rep_const) */                if (rv < 1) {
+895: /* MUTANT (rep_const) */                if (rv < -1) {
+895: /* MUTANT (negate) */                if(! (rv < 0)) {
+896: /* MUTANT (del_stmt) */ /*                     return rv; */ 
+902: /* MUTANT (negate) */                if(! (!JSLL_GE_ZERO(u.ll))) {
+903: /* MUTANT (del_stmt) */ /*                     JSLL_NEG(u.ll, u.ll); */ 
+904: /* MUTANT (del_stmt) */ /*                     flags |= FLAG_NEG; */ 
+911: /* MUTANT (rep_op) */                if (rv <= 0) {
+911: /* MUTANT (rep_op) */                if (rv > 0) {
+911: /* MUTANT (rep_op) */                if (rv >= 0) {
+911: /* MUTANT (rep_op) */                if (rv == 0) {
+911: /* MUTANT (rep_op) */                if (rv != 0) {
+911: /* MUTANT (rep_const) */                if (rv < 1) {
+911: /* MUTANT (rep_const) */                if (rv < -1) {
+911: /* MUTANT (negate) */                if(! (rv < 0)) {
+912: /* MUTANT (del_stmt) */ /*                     return rv; */ 
+923: /* MUTANT (rep_op) */            if( nas == NULL ){
+923: /* MUTANT (negate) */            if(!( nas != NULL )){
+924: /* MUTANT (del_stmt) */ /*                 i = fmt - dolPt; */ 
+925: /* MUTANT (rep_op) */                if( i <= (int)sizeof( pattern ) ){
+925: /* MUTANT (rep_op) */                if( i > (int)sizeof( pattern ) ){
+925: /* MUTANT (rep_op) */                if( i >= (int)sizeof( pattern ) ){
+925: /* MUTANT (rep_op) */                if( i == (int)sizeof( pattern ) ){
+925: /* MUTANT (rep_op) */                if( i != (int)sizeof( pattern ) ){
+925: /* MUTANT (negate) */                if(!( i < (int)sizeof( pattern ) )){
+926: /* MUTANT (del_stmt) */ /*                     pattern[0] = '%'; */ 
+926: /* MUTANT (rep_op) */                    pattern[0] = '+';
+926: /* MUTANT (rep_op) */                    pattern[0] = '-';
+926: /* MUTANT (rep_op) */                    pattern[0] = '*';
+926: /* MUTANT (rep_const) */                    pattern[1] = '%';
+926: /* MUTANT (rep_const) */                    pattern[-1] = '%';
+927: /* MUTANT (del_stmt) */ /*                     memcpy( &pattern[1], dolPt, (size_t)i ); */ 
+927: /* MUTANT (rep_const) */                    memcpy( &pattern[0], dolPt, (size_t)i );
+927: /* MUTANT (rep_const) */                    memcpy( &pattern[-1], dolPt, (size_t)i );
+927: /* MUTANT (rep_const) */                    memcpy( &pattern[((1)+1)], dolPt, (size_t)i );
+928: /* MUTANT (del_stmt) */ /*                     rv = cvt_f(ss, u.d, pattern, &pattern[i+1] ); */ 
+928: /* MUTANT (rep_op) */                    rv = cvt_f(ss, u.d, pattern, &pattern[i-1] );
+928: /* MUTANT (rep_op) */                    rv = cvt_f(ss, u.d, pattern, &pattern[i*1] );
+928: /* MUTANT (rep_op) */                    rv = cvt_f(ss, u.d, pattern, &pattern[i%1] );
+928: /* MUTANT (rep_const) */                    rv = cvt_f(ss, u.d, pattern, &pattern[i+0] );
+928: /* MUTANT (rep_const) */                    rv = cvt_f(ss, u.d, pattern, &pattern[i+-1] );
+928: /* MUTANT (rep_const) */                    rv = cvt_f(ss, u.d, pattern, &pattern[i+((1)+1)] );
+933: /* MUTANT (rep_op) */            if (rv <= 0) {
+933: /* MUTANT (rep_op) */            if (rv > 0) {
+933: /* MUTANT (rep_op) */            if (rv >= 0) {
+933: /* MUTANT (rep_op) */            if (rv == 0) {
+933: /* MUTANT (rep_op) */            if (rv != 0) {
+933: /* MUTANT (rep_const) */            if (rv < 1) {
+933: /* MUTANT (rep_const) */            if (rv < -1) {
+933: /* MUTANT (negate) */            if(! (rv < 0)) {
+934: /* MUTANT (del_stmt) */ /*                 return rv; */ 
+939: /* MUTANT (rep_op) */            if ((flags & FLAG_LEFT) != 0) {
+939: /* MUTANT (rep_const) */            if ((flags & FLAG_LEFT) == 1) {
+939: /* MUTANT (rep_const) */            if ((flags & FLAG_LEFT) == -1) {
+939: /* MUTANT (negate) */            if(! ((flags & FLAG_LEFT) == 0)) {
+940: /* MUTANT (rep_op) */                while (width++ > 1) {
+940: /* MUTANT (rep_op) */                while (width-- <= 1) {
+940: /* MUTANT (rep_op) */                while (width-- < 1) {
+940: /* MUTANT (rep_op) */                while (width-- >= 1) {
+940: /* MUTANT (rep_op) */                while (width-- == 1) {
+940: /* MUTANT (rep_op) */                while (width-- != 1) {
+940: /* MUTANT (rep_const) */                while (width-- > 0) {
+940: /* MUTANT (rep_const) */                while (width-- > -1) {
+940: /* MUTANT (rep_const) */                while (width-- > ((1)+1)) {
+940: /* MUTANT (negate) */                while(! (width-- > 1)) {
+941: /* MUTANT (del_stmt) */ /*                     rv = (*ss->stuff)(ss, " ", 1); */ 
+941: /* MUTANT (rep_const) */                    rv = (*ss->stuff)(ss, " ", 0);
+941: /* MUTANT (rep_const) */                    rv = (*ss->stuff)(ss, " ", -1);
+941: /* MUTANT (rep_const) */                    rv = (*ss->stuff)(ss, " ", ((1)+1));
+942: /* MUTANT (rep_op) */                    if (rv <= 0) {
+942: /* MUTANT (rep_op) */                    if (rv > 0) {
+942: /* MUTANT (rep_op) */                    if (rv >= 0) {
+942: /* MUTANT (rep_op) */                    if (rv == 0) {
+942: /* MUTANT (rep_op) */                    if (rv != 0) {
+942: /* MUTANT (rep_const) */                    if (rv < 1) {
+942: /* MUTANT (rep_const) */                    if (rv < -1) {
+942: /* MUTANT (negate) */                    if(! (rv < 0)) {
+943: /* MUTANT (del_stmt) */ /*                         return rv; */ 
+952: /* MUTANT (del_stmt) */ /*                 utf8len = js_OneUcs4ToUtf8Char (utf8buf, u.wch); */ 
+953: /* MUTANT (del_stmt) */ /*                 rv = (*ss->stuff)(ss, utf8buf, utf8len); */ 
+954: /* MUTANT (del_stmt) */ /*                 break; */ 
+958: /* MUTANT (del_stmt) */ /*                 rv = (*ss->stuff)(ss, &u.ch, 1); */ 
+958: /* MUTANT (rep_const) */                rv = (*ss->stuff)(ss, &u.ch, 0);
+958: /* MUTANT (rep_const) */                rv = (*ss->stuff)(ss, &u.ch, -1);
+958: /* MUTANT (rep_const) */                rv = (*ss->stuff)(ss, &u.ch, ((1)+1));
+959: /* MUTANT (del_stmt) */ /*                 break; */ 
+961: /* MUTANT (rep_op) */            if (rv <= 0) {
+961: /* MUTANT (rep_op) */            if (rv > 0) {
+961: /* MUTANT (rep_op) */            if (rv >= 0) {
+961: /* MUTANT (rep_op) */            if (rv == 0) {
+961: /* MUTANT (rep_op) */            if (rv != 0) {
+961: /* MUTANT (rep_const) */            if (rv < 1) {
+961: /* MUTANT (rep_const) */            if (rv < -1) {
+961: /* MUTANT (negate) */            if(! (rv < 0)) {
+962: /* MUTANT (del_stmt) */ /*                 return rv; */ 
+964: /* MUTANT (negate) */            if(! (flags & FLAG_LEFT)) {
+965: /* MUTANT (rep_op) */                while (width++ > 1) {
+965: /* MUTANT (rep_op) */                while (width-- <= 1) {
+965: /* MUTANT (rep_op) */                while (width-- < 1) {
+965: /* MUTANT (rep_op) */                while (width-- >= 1) {
+965: /* MUTANT (rep_op) */                while (width-- == 1) {
+965: /* MUTANT (rep_op) */                while (width-- != 1) {
+965: /* MUTANT (rep_const) */                while (width-- > 0) {
+965: /* MUTANT (rep_const) */                while (width-- > -1) {
+965: /* MUTANT (rep_const) */                while (width-- > ((1)+1)) {
+965: /* MUTANT (negate) */                while(! (width-- > 1)) {
+966: /* MUTANT (del_stmt) */ /*                     rv = (*ss->stuff)(ss, " ", 1); */ 
+966: /* MUTANT (rep_const) */                    rv = (*ss->stuff)(ss, " ", 0);
+966: /* MUTANT (rep_const) */                    rv = (*ss->stuff)(ss, " ", -1);
+966: /* MUTANT (rep_const) */                    rv = (*ss->stuff)(ss, " ", ((1)+1));
+967: /* MUTANT (rep_op) */                    if (rv <= 0) {
+967: /* MUTANT (rep_op) */                    if (rv > 0) {
+967: /* MUTANT (rep_op) */                    if (rv >= 0) {
+967: /* MUTANT (rep_op) */                    if (rv == 0) {
+967: /* MUTANT (rep_op) */                    if (rv != 0) {
+967: /* MUTANT (rep_const) */                    if (rv < 1) {
+967: /* MUTANT (rep_const) */                    if (rv < -1) {
+967: /* MUTANT (negate) */                    if(! (rv < 0)) {
+968: /* MUTANT (del_stmt) */ /*                         return rv; */ 
+975: /* MUTANT (rep_op) */            if (sizeof(void *) != sizeof(JSInt32)) {
+975: /* MUTANT (negate) */            if(! (sizeof(void *) == sizeof(JSInt32))) {
+976: /* MUTANT (del_stmt) */ /*                 type = TYPE_UINT32; */ 
+977: /* MUTANT (rep_op) */            } else if (sizeof(void *) != sizeof(JSInt64)) {
+977: /* MUTANT (negate) */            } else if(! (sizeof(void *) == sizeof(JSInt64))) {
+978: /* MUTANT (del_stmt) */ /*                 type = TYPE_UINT64; */ 
+979: /* MUTANT (rep_op) */            } else if (sizeof(void *) != sizeof(int)) {
+979: /* MUTANT (negate) */            } else if(! (sizeof(void *) == sizeof(int))) {
+980: /* MUTANT (del_stmt) */ /*                 type = TYPE_UINTN; */ 
+982: /* MUTANT (del_stmt) */ /*                 JS_ASSERT(0); */ 
+982: /* MUTANT (rep_const) */                JS_ASSERT(1);
+982: /* MUTANT (rep_const) */                JS_ASSERT(-1);
+983: /* MUTANT (del_stmt) */ /*                 break; */ 
+985: /* MUTANT (rep_const) */            radix = 0;
+985: /* MUTANT (rep_const) */            radix = 1;
+985: /* MUTANT (rep_const) */            radix = -1;
+985: /* MUTANT (rep_const) */            radix = ((16)+1);
+985: /* MUTANT (rep_const) */            radix = ((16)-1);
+986: /* MUTANT (del_stmt) */ /*             goto fetch_and_convert; */ 
+988: #if 1 /* MUTANT (rep_const) */
+988: #if -1 /* MUTANT (rep_const) */
+994: /* MUTANT (rep_const) */            JS_ASSERT(1);
+994: /* MUTANT (rep_const) */            JS_ASSERT(-1);
+995: /* MUTANT (del_stmt) */ /*             break; */ 
+999: /* MUTANT (rep_op) */            if(type != TYPE_INT16) {
+999: /* MUTANT (negate) */            if(!(type == TYPE_INT16)) {
+1004: /* MUTANT (del_stmt) */ /*                 u.ws = va_arg(ap, const jschar*); */ 
+1005: /* MUTANT (del_stmt) */ /*                 rv = cvt_ws(ss, u.ws, width, prec, flags); */ 
+1007: /* MUTANT (del_stmt) */ /*                 u.s = va_arg(ap, const char*); */ 
+1008: /* MUTANT (del_stmt) */ /*                 rv = cvt_s(ss, u.s, width, prec, flags); */ 
+1010: /* MUTANT (rep_op) */            if (rv <= 0) {
+1010: /* MUTANT (rep_op) */            if (rv > 0) {
+1010: /* MUTANT (rep_op) */            if (rv >= 0) {
+1010: /* MUTANT (rep_op) */            if (rv == 0) {
+1010: /* MUTANT (rep_op) */            if (rv != 0) {
+1010: /* MUTANT (rep_const) */            if (rv < 1) {
+1010: /* MUTANT (rep_const) */            if (rv < -1) {
+1010: /* MUTANT (negate) */            if(! (rv < 0)) {
+1011: /* MUTANT (del_stmt) */ /*                 return rv; */ 
+1017: /* MUTANT (negate) */            if(! (u.ip)) {
+1018: /* MUTANT (del_stmt) */ /*                 *u.ip = ss->cur - ss->base; */ 
+1024: #if 1 /* MUTANT (rep_const) */
+1024: #if -1 /* MUTANT (rep_const) */
+1025: /* MUTANT (rep_const) */            JS_ASSERT(1);
+1025: /* MUTANT (rep_const) */            JS_ASSERT(-1);
+1027: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, "%", 0);
+1027: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, "%", -1);
+1027: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, "%", ((1)+1));
+1028: /* MUTANT (rep_op) */            if (rv <= 0) {
+1028: /* MUTANT (rep_op) */            if (rv > 0) {
+1028: /* MUTANT (rep_op) */            if (rv >= 0) {
+1028: /* MUTANT (rep_op) */            if (rv == 0) {
+1028: /* MUTANT (rep_op) */            if (rv != 0) {
+1028: /* MUTANT (rep_const) */            if (rv < 1) {
+1028: /* MUTANT (rep_const) */            if (rv < -1) {
+1028: /* MUTANT (negate) */            if(! (rv < 0)) {
+1029: /* MUTANT (del_stmt) */ /*                 return rv; */ 
+1031: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - 0, 1);
+1031: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - -1, 1);
+1031: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - ((1)+1), 1);
+1031: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - 1, 0);
+1031: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - 1, -1);
+1031: /* MUTANT (rep_const) */            rv = (*ss->stuff)(ss, fmt - 1, ((1)+1));
+1032: /* MUTANT (rep_op) */            if (rv <= 0) {
+1032: /* MUTANT (rep_op) */            if (rv > 0) {
+1032: /* MUTANT (rep_op) */            if (rv >= 0) {
+1032: /* MUTANT (rep_op) */            if (rv == 0) {
+1032: /* MUTANT (rep_op) */            if (rv != 0) {
+1032: /* MUTANT (rep_const) */            if (rv < 1) {
+1032: /* MUTANT (rep_const) */            if (rv < -1) {
+1032: /* MUTANT (negate) */            if(! (rv < 0)) {
+1033: /* MUTANT (del_stmt) */ /*                 return rv; */ 
+1039: /* MUTANT (rep_const) */    rv = (*ss->stuff)(ss, "\1", 1);
+1039: /* MUTANT (rep_const) */    rv = (*ss->stuff)(ss, "\-1", 1);
+1039: /* MUTANT (rep_const) */    rv = (*ss->stuff)(ss, "\0", 0);
+1039: /* MUTANT (rep_const) */    rv = (*ss->stuff)(ss, "\0", -1);
+1039: /* MUTANT (rep_const) */    rv = (*ss->stuff)(ss, "\0", ((1)+1));
+1041: /* MUTANT (rep_op) */    if( nas || ( nas != nasArray ) ){
+1041: /* MUTANT (rep_op) */    if( nas && ( nas == nasArray ) ){
+1041: /* MUTANT (negate) */    if(!( nas && ( nas != nasArray ) )){
+1042: /* MUTANT (del_stmt) */ /*         free( nas ); */ 
+1052: /* MUTANT (del_stmt) */ /*     int rv; */ 
+1054: /* MUTANT (del_stmt) */ /*     rv = (*ss->func)(ss->arg, sp, len); */ 
+1055: /* MUTANT (rep_op) */    if (rv <= 0) {
+1055: /* MUTANT (rep_op) */    if (rv > 0) {
+1055: /* MUTANT (rep_op) */    if (rv >= 0) {
+1055: /* MUTANT (rep_op) */    if (rv == 0) {
+1055: /* MUTANT (rep_op) */    if (rv != 0) {
+1055: /* MUTANT (rep_const) */    if (rv < 1) {
+1055: /* MUTANT (rep_const) */    if (rv < -1) {
+1055: /* MUTANT (negate) */    if(! (rv < 0)) {
+1056: /* MUTANT (del_stmt) */ /*         return rv; */ 
+1058: /* MUTANT (rep_op) */    ss->maxlen -= len;
+1058: /* MUTANT (rep_op) */    ss->maxlen *= len;
+1058: /* MUTANT (rep_op) */    ss->maxlen %= len;
+1059: /* MUTANT (del_stmt) */ /*     return 0; */ 
+1059: /* MUTANT (rep_const) */    return 1;
+1059: /* MUTANT (rep_const) */    return -1;
+1065: /* MUTANT (del_stmt) */ /*     va_list ap; */ 
+1066: /* MUTANT (del_stmt) */ /*     int rv; */ 
+1068: /* MUTANT (del_stmt) */ /*     va_start(ap, fmt); */ 
+1069: /* MUTANT (del_stmt) */ /*     rv = JS_vsxprintf(func, arg, fmt, ap); */ 
+1070: /* MUTANT (del_stmt) */ /*     va_end(ap); */ 
+1071: /* MUTANT (del_stmt) */ /*     return rv; */ 
+1077: /* MUTANT (del_stmt) */ /*     SprintfState ss; */ 
+1078: /* MUTANT (del_stmt) */ /*     int rv; */ 
+1080: /* MUTANT (del_stmt) */ /*     ss.stuff = FuncStuff; */ 
+1081: /* MUTANT (del_stmt) */ /*     ss.func = func; */ 
+1082: /* MUTANT (del_stmt) */ /*     ss.arg = arg; */ 
+1083: /* MUTANT (del_stmt) */ /*     ss.maxlen = 0; */ 
+1083: /* MUTANT (rep_const) */    ss.maxlen = 1;
+1083: /* MUTANT (rep_const) */    ss.maxlen = -1;
+1084: /* MUTANT (del_stmt) */ /*     rv = dosprintf(&ss, fmt, ap); */ 
+1085: /* MUTANT (del_stmt) */ /*     return (rv < 0) ? (JSUint32)-1 : ss.maxlen; */ 
+1085: /* MUTANT (rep_op) */    return (rv <= 0) ? (JSUint32)-1 : ss.maxlen;
+1085: /* MUTANT (rep_op) */    return (rv > 0) ? (JSUint32)-1 : ss.maxlen;
+1085: /* MUTANT (rep_op) */    return (rv >= 0) ? (JSUint32)-1 : ss.maxlen;
+1085: /* MUTANT (rep_op) */    return (rv == 0) ? (JSUint32)-1 : ss.maxlen;
+1085: /* MUTANT (rep_op) */    return (rv != 0) ? (JSUint32)-1 : ss.maxlen;
+1085: /* MUTANT (rep_const) */    return (rv < 1) ? (JSUint32)-1 : ss.maxlen;
+1085: /* MUTANT (rep_const) */    return (rv < -1) ? (JSUint32)-1 : ss.maxlen;
+1085: /* MUTANT (rep_const) */    return (rv < 0) ? (JSUint32)0 : ss.maxlen;
+1085: /* MUTANT (rep_const) */    return (rv < 0) ? (JSUint32)1 : ss.maxlen;
+1085: /* MUTANT (rep_const) */    return (rv < 0) ? (JSUint32)((-1)+1) : ss.maxlen;
+1085: /* MUTANT (rep_const) */    return (rv < 0) ? (JSUint32)((-1)-1) : ss.maxlen;
+1094: /* MUTANT (del_stmt) */ /*     ptrdiff_t off; */ 
+1095: /* MUTANT (del_stmt) */ /*     char *newbase; */ 
+1096: /* MUTANT (del_stmt) */ /*     JSUint32 newlen; */ 
+1098: /* MUTANT (del_stmt) */ /*     off = ss->cur - ss->base; */ 
+1099: /* MUTANT (rep_op) */    if (off - len >= ss->maxlen) {
+1099: /* MUTANT (rep_op) */    if (off * len >= ss->maxlen) {
+1099: /* MUTANT (rep_op) */    if (off % len >= ss->maxlen) {
+1099: /* MUTANT (rep_op) */    if (off + len <= ss->maxlen) {
+1099: /* MUTANT (rep_op) */    if (off + len < ss->maxlen) {
+1099: /* MUTANT (rep_op) */    if (off + len > ss->maxlen) {
+1099: /* MUTANT (rep_op) */    if (off + len == ss->maxlen) {
+1099: /* MUTANT (rep_op) */    if (off + len != ss->maxlen) {
+1099: /* MUTANT (negate) */    if(! (off + len >= ss->maxlen)) {
+1101: /* MUTANT (del_stmt) */ /*         newlen = ss->maxlen + ((len > 32) ? len : 32); */ 
+1101: /* MUTANT (rep_op) */        newlen = ss->maxlen - ((len > 32) ? len : 32);
+1101: /* MUTANT (rep_op) */        newlen = ss->maxlen * ((len > 32) ? len : 32);
+1101: /* MUTANT (rep_op) */        newlen = ss->maxlen % ((len > 32) ? len : 32);
+1101: /* MUTANT (rep_op) */        newlen = ss->maxlen + ((len <= 32) ? len : 32);
+1101: /* MUTANT (rep_op) */        newlen = ss->maxlen + ((len < 32) ? len : 32);
+1101: /* MUTANT (rep_op) */        newlen = ss->maxlen + ((len >= 32) ? len : 32);
+1101: /* MUTANT (rep_op) */        newlen = ss->maxlen + ((len == 32) ? len : 32);
+1101: /* MUTANT (rep_op) */        newlen = ss->maxlen + ((len != 32) ? len : 32);
+1101: /* MUTANT (rep_const) */        newlen = ss->maxlen + ((len > 0) ? len : 32);
+1101: /* MUTANT (rep_const) */        newlen = ss->maxlen + ((len > 1) ? len : 32);
+1101: /* MUTANT (rep_const) */        newlen = ss->maxlen + ((len > -1) ? len : 32);
+1101: /* MUTANT (rep_const) */        newlen = ss->maxlen + ((len > ((32)+1)) ? len : 32);
+1101: /* MUTANT (rep_const) */        newlen = ss->maxlen + ((len > ((32)-1)) ? len : 32);
+1101: /* MUTANT (rep_const) */        newlen = ss->maxlen + ((len > 32) ? len : 0);
+1101: /* MUTANT (rep_const) */        newlen = ss->maxlen + ((len > 32) ? len : 1);
+1101: /* MUTANT (rep_const) */        newlen = ss->maxlen + ((len > 32) ? len : -1);
+1101: /* MUTANT (rep_const) */        newlen = ss->maxlen + ((len > 32) ? len : ((32)+1));
+1101: /* MUTANT (rep_const) */        newlen = ss->maxlen + ((len > 32) ? len : ((32)-1));
+1102: /* MUTANT (negate) */        if(! (ss->base)) {
+1103: /* MUTANT (del_stmt) */ /*             newbase = (char*) realloc(ss->base, newlen); */ 
+1105: /* MUTANT (del_stmt) */ /*             newbase = (char*) malloc(newlen); */ 
+1107: /* MUTANT (negate) */        if(! (!newbase)) {
+1109: /* MUTANT (del_stmt) */ /*             return -1; */ 
+1109: /* MUTANT (rep_const) */            return 0;
+1109: /* MUTANT (rep_const) */            return 1;
+1109: /* MUTANT (rep_const) */            return ((-1)+1);
+1109: /* MUTANT (rep_const) */            return ((-1)-1);
+1112: /* MUTANT (del_stmt) */ /*         ss->maxlen = newlen; */ 
+1113: /* MUTANT (del_stmt) */ /*         ss->cur = ss->base + off; */ 
+1113: /* MUTANT (rep_op) */        ss->cur = ss->base - off;
+1113: /* MUTANT (rep_op) */        ss->cur = ss->base * off;
+1113: /* MUTANT (rep_op) */        ss->cur = ss->base % off;
+1117: /* MUTANT (negate) */    while(! (len)) {
+1118: /* MUTANT (del_stmt) */ /*         --len; */ 
+1118: /* MUTANT (rep_op) */        ++len;
+1119: /* MUTANT (del_stmt) */ /*         *ss->cur++ = *sp++; */ 
+1119: /* MUTANT (rep_op) */        *ss->cur-- = *sp++;
+1119: /* MUTANT (rep_op) */        *ss->cur++ = *sp--;
+1121: /* MUTANT (rep_op) */    JS_ASSERT((JSUint32)(ss->cur - ss->base) < ss->maxlen);
+1121: /* MUTANT (rep_op) */    JS_ASSERT((JSUint32)(ss->cur - ss->base) > ss->maxlen);
+1121: /* MUTANT (rep_op) */    JS_ASSERT((JSUint32)(ss->cur - ss->base) >= ss->maxlen);
+1121: /* MUTANT (rep_op) */    JS_ASSERT((JSUint32)(ss->cur - ss->base) == ss->maxlen);
+1121: /* MUTANT (rep_op) */    JS_ASSERT((JSUint32)(ss->cur - ss->base) != ss->maxlen);
+1122: /* MUTANT (del_stmt) */ /*     return 0; */ 
+1122: /* MUTANT (rep_const) */    return 1;
+1122: /* MUTANT (rep_const) */    return -1;
+1130: /* MUTANT (del_stmt) */ /*     va_list ap; */ 
+1131: /* MUTANT (del_stmt) */ /*     char *rv; */ 
+1133: /* MUTANT (del_stmt) */ /*     va_start(ap, fmt); */ 
+1134: /* MUTANT (del_stmt) */ /*     rv = JS_vsmprintf(fmt, ap); */ 
+1135: /* MUTANT (del_stmt) */ /*     va_end(ap); */ 
+1136: /* MUTANT (del_stmt) */ /*     return rv; */ 
+1144: /* MUTANT (del_stmt) */ /*         free(mem); */ 
+1149: /* MUTANT (del_stmt) */ /*     SprintfState ss; */ 
+1150: /* MUTANT (del_stmt) */ /*     int rv; */ 
+1152: /* MUTANT (del_stmt) */ /*     ss.stuff = GrowStuff; */ 
+1153: /* MUTANT (del_stmt) */ /*     ss.base = 0; */ 
+1153: /* MUTANT (rep_const) */    ss.base = 1;
+1153: /* MUTANT (rep_const) */    ss.base = -1;
+1154: /* MUTANT (del_stmt) */ /*     ss.cur = 0; */ 
+1154: /* MUTANT (rep_const) */    ss.cur = 1;
+1154: /* MUTANT (rep_const) */    ss.cur = -1;
+1155: /* MUTANT (del_stmt) */ /*     ss.maxlen = 0; */ 
+1155: /* MUTANT (rep_const) */    ss.maxlen = 1;
+1155: /* MUTANT (rep_const) */    ss.maxlen = -1;
+1156: /* MUTANT (del_stmt) */ /*     rv = dosprintf(&ss, fmt, ap); */ 
+1157: /* MUTANT (rep_op) */    if (rv <= 0) {
+1157: /* MUTANT (rep_op) */    if (rv > 0) {
+1157: /* MUTANT (rep_op) */    if (rv >= 0) {
+1157: /* MUTANT (rep_op) */    if (rv == 0) {
+1157: /* MUTANT (rep_op) */    if (rv != 0) {
+1157: /* MUTANT (rep_const) */    if (rv < 1) {
+1157: /* MUTANT (rep_const) */    if (rv < -1) {
+1157: /* MUTANT (negate) */    if(! (rv < 0)) {
+1158: /* MUTANT (negate) */        if(! (ss.base)) {
+1159: /* MUTANT (del_stmt) */ /*             free(ss.base); */ 
+1161: /* MUTANT (rep_const) */        return 1;
+1161: /* MUTANT (rep_const) */        return -1;
+1171: /* MUTANT (del_stmt) */ /*     JSUint32 limit = ss->maxlen - (ss->cur - ss->base); */ 
+1173: /* MUTANT (rep_op) */    if (len <= limit) {
+1173: /* MUTANT (rep_op) */    if (len < limit) {
+1173: /* MUTANT (rep_op) */    if (len >= limit) {
+1173: /* MUTANT (rep_op) */    if (len == limit) {
+1173: /* MUTANT (rep_op) */    if (len != limit) {
+1173: /* MUTANT (negate) */    if(! (len > limit)) {
+1174: /* MUTANT (del_stmt) */ /*         len = limit; */ 
+1176: /* MUTANT (negate) */    while(! (len)) {
+1177: /* MUTANT (del_stmt) */ /*         --len; */ 
+1177: /* MUTANT (rep_op) */        ++len;
+1178: /* MUTANT (del_stmt) */ /*         *ss->cur++ = *sp++; */ 
+1178: /* MUTANT (rep_op) */        *ss->cur-- = *sp++;
+1178: /* MUTANT (rep_op) */        *ss->cur++ = *sp--;
+1180: /* MUTANT (rep_const) */    return 1;
+1180: /* MUTANT (rep_const) */    return -1;
+1189: /* MUTANT (del_stmt) */ /*     va_list ap; */ 
+1190: /* MUTANT (del_stmt) */ /*     int rv; */ 
+1192: /* MUTANT (del_stmt) */ /*     JS_ASSERT((JSInt32)outlen > 0); */ 
+1192: /* MUTANT (rep_op) */    JS_ASSERT((JSInt32)outlen <= 0);
+1192: /* MUTANT (rep_op) */    JS_ASSERT((JSInt32)outlen < 0);
+1192: /* MUTANT (rep_op) */    JS_ASSERT((JSInt32)outlen >= 0);
+1192: /* MUTANT (rep_op) */    JS_ASSERT((JSInt32)outlen == 0);
+1192: /* MUTANT (rep_op) */    JS_ASSERT((JSInt32)outlen != 0);
+1192: /* MUTANT (rep_const) */    JS_ASSERT((JSInt32)outlen > 1);
+1192: /* MUTANT (rep_const) */    JS_ASSERT((JSInt32)outlen > -1);
+1193: /* MUTANT (rep_op) */    if ((JSInt32)outlen < 0) {
+1193: /* MUTANT (rep_op) */    if ((JSInt32)outlen > 0) {
+1193: /* MUTANT (rep_op) */    if ((JSInt32)outlen >= 0) {
+1193: /* MUTANT (rep_op) */    if ((JSInt32)outlen == 0) {
+1193: /* MUTANT (rep_op) */    if ((JSInt32)outlen != 0) {
+1193: /* MUTANT (rep_const) */    if ((JSInt32)outlen <= 1) {
+1193: /* MUTANT (rep_const) */    if ((JSInt32)outlen <= -1) {
+1193: /* MUTANT (negate) */    if(! ((JSInt32)outlen <= 0)) {
+1194: /* MUTANT (del_stmt) */ /*         return 0; */ 
+1194: /* MUTANT (rep_const) */        return 1;
+1194: /* MUTANT (rep_const) */        return -1;
+1198: /* MUTANT (del_stmt) */ /*     rv = JS_vsnprintf(out, outlen, fmt, ap); */ 
+1199: /* MUTANT (del_stmt) */ /*     va_end(ap); */ 
+1200: /* MUTANT (del_stmt) */ /*     return rv; */ 
+1206: /* MUTANT (del_stmt) */ /*     SprintfState ss; */ 
+1207: /* MUTANT (del_stmt) */ /*     JSUint32 n; */ 
+1209: /* MUTANT (del_stmt) */ /*     JS_ASSERT((JSInt32)outlen > 0); */ 
+1209: /* MUTANT (rep_op) */    JS_ASSERT((JSInt32)outlen <= 0);
+1209: /* MUTANT (rep_op) */    JS_ASSERT((JSInt32)outlen < 0);
+1209: /* MUTANT (rep_op) */    JS_ASSERT((JSInt32)outlen >= 0);
+1209: /* MUTANT (rep_op) */    JS_ASSERT((JSInt32)outlen == 0);
+1209: /* MUTANT (rep_op) */    JS_ASSERT((JSInt32)outlen != 0);
+1209: /* MUTANT (rep_const) */    JS_ASSERT((JSInt32)outlen > 1);
+1209: /* MUTANT (rep_const) */    JS_ASSERT((JSInt32)outlen > -1);
+1210: /* MUTANT (rep_op) */    if ((JSInt32)outlen < 0) {
+1210: /* MUTANT (rep_op) */    if ((JSInt32)outlen > 0) {
+1210: /* MUTANT (rep_op) */    if ((JSInt32)outlen >= 0) {
+1210: /* MUTANT (rep_op) */    if ((JSInt32)outlen == 0) {
+1210: /* MUTANT (rep_op) */    if ((JSInt32)outlen != 0) {
+1210: /* MUTANT (rep_const) */    if ((JSInt32)outlen <= 1) {
+1210: /* MUTANT (rep_const) */    if ((JSInt32)outlen <= -1) {
+1210: /* MUTANT (negate) */    if(! ((JSInt32)outlen <= 0)) {
+1211: /* MUTANT (del_stmt) */ /*         return 0; */ 
+1211: /* MUTANT (rep_const) */        return 1;
+1211: /* MUTANT (rep_const) */        return -1;
+1215: /* MUTANT (del_stmt) */ /*     ss.base = out; */ 
+1216: /* MUTANT (del_stmt) */ /*     ss.cur = out; */ 
+1217: /* MUTANT (del_stmt) */ /*     ss.maxlen = outlen; */ 
+1218: /* MUTANT (del_stmt) */ /*     (void) dosprintf(&ss, fmt, ap); */ 
+1221: /* MUTANT (rep_op) */    if( (ss.cur == ss.base) && (ss.cur[-1] != '\0') )
+1221: /* MUTANT (rep_op) */    if( (ss.cur != ss.base) || (ss.cur[-1] != '\0') )
+1221: /* MUTANT (rep_op) */    if( (ss.cur != ss.base) && (ss.cur[-1] == '\0') )
+1221: /* MUTANT (rep_const) */    if( (ss.cur != ss.base) && (ss.cur[0] != '\0') )
+1221: /* MUTANT (rep_const) */    if( (ss.cur != ss.base) && (ss.cur[1] != '\0') )
+1221: /* MUTANT (rep_const) */    if( (ss.cur != ss.base) && (ss.cur[((-1)+1)] != '\0') )
+1221: /* MUTANT (rep_const) */    if( (ss.cur != ss.base) && (ss.cur[((-1)-1)] != '\0') )
+1221: /* MUTANT (rep_const) */    if( (ss.cur != ss.base) && (ss.cur[-1] != '\1') )
+1221: /* MUTANT (rep_const) */    if( (ss.cur != ss.base) && (ss.cur[-1] != '\-1') )
+1221: /* MUTANT (negate) */    if(!( (ss.cur != ss.base) && (ss.cur[-1] != '\0') ))
+1222: /* MUTANT (rep_const) */        ss.cur[0] = '\0';
+1222: /* MUTANT (rep_const) */        ss.cur[1] = '\0';
+1222: /* MUTANT (rep_const) */        ss.cur[((-1)+1)] = '\0';
+1222: /* MUTANT (rep_const) */        ss.cur[((-1)-1)] = '\0';
+1222: /* MUTANT (rep_const) */        ss.cur[-1] = '\1';
+1222: /* MUTANT (rep_const) */        ss.cur[-1] = '\-1';
+1224: /* MUTANT (del_stmt) */ /*     n = ss.cur - ss.base; */ 
+1225: /* MUTANT (del_stmt) */ /*     return n ? n - 1 : n; */ 
+1225: /* MUTANT (rep_const) */    return n ? n - 0 : n;
+1225: /* MUTANT (rep_const) */    return n ? n - -1 : n;
+1225: /* MUTANT (rep_const) */    return n ? n - ((1)+1) : n;
+1230: /* MUTANT (del_stmt) */ /*     va_list ap; */ 
+1231: /* MUTANT (del_stmt) */ /*     char *rv; */ 
+1233: /* MUTANT (del_stmt) */ /*     va_start(ap, fmt); */ 
+1234: /* MUTANT (del_stmt) */ /*     rv = JS_vsprintf_append(last, fmt, ap); */ 
+1235: /* MUTANT (del_stmt) */ /*     va_end(ap); */ 
+1236: /* MUTANT (del_stmt) */ /*     return rv; */ 
+1241: /* MUTANT (del_stmt) */ /*     SprintfState ss; */ 
+1242: /* MUTANT (del_stmt) */ /*     int rv; */ 
+1244: /* MUTANT (del_stmt) */ /*     ss.stuff = GrowStuff; */ 
+1245: /* MUTANT (negate) */    if(! (last)) {
+1246: /* MUTANT (del_stmt) */ /*         int lastlen = strlen(last); */ 
+1247: /* MUTANT (del_stmt) */ /*         ss.base = last; */ 
+1248: /* MUTANT (del_stmt) */ /*         ss.cur = last + lastlen; */ 
+1248: /* MUTANT (rep_op) */        ss.cur = last - lastlen;
+1248: /* MUTANT (rep_op) */        ss.cur = last * lastlen;
+1248: /* MUTANT (rep_op) */        ss.cur = last % lastlen;
+1249: /* MUTANT (del_stmt) */ /*         ss.maxlen = lastlen; */ 
+1251: /* MUTANT (del_stmt) */ /*         ss.base = 0; */ 
+1251: /* MUTANT (rep_const) */        ss.base = 1;
+1251: /* MUTANT (rep_const) */        ss.base = -1;
+1252: /* MUTANT (del_stmt) */ /*         ss.cur = 0; */ 
+1252: /* MUTANT (rep_const) */        ss.cur = 1;
+1252: /* MUTANT (rep_const) */        ss.cur = -1;
+1253: /* MUTANT (del_stmt) */ /*         ss.maxlen = 0; */ 
+1253: /* MUTANT (rep_const) */        ss.maxlen = 1;
+1253: /* MUTANT (rep_const) */        ss.maxlen = -1;
+1256: /* MUTANT (rep_op) */    if (rv <= 0) {
+1256: /* MUTANT (rep_op) */    if (rv > 0) {
+1256: /* MUTANT (rep_op) */    if (rv >= 0) {
+1256: /* MUTANT (rep_op) */    if (rv == 0) {
+1256: /* MUTANT (rep_op) */    if (rv != 0) {
+1256: /* MUTANT (rep_const) */    if (rv < 1) {
+1256: /* MUTANT (rep_const) */    if (rv < -1) {
+1256: /* MUTANT (negate) */    if(! (rv < 0)) {
+1257: /* MUTANT (negate) */        if(! (ss.base)) {
+1258: /* MUTANT (del_stmt) */ /*             free(ss.base); */ 
+1260: /* MUTANT (rep_const) */        return 1;
+1260: /* MUTANT (rep_const) */        return -1;

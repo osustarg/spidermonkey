@@ -1,0 +1,1080 @@
+68: /* MUTANT (del_stmt) */ /* static const char js_script_compile[] = "Script.prototype.compile"; */ 
+75: /* MUTANT (del_stmt) */ /*     JSScript *script; */ 
+76: /* MUTANT (del_stmt) */ /*     size_t i, j, k, n; */ 
+77: /* MUTANT (del_stmt) */ /*     char buf[16]; */ 
+77: /* MUTANT (rep_const) */    char buf[0];
+77: /* MUTANT (rep_const) */    char buf[1];
+77: /* MUTANT (rep_const) */    char buf[-1];
+77: /* MUTANT (rep_const) */    char buf[((16)+1)];
+77: /* MUTANT (rep_const) */    char buf[((16)-1)];
+78: /* MUTANT (del_stmt) */ /*     jschar *s, *t; */ 
+79: /* MUTANT (del_stmt) */ /*     uint32 indent; */ 
+80: /* MUTANT (del_stmt) */ /*     JSString *str; */ 
+82: /* MUTANT (negate) */    if(! (!JS_InstanceOf(cx, obj, &js_ScriptClass, argv)))
+84: /* MUTANT (del_stmt) */ /*     script = (JSScript *) JS_GetPrivate(cx, obj); */ 
+88: /* MUTANT (del_stmt) */ /*     n = j + 2; */ 
+88: /* MUTANT (rep_op) */    n = j - 2;
+88: /* MUTANT (rep_op) */    n = j * 2;
+88: /* MUTANT (rep_op) */    n = j % 2;
+88: /* MUTANT (rep_const) */    n = j + 0;
+88: /* MUTANT (rep_const) */    n = j + 1;
+88: /* MUTANT (rep_const) */    n = j + -1;
+88: /* MUTANT (rep_const) */    n = j + ((2)+1);
+88: /* MUTANT (rep_const) */    n = j + ((2)-1);
+89: /* MUTANT (negate) */    if(! (!script)) {
+91: /* MUTANT (del_stmt) */ /*         k = 0; */ 
+91: /* MUTANT (rep_const) */        k = 1;
+91: /* MUTANT (rep_const) */        k = -1;
+92: /* MUTANT (del_stmt) */ /*         s = NULL; */                /* quell GCC overwarning */
+94: /* MUTANT (del_stmt) */ /*         indent = 0; */ 
+94: /* MUTANT (rep_const) */        indent = 1;
+94: /* MUTANT (rep_const) */        indent = -1;
+95: /* MUTANT (rep_op) */        if (argc || !js_ValueToECMAUint32(cx, argv[0], &indent))
+95: /* MUTANT (rep_const) */        if (argc && !js_ValueToECMAUint32(cx, argv[1], &indent))
+95: /* MUTANT (rep_const) */        if (argc && !js_ValueToECMAUint32(cx, argv[-1], &indent))
+95: /* MUTANT (negate) */        if(! (argc && !js_ValueToECMAUint32(cx, argv[0], &indent)))
+99: /* MUTANT (negate) */        if(! (!str))
+101: /* MUTANT (del_stmt) */ /*         str = js_QuoteString(cx, str, '\''); */ 
+102: /* MUTANT (negate) */        if(! (!str))
+104: /* MUTANT (del_stmt) */ /*         s = JSSTRING_CHARS(str); */ 
+105: /* MUTANT (del_stmt) */ /*         k = JSSTRING_LENGTH(str); */ 
+106: /* MUTANT (del_stmt) */ /*         n += k; */ 
+106: /* MUTANT (rep_op) */        n -= k;
+106: /* MUTANT (rep_op) */        n *= k;
+106: /* MUTANT (rep_op) */        n %= k;
+110: /* MUTANT (rep_op) */    t = (jschar *) JS_malloc(cx, (n - 1) * sizeof(jschar));
+110: /* MUTANT (rep_op) */    t = (jschar *) JS_malloc(cx, (n * 1) * sizeof(jschar));
+110: /* MUTANT (rep_op) */    t = (jschar *) JS_malloc(cx, (n % 1) * sizeof(jschar));
+110: /* MUTANT (rep_const) */    t = (jschar *) JS_malloc(cx, (n + 0) * sizeof(jschar));
+110: /* MUTANT (rep_const) */    t = (jschar *) JS_malloc(cx, (n + -1) * sizeof(jschar));
+110: /* MUTANT (rep_const) */    t = (jschar *) JS_malloc(cx, (n + ((1)+1)) * sizeof(jschar));
+111: /* MUTANT (negate) */    if(! (!t))
+113: /* MUTANT (rep_op) */    for (i = 0; i <= j; i++)
+113: /* MUTANT (rep_op) */    for (i = 0; i > j; i++)
+113: /* MUTANT (rep_op) */    for (i = 0; i >= j; i++)
+113: /* MUTANT (rep_op) */    for (i = 0; i == j; i++)
+113: /* MUTANT (rep_op) */    for (i = 0; i != j; i++)
+113: /* MUTANT (rep_op) */    for (i = 0; i < j; i--)
+113: /* MUTANT (rep_const) */    for (i = 1; i < j; i++)
+113: /* MUTANT (rep_const) */    for (i = -1; i < j; i++)
+115: /* MUTANT (rep_op) */    for (j = 0; j <= k; i++, j++)
+115: /* MUTANT (rep_op) */    for (j = 0; j > k; i++, j++)
+115: /* MUTANT (rep_op) */    for (j = 0; j >= k; i++, j++)
+115: /* MUTANT (rep_op) */    for (j = 0; j == k; i++, j++)
+115: /* MUTANT (rep_op) */    for (j = 0; j != k; i++, j++)
+115: /* MUTANT (rep_op) */    for (j = 0; j < k; i--, j++)
+115: /* MUTANT (rep_op) */    for (j = 0; j < k; i++, j--)
+115: /* MUTANT (rep_const) */    for (j = 1; j < k; i++, j++)
+115: /* MUTANT (rep_const) */    for (j = -1; j < k; i++, j++)
+117: /* MUTANT (del_stmt) */ /*     t[i++] = ')'; */ 
+117: /* MUTANT (rep_op) */    t[i--] = ')';
+118: /* MUTANT (del_stmt) */ /*     t[i++] = ')'; */ 
+118: /* MUTANT (rep_op) */    t[i--] = ')';
+119: /* MUTANT (del_stmt) */ /*     t[i] = 0; */ 
+119: /* MUTANT (rep_const) */    t[i] = 1;
+119: /* MUTANT (rep_const) */    t[i] = -1;
+122: /* MUTANT (del_stmt) */ /*     str = JS_NewUCString(cx, t, n); */ 
+123: /* MUTANT (negate) */    if(! (!str)) {
+124: /* MUTANT (del_stmt) */ /*         JS_free(cx, t); */ 
+125: /* MUTANT (del_stmt) */ /*         return JS_FALSE; */ 
+128: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+136: /* MUTANT (del_stmt) */ /*     JSScript *script; */ 
+137: /* MUTANT (del_stmt) */ /*     uint32 indent; */ 
+138: /* MUTANT (del_stmt) */ /*     JSString *str; */ 
+140: /* MUTANT (negate) */    if(! (!JS_InstanceOf(cx, obj, &js_ScriptClass, argv)))
+142: /* MUTANT (del_stmt) */ /*     script = (JSScript *) JS_GetPrivate(cx, obj); */ 
+143: /* MUTANT (negate) */    if(! (!script)) {
+144: /* MUTANT (del_stmt) */ /*         *rval = STRING_TO_JSVAL(cx->runtime->emptyString); */ 
+145: /* MUTANT (del_stmt) */ /*         return JS_TRUE; */ 
+148: /* MUTANT (rep_const) */    indent = 1;
+148: /* MUTANT (rep_const) */    indent = -1;
+149: /* MUTANT (rep_op) */    if (argc || !js_ValueToECMAUint32(cx, argv[0], &indent))
+149: /* MUTANT (rep_const) */    if (argc && !js_ValueToECMAUint32(cx, argv[1], &indent))
+149: /* MUTANT (rep_const) */    if (argc && !js_ValueToECMAUint32(cx, argv[-1], &indent))
+149: /* MUTANT (negate) */    if(! (argc && !js_ValueToECMAUint32(cx, argv[0], &indent)))
+153: /* MUTANT (negate) */    if(! (!str))
+155: /* MUTANT (del_stmt) */ /*     *rval = STRING_TO_JSVAL(str); */ 
+156: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+163: /* MUTANT (del_stmt) */ /*     JSScript *oldscript, *script; */ 
+164: /* MUTANT (del_stmt) */ /*     JSStackFrame *fp, *caller; */ 
+165: /* MUTANT (del_stmt) */ /*     JSString *str; */ 
+166: /* MUTANT (del_stmt) */ /*     JSObject *scopeobj; */ 
+167: /* MUTANT (del_stmt) */ /*     const char *file; */ 
+168: /* MUTANT (del_stmt) */ /*     uintN line; */ 
+169: /* MUTANT (del_stmt) */ /*     JSPrincipals *principals; */ 
+172: /* MUTANT (negate) */    if(! (!JS_InstanceOf(cx, obj, &js_ScriptClass, argv)))
+176: /* MUTANT (rep_op) */    if (argc != 0)
+176: /* MUTANT (rep_const) */    if (argc == 1)
+176: /* MUTANT (rep_const) */    if (argc == -1)
+176: /* MUTANT (negate) */    if(! (argc == 0))
+180: /* MUTANT (del_stmt) */ /*     oldscript = (JSScript *) JS_GetPrivate(cx, obj); */ 
+181: /* MUTANT (negate) */    if(! (oldscript)) {
+183: /* MUTANT (rep_op) */            if (fp->script != oldscript) {
+183: /* MUTANT (negate) */            if(! (fp->script == oldscript)) {
+186: /* MUTANT (del_stmt) */ /*                 return JS_FALSE; */ 
+192: /* MUTANT (rep_const) */    str = js_ValueToString(cx, argv[1]);
+192: /* MUTANT (rep_const) */    str = js_ValueToString(cx, argv[-1]);
+193: /* MUTANT (negate) */    if(! (!str))
+195: /* MUTANT (del_stmt) */ /*     argv[0] = STRING_TO_JSVAL(str); */ 
+195: /* MUTANT (rep_const) */    argv[1] = STRING_TO_JSVAL(str);
+195: /* MUTANT (rep_const) */    argv[-1] = STRING_TO_JSVAL(str);
+198: /* MUTANT (del_stmt) */ /*     fp = cx->fp; */ 
+199: /* MUTANT (del_stmt) */ /*     caller = JS_GetScriptedCaller(cx, fp); */ 
+200: /* MUTANT (del_stmt) */ /*     JS_ASSERT(!caller || fp->scopeChain == caller->scopeChain); */ 
+200: /* MUTANT (rep_op) */    JS_ASSERT(!caller && fp->scopeChain == caller->scopeChain);
+200: /* MUTANT (rep_op) */    JS_ASSERT(!caller || fp->scopeChain != caller->scopeChain);
+202: /* MUTANT (del_stmt) */ /*     scopeobj = NULL; */ 
+203: /* MUTANT (rep_op) */    if (argc <= 2) {
+203: /* MUTANT (rep_op) */    if (argc < 2) {
+203: /* MUTANT (rep_op) */    if (argc > 2) {
+203: /* MUTANT (rep_op) */    if (argc == 2) {
+203: /* MUTANT (rep_op) */    if (argc != 2) {
+203: /* MUTANT (rep_const) */    if (argc >= 0) {
+203: /* MUTANT (rep_const) */    if (argc >= 1) {
+203: /* MUTANT (rep_const) */    if (argc >= -1) {
+203: /* MUTANT (rep_const) */    if (argc >= ((2)+1)) {
+203: /* MUTANT (rep_const) */    if (argc >= ((2)-1)) {
+203: /* MUTANT (negate) */    if(! (argc >= 2)) {
+204: /* MUTANT (rep_const) */        if (!js_ValueToObject(cx, argv[0], &scopeobj))
+204: /* MUTANT (rep_const) */        if (!js_ValueToObject(cx, argv[-1], &scopeobj))
+204: /* MUTANT (rep_const) */        if (!js_ValueToObject(cx, argv[((1)+1)], &scopeobj))
+204: /* MUTANT (negate) */        if(! (!js_ValueToObject(cx, argv[1], &scopeobj)))
+206: /* MUTANT (del_stmt) */ /*         argv[1] = OBJECT_TO_JSVAL(scopeobj); */ 
+206: /* MUTANT (rep_const) */        argv[0] = OBJECT_TO_JSVAL(scopeobj);
+206: /* MUTANT (rep_const) */        argv[-1] = OBJECT_TO_JSVAL(scopeobj);
+206: /* MUTANT (rep_const) */        argv[((1)+1)] = OBJECT_TO_JSVAL(scopeobj);
+208: /* MUTANT (negate) */    if(! (caller)) {
+209: /* MUTANT (negate) */        if(! (!scopeobj))
+212: /* MUTANT (del_stmt) */ /*         file = caller->script->filename; */ 
+213: /* MUTANT (del_stmt) */ /*         line = js_PCToLineNumber(cx, caller->script, caller->pc); */ 
+214: /* MUTANT (del_stmt) */ /*         principals = JS_EvalFramePrincipals(cx, fp, caller); */ 
+216: /* MUTANT (del_stmt) */ /*         file = NULL; */ 
+217: /* MUTANT (del_stmt) */ /*         line = 0; */ 
+217: /* MUTANT (rep_const) */        line = 1;
+217: /* MUTANT (rep_const) */        line = -1;
+218: /* MUTANT (del_stmt) */ /*         principals = NULL; */ 
+223: /* MUTANT (negate) */    if(! (!scopeobj))
+234: /* MUTANT (del_stmt) */ /*     fp->flags |= JSFRAME_SCRIPT_OBJECT; */ 
+239: /* MUTANT (negate) */    if(! (!script))
+243: /* MUTANT (negate) */    if(! (!JS_SetPrivate(cx, obj, script))) {
+244: /* MUTANT (del_stmt) */ /*         js_DestroyScript(cx, script); */ 
+245: /* MUTANT (del_stmt) */ /*         return JS_FALSE; */ 
+247: /* MUTANT (negate) */    if(! (oldscript))
+250: /* MUTANT (del_stmt) */ /*     script->object = obj; */ 
+254: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+260: /* MUTANT (del_stmt) */ /*     JSScript *script; */ 
+261: /* MUTANT (del_stmt) */ /*     JSObject *scopeobj, *parent; */ 
+262: /* MUTANT (del_stmt) */ /*     JSStackFrame *fp, *caller; */ 
+263: /* MUTANT (del_stmt) */ /*     JSPrincipals *principals; */ 
+265: /* MUTANT (negate) */    if(! (!JS_InstanceOf(cx, obj, &js_ScriptClass, argv)))
+267: /* MUTANT (del_stmt) */ /*     script = (JSScript *) JS_GetPrivate(cx, obj); */ 
+268: /* MUTANT (negate) */    if(! (!script))
+271: /* MUTANT (del_stmt) */ /*     scopeobj = NULL; */ 
+272: /* MUTANT (negate) */    if(! (argc)) {
+273: /* MUTANT (rep_const) */        if (!js_ValueToObject(cx, argv[1], &scopeobj))
+273: /* MUTANT (rep_const) */        if (!js_ValueToObject(cx, argv[-1], &scopeobj))
+273: /* MUTANT (negate) */        if(! (!js_ValueToObject(cx, argv[0], &scopeobj)))
+275: /* MUTANT (del_stmt) */ /*         argv[0] = OBJECT_TO_JSVAL(scopeobj); */ 
+275: /* MUTANT (rep_const) */        argv[1] = OBJECT_TO_JSVAL(scopeobj);
+275: /* MUTANT (rep_const) */        argv[-1] = OBJECT_TO_JSVAL(scopeobj);
+291: /* MUTANT (del_stmt) */ /*     caller = JS_GetScriptedCaller(cx, fp); */ 
+292: /* MUTANT (rep_op) */    if (caller || !caller->varobj) {
+292: /* MUTANT (negate) */    if(! (caller && !caller->varobj)) {
+294: /* MUTANT (del_stmt) */ /*         JS_ASSERT(caller->fun && !(caller->fun->flags & JSFUN_HEAVYWEIGHT)); */ 
+294: /* MUTANT (rep_op) */        JS_ASSERT(caller->fun || !(caller->fun->flags & JSFUN_HEAVYWEIGHT));
+297: /* MUTANT (del_stmt) */ /*         parent = OBJ_GET_PARENT(cx, JSVAL_TO_OBJECT(caller->argv[-2])); */ 
+297: /* MUTANT (rep_const) */        parent = OBJ_GET_PARENT(cx, JSVAL_TO_OBJECT(caller->argv[0]));
+297: /* MUTANT (rep_const) */        parent = OBJ_GET_PARENT(cx, JSVAL_TO_OBJECT(caller->argv[1]));
+297: /* MUTANT (rep_const) */        parent = OBJ_GET_PARENT(cx, JSVAL_TO_OBJECT(caller->argv[-1]));
+297: /* MUTANT (rep_const) */        parent = OBJ_GET_PARENT(cx, JSVAL_TO_OBJECT(caller->argv[((-2)+1)]));
+297: /* MUTANT (rep_const) */        parent = OBJ_GET_PARENT(cx, JSVAL_TO_OBJECT(caller->argv[((-2)-1)]));
+298: /* MUTANT (negate) */        if(! (!js_GetCallObject(cx, caller, parent)))
+302: /* MUTANT (negate) */    if(! (!scopeobj)) {
+304: /* MUTANT (negate) */        if(! (caller)) {
+309: /* MUTANT (del_stmt) */ /*             scopeobj = caller->scopeChain; */ 
+319: /* MUTANT (del_stmt) */ /*             scopeobj = cx->globalObject; */ 
+324: /* MUTANT (negate) */    if(! (!scopeobj))
+328: /* MUTANT (del_stmt) */ /*     principals = script->principals; */ 
+329: /* MUTANT (negate) */    if(! (!js_CheckPrincipalsAccess(cx, scopeobj, principals, js_script_exec)))
+332: /* MUTANT (del_stmt) */ /*     return js_Execute(cx, scopeobj, script, caller, JSFRAME_EVAL, rval); */ 
+340: /* MUTANT (del_stmt) */ /*     jsval value; */ 
+341: /* MUTANT (del_stmt) */ /*     jsatomid index; */ 
+343: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE)
+343: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE))
+346: /* MUTANT (del_stmt) */ /*     index = ALE_INDEX(ale); */ 
+347: /* MUTANT (negate) */    if(! (!JS_XDRUint32(xdr, &index)))
+349: /* MUTANT (del_stmt) */ /*     ALE_SET_INDEX(ale, index); */ 
+351: /* MUTANT (negate) */    if(! (!JS_XDRValue(xdr, &value)))
+354: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_DECODE) {
+354: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_DECODE)) {
+355: /* MUTANT (rep_const) */        if (!ALE_SET_ATOM(ale, js_AtomizeValue(xdr->cx, value, 1)))
+355: /* MUTANT (rep_const) */        if (!ALE_SET_ATOM(ale, js_AtomizeValue(xdr->cx, value, -1)))
+355: /* MUTANT (negate) */        if(! (!ALE_SET_ATOM(ale, js_AtomizeValue(xdr->cx, value, 0))))
+364: /* MUTANT (del_stmt) */ /*     uint32 length; */ 
+365: /* MUTANT (del_stmt) */ /*     uintN i; */ 
+366: /* MUTANT (del_stmt) */ /*     JSBool ok; */ 
+368: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE)
+368: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE))
+371: /* MUTANT (negate) */    if(! (!JS_XDRUint32(xdr, &length)))
+374: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_DECODE) {
+374: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_DECODE)) {
+375: /* MUTANT (del_stmt) */ /*         JSContext *cx; */ 
+376: /* MUTANT (del_stmt) */ /*         void *mark; */ 
+377: /* MUTANT (del_stmt) */ /*         JSAtomList al; */ 
+378: /* MUTANT (del_stmt) */ /*         JSAtomListElement *ale; */ 
+380: /* MUTANT (del_stmt) */ /*         cx = xdr->cx; */ 
+381: /* MUTANT (del_stmt) */ /*         mark = JS_ARENA_MARK(&cx->tempPool); */ 
+382: /* MUTANT (del_stmt) */ /*         ATOM_LIST_INIT(&al); */ 
+383: /* MUTANT (rep_op) */        for (i = 0; i <= length; i++) {
+383: /* MUTANT (rep_op) */        for (i = 0; i > length; i++) {
+383: /* MUTANT (rep_op) */        for (i = 0; i >= length; i++) {
+383: /* MUTANT (rep_op) */        for (i = 0; i == length; i++) {
+383: /* MUTANT (rep_op) */        for (i = 0; i != length; i++) {
+383: /* MUTANT (rep_op) */        for (i = 0; i < length; i--) {
+383: /* MUTANT (rep_const) */        for (i = 1; i < length; i++) {
+383: /* MUTANT (rep_const) */        for (i = -1; i < length; i++) {
+384: /* MUTANT (del_stmt) */ /*             JS_ARENA_ALLOCATE_TYPE(ale, JSAtomListElement, &cx->tempPool); */ 
+385: /* MUTANT (rep_op) */            if (!ale &&
+387: /* MUTANT (negate) */                if(! (!ale))
+389: /* MUTANT (del_stmt) */ /*                 JS_ARENA_RELEASE(&cx->tempPool, mark); */ 
+390: /* MUTANT (del_stmt) */ /*                 return JS_FALSE; */ 
+393: /* MUTANT (del_stmt) */ /*             al.count++; */ 
+393: /* MUTANT (rep_op) */            al.count--;
+394: /* MUTANT (del_stmt) */ /*             al.list = ale; */ 
+397: /* MUTANT (del_stmt) */ /*         JS_ARENA_RELEASE(&cx->tempPool, mark); */ 
+398: /* MUTANT (del_stmt) */ /*         return ok; */ 
+401: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE) {
+401: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE)) {
+402: /* MUTANT (del_stmt) */ /*         JSAtomListElement ale; */ 
+404: /* MUTANT (rep_op) */        for (i = 0; i <= map->length; i++) {
+404: /* MUTANT (rep_op) */        for (i = 0; i > map->length; i++) {
+404: /* MUTANT (rep_op) */        for (i = 0; i >= map->length; i++) {
+404: /* MUTANT (rep_op) */        for (i = 0; i == map->length; i++) {
+404: /* MUTANT (rep_op) */        for (i = 0; i != map->length; i++) {
+404: /* MUTANT (rep_op) */        for (i = 0; i < map->length; i--) {
+404: /* MUTANT (rep_const) */        for (i = 1; i < map->length; i++) {
+404: /* MUTANT (rep_const) */        for (i = -1; i < map->length; i++) {
+405: /* MUTANT (del_stmt) */ /*             ALE_SET_ATOM(&ale, map->vector[i]); */ 
+406: /* MUTANT (del_stmt) */ /*             ALE_SET_INDEX(&ale, i); */ 
+407: /* MUTANT (negate) */            if(! (!XDRAtomListElement(xdr, &ale)))
+417: /* MUTANT (del_stmt) */ /*     JSContext *cx; */ 
+418: /* MUTANT (del_stmt) */ /*     JSScript *script, *newscript; */ 
+419: /* MUTANT (del_stmt) */ /*     uint32 length, lineno, depth, magic, nsrcnotes, ntrynotes; */ 
+420: /* MUTANT (del_stmt) */ /*     uint32 prologLength, version; */ 
+421: /* MUTANT (del_stmt) */ /*     JSBool filenameWasSaved; */ 
+422: /* MUTANT (del_stmt) */ /*     jssrcnote *notes, *sn; */ 
+424: /* MUTANT (del_stmt) */ /*     cx = xdr->cx; */ 
+425: /* MUTANT (del_stmt) */ /*     script = *scriptp; */ 
+426: /* MUTANT (del_stmt) */ /*     nsrcnotes = ntrynotes = 0; */ 
+426: /* MUTANT (rep_const) */    nsrcnotes = ntrynotes = 1;
+426: /* MUTANT (rep_const) */    nsrcnotes = ntrynotes = -1;
+427: /* MUTANT (del_stmt) */ /*     filenameWasSaved = JS_FALSE; */ 
+428: /* MUTANT (del_stmt) */ /*     notes = NULL; */ 
+438: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE)
+438: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE))
+440: /* MUTANT (negate) */    if(! (!JS_XDRUint32(xdr, &magic)))
+442: /* MUTANT (rep_op) */    if (magic == JSXDR_MAGIC_SCRIPT_4 &&
+442: /* MUTANT (rep_op) */    if (magic != JSXDR_MAGIC_SCRIPT_4 ||
+443: /* MUTANT (rep_op) */        magic == JSXDR_MAGIC_SCRIPT_3 &&
+443: /* MUTANT (rep_op) */        magic != JSXDR_MAGIC_SCRIPT_3 ||
+444: /* MUTANT (rep_op) */        magic == JSXDR_MAGIC_SCRIPT_2 &&
+444: /* MUTANT (rep_op) */        magic != JSXDR_MAGIC_SCRIPT_2 ||
+445: /* MUTANT (rep_op) */        magic == JSXDR_MAGIC_SCRIPT_1) {
+446: /* MUTANT (negate) */        if(! (!hasMagic)) {
+449: /* MUTANT (del_stmt) */ /*             return JS_FALSE; */ 
+452: /* MUTANT (del_stmt) */ /*         return JS_TRUE; */ 
+454: /* MUTANT (negate) */    if(! (hasMagic))
+457: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_ENCODE) {
+457: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_ENCODE)) {
+458: /* MUTANT (del_stmt) */ /*         length = script->length; */ 
+459: /* MUTANT (del_stmt) */ /*         prologLength = PTRDIFF(script->main, script->code, jsbytecode); */ 
+460: /* MUTANT (del_stmt) */ /*         JS_ASSERT((int16)script->version != JSVERSION_UNKNOWN); */ 
+460: /* MUTANT (rep_op) */        JS_ASSERT((int16)script->version == JSVERSION_UNKNOWN);
+461: /* MUTANT (del_stmt) */ /*         version = (uint32)script->version | (script->numGlobalVars << 16); */ 
+461: /* MUTANT (rep_op) */        version = (uint32)script->version & (script->numGlobalVars << 16);
+461: /* MUTANT (rep_const) */        version = (uint32)script->version | (script->numGlobalVars << 0);
+461: /* MUTANT (rep_const) */        version = (uint32)script->version | (script->numGlobalVars << 1);
+461: /* MUTANT (rep_const) */        version = (uint32)script->version | (script->numGlobalVars << -1);
+461: /* MUTANT (rep_const) */        version = (uint32)script->version | (script->numGlobalVars << ((16)+1));
+461: /* MUTANT (rep_const) */        version = (uint32)script->version | (script->numGlobalVars << ((16)-1));
+462: /* MUTANT (del_stmt) */ /*         lineno = (uint32)script->lineno; */ 
+463: /* MUTANT (del_stmt) */ /*         depth = (uint32)script->depth; */ 
+466: /* MUTANT (del_stmt) */ /*         notes = SCRIPT_NOTES(script); */ 
+469: /* MUTANT (del_stmt) */ /*         nsrcnotes = PTRDIFF(sn, notes, jssrcnote); */ 
+470: /* MUTANT (del_stmt) */ /*         nsrcnotes++; */             /* room for the terminator */
+470: /* MUTANT (rep_op) */        nsrcnotes--;            /* room for the terminator */
+473: /* MUTANT (negate) */        if(! (script->trynotes)) {
+474: /* MUTANT (negate) */            while(! (script->trynotes[ntrynotes].catchStart))
+475: /* MUTANT (rep_op) */                ntrynotes--;
+476: /* MUTANT (del_stmt) */ /*             ntrynotes++; */         /* room for the end marker */
+476: /* MUTANT (rep_op) */            ntrynotes--;        /* room for the end marker */
+480: /* MUTANT (negate) */    if(! (!JS_XDRUint32(xdr, &length)))
+482: /* MUTANT (rep_op) */    if (magic <= JSXDR_MAGIC_SCRIPT_2) {
+482: /* MUTANT (rep_op) */    if (magic < JSXDR_MAGIC_SCRIPT_2) {
+482: /* MUTANT (rep_op) */    if (magic > JSXDR_MAGIC_SCRIPT_2) {
+482: /* MUTANT (rep_op) */    if (magic == JSXDR_MAGIC_SCRIPT_2) {
+482: /* MUTANT (rep_op) */    if (magic != JSXDR_MAGIC_SCRIPT_2) {
+482: /* MUTANT (negate) */    if(! (magic >= JSXDR_MAGIC_SCRIPT_2)) {
+483: /* MUTANT (negate) */        if(! (!JS_XDRUint32(xdr, &prologLength)))
+485: /* MUTANT (negate) */        if(! (!JS_XDRUint32(xdr, &version)))
+489: /* MUTANT (rep_op) */        if (magic <= JSXDR_MAGIC_SCRIPT_4) {
+489: /* MUTANT (rep_op) */        if (magic < JSXDR_MAGIC_SCRIPT_4) {
+489: /* MUTANT (rep_op) */        if (magic > JSXDR_MAGIC_SCRIPT_4) {
+489: /* MUTANT (rep_op) */        if (magic == JSXDR_MAGIC_SCRIPT_4) {
+489: /* MUTANT (rep_op) */        if (magic != JSXDR_MAGIC_SCRIPT_4) {
+489: /* MUTANT (negate) */        if(! (magic >= JSXDR_MAGIC_SCRIPT_4)) {
+490: /* MUTANT (negate) */            if(! (!JS_XDRUint32(xdr, &nsrcnotes)))
+492: /* MUTANT (negate) */            if(! (!JS_XDRUint32(xdr, &ntrynotes)))
+497: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_DECODE) {
+497: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_DECODE)) {
+498: /* MUTANT (del_stmt) */ /*         script = js_NewScript(cx, length, nsrcnotes, ntrynotes); */ 
+499: /* MUTANT (negate) */        if(! (!script))
+501: /* MUTANT (rep_op) */        if (magic <= JSXDR_MAGIC_SCRIPT_2) {
+501: /* MUTANT (rep_op) */        if (magic < JSXDR_MAGIC_SCRIPT_2) {
+501: /* MUTANT (rep_op) */        if (magic > JSXDR_MAGIC_SCRIPT_2) {
+501: /* MUTANT (rep_op) */        if (magic == JSXDR_MAGIC_SCRIPT_2) {
+501: /* MUTANT (rep_op) */        if (magic != JSXDR_MAGIC_SCRIPT_2) {
+501: /* MUTANT (negate) */        if(! (magic >= JSXDR_MAGIC_SCRIPT_2)) {
+502: /* MUTANT (del_stmt) */ /*             script->main += prologLength; */ 
+502: /* MUTANT (rep_op) */            script->main -= prologLength;
+502: /* MUTANT (rep_op) */            script->main *= prologLength;
+502: /* MUTANT (rep_op) */            script->main %= prologLength;
+503: /* MUTANT (del_stmt) */ /*             script->version = (JSVersion) (version & 0xffff); */ 
+503: /* MUTANT (rep_const) */            script->version = (JSVersion) (version & 1xffff);
+503: /* MUTANT (rep_const) */            script->version = (JSVersion) (version & -1xffff);
+504: /* MUTANT (del_stmt) */ /*             script->numGlobalVars = (uint16) (version >> 16); */ 
+504: /* MUTANT (rep_const) */            script->numGlobalVars = (uint16) (version >> 0);
+504: /* MUTANT (rep_const) */            script->numGlobalVars = (uint16) (version >> 1);
+504: /* MUTANT (rep_const) */            script->numGlobalVars = (uint16) (version >> -1);
+504: /* MUTANT (rep_const) */            script->numGlobalVars = (uint16) (version >> ((16)+1));
+504: /* MUTANT (rep_const) */            script->numGlobalVars = (uint16) (version >> ((16)-1));
+507: /* MUTANT (rep_op) */            if (magic <= JSXDR_MAGIC_SCRIPT_4)
+507: /* MUTANT (rep_op) */            if (magic < JSXDR_MAGIC_SCRIPT_4)
+507: /* MUTANT (rep_op) */            if (magic > JSXDR_MAGIC_SCRIPT_4)
+507: /* MUTANT (rep_op) */            if (magic == JSXDR_MAGIC_SCRIPT_4)
+507: /* MUTANT (rep_op) */            if (magic != JSXDR_MAGIC_SCRIPT_4)
+507: /* MUTANT (negate) */            if(! (magic >= JSXDR_MAGIC_SCRIPT_4))
+519: /* MUTANT (rep_op) */    if (!JS_XDRBytes(xdr, (char *)script->code, length * sizeof(jsbytecode)) &&
+521: /* MUTANT (del_stmt) */ /*         goto error; */ 
+524: /* MUTANT (rep_op) */    if (magic <= JSXDR_MAGIC_SCRIPT_4) {
+524: /* MUTANT (rep_op) */    if (magic > JSXDR_MAGIC_SCRIPT_4) {
+524: /* MUTANT (rep_op) */    if (magic >= JSXDR_MAGIC_SCRIPT_4) {
+524: /* MUTANT (rep_op) */    if (magic == JSXDR_MAGIC_SCRIPT_4) {
+524: /* MUTANT (rep_op) */    if (magic != JSXDR_MAGIC_SCRIPT_4) {
+524: /* MUTANT (negate) */    if(! (magic < JSXDR_MAGIC_SCRIPT_4)) {
+525: /* MUTANT (negate) */        if(! (!JS_XDRUint32(xdr, &nsrcnotes)))
+527: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_DECODE) {
+527: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_DECODE)) {
+528: /* MUTANT (del_stmt) */ /*             notes = (jssrcnote *) JS_malloc(cx, nsrcnotes * sizeof(jssrcnote)); */ 
+529: /* MUTANT (negate) */            if(! (!notes))
+534: /* MUTANT (rep_op) */    if (!JS_XDRBytes(xdr, (char *)notes, nsrcnotes * sizeof(jssrcnote)) &&
+535: /* MUTANT (rep_op) */        !JS_XDRCStringOrNull(xdr, (char **)&script->filename) &&
+536: /* MUTANT (rep_op) */        !JS_XDRUint32(xdr, &lineno) &&
+537: /* MUTANT (rep_op) */        !JS_XDRUint32(xdr, &depth) &&
+538: /* MUTANT (rep_op) */        (magic <= JSXDR_MAGIC_SCRIPT_4 && !JS_XDRUint32(xdr, &ntrynotes))) {
+538: /* MUTANT (rep_op) */        (magic > JSXDR_MAGIC_SCRIPT_4 && !JS_XDRUint32(xdr, &ntrynotes))) {
+538: /* MUTANT (rep_op) */        (magic >= JSXDR_MAGIC_SCRIPT_4 && !JS_XDRUint32(xdr, &ntrynotes))) {
+538: /* MUTANT (rep_op) */        (magic == JSXDR_MAGIC_SCRIPT_4 && !JS_XDRUint32(xdr, &ntrynotes))) {
+538: /* MUTANT (rep_op) */        (magic != JSXDR_MAGIC_SCRIPT_4 && !JS_XDRUint32(xdr, &ntrynotes))) {
+538: /* MUTANT (rep_op) */        (magic < JSXDR_MAGIC_SCRIPT_4 || !JS_XDRUint32(xdr, &ntrynotes))) {
+539: /* MUTANT (del_stmt) */ /*         goto error; */ 
+543: /* MUTANT (rep_op) */    if (magic <= JSXDR_MAGIC_SCRIPT_3) {
+543: /* MUTANT (rep_op) */    if (magic < JSXDR_MAGIC_SCRIPT_3) {
+543: /* MUTANT (rep_op) */    if (magic > JSXDR_MAGIC_SCRIPT_3) {
+543: /* MUTANT (rep_op) */    if (magic == JSXDR_MAGIC_SCRIPT_3) {
+543: /* MUTANT (rep_op) */    if (magic != JSXDR_MAGIC_SCRIPT_3) {
+543: /* MUTANT (negate) */    if(! (magic >= JSXDR_MAGIC_SCRIPT_3)) {
+544: /* MUTANT (del_stmt) */ /*         JSPrincipals *principals; */ 
+545: /* MUTANT (del_stmt) */ /*         uint32 encodeable; */ 
+547: /* MUTANT (rep_op) */        if (xdr->mode != JSXDR_ENCODE) {
+547: /* MUTANT (negate) */        if(! (xdr->mode == JSXDR_ENCODE)) {
+548: /* MUTANT (del_stmt) */ /*             principals = script->principals; */ 
+549: /* MUTANT (del_stmt) */ /*             encodeable = (cx->runtime->principalsTranscoder != NULL); */ 
+549: /* MUTANT (rep_op) */            encodeable = (cx->runtime->principalsTranscoder == NULL);
+550: /* MUTANT (negate) */            if(! (!JS_XDRUint32(xdr, &encodeable)))
+552: /* MUTANT (rep_op) */            if (encodeable ||
+554: /* MUTANT (del_stmt) */ /*                 goto error; */ 
+557: /* MUTANT (negate) */            if(! (!JS_XDRUint32(xdr, &encodeable)))
+559: /* MUTANT (negate) */            if(! (encodeable)) {
+560: /* MUTANT (negate) */                if(! (!cx->runtime->principalsTranscoder)) {
+563: /* MUTANT (del_stmt) */ /*                     goto error; */ 
+565: /* MUTANT (negate) */                if(! (!cx->runtime->principalsTranscoder(xdr, &principals)))
+567: /* MUTANT (del_stmt) */ /*                 script->principals = principals; */ 
+572: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_DECODE) {
+572: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_DECODE)) {
+573: /* MUTANT (del_stmt) */ /*         const char *filename = script->filename; */ 
+574: /* MUTANT (negate) */        if(! (filename)) {
+575: /* MUTANT (del_stmt) */ /*             filename = js_SaveScriptFilename(cx, filename); */ 
+576: /* MUTANT (negate) */            if(! (!filename))
+578: /* MUTANT (del_stmt) */ /*             JS_free(cx, (void *) script->filename); */ 
+579: /* MUTANT (del_stmt) */ /*             script->filename = filename; */ 
+580: /* MUTANT (del_stmt) */ /*             filenameWasSaved = JS_TRUE; */ 
+583: /* MUTANT (del_stmt) */ /*         script->depth = (uintN)depth; */ 
+585: /* MUTANT (rep_op) */        if (magic <= JSXDR_MAGIC_SCRIPT_4) {
+585: /* MUTANT (rep_op) */        if (magic > JSXDR_MAGIC_SCRIPT_4) {
+585: /* MUTANT (rep_op) */        if (magic >= JSXDR_MAGIC_SCRIPT_4) {
+585: /* MUTANT (rep_op) */        if (magic == JSXDR_MAGIC_SCRIPT_4) {
+585: /* MUTANT (rep_op) */        if (magic != JSXDR_MAGIC_SCRIPT_4) {
+585: /* MUTANT (negate) */        if(! (magic < JSXDR_MAGIC_SCRIPT_4)) {
+592: /* MUTANT (del_stmt) */ /*             uint32 osrcnotes = nsrcnotes; */ 
+594: /* MUTANT (negate) */            if(! (ntrynotes))
+595: /* MUTANT (rep_op) */                nsrcnotes -= JSTRYNOTE_ALIGNMASK;
+595: /* MUTANT (rep_op) */                nsrcnotes *= JSTRYNOTE_ALIGNMASK;
+595: /* MUTANT (rep_op) */                nsrcnotes %= JSTRYNOTE_ALIGNMASK;
+597: /* MUTANT (rep_op) */                                                sizeof(JSScript) -
+597: /* MUTANT (rep_op) */                                                sizeof(JSScript) *
+597: /* MUTANT (rep_op) */                                                sizeof(JSScript) %
+598: /* MUTANT (rep_op) */                                                length * sizeof(jsbytecode) -
+598: /* MUTANT (rep_op) */                                                length * sizeof(jsbytecode) *
+598: /* MUTANT (rep_op) */                                                length * sizeof(jsbytecode) %
+599: /* MUTANT (rep_op) */                                                nsrcnotes * sizeof(jssrcnote) -
+599: /* MUTANT (rep_op) */                                                nsrcnotes * sizeof(jssrcnote) *
+599: /* MUTANT (rep_op) */                                                nsrcnotes * sizeof(jssrcnote) %
+601: /* MUTANT (negate) */            if(! (!newscript))
+604: /* MUTANT (del_stmt) */ /*             *scriptp = script = newscript; */ 
+605: /* MUTANT (del_stmt) */ /*             script->code = (jsbytecode *)(script + 1); */ 
+605: /* MUTANT (rep_op) */            script->code = (jsbytecode *)(script - 1);
+605: /* MUTANT (rep_op) */            script->code = (jsbytecode *)(script * 1);
+605: /* MUTANT (rep_op) */            script->code = (jsbytecode *)(script % 1);
+605: /* MUTANT (rep_const) */            script->code = (jsbytecode *)(script + 0);
+605: /* MUTANT (rep_const) */            script->code = (jsbytecode *)(script + -1);
+605: /* MUTANT (rep_const) */            script->code = (jsbytecode *)(script + ((1)+1));
+606: /* MUTANT (del_stmt) */ /*             script->main = script->code + prologLength; */ 
+606: /* MUTANT (rep_op) */            script->main = script->code - prologLength;
+606: /* MUTANT (rep_op) */            script->main = script->code * prologLength;
+606: /* MUTANT (rep_op) */            script->main = script->code % prologLength;
+607: /* MUTANT (del_stmt) */ /*             memcpy(script->code + length, notes, osrcnotes * sizeof(jssrcnote)); */ 
+607: /* MUTANT (rep_op) */            memcpy(script->code - length, notes, osrcnotes * sizeof(jssrcnote));
+607: /* MUTANT (rep_op) */            memcpy(script->code * length, notes, osrcnotes * sizeof(jssrcnote));
+607: /* MUTANT (rep_op) */            memcpy(script->code % length, notes, osrcnotes * sizeof(jssrcnote));
+608: /* MUTANT (del_stmt) */ /*             JS_free(cx, (void *) notes); */ 
+609: /* MUTANT (del_stmt) */ /*             notes = NULL; */ 
+610: /* MUTANT (negate) */            if(! (ntrynotes)) {
+612: /* MUTANT (rep_op) */                                   ((jsword)(SCRIPT_NOTES(script) - nsrcnotes) &
+612: /* MUTANT (rep_op) */                                   ((jsword)(SCRIPT_NOTES(script) * nsrcnotes) &
+612: /* MUTANT (rep_op) */                                   ((jsword)(SCRIPT_NOTES(script) % nsrcnotes) &
+614: /* MUTANT (del_stmt) */ /*                 memset(script->trynotes, 0, ntrynotes * sizeof(JSTryNote)); */ 
+614: /* MUTANT (rep_const) */                memset(script->trynotes, 1, ntrynotes * sizeof(JSTryNote));
+614: /* MUTANT (rep_const) */                memset(script->trynotes, -1, ntrynotes * sizeof(JSTryNote));
+619: /* MUTANT (negate) */    while(! (ntrynotes)) {
+620: /* MUTANT (del_stmt) */ /*         JSTryNote *tn = &script->trynotes[--ntrynotes]; */ 
+620: /* MUTANT (rep_op) */        JSTryNote *tn = &script->trynotes[++ntrynotes];
+625: /* MUTANT (rep_op) */        if (!JS_XDRUint32(xdr, &start) &&
+626: /* MUTANT (rep_op) */            !JS_XDRUint32(xdr, &catchLength) &&
+628: /* MUTANT (del_stmt) */ /*             goto error; */ 
+631: /* MUTANT (del_stmt) */ /*         tn->length = (ptrdiff_t) catchLength; */ 
+632: /* MUTANT (del_stmt) */ /*         tn->catchStart = (ptrdiff_t) catchStart; */ 
+637: /* MUTANT (rep_op) */    if (xdr->mode != JSXDR_DECODE) {
+637: /* MUTANT (negate) */    if(! (xdr->mode == JSXDR_DECODE)) {
+638: /* MUTANT (rep_op) */        if (script->filename || !filenameWasSaved) {
+638: /* MUTANT (negate) */        if(! (script->filename && !filenameWasSaved)) {
+639: /* MUTANT (del_stmt) */ /*             JS_free(cx, (void *) script->filename); */ 
+640: /* MUTANT (del_stmt) */ /*             script->filename = NULL; */ 
+642: /* MUTANT (rep_op) */        if (notes || magic < JSXDR_MAGIC_SCRIPT_4)
+642: /* MUTANT (rep_op) */        if (notes && magic <= JSXDR_MAGIC_SCRIPT_4)
+642: /* MUTANT (rep_op) */        if (notes && magic > JSXDR_MAGIC_SCRIPT_4)
+642: /* MUTANT (rep_op) */        if (notes && magic >= JSXDR_MAGIC_SCRIPT_4)
+642: /* MUTANT (rep_op) */        if (notes && magic == JSXDR_MAGIC_SCRIPT_4)
+642: /* MUTANT (rep_op) */        if (notes && magic != JSXDR_MAGIC_SCRIPT_4)
+642: /* MUTANT (negate) */        if(! (notes && magic < JSXDR_MAGIC_SCRIPT_4))
+644: /* MUTANT (del_stmt) */ /*         js_DestroyScript(cx, script); */ 
+645: /* MUTANT (del_stmt) */ /*         *scriptp = NULL; */ 
+661: /* MUTANT (del_stmt) */ /*     JSXDRState *xdr; */ 
+662: /* MUTANT (del_stmt) */ /*     JSScript *script; */ 
+663: /* MUTANT (del_stmt) */ /*     JSBool ok, hasMagic; */ 
+664: /* MUTANT (del_stmt) */ /*     uint32 len; */ 
+665: /* MUTANT (del_stmt) */ /*     void *buf; */ 
+666: /* MUTANT (del_stmt) */ /*     JSString *str; */ 
+668: /* MUTANT (negate) */    if(! (!JS_InstanceOf(cx, obj, &js_ScriptClass, argv)))
+670: /* MUTANT (del_stmt) */ /*     script = (JSScript *) JS_GetPrivate(cx, obj); */ 
+671: /* MUTANT (negate) */    if(! (!script))
+675: /* MUTANT (del_stmt) */ /*     xdr = JS_XDRNewMem(cx, JSXDR_ENCODE); */ 
+676: /* MUTANT (negate) */    if(! (!xdr))
+680: /* MUTANT (del_stmt) */ /*     ok = js_XDRScript(xdr, &script, &hasMagic); */ 
+681: /* MUTANT (negate) */    if(! (!ok))
+683: /* MUTANT (negate) */    if(! (!hasMagic)) {
+684: /* MUTANT (del_stmt) */ /*         *rval = JSVAL_VOID; */ 
+685: /* MUTANT (del_stmt) */ /*         goto out; */ 
+689: /* MUTANT (negate) */    if(! (!buf)) {
+690: /* MUTANT (del_stmt) */ /*         ok = JS_FALSE; */ 
+691: /* MUTANT (del_stmt) */ /*         goto out; */ 
+694: /* MUTANT (rep_op) */    JS_ASSERT((jsword)buf + sizeof(jschar) == 0);
+694: /* MUTANT (rep_op) */    JS_ASSERT((jsword)buf - sizeof(jschar) == 0);
+694: /* MUTANT (rep_op) */    JS_ASSERT((jsword)buf * sizeof(jschar) == 0);
+694: /* MUTANT (rep_op) */    JS_ASSERT((jsword)buf % sizeof(jschar) != 0);
+694: /* MUTANT (rep_const) */    JS_ASSERT((jsword)buf % sizeof(jschar) == 1);
+694: /* MUTANT (rep_const) */    JS_ASSERT((jsword)buf % sizeof(jschar) == -1);
+695: /* MUTANT (del_stmt) */ /*     len /= sizeof(jschar); */ 
+696: /* MUTANT (del_stmt) */ /*     str = JS_NewUCStringCopyN(cx, (jschar *)buf, len); */ 
+697: /* MUTANT (negate) */    if(! (!str)) {
+698: /* MUTANT (del_stmt) */ /*         ok = JS_FALSE; */ 
+699: /* MUTANT (del_stmt) */ /*         goto out; */ 
+704: /* MUTANT (del_stmt) */ /*     jschar *chars; */ 
+705: /* MUTANT (del_stmt) */ /*     uint32 i; */ 
+708: /* MUTANT (del_stmt) */ /*     chars = JS_GetStringChars(str); */ 
+709: /* MUTANT (rep_op) */    for (i = 0; i <= len; i++)
+709: /* MUTANT (rep_op) */    for (i = 0; i > len; i++)
+709: /* MUTANT (rep_op) */    for (i = 0; i >= len; i++)
+709: /* MUTANT (rep_op) */    for (i = 0; i == len; i++)
+709: /* MUTANT (rep_op) */    for (i = 0; i != len; i++)
+709: /* MUTANT (rep_op) */    for (i = 0; i < len; i--)
+709: /* MUTANT (rep_const) */    for (i = 1; i < len; i++)
+709: /* MUTANT (rep_const) */    for (i = -1; i < len; i++)
+717: /* MUTANT (del_stmt) */ /*     return ok; */ 
+724: /* MUTANT (del_stmt) */ /*     JSXDRState *xdr; */ 
+725: /* MUTANT (del_stmt) */ /*     JSString *str; */ 
+726: /* MUTANT (del_stmt) */ /*     void *buf; */ 
+727: /* MUTANT (del_stmt) */ /*     uint32 len; */ 
+728: /* MUTANT (del_stmt) */ /*     JSScript *script, *oldscript; */ 
+729: /* MUTANT (del_stmt) */ /*     JSBool ok, hasMagic; */ 
+731: /* MUTANT (negate) */    if(! (!JS_InstanceOf(cx, obj, &js_ScriptClass, argv)))
+734: /* MUTANT (rep_op) */    if (argc != 0)
+734: /* MUTANT (rep_const) */    if (argc == 1)
+734: /* MUTANT (rep_const) */    if (argc == -1)
+734: /* MUTANT (negate) */    if(! (argc == 0))
+736: /* MUTANT (del_stmt) */ /*     str = js_ValueToString(cx, argv[0]); */ 
+736: /* MUTANT (rep_const) */    str = js_ValueToString(cx, argv[1]);
+736: /* MUTANT (rep_const) */    str = js_ValueToString(cx, argv[-1]);
+737: /* MUTANT (negate) */    if(! (!str))
+739: /* MUTANT (del_stmt) */ /*     argv[0] = STRING_TO_JSVAL(str); */ 
+739: /* MUTANT (rep_const) */    argv[1] = STRING_TO_JSVAL(str);
+739: /* MUTANT (rep_const) */    argv[-1] = STRING_TO_JSVAL(str);
+742: /* MUTANT (del_stmt) */ /*     xdr = JS_XDRNewMem(cx, JSXDR_DECODE); */ 
+743: /* MUTANT (negate) */    if(! (!xdr))
+746: /* MUTANT (del_stmt) */ /*     buf = JS_GetStringChars(str); */ 
+747: /* MUTANT (del_stmt) */ /*     len = JS_GetStringLength(str); */ 
+750: /* MUTANT (del_stmt) */ /*     jschar *from, *to; */ 
+751: /* MUTANT (del_stmt) */ /*     uint32 i; */ 
+754: /* MUTANT (del_stmt) */ /*     from = (jschar *)buf; */ 
+755: /* MUTANT (del_stmt) */ /*     to = (jschar *) JS_malloc(cx, len * sizeof(jschar)); */ 
+756: /* MUTANT (negate) */    if(! (!to)) {
+757: /* MUTANT (del_stmt) */ /*         JS_XDRDestroy(xdr); */ 
+758: /* MUTANT (del_stmt) */ /*         return JS_FALSE; */ 
+760: /* MUTANT (rep_op) */    for (i = 0; i <= len; i++)
+760: /* MUTANT (rep_op) */    for (i = 0; i > len; i++)
+760: /* MUTANT (rep_op) */    for (i = 0; i >= len; i++)
+760: /* MUTANT (rep_op) */    for (i = 0; i == len; i++)
+760: /* MUTANT (rep_op) */    for (i = 0; i != len; i++)
+760: /* MUTANT (rep_op) */    for (i = 0; i < len; i--)
+760: /* MUTANT (rep_const) */    for (i = 1; i < len; i++)
+760: /* MUTANT (rep_const) */    for (i = -1; i < len; i++)
+762: /* MUTANT (del_stmt) */ /*     buf = (char *)to; */ 
+765: /* MUTANT (rep_op) */    len += sizeof(jschar);
+765: /* MUTANT (rep_op) */    len -= sizeof(jschar);
+765: /* MUTANT (rep_op) */    len %= sizeof(jschar);
+766: /* MUTANT (del_stmt) */ /*     JS_XDRMemSetData(xdr, buf, len); */ 
+769: /* MUTANT (del_stmt) */ /*     ok = js_XDRScript(xdr, &script, &hasMagic); */ 
+770: /* MUTANT (negate) */    if(! (!ok))
+772: /* MUTANT (negate) */    if(! (!hasMagic)) {
+773: /* MUTANT (del_stmt) */ /*         *rval = JSVAL_FALSE; */ 
+774: /* MUTANT (del_stmt) */ /*         goto out; */ 
+779: /* MUTANT (del_stmt) */ /*     ok = JS_SetPrivate(cx, obj, script); */ 
+780: /* MUTANT (negate) */    if(! (!ok)) {
+781: /* MUTANT (del_stmt) */ /*         JS_free(cx, script); */ 
+782: /* MUTANT (del_stmt) */ /*         goto out; */ 
+784: /* MUTANT (negate) */    if(! (oldscript))
+787: /* MUTANT (del_stmt) */ /*     script->object = obj; */ 
+788: /* MUTANT (del_stmt) */ /*     js_CallNewScriptHook(cx, script, NULL); */ 
+795: /* MUTANT (rep_const) */    JS_XDRMemSetData(xdr, NULL, 1);
+795: /* MUTANT (rep_const) */    JS_XDRMemSetData(xdr, NULL, -1);
+796: /* MUTANT (del_stmt) */ /*     JS_XDRDestroy(xdr); */ 
+801: /* MUTANT (del_stmt) */ /*     return ok; */ 
+811: /* MUTANT (rep_const) */    {js_toSource_str,   script_toSource,        1,0,0},
+811: /* MUTANT (rep_const) */    {js_toSource_str,   script_toSource,        -1,0,0},
+811: /* MUTANT (rep_const) */    {js_toSource_str,   script_toSource,        0,1,0},
+811: /* MUTANT (rep_const) */    {js_toSource_str,   script_toSource,        0,-1,0},
+811: /* MUTANT (rep_const) */    {js_toSource_str,   script_toSource,        0,0,1},
+811: /* MUTANT (rep_const) */    {js_toSource_str,   script_toSource,        0,0,-1},
+813: /* MUTANT (rep_const) */    {js_toString_str,   script_toString,        1,0,0},
+813: /* MUTANT (rep_const) */    {js_toString_str,   script_toString,        -1,0,0},
+813: /* MUTANT (rep_const) */    {js_toString_str,   script_toString,        0,1,0},
+813: /* MUTANT (rep_const) */    {js_toString_str,   script_toString,        0,-1,0},
+813: /* MUTANT (rep_const) */    {js_toString_str,   script_toString,        0,0,1},
+813: /* MUTANT (rep_const) */    {js_toString_str,   script_toString,        0,0,-1},
+814: /* MUTANT (rep_const) */    {"compile",         script_compile,         0,0,0},
+814: /* MUTANT (rep_const) */    {"compile",         script_compile,         1,0,0},
+814: /* MUTANT (rep_const) */    {"compile",         script_compile,         -1,0,0},
+814: /* MUTANT (rep_const) */    {"compile",         script_compile,         ((2)+1),0,0},
+814: /* MUTANT (rep_const) */    {"compile",         script_compile,         ((2)-1),0,0},
+814: /* MUTANT (rep_const) */    {"compile",         script_compile,         2,1,0},
+814: /* MUTANT (rep_const) */    {"compile",         script_compile,         2,-1,0},
+814: /* MUTANT (rep_const) */    {"compile",         script_compile,         2,0,1},
+814: /* MUTANT (rep_const) */    {"compile",         script_compile,         2,0,-1},
+815: /* MUTANT (rep_const) */    {"exec",            script_exec,            0,0,0},
+815: /* MUTANT (rep_const) */    {"exec",            script_exec,            -1,0,0},
+815: /* MUTANT (rep_const) */    {"exec",            script_exec,            ((1)+1),0,0},
+815: /* MUTANT (rep_const) */    {"exec",            script_exec,            1,1,0},
+815: /* MUTANT (rep_const) */    {"exec",            script_exec,            1,-1,0},
+815: /* MUTANT (rep_const) */    {"exec",            script_exec,            1,0,1},
+815: /* MUTANT (rep_const) */    {"exec",            script_exec,            1,0,-1},
+817: /* MUTANT (rep_const) */    {"freeze",          script_freeze,          1,0,0},
+817: /* MUTANT (rep_const) */    {"freeze",          script_freeze,          -1,0,0},
+817: /* MUTANT (rep_const) */    {"freeze",          script_freeze,          0,1,0},
+817: /* MUTANT (rep_const) */    {"freeze",          script_freeze,          0,-1,0},
+817: /* MUTANT (rep_const) */    {"freeze",          script_freeze,          0,0,1},
+817: /* MUTANT (rep_const) */    {"freeze",          script_freeze,          0,0,-1},
+818: /* MUTANT (rep_const) */    {js_thaw_str,       script_thaw,            0,0,0},
+818: /* MUTANT (rep_const) */    {js_thaw_str,       script_thaw,            -1,0,0},
+818: /* MUTANT (rep_const) */    {js_thaw_str,       script_thaw,            ((1)+1),0,0},
+818: /* MUTANT (rep_const) */    {js_thaw_str,       script_thaw,            1,1,0},
+818: /* MUTANT (rep_const) */    {js_thaw_str,       script_thaw,            1,-1,0},
+818: /* MUTANT (rep_const) */    {js_thaw_str,       script_thaw,            1,0,1},
+818: /* MUTANT (rep_const) */    {js_thaw_str,       script_thaw,            1,0,-1},
+820: /* MUTANT (rep_const) */    {1,0,0,0,0}
+820: /* MUTANT (rep_const) */    {-1,0,0,0,0}
+820: /* MUTANT (rep_const) */    {0,1,0,0,0}
+820: /* MUTANT (rep_const) */    {0,-1,0,0,0}
+820: /* MUTANT (rep_const) */    {0,0,1,0,0}
+820: /* MUTANT (rep_const) */    {0,0,-1,0,0}
+820: /* MUTANT (rep_const) */    {0,0,0,1,0}
+820: /* MUTANT (rep_const) */    {0,0,0,-1,0}
+820: /* MUTANT (rep_const) */    {0,0,0,0,1}
+820: /* MUTANT (rep_const) */    {0,0,0,0,-1}
+828: /* MUTANT (del_stmt) */ /*     JSScript *script; */ 
+830: /* MUTANT (del_stmt) */ /*     script = (JSScript *) JS_GetPrivate(cx, obj); */ 
+831: /* MUTANT (negate) */    if(! (script))
+839: /* MUTANT (rep_const) */    return script_exec(cx, JSVAL_TO_OBJECT(argv[0]), argc, argv, rval);
+839: /* MUTANT (rep_const) */    return script_exec(cx, JSVAL_TO_OBJECT(argv[1]), argc, argv, rval);
+839: /* MUTANT (rep_const) */    return script_exec(cx, JSVAL_TO_OBJECT(argv[-1]), argc, argv, rval);
+839: /* MUTANT (rep_const) */    return script_exec(cx, JSVAL_TO_OBJECT(argv[((-2)+1)]), argc, argv, rval);
+839: /* MUTANT (rep_const) */    return script_exec(cx, JSVAL_TO_OBJECT(argv[((-2)-1)]), argc, argv, rval);
+848: /* MUTANT (del_stmt) */ /*     JSScript *script; */ 
+850: /* MUTANT (del_stmt) */ /*     script = (JSScript *) JS_GetPrivate(cx, obj); */ 
+851: /* MUTANT (negate) */    if(! (script))
+853: /* MUTANT (del_stmt) */ /*     return 0; */ 
+853: /* MUTANT (rep_const) */    return 1;
+853: /* MUTANT (rep_const) */    return -1;
+862: /* MUTANT (rep_const) */    NULL,             NULL,             script_mark,      1
+862: /* MUTANT (rep_const) */    NULL,             NULL,             script_mark,      -1
+871: /* MUTANT (negate) */    if(! (!(cx->fp->flags & JSFRAME_CONSTRUCTING))) {
+872: /* MUTANT (del_stmt) */ /*         obj = js_NewObject(cx, &js_ScriptClass, NULL, NULL); */ 
+873: /* MUTANT (negate) */        if(! (!obj))
+880: /* MUTANT (del_stmt) */ /*         *rval = OBJECT_TO_JSVAL(obj); */ 
+891: /* MUTANT (del_stmt) */ /*     obj = js_NewObject(cx, &js_ScriptClass, NULL, NULL); */ 
+892: /* MUTANT (negate) */    if(! (!obj))
+894: /* MUTANT (negate) */    if(! (!script_thaw(cx, obj, argc, argv, rval)))
+896: /* MUTANT (del_stmt) */ /*     *rval = OBJECT_TO_JSVAL(obj); */ 
+897: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+901: /* MUTANT (rep_const) */    {js_thaw_str,       script_static_thaw,     0,0,0},
+901: /* MUTANT (rep_const) */    {js_thaw_str,       script_static_thaw,     -1,0,0},
+901: /* MUTANT (rep_const) */    {js_thaw_str,       script_static_thaw,     ((1)+1),0,0},
+901: /* MUTANT (rep_const) */    {js_thaw_str,       script_static_thaw,     1,1,0},
+901: /* MUTANT (rep_const) */    {js_thaw_str,       script_static_thaw,     1,-1,0},
+901: /* MUTANT (rep_const) */    {js_thaw_str,       script_static_thaw,     1,0,1},
+901: /* MUTANT (rep_const) */    {js_thaw_str,       script_static_thaw,     1,0,-1},
+902: /* MUTANT (rep_const) */    {1,0,0,0,0}
+902: /* MUTANT (rep_const) */    {-1,0,0,0,0}
+902: /* MUTANT (rep_const) */    {0,1,0,0,0}
+902: /* MUTANT (rep_const) */    {0,-1,0,0,0}
+902: /* MUTANT (rep_const) */    {0,0,1,0,0}
+902: /* MUTANT (rep_const) */    {0,0,-1,0,0}
+902: /* MUTANT (rep_const) */    {0,0,0,1,0}
+902: /* MUTANT (rep_const) */    {0,0,0,-1,0}
+902: /* MUTANT (rep_const) */    {0,0,0,0,1}
+902: /* MUTANT (rep_const) */    {0,0,0,0,-1}
+914: /* MUTANT (rep_const) */    return JS_InitClass(cx, obj, NULL, &js_ScriptClass, Script, 0,
+914: /* MUTANT (rep_const) */    return JS_InitClass(cx, obj, NULL, &js_ScriptClass, Script, -1,
+914: /* MUTANT (rep_const) */    return JS_InitClass(cx, obj, NULL, &js_ScriptClass, Script, ((1)+1),
+926: /* MUTANT (del_stmt) */ /*     return strcmp(k1, k2) == 0; */ 
+926: /* MUTANT (rep_op) */    return strcmp(k1, k2) != 0;
+926: /* MUTANT (rep_const) */    return strcmp(k1, k2) == 1;
+926: /* MUTANT (rep_const) */    return strcmp(k1, k2) == -1;
+938: /* MUTANT (del_stmt) */ /*     JSHashEntry         *next; */           /* hash chain linkage */
+939: /* MUTANT (del_stmt) */ /*     JSHashNumber        keyHash; */         /* key hash function result */
+940: /* MUTANT (del_stmt) */ /*     const void          *key; */            /* ptr to filename, below */
+941: /* MUTANT (del_stmt) */ /*     uint32              flags; */           /* user-defined filename prefix flags */
+942: /* MUTANT (del_stmt) */ /*     JSPackedBool        mark; */            /* GC mark flag */
+943: /* MUTANT (del_stmt) */ /*     char                filename[3]; */     /* two or more bytes, NUL-terminated */
+943: /* MUTANT (rep_const) */    char                filename[0];    /* two or more bytes, NUL-terminated */
+943: /* MUTANT (rep_const) */    char                filename[1];    /* two or more bytes, NUL-terminated */
+943: /* MUTANT (rep_const) */    char                filename[-1];    /* two or more bytes, NUL-terminated */
+943: /* MUTANT (rep_const) */    char                filename[((3)+1)];    /* two or more bytes, NUL-terminated */
+943: /* MUTANT (rep_const) */    char                filename[((3)-1)];    /* two or more bytes, NUL-terminated */
+944: /* MUTANT (del_stmt) */ /* } ScriptFilenameEntry; */ 
+949: /* MUTANT (del_stmt) */ /*     size_t nbytes = offsetof(ScriptFilenameEntry, filename) + strlen(key) + 1; */ 
+949: /* MUTANT (rep_op) */    size_t nbytes = offsetof(ScriptFilenameEntry, filename) - strlen(key) + 1;
+949: /* MUTANT (rep_op) */    size_t nbytes = offsetof(ScriptFilenameEntry, filename) * strlen(key) + 1;
+949: /* MUTANT (rep_op) */    size_t nbytes = offsetof(ScriptFilenameEntry, filename) % strlen(key) + 1;
+949: /* MUTANT (rep_op) */    size_t nbytes = offsetof(ScriptFilenameEntry, filename) + strlen(key) - 1;
+949: /* MUTANT (rep_op) */    size_t nbytes = offsetof(ScriptFilenameEntry, filename) + strlen(key) * 1;
+949: /* MUTANT (rep_op) */    size_t nbytes = offsetof(ScriptFilenameEntry, filename) + strlen(key) % 1;
+949: /* MUTANT (rep_const) */    size_t nbytes = offsetof(ScriptFilenameEntry, filename) + strlen(key) + 0;
+949: /* MUTANT (rep_const) */    size_t nbytes = offsetof(ScriptFilenameEntry, filename) + strlen(key) + -1;
+949: /* MUTANT (rep_const) */    size_t nbytes = offsetof(ScriptFilenameEntry, filename) + strlen(key) + ((1)+1);
+951: /* MUTANT (del_stmt) */ /*     return (JSHashEntry *) malloc(JS_MAX(nbytes, sizeof(JSHashEntry))); */ 
+957: /* MUTANT (rep_op) */    if (flag == HT_FREE_ENTRY)
+957: /* MUTANT (negate) */    if(! (flag != HT_FREE_ENTRY))
+959: /* MUTANT (del_stmt) */ /*     free(he); */ 
+972: /* MUTANT (del_stmt) */ /*     rt->scriptFilenameTableLock = JS_NEW_LOCK(); */ 
+973: /* MUTANT (negate) */    if(! (!rt->scriptFilenameTableLock))
+978: /* MUTANT (rep_const) */        JS_NewHashTable(0, JS_HashString, js_compare_strings, NULL,
+978: /* MUTANT (rep_const) */        JS_NewHashTable(1, JS_HashString, js_compare_strings, NULL,
+978: /* MUTANT (rep_const) */        JS_NewHashTable(-1, JS_HashString, js_compare_strings, NULL,
+978: /* MUTANT (rep_const) */        JS_NewHashTable(((16)+1), JS_HashString, js_compare_strings, NULL,
+978: /* MUTANT (rep_const) */        JS_NewHashTable(((16)-1), JS_HashString, js_compare_strings, NULL,
+980: /* MUTANT (negate) */    if(! (!rt->scriptFilenameTable)) {
+981: /* MUTANT (del_stmt) */ /*         js_FinishRuntimeScriptState(rt); */     /* free lock if threadsafe */
+982: /* MUTANT (del_stmt) */ /*         return JS_FALSE; */ 
+985: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+989: /* MUTANT (del_stmt) */ /*     JSCList     links; */       /* circular list linkage for easy deletion */
+990: /* MUTANT (del_stmt) */ /*     const char  *name; */       /* pointer to pinned ScriptFilenameEntry string */
+991: /* MUTANT (del_stmt) */ /*     size_t      length; */      /* prefix string length, precomputed */
+992: /* MUTANT (del_stmt) */ /*     uint32      flags; */       /* user-defined flags to inherit from this prefix */
+993: /* MUTANT (del_stmt) */ /* } ScriptFilenamePrefix; */ 
+998: /* MUTANT (negate) */    if(! (rt->scriptFilenameTable)) {
+999: /* MUTANT (del_stmt) */ /*         JS_HashTableDestroy(rt->scriptFilenameTable); */ 
+1000: /* MUTANT (del_stmt) */ /*         rt->scriptFilenameTable = NULL; */ 
+1003: /* MUTANT (negate) */    if(! (rt->scriptFilenameTableLock)) {
+1004: /* MUTANT (del_stmt) */ /*         JS_DESTROY_LOCK(rt->scriptFilenameTableLock); */ 
+1005: /* MUTANT (del_stmt) */ /*         rt->scriptFilenameTableLock = NULL; */ 
+1013: /* MUTANT (del_stmt) */ /*     ScriptFilenamePrefix *sfp; */ 
+1015: /* MUTANT (negate) */    while(! (!JS_CLIST_IS_EMPTY(&rt->scriptFilenamePrefixes))) {
+1016: /* MUTANT (del_stmt) */ /*         sfp = (ScriptFilenamePrefix *) rt->scriptFilenamePrefixes.next; */ 
+1017: /* MUTANT (del_stmt) */ /*         JS_REMOVE_LINK(&sfp->links); */ 
+1018: /* MUTANT (del_stmt) */ /*         free(sfp); */ 
+1024: /* MUTANT (rep_const) */size_t sftbl_savings = 1;
+1024: /* MUTANT (rep_const) */size_t sftbl_savings = -1;
+1030: /* MUTANT (del_stmt) */ /*     JSHashTable *table; */ 
+1031: /* MUTANT (del_stmt) */ /*     JSHashNumber hash; */ 
+1032: /* MUTANT (del_stmt) */ /*     JSHashEntry **hep; */ 
+1033: /* MUTANT (del_stmt) */ /*     ScriptFilenameEntry *sfe; */ 
+1034: /* MUTANT (del_stmt) */ /*     size_t length; */ 
+1035: /* MUTANT (del_stmt) */ /*     JSCList *head, *link; */ 
+1036: /* MUTANT (del_stmt) */ /*     ScriptFilenamePrefix *sfp; */ 
+1038: /* MUTANT (del_stmt) */ /*     table = rt->scriptFilenameTable; */ 
+1039: /* MUTANT (del_stmt) */ /*     hash = JS_HashString(filename); */ 
+1040: /* MUTANT (del_stmt) */ /*     hep = JS_HashTableRawLookup(table, hash, filename); */ 
+1041: /* MUTANT (del_stmt) */ /*     sfe = (ScriptFilenameEntry *) *hep; */ 
+1043: /* MUTANT (negate) */    if(! (sfe))
+1044: /* MUTANT (rep_op) */        sftbl_savings -= strlen(sfe->filename);
+1044: /* MUTANT (rep_op) */        sftbl_savings *= strlen(sfe->filename);
+1044: /* MUTANT (rep_op) */        sftbl_savings %= strlen(sfe->filename);
+1047: /* MUTANT (negate) */    if(! (!sfe)) {
+1050: /* MUTANT (negate) */        if(! (!sfe))
+1052: /* MUTANT (del_stmt) */ /*         sfe->key = strcpy(sfe->filename, filename); */ 
+1053: /* MUTANT (del_stmt) */ /*         sfe->flags = 0; */ 
+1053: /* MUTANT (rep_const) */        sfe->flags = 1;
+1053: /* MUTANT (rep_const) */        sfe->flags = -1;
+1054: /* MUTANT (del_stmt) */ /*         sfe->mark = JS_FALSE; */ 
+1058: /* MUTANT (rep_op) */    if (flags == 0) {
+1058: /* MUTANT (rep_const) */    if (flags != 1) {
+1058: /* MUTANT (rep_const) */    if (flags != -1) {
+1058: /* MUTANT (negate) */    if(! (flags != 0)) {
+1060: /* MUTANT (del_stmt) */ /*         sfp = NULL; */ 
+1061: /* MUTANT (del_stmt) */ /*         length = strlen(filename); */ 
+1063: /* MUTANT (del_stmt) */ /*              link->next != head; */ 
+1063: /* MUTANT (rep_op) */             link->next == head;
+1066: /* MUTANT (del_stmt) */ /*             sfp = (ScriptFilenamePrefix *) link->next; */ 
+1067: /* MUTANT (negate) */            if(! (!strcmp(sfp->name, filename)))
+1069: /* MUTANT (rep_op) */            if (sfp->length < length) {
+1069: /* MUTANT (rep_op) */            if (sfp->length > length) {
+1069: /* MUTANT (rep_op) */            if (sfp->length >= length) {
+1069: /* MUTANT (rep_op) */            if (sfp->length == length) {
+1069: /* MUTANT (rep_op) */            if (sfp->length != length) {
+1069: /* MUTANT (negate) */            if(! (sfp->length <= length)) {
+1070: /* MUTANT (del_stmt) */ /*                 sfp = NULL; */ 
+1071: /* MUTANT (del_stmt) */ /*                 break; */ 
+1076: /* MUTANT (negate) */        if(! (!sfp)) {
+1078: /* MUTANT (del_stmt) */ /*             sfp = (ScriptFilenamePrefix *) malloc(sizeof(ScriptFilenamePrefix)); */ 
+1079: /* MUTANT (negate) */            if(! (!sfp))
+1081: /* MUTANT (del_stmt) */ /*             JS_INSERT_AFTER(&sfp->links, link); */ 
+1082: /* MUTANT (del_stmt) */ /*             sfp->name = sfe->filename; */ 
+1083: /* MUTANT (del_stmt) */ /*             sfp->length = length; */ 
+1084: /* MUTANT (del_stmt) */ /*             sfp->flags = 0; */ 
+1084: /* MUTANT (rep_const) */            sfp->flags = 1;
+1084: /* MUTANT (rep_const) */            sfp->flags = -1;
+1093: /* MUTANT (del_stmt) */ /*         sfp->flags |= flags; */ 
+1102: /* MUTANT (del_stmt) */ /*     JSRuntime *rt; */ 
+1103: /* MUTANT (del_stmt) */ /*     ScriptFilenameEntry *sfe; */ 
+1104: /* MUTANT (del_stmt) */ /*     JSCList *head, *link; */ 
+1105: /* MUTANT (del_stmt) */ /*     ScriptFilenamePrefix *sfp; */ 
+1107: /* MUTANT (del_stmt) */ /*     rt = cx->runtime; */ 
+1108: /* MUTANT (del_stmt) */ /*     JS_ACQUIRE_LOCK(rt->scriptFilenameTableLock); */ 
+1109: /* MUTANT (del_stmt) */ /*     sfe = SaveScriptFilename(rt, filename, 0); */ 
+1109: /* MUTANT (rep_const) */    sfe = SaveScriptFilename(rt, filename, 1);
+1109: /* MUTANT (rep_const) */    sfe = SaveScriptFilename(rt, filename, -1);
+1110: /* MUTANT (negate) */    if(! (!sfe)) {
+1111: /* MUTANT (del_stmt) */ /*         JS_RELEASE_LOCK(rt->scriptFilenameTableLock); */ 
+1112: /* MUTANT (del_stmt) */ /*         JS_ReportOutOfMemory(cx); */ 
+1113: /* MUTANT (del_stmt) */ /*         return NULL; */ 
+1122: /* MUTANT (del_stmt) */ /*          link != head; */ 
+1122: /* MUTANT (rep_op) */         link == head;
+1124: /* MUTANT (del_stmt) */ /*         sfp = (ScriptFilenamePrefix *) link; */ 
+1125: /* MUTANT (negate) */        if(! (!strncmp(sfp->name, filename, sfp->length))) {
+1126: /* MUTANT (del_stmt) */ /*             sfe->flags |= sfp->flags; */ 
+1127: /* MUTANT (del_stmt) */ /*             break; */ 
+1131: /* MUTANT (del_stmt) */ /*     return sfe->filename; */ 
+1137: /* MUTANT (del_stmt) */ /*     ScriptFilenameEntry *sfe; */ 
+1140: /* MUTANT (rep_op) */    if (!rt->scriptFilenameTable || !js_InitRuntimeScriptState(rt))
+1140: /* MUTANT (negate) */    if(! (!rt->scriptFilenameTable && !js_InitRuntimeScriptState(rt)))
+1143: /* MUTANT (del_stmt) */ /*     JS_ACQUIRE_LOCK(rt->scriptFilenameTableLock); */ 
+1144: /* MUTANT (del_stmt) */ /*     sfe = SaveScriptFilename(rt, filename, flags); */ 
+1145: /* MUTANT (del_stmt) */ /*     JS_RELEASE_LOCK(rt->scriptFilenameTableLock); */ 
+1146: /* MUTANT (negate) */    if(! (!sfe))
+1149: /* MUTANT (del_stmt) */ /*     return sfe->filename; */ 
+1169: /* MUTANT (del_stmt) */ /*     ScriptFilenameEntry *sfe; */ 
+1171: /* MUTANT (del_stmt) */ /*     sfe = FILENAME_TO_SFE(filename); */ 
+1172: /* MUTANT (del_stmt) */ /*     ASSERT_VALID_SFE(sfe); */ 
+1173: /* MUTANT (del_stmt) */ /*     return sfe->flags; */ 
+1179: /* MUTANT (del_stmt) */ /*     ScriptFilenameEntry *sfe; */ 
+1181: /* MUTANT (del_stmt) */ /*     sfe = FILENAME_TO_SFE(filename); */ 
+1182: /* MUTANT (del_stmt) */ /*     ASSERT_VALID_SFE(sfe); */ 
+1183: /* MUTANT (del_stmt) */ /*     sfe->mark = JS_TRUE; */ 
+1189: /* MUTANT (del_stmt) */ /*     ScriptFilenameEntry *sfe = (ScriptFilenameEntry *) he; */ 
+1191: /* MUTANT (del_stmt) */ /*     sfe->mark = JS_TRUE; */ 
+1192: /* MUTANT (del_stmt) */ /*     return HT_ENUMERATE_NEXT; */ 
+1198: /* MUTANT (del_stmt) */ /*     JSCList *head, *link; */ 
+1199: /* MUTANT (del_stmt) */ /*     ScriptFilenamePrefix *sfp; */ 
+1201: /* MUTANT (negate) */    if(! (gcflags & GC_KEEP_ATOMS)) {
+1207: /* MUTANT (del_stmt) */ /*          link != head; */ 
+1207: /* MUTANT (rep_op) */         link == head;
+1209: /* MUTANT (del_stmt) */ /*         sfp = (ScriptFilenamePrefix *) link; */ 
+1210: /* MUTANT (del_stmt) */ /*         js_MarkScriptFilename(sfp->name); */ 
+1217: /* MUTANT (del_stmt) */ /*     ScriptFilenameEntry *sfe = (ScriptFilenameEntry *) he; */ 
+1219: /* MUTANT (negate) */    if(! (!sfe->mark))
+1221: /* MUTANT (del_stmt) */ /*     sfe->mark = JS_FALSE; */ 
+1222: /* MUTANT (del_stmt) */ /*     return HT_ENUMERATE_NEXT; */ 
+1239: /* MUTANT (del_stmt) */ /*     JSScript *script; */ 
+1242: /* MUTANT (negate) */    if(! (ntrynotes))
+1243: /* MUTANT (rep_op) */        nsrcnotes -= JSTRYNOTE_ALIGNMASK;
+1243: /* MUTANT (rep_op) */        nsrcnotes *= JSTRYNOTE_ALIGNMASK;
+1243: /* MUTANT (rep_op) */        nsrcnotes %= JSTRYNOTE_ALIGNMASK;
+1245: /* MUTANT (rep_op) */                                    sizeof(JSScript) -
+1245: /* MUTANT (rep_op) */                                    sizeof(JSScript) *
+1245: /* MUTANT (rep_op) */                                    sizeof(JSScript) %
+1246: /* MUTANT (rep_op) */                                    length * sizeof(jsbytecode) -
+1246: /* MUTANT (rep_op) */                                    length * sizeof(jsbytecode) *
+1246: /* MUTANT (rep_op) */                                    length * sizeof(jsbytecode) %
+1247: /* MUTANT (rep_op) */                                    nsrcnotes * sizeof(jssrcnote) -
+1247: /* MUTANT (rep_op) */                                    nsrcnotes * sizeof(jssrcnote) *
+1247: /* MUTANT (rep_op) */                                    nsrcnotes * sizeof(jssrcnote) %
+1249: /* MUTANT (negate) */    if(! (!script))
+1251: /* MUTANT (del_stmt) */ /*     memset(script, 0, sizeof(JSScript)); */ 
+1251: /* MUTANT (rep_const) */    memset(script, 1, sizeof(JSScript));
+1251: /* MUTANT (rep_const) */    memset(script, -1, sizeof(JSScript));
+1252: /* MUTANT (del_stmt) */ /*     script->code = script->main = (jsbytecode *)(script + 1); */ 
+1252: /* MUTANT (rep_op) */    script->code = script->main = (jsbytecode *)(script - 1);
+1252: /* MUTANT (rep_op) */    script->code = script->main = (jsbytecode *)(script * 1);
+1252: /* MUTANT (rep_op) */    script->code = script->main = (jsbytecode *)(script % 1);
+1252: /* MUTANT (rep_const) */    script->code = script->main = (jsbytecode *)(script + 0);
+1252: /* MUTANT (rep_const) */    script->code = script->main = (jsbytecode *)(script + -1);
+1252: /* MUTANT (rep_const) */    script->code = script->main = (jsbytecode *)(script + ((1)+1));
+1253: /* MUTANT (del_stmt) */ /*     script->length = length; */ 
+1254: /* MUTANT (del_stmt) */ /*     script->version = cx->version; */ 
+1255: /* MUTANT (negate) */    if(! (ntrynotes)) {
+1257: /* MUTANT (rep_op) */                           ((jsword)(SCRIPT_NOTES(script) - nsrcnotes) &
+1257: /* MUTANT (rep_op) */                           ((jsword)(SCRIPT_NOTES(script) * nsrcnotes) &
+1257: /* MUTANT (rep_op) */                           ((jsword)(SCRIPT_NOTES(script) % nsrcnotes) &
+1259: /* MUTANT (del_stmt) */ /*         memset(script->trynotes, 0, ntrynotes * sizeof(JSTryNote)); */ 
+1259: /* MUTANT (rep_const) */        memset(script->trynotes, 1, ntrynotes * sizeof(JSTryNote));
+1259: /* MUTANT (rep_const) */        memset(script->trynotes, -1, ntrynotes * sizeof(JSTryNote));
+1267: /* MUTANT (del_stmt) */ /*     uint32 mainLength, prologLength, nsrcnotes, ntrynotes; */ 
+1268: /* MUTANT (del_stmt) */ /*     JSScript *script; */ 
+1269: /* MUTANT (del_stmt) */ /*     const char *filename; */ 
+1271: /* MUTANT (del_stmt) */ /*     mainLength = CG_OFFSET(cg); */ 
+1272: /* MUTANT (del_stmt) */ /*     prologLength = CG_PROLOG_OFFSET(cg); */ 
+1273: /* MUTANT (del_stmt) */ /*     CG_COUNT_FINAL_SRCNOTES(cg, nsrcnotes); */ 
+1274: /* MUTANT (del_stmt) */ /*     CG_COUNT_FINAL_TRYNOTES(cg, ntrynotes); */ 
+1275: /* MUTANT (del_stmt) */ /*     script = js_NewScript(cx, prologLength + mainLength, nsrcnotes, ntrynotes); */ 
+1275: /* MUTANT (rep_op) */    script = js_NewScript(cx, prologLength - mainLength, nsrcnotes, ntrynotes);
+1275: /* MUTANT (rep_op) */    script = js_NewScript(cx, prologLength * mainLength, nsrcnotes, ntrynotes);
+1275: /* MUTANT (rep_op) */    script = js_NewScript(cx, prologLength % mainLength, nsrcnotes, ntrynotes);
+1276: /* MUTANT (negate) */    if(! (!script))
+1280: /* MUTANT (del_stmt) */ /*     script->main += prologLength; */ 
+1280: /* MUTANT (rep_op) */    script->main -= prologLength;
+1280: /* MUTANT (rep_op) */    script->main *= prologLength;
+1280: /* MUTANT (rep_op) */    script->main %= prologLength;
+1281: /* MUTANT (del_stmt) */ /*     memcpy(script->code, CG_PROLOG_BASE(cg), prologLength * sizeof(jsbytecode)); */ 
+1282: /* MUTANT (del_stmt) */ /*     memcpy(script->main, CG_BASE(cg), mainLength * sizeof(jsbytecode)); */ 
+1283: /* MUTANT (del_stmt) */ /*     script->numGlobalVars = cg->treeContext.numGlobalVars; */ 
+1284: /* MUTANT (negate) */    if(! (!js_InitAtomMap(cx, &script->atomMap, &cg->atomList)))
+1287: /* MUTANT (del_stmt) */ /*     filename = cg->filename; */ 
+1288: /* MUTANT (negate) */    if(! (filename)) {
+1289: /* MUTANT (del_stmt) */ /*         script->filename = js_SaveScriptFilename(cx, filename); */ 
+1290: /* MUTANT (negate) */        if(! (!script->filename))
+1294: /* MUTANT (del_stmt) */ /*     script->depth = cg->maxStackDepth; */ 
+1295: /* MUTANT (negate) */    if(! (cg->principals)) {
+1296: /* MUTANT (del_stmt) */ /*         script->principals = cg->principals; */ 
+1297: /* MUTANT (del_stmt) */ /*         JSPRINCIPALS_HOLD(cx, script->principals); */ 
+1300: /* MUTANT (negate) */    if(! (!js_FinishTakingSrcNotes(cx, cg, SCRIPT_NOTES(script))))
+1302: /* MUTANT (negate) */    if(! (script->trynotes))
+1306: /* MUTANT (del_stmt) */ /*     js_CallNewScriptHook(cx, script, fun); */ 
+1307: /* MUTANT (del_stmt) */ /*     return script; */ 
+1311: /* MUTANT (del_stmt) */ /*     return NULL; */ 
+1317: /* MUTANT (del_stmt) */ /*     JSRuntime *rt; */ 
+1318: /* MUTANT (del_stmt) */ /*     JSNewScriptHook hook; */ 
+1320: /* MUTANT (del_stmt) */ /*     rt = cx->runtime; */ 
+1321: /* MUTANT (del_stmt) */ /*     hook = rt->newScriptHook; */ 
+1322: /* MUTANT (negate) */    if(! (hook)) {
+1323: /* MUTANT (del_stmt) */ /*         JS_KEEP_ATOMS(rt); */ 
+1326: /* MUTANT (del_stmt) */ /*         JS_UNKEEP_ATOMS(rt); */ 
+1333: /* MUTANT (del_stmt) */ /*     JSRuntime *rt; */ 
+1334: /* MUTANT (del_stmt) */ /*     JSDestroyScriptHook hook; */ 
+1336: /* MUTANT (del_stmt) */ /*     rt = cx->runtime; */ 
+1337: /* MUTANT (del_stmt) */ /*     hook = rt->destroyScriptHook; */ 
+1338: /* MUTANT (negate) */    if(! (hook))
+1345: /* MUTANT (del_stmt) */ /*     js_CallDestroyScriptHook(cx, script); */ 
+1347: /* MUTANT (del_stmt) */ /*     JS_ClearScriptTraps(cx, script); */ 
+1348: /* MUTANT (del_stmt) */ /*     js_FreeAtomMap(cx, &script->atomMap); */ 
+1349: /* MUTANT (negate) */    if(! (script->principals))
+1351: /* MUTANT (del_stmt) */ /*     JS_free(cx, script); */ 
+1357: /* MUTANT (del_stmt) */ /*     JSAtomMap *map; */ 
+1358: /* MUTANT (del_stmt) */ /*     uintN i, length; */ 
+1359: /* MUTANT (del_stmt) */ /*     JSAtom **vector; */ 
+1361: /* MUTANT (del_stmt) */ /*     map = &script->atomMap; */ 
+1362: /* MUTANT (del_stmt) */ /*     length = map->length; */ 
+1363: /* MUTANT (del_stmt) */ /*     vector = map->vector; */ 
+1364: /* MUTANT (rep_op) */    for (i = 0; i <= length; i++)
+1364: /* MUTANT (rep_op) */    for (i = 0; i > length; i++)
+1364: /* MUTANT (rep_op) */    for (i = 0; i >= length; i++)
+1364: /* MUTANT (rep_op) */    for (i = 0; i == length; i++)
+1364: /* MUTANT (rep_op) */    for (i = 0; i != length; i++)
+1364: /* MUTANT (rep_op) */    for (i = 0; i < length; i--)
+1364: /* MUTANT (rep_const) */    for (i = 1; i < length; i++)
+1364: /* MUTANT (rep_const) */    for (i = -1; i < length; i++)
+1367: /* MUTANT (negate) */    if(! (script->filename))
+1374: /* MUTANT (del_stmt) */ /*     jssrcnote *sn; */ 
+1375: /* MUTANT (del_stmt) */ /*     ptrdiff_t offset, target; */ 
+1377: /* MUTANT (del_stmt) */ /*     target = PTRDIFF(pc, script->code, jsbytecode); */ 
+1378: /* MUTANT (rep_op) */    if ((uint32)target <= script->length)
+1378: /* MUTANT (rep_op) */    if ((uint32)target < script->length)
+1378: /* MUTANT (rep_op) */    if ((uint32)target > script->length)
+1378: /* MUTANT (rep_op) */    if ((uint32)target == script->length)
+1378: /* MUTANT (rep_op) */    if ((uint32)target != script->length)
+1378: /* MUTANT (negate) */    if(! ((uint32)target >= script->length))
+1380: /* MUTANT (del_stmt) */ /*     offset = 0; */ 
+1380: /* MUTANT (rep_const) */    offset = 1;
+1380: /* MUTANT (rep_const) */    offset = -1;
+1382: /* MUTANT (del_stmt) */ /*         offset += SN_DELTA(sn); */ 
+1382: /* MUTANT (rep_op) */        offset -= SN_DELTA(sn);
+1382: /* MUTANT (rep_op) */        offset *= SN_DELTA(sn);
+1382: /* MUTANT (rep_op) */        offset %= SN_DELTA(sn);
+1383: /* MUTANT (rep_op) */        if (offset != target && SN_IS_GETTABLE(sn))
+1383: /* MUTANT (rep_op) */        if (offset == target || SN_IS_GETTABLE(sn))
+1383: /* MUTANT (negate) */        if(! (offset == target && SN_IS_GETTABLE(sn)))
+1392: /* MUTANT (del_stmt) */ /*     JSAtom *atom; */ 
+1393: /* MUTANT (del_stmt) */ /*     JSFunction *fun; */ 
+1394: /* MUTANT (del_stmt) */ /*     uintN lineno; */ 
+1395: /* MUTANT (del_stmt) */ /*     ptrdiff_t offset, target; */ 
+1396: /* MUTANT (del_stmt) */ /*     jssrcnote *sn; */ 
+1397: /* MUTANT (del_stmt) */ /*     JSSrcNoteType type; */ 
+1403: /* MUTANT (rep_op) */    if (*pc != JSOP_DEFFUN) {
+1403: /* MUTANT (negate) */    if(! (*pc == JSOP_DEFFUN)) {
+1404: /* MUTANT (del_stmt) */ /*         atom = GET_ATOM(cx, script, pc); */ 
+1405: /* MUTANT (del_stmt) */ /*         fun = (JSFunction *) JS_GetPrivate(cx, ATOM_TO_OBJECT(atom)); */ 
+1406: /* MUTANT (del_stmt) */ /*         JS_ASSERT(fun->interpreted); */ 
+1407: /* MUTANT (del_stmt) */ /*         return fun->u.script->lineno; */ 
+1416: /* MUTANT (del_stmt) */ /*     offset = 0; */ 
+1416: /* MUTANT (rep_const) */    offset = 1;
+1416: /* MUTANT (rep_const) */    offset = -1;
+1417: /* MUTANT (del_stmt) */ /*     target = PTRDIFF(pc, script->code, jsbytecode); */ 
+1419: /* MUTANT (del_stmt) */ /*         offset += SN_DELTA(sn); */ 
+1419: /* MUTANT (rep_op) */        offset -= SN_DELTA(sn);
+1419: /* MUTANT (rep_op) */        offset *= SN_DELTA(sn);
+1419: /* MUTANT (rep_op) */        offset %= SN_DELTA(sn);
+1420: /* MUTANT (del_stmt) */ /*         type = (JSSrcNoteType) SN_TYPE(sn); */ 
+1421: /* MUTANT (rep_op) */        if (type != SRC_SETLINE) {
+1421: /* MUTANT (negate) */        if(! (type == SRC_SETLINE)) {
+1422: /* MUTANT (rep_op) */            if (offset < target)
+1422: /* MUTANT (rep_op) */            if (offset > target)
+1422: /* MUTANT (rep_op) */            if (offset >= target)
+1422: /* MUTANT (rep_op) */            if (offset == target)
+1422: /* MUTANT (rep_op) */            if (offset != target)
+1422: /* MUTANT (negate) */            if(! (offset <= target))
+1423: /* MUTANT (rep_const) */                lineno = (uintN) js_GetSrcNoteOffset(sn, 1);
+1423: /* MUTANT (rep_const) */                lineno = (uintN) js_GetSrcNoteOffset(sn, -1);
+1424: /* MUTANT (rep_op) */        } else if (type != SRC_NEWLINE) {
+1424: /* MUTANT (negate) */        } else if(! (type == SRC_NEWLINE)) {
+1425: /* MUTANT (rep_op) */            if (offset < target)
+1425: /* MUTANT (rep_op) */            if (offset > target)
+1425: /* MUTANT (rep_op) */            if (offset >= target)
+1425: /* MUTANT (rep_op) */            if (offset == target)
+1425: /* MUTANT (rep_op) */            if (offset != target)
+1425: /* MUTANT (negate) */            if(! (offset <= target))
+1426: /* MUTANT (rep_op) */                lineno--;
+1428: /* MUTANT (rep_op) */        if (offset <= target)
+1428: /* MUTANT (rep_op) */        if (offset < target)
+1428: /* MUTANT (rep_op) */        if (offset >= target)
+1428: /* MUTANT (rep_op) */        if (offset == target)
+1428: /* MUTANT (rep_op) */        if (offset != target)
+1428: /* MUTANT (negate) */        if(! (offset > target))
+1435: #define SN_LINE_LIMIT   (SN_3BYTE_OFFSET_FLAG << 0) /* MUTANT (rep_const) */
+1435: #define SN_LINE_LIMIT   (SN_3BYTE_OFFSET_FLAG << 1) /* MUTANT (rep_const) */
+1435: #define SN_LINE_LIMIT   (SN_3BYTE_OFFSET_FLAG << -1) /* MUTANT (rep_const) */
+1435: #define SN_LINE_LIMIT   (SN_3BYTE_OFFSET_FLAG << ((16)+1)) /* MUTANT (rep_const) */
+1435: #define SN_LINE_LIMIT   (SN_3BYTE_OFFSET_FLAG << ((16)-1)) /* MUTANT (rep_const) */
+1440: /* MUTANT (del_stmt) */ /*     ptrdiff_t offset, best; */ 
+1441: /* MUTANT (del_stmt) */ /*     uintN lineno, bestdiff, diff; */ 
+1442: /* MUTANT (del_stmt) */ /*     jssrcnote *sn; */ 
+1443: /* MUTANT (del_stmt) */ /*     JSSrcNoteType type; */ 
+1445: /* MUTANT (del_stmt) */ /*     offset = 0; */ 
+1445: /* MUTANT (rep_const) */    offset = 1;
+1445: /* MUTANT (rep_const) */    offset = -1;
+1446: /* MUTANT (del_stmt) */ /*     best = -1; */ 
+1446: /* MUTANT (rep_const) */    best = 0;
+1446: /* MUTANT (rep_const) */    best = 1;
+1446: /* MUTANT (rep_const) */    best = ((-1)+1);
+1446: /* MUTANT (rep_const) */    best = ((-1)-1);
+1447: /* MUTANT (del_stmt) */ /*     lineno = script->lineno; */ 
+1448: /* MUTANT (del_stmt) */ /*     bestdiff = SN_LINE_LIMIT; */ 
+1450: /* MUTANT (rep_op) */        if (lineno != target)
+1450: /* MUTANT (negate) */        if(! (lineno == target))
+1452: /* MUTANT (rep_op) */        if (lineno <= target) {
+1452: /* MUTANT (rep_op) */        if (lineno < target) {
+1452: /* MUTANT (rep_op) */        if (lineno >= target) {
+1452: /* MUTANT (rep_op) */        if (lineno == target) {
+1452: /* MUTANT (rep_op) */        if (lineno != target) {
+1452: /* MUTANT (negate) */        if(! (lineno > target)) {
+1453: /* MUTANT (del_stmt) */ /*             diff = lineno - target; */ 
+1454: /* MUTANT (rep_op) */            if (diff <= bestdiff) {
+1454: /* MUTANT (rep_op) */            if (diff > bestdiff) {
+1454: /* MUTANT (rep_op) */            if (diff >= bestdiff) {
+1454: /* MUTANT (rep_op) */            if (diff == bestdiff) {
+1454: /* MUTANT (rep_op) */            if (diff != bestdiff) {
+1454: /* MUTANT (negate) */            if(! (diff < bestdiff)) {
+1455: /* MUTANT (del_stmt) */ /*                 bestdiff = diff; */ 
+1456: /* MUTANT (del_stmt) */ /*                 best = offset; */ 
+1459: /* MUTANT (rep_op) */        offset -= SN_DELTA(sn);
+1459: /* MUTANT (rep_op) */        offset *= SN_DELTA(sn);
+1459: /* MUTANT (rep_op) */        offset %= SN_DELTA(sn);
+1460: /* MUTANT (del_stmt) */ /*         type = (JSSrcNoteType) SN_TYPE(sn); */ 
+1461: /* MUTANT (rep_op) */        if (type != SRC_SETLINE) {
+1461: /* MUTANT (negate) */        if(! (type == SRC_SETLINE)) {
+1462: /* MUTANT (del_stmt) */ /*             lineno = (uintN) js_GetSrcNoteOffset(sn, 0); */ 
+1462: /* MUTANT (rep_const) */            lineno = (uintN) js_GetSrcNoteOffset(sn, 1);
+1462: /* MUTANT (rep_const) */            lineno = (uintN) js_GetSrcNoteOffset(sn, -1);
+1463: /* MUTANT (rep_op) */        } else if (type != SRC_NEWLINE) {
+1463: /* MUTANT (negate) */        } else if(! (type == SRC_NEWLINE)) {
+1464: /* MUTANT (del_stmt) */ /*             lineno++; */ 
+1464: /* MUTANT (rep_op) */            lineno--;
+1467: /* MUTANT (rep_op) */    if (best <= 0)
+1467: /* MUTANT (rep_op) */    if (best < 0)
+1467: /* MUTANT (rep_op) */    if (best > 0)
+1467: /* MUTANT (rep_op) */    if (best == 0)
+1467: /* MUTANT (rep_op) */    if (best != 0)
+1467: /* MUTANT (rep_const) */    if (best >= 1)
+1467: /* MUTANT (rep_const) */    if (best >= -1)
+1467: /* MUTANT (negate) */    if(! (best >= 0))
+1470: /* MUTANT (rep_op) */    return script->code - offset;
+1470: /* MUTANT (rep_op) */    return script->code * offset;
+1470: /* MUTANT (rep_op) */    return script->code % offset;
+1476: /* MUTANT (del_stmt) */ /*     uintN lineno; */ 
+1477: /* MUTANT (del_stmt) */ /*     jssrcnote *sn; */ 
+1478: /* MUTANT (del_stmt) */ /*     JSSrcNoteType type; */ 
+1480: /* MUTANT (del_stmt) */ /*     lineno = script->lineno; */ 
+1482: /* MUTANT (del_stmt) */ /*         type = (JSSrcNoteType) SN_TYPE(sn); */ 
+1483: /* MUTANT (rep_op) */        if (type != SRC_SETLINE) {
+1483: /* MUTANT (negate) */        if(! (type == SRC_SETLINE)) {
+1484: /* MUTANT (del_stmt) */ /*             lineno = (uintN) js_GetSrcNoteOffset(sn, 0); */ 
+1484: /* MUTANT (rep_const) */            lineno = (uintN) js_GetSrcNoteOffset(sn, 1);
+1484: /* MUTANT (rep_const) */            lineno = (uintN) js_GetSrcNoteOffset(sn, -1);
+1485: /* MUTANT (rep_op) */        } else if (type != SRC_NEWLINE) {
+1485: /* MUTANT (negate) */        } else if(! (type == SRC_NEWLINE)) {
+1486: /* MUTANT (del_stmt) */ /*             lineno++; */ 
+1486: /* MUTANT (rep_op) */            lineno--;
+1489: /* MUTANT (rep_op) */    return 1 - lineno - script->lineno;
+1489: /* MUTANT (rep_op) */    return 1 * lineno - script->lineno;
+1489: /* MUTANT (rep_op) */    return 1 % lineno - script->lineno;
+1489: /* MUTANT (rep_const) */    return 0 + lineno - script->lineno;
+1489: /* MUTANT (rep_const) */    return -1 + lineno - script->lineno;
+1489: /* MUTANT (rep_const) */    return ((1)+1) + lineno - script->lineno;

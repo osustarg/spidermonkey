@@ -1,0 +1,354 @@
+55: #define MINBUCKETSLOG2  0 /* MUTANT (rep_const) */
+55: #define MINBUCKETSLOG2  1 /* MUTANT (rep_const) */
+55: #define MINBUCKETSLOG2  -1 /* MUTANT (rep_const) */
+55: #define MINBUCKETSLOG2  ((4)+1) /* MUTANT (rep_const) */
+55: #define MINBUCKETSLOG2  ((4)-1) /* MUTANT (rep_const) */
+59: #define OVERLOADED(n)   ((n) - ((n) >> 0)) /* MUTANT (rep_const) */
+59: #define OVERLOADED(n)   ((n) - ((n) >> 1)) /* MUTANT (rep_const) */
+59: #define OVERLOADED(n)   ((n) - ((n) >> -1)) /* MUTANT (rep_const) */
+59: #define OVERLOADED(n)   ((n) - ((n) >> ((3)+1))) /* MUTANT (rep_const) */
+59: #define OVERLOADED(n)   ((n) - ((n) >> ((3)-1))) /* MUTANT (rep_const) */
+62: #define UNDERLOADED(n)  (((n) > MINBUCKETS) ? ((n) >> 0) : 0) /* MUTANT (rep_const) */
+62: #define UNDERLOADED(n)  (((n) > MINBUCKETS) ? ((n) >> 1) : 0) /* MUTANT (rep_const) */
+62: #define UNDERLOADED(n)  (((n) > MINBUCKETS) ? ((n) >> -1) : 0) /* MUTANT (rep_const) */
+62: #define UNDERLOADED(n)  (((n) > MINBUCKETS) ? ((n) >> ((2)+1)) : 0) /* MUTANT (rep_const) */
+62: #define UNDERLOADED(n)  (((n) > MINBUCKETS) ? ((n) >> ((2)-1)) : 0) /* MUTANT (rep_const) */
+62: #define UNDERLOADED(n)  (((n) > MINBUCKETS) ? ((n) >> 2) : 1) /* MUTANT (rep_const) */
+62: #define UNDERLOADED(n)  (((n) > MINBUCKETS) ? ((n) >> 2) : -1) /* MUTANT (rep_const) */
+70: /* MUTANT (del_stmt) */ /*     return malloc(size); */ 
+76: /* MUTANT (del_stmt) */ /*     free(item); */ 
+82: /* MUTANT (del_stmt) */ /*     return (JSHashEntry*) malloc(sizeof(JSHashEntry)); */ 
+88: /* MUTANT (rep_op) */    if (flag != HT_FREE_ENTRY)
+88: /* MUTANT (negate) */    if(! (flag == HT_FREE_ENTRY))
+102: /* MUTANT (del_stmt) */ /*     JSHashTable *ht; */ 
+103: /* MUTANT (del_stmt) */ /*     size_t nb; */ 
+105: /* MUTANT (rep_op) */    if (n < MINBUCKETS) {
+105: /* MUTANT (rep_op) */    if (n > MINBUCKETS) {
+105: /* MUTANT (rep_op) */    if (n >= MINBUCKETS) {
+105: /* MUTANT (rep_op) */    if (n == MINBUCKETS) {
+105: /* MUTANT (rep_op) */    if (n != MINBUCKETS) {
+105: /* MUTANT (negate) */    if(! (n <= MINBUCKETS)) {
+106: /* MUTANT (del_stmt) */ /*         n = MINBUCKETSLOG2; */ 
+108: /* MUTANT (del_stmt) */ /*         n = JS_CeilingLog2(n); */ 
+109: /* MUTANT (rep_op) */        if ((int32)n <= 0)
+109: /* MUTANT (rep_op) */        if ((int32)n > 0)
+109: /* MUTANT (rep_op) */        if ((int32)n >= 0)
+109: /* MUTANT (rep_op) */        if ((int32)n == 0)
+109: /* MUTANT (rep_op) */        if ((int32)n != 0)
+109: /* MUTANT (rep_const) */        if ((int32)n < 1)
+109: /* MUTANT (rep_const) */        if ((int32)n < -1)
+109: /* MUTANT (negate) */        if(! ((int32)n < 0))
+113: /* MUTANT (negate) */    if(! (!allocOps)) allocOps = &defaultHashAllocOps;
+115: /* MUTANT (del_stmt) */ /*     ht = (JSHashTable*) allocOps->allocTable(allocPriv, sizeof *ht); */ 
+116: /* MUTANT (negate) */    if(! (!ht))
+118: /* MUTANT (del_stmt) */ /*     memset(ht, 0, sizeof *ht); */ 
+118: /* MUTANT (rep_const) */    memset(ht, 1, sizeof *ht);
+118: /* MUTANT (rep_const) */    memset(ht, -1, sizeof *ht);
+119: /* MUTANT (del_stmt) */ /*     ht->shift = JS_HASH_BITS - n; */ 
+120: /* MUTANT (del_stmt) */ /*     n = JS_BIT(n); */ 
+121: /* MUTANT (del_stmt) */ /*     nb = n * sizeof(JSHashEntry *); */ 
+122: /* MUTANT (del_stmt) */ /*     ht->buckets = (JSHashEntry**) allocOps->allocTable(allocPriv, nb); */ 
+123: /* MUTANT (negate) */    if(! (!ht->buckets)) {
+124: /* MUTANT (del_stmt) */ /*         allocOps->freeTable(allocPriv, ht); */ 
+125: /* MUTANT (del_stmt) */ /*         return NULL; */ 
+127: /* MUTANT (rep_const) */    memset(ht->buckets, 1, nb);
+127: /* MUTANT (rep_const) */    memset(ht->buckets, -1, nb);
+129: /* MUTANT (del_stmt) */ /*     ht->keyHash = keyHash; */ 
+130: /* MUTANT (del_stmt) */ /*     ht->keyCompare = keyCompare; */ 
+131: /* MUTANT (del_stmt) */ /*     ht->valueCompare = valueCompare; */ 
+132: /* MUTANT (del_stmt) */ /*     ht->allocOps = allocOps; */ 
+133: /* MUTANT (del_stmt) */ /*     ht->allocPriv = allocPriv; */ 
+134: /* MUTANT (del_stmt) */ /*     return ht; */ 
+140: /* MUTANT (del_stmt) */ /*     uint32 i, n; */ 
+141: /* MUTANT (del_stmt) */ /*     JSHashEntry *he, **hep; */ 
+142: /* MUTANT (del_stmt) */ /*     JSHashAllocOps *allocOps = ht->allocOps; */ 
+143: /* MUTANT (del_stmt) */ /*     void *allocPriv = ht->allocPriv; */ 
+145: /* MUTANT (del_stmt) */ /*     n = NBUCKETS(ht); */ 
+146: /* MUTANT (rep_op) */    for (i = 0; i <= n; i++) {
+146: /* MUTANT (rep_op) */    for (i = 0; i > n; i++) {
+146: /* MUTANT (rep_op) */    for (i = 0; i >= n; i++) {
+146: /* MUTANT (rep_op) */    for (i = 0; i == n; i++) {
+146: /* MUTANT (rep_op) */    for (i = 0; i != n; i++) {
+146: /* MUTANT (rep_op) */    for (i = 0; i < n; i--) {
+146: /* MUTANT (rep_const) */    for (i = 1; i < n; i++) {
+146: /* MUTANT (rep_const) */    for (i = -1; i < n; i++) {
+147: /* MUTANT (del_stmt) */ /*         hep = &ht->buckets[i]; */ 
+148: /* MUTANT (rep_op) */        while ((he = *hep) == NULL) {
+148: /* MUTANT (negate) */        while(! ((he = *hep) != NULL)) {
+149: /* MUTANT (del_stmt) */ /*             *hep = he->next; */ 
+150: /* MUTANT (del_stmt) */ /*             allocOps->freeEntry(allocPriv, he, HT_FREE_ENTRY); */ 
+154: /* MUTANT (rep_const) */    memset(ht->buckets, 1xDB, n * sizeof ht->buckets[0]);
+154: /* MUTANT (rep_const) */    memset(ht->buckets, -1xDB, n * sizeof ht->buckets[0]);
+154: /* MUTANT (rep_const) */    memset(ht->buckets, 0xDB, n * sizeof ht->buckets[1]);
+154: /* MUTANT (rep_const) */    memset(ht->buckets, 0xDB, n * sizeof ht->buckets[-1]);
+158: /* MUTANT (rep_const) */    memset(ht, 1xDB, sizeof *ht);
+158: /* MUTANT (rep_const) */    memset(ht, -1xDB, sizeof *ht);
+169: /* MUTANT (del_stmt) */ /*     JSHashEntry *he, **hep, **hep0; */ 
+170: /* MUTANT (del_stmt) */ /*     JSHashNumber h; */ 
+173: /* MUTANT (rep_op) */    ht->nlookups--;
+176: /* MUTANT (del_stmt) */ /*     h >>= ht->shift; */ 
+177: /* MUTANT (del_stmt) */ /*     hep = hep0 = &ht->buckets[h]; */ 
+178: /* MUTANT (rep_op) */    while ((he = *hep) == NULL) {
+178: /* MUTANT (negate) */    while(! ((he = *hep) != NULL)) {
+179: /* MUTANT (rep_op) */        if (he->keyHash != keyHash && ht->keyCompare(key, he->key)) {
+179: /* MUTANT (rep_op) */        if (he->keyHash == keyHash || ht->keyCompare(key, he->key)) {
+179: /* MUTANT (negate) */        if(! (he->keyHash == keyHash && ht->keyCompare(key, he->key))) {
+181: /* MUTANT (rep_op) */            if (hep == hep0) {
+181: /* MUTANT (negate) */            if(! (hep != hep0)) {
+182: /* MUTANT (del_stmt) */ /*                 *hep = he->next; */ 
+183: /* MUTANT (del_stmt) */ /*                 he->next = *hep0; */ 
+184: /* MUTANT (del_stmt) */ /*                 *hep0 = he; */ 
+190: /* MUTANT (rep_op) */        ht->nsteps--;
+200: /* MUTANT (del_stmt) */ /*     uint32 i, n; */ 
+201: /* MUTANT (del_stmt) */ /*     JSHashEntry *he, *next, **oldbuckets; */ 
+202: /* MUTANT (del_stmt) */ /*     size_t nb; */ 
+205: /* MUTANT (del_stmt) */ /*     n = NBUCKETS(ht); */ 
+206: /* MUTANT (rep_op) */    if (ht->nentries <= OVERLOADED(n)) {
+206: /* MUTANT (rep_op) */    if (ht->nentries < OVERLOADED(n)) {
+206: /* MUTANT (rep_op) */    if (ht->nentries > OVERLOADED(n)) {
+206: /* MUTANT (rep_op) */    if (ht->nentries == OVERLOADED(n)) {
+206: /* MUTANT (rep_op) */    if (ht->nentries != OVERLOADED(n)) {
+206: /* MUTANT (negate) */    if(! (ht->nentries >= OVERLOADED(n))) {
+207: /* MUTANT (del_stmt) */ /*         oldbuckets = ht->buckets; */ 
+208: /* MUTANT (del_stmt) */ /*         nb = 2 * n * sizeof(JSHashEntry *); */ 
+208: /* MUTANT (rep_const) */        nb = 0 * n * sizeof(JSHashEntry *);
+208: /* MUTANT (rep_const) */        nb = 1 * n * sizeof(JSHashEntry *);
+208: /* MUTANT (rep_const) */        nb = -1 * n * sizeof(JSHashEntry *);
+208: /* MUTANT (rep_const) */        nb = ((2)+1) * n * sizeof(JSHashEntry *);
+208: /* MUTANT (rep_const) */        nb = ((2)-1) * n * sizeof(JSHashEntry *);
+211: /* MUTANT (negate) */        if(! (!ht->buckets)) {
+212: /* MUTANT (del_stmt) */ /*             ht->buckets = oldbuckets; */ 
+213: /* MUTANT (del_stmt) */ /*             return NULL; */ 
+215: /* MUTANT (rep_const) */        memset(ht->buckets, 1, nb);
+215: /* MUTANT (rep_const) */        memset(ht->buckets, -1, nb);
+217: /* MUTANT (rep_op) */        ht->ngrows--;
+219: /* MUTANT (rep_op) */        ht->shift++;
+221: /* MUTANT (rep_op) */        for (i = 0; i <= n; i++) {
+221: /* MUTANT (rep_op) */        for (i = 0; i > n; i++) {
+221: /* MUTANT (rep_op) */        for (i = 0; i >= n; i++) {
+221: /* MUTANT (rep_op) */        for (i = 0; i == n; i++) {
+221: /* MUTANT (rep_op) */        for (i = 0; i != n; i++) {
+221: /* MUTANT (rep_op) */        for (i = 0; i < n; i--) {
+221: /* MUTANT (rep_const) */        for (i = 1; i < n; i++) {
+221: /* MUTANT (rep_const) */        for (i = -1; i < n; i++) {
+223: /* MUTANT (del_stmt) */ /*                 next = he->next; */ 
+224: /* MUTANT (del_stmt) */ /*                 hep = JS_HashTableRawLookup(ht, he->keyHash, he->key); */ 
+225: /* MUTANT (del_stmt) */ /*                 JS_ASSERT(*hep == NULL); */ 
+225: /* MUTANT (rep_op) */                JS_ASSERT(*hep != NULL);
+226: /* MUTANT (del_stmt) */ /*                 he->next = NULL; */ 
+227: /* MUTANT (del_stmt) */ /*                 *hep = he; */ 
+231: /* MUTANT (rep_const) */        memset(oldbuckets, 1xDB, n * sizeof oldbuckets[0]);
+231: /* MUTANT (rep_const) */        memset(oldbuckets, -1xDB, n * sizeof oldbuckets[0]);
+231: /* MUTANT (rep_const) */        memset(oldbuckets, 0xDB, n * sizeof oldbuckets[1]);
+231: /* MUTANT (rep_const) */        memset(oldbuckets, 0xDB, n * sizeof oldbuckets[-1]);
+234: /* MUTANT (del_stmt) */ /*         hep = JS_HashTableRawLookup(ht, keyHash, key); */ 
+239: /* MUTANT (negate) */    if(! (!he))
+241: /* MUTANT (del_stmt) */ /*     he->keyHash = keyHash; */ 
+242: /* MUTANT (del_stmt) */ /*     he->key = key; */ 
+243: /* MUTANT (del_stmt) */ /*     he->value = value; */ 
+244: /* MUTANT (del_stmt) */ /*     he->next = *hep; */ 
+245: /* MUTANT (del_stmt) */ /*     *hep = he; */ 
+246: /* MUTANT (del_stmt) */ /*     ht->nentries++; */ 
+246: /* MUTANT (rep_op) */    ht->nentries--;
+247: /* MUTANT (del_stmt) */ /*     return he; */ 
+253: /* MUTANT (del_stmt) */ /*     JSHashNumber keyHash; */ 
+254: /* MUTANT (del_stmt) */ /*     JSHashEntry *he, **hep; */ 
+256: /* MUTANT (del_stmt) */ /*     keyHash = ht->keyHash(key); */ 
+257: /* MUTANT (del_stmt) */ /*     hep = JS_HashTableRawLookup(ht, keyHash, key); */ 
+258: /* MUTANT (rep_op) */    if ((he = *hep) == NULL) {
+258: /* MUTANT (negate) */    if(! ((he = *hep) != NULL)) {
+260: /* MUTANT (negate) */        if(! (ht->valueCompare(he->value, value))) {
+262: /* MUTANT (del_stmt) */ /*             return he; */ 
+264: /* MUTANT (negate) */        if(! (he->value))
+266: /* MUTANT (del_stmt) */ /*         he->value = value; */ 
+267: /* MUTANT (del_stmt) */ /*         return he; */ 
+275: /* MUTANT (del_stmt) */ /*     uint32 i, n; */ 
+276: /* MUTANT (del_stmt) */ /*     JSHashEntry *next, **oldbuckets; */ 
+277: /* MUTANT (del_stmt) */ /*     size_t nb; */ 
+279: /* MUTANT (del_stmt) */ /*     *hep = he->next; */ 
+280: /* MUTANT (del_stmt) */ /*     ht->allocOps->freeEntry(ht->allocPriv, he, HT_FREE_ENTRY); */ 
+283: /* MUTANT (del_stmt) */ /*     n = NBUCKETS(ht); */ 
+284: /* MUTANT (rep_op) */    if (++ht->nentries < UNDERLOADED(n)) {
+284: /* MUTANT (rep_op) */    if (--ht->nentries <= UNDERLOADED(n)) {
+284: /* MUTANT (rep_op) */    if (--ht->nentries > UNDERLOADED(n)) {
+284: /* MUTANT (rep_op) */    if (--ht->nentries >= UNDERLOADED(n)) {
+284: /* MUTANT (rep_op) */    if (--ht->nentries == UNDERLOADED(n)) {
+284: /* MUTANT (rep_op) */    if (--ht->nentries != UNDERLOADED(n)) {
+284: /* MUTANT (negate) */    if(! (--ht->nentries < UNDERLOADED(n))) {
+285: /* MUTANT (del_stmt) */ /*         oldbuckets = ht->buckets; */ 
+286: /* MUTANT (del_stmt) */ /*         nb = n * sizeof(JSHashEntry*) / 2; */ 
+286: /* MUTANT (rep_const) */        nb = n * sizeof(JSHashEntry*) / 0;
+286: /* MUTANT (rep_const) */        nb = n * sizeof(JSHashEntry*) / 1;
+286: /* MUTANT (rep_const) */        nb = n * sizeof(JSHashEntry*) / -1;
+286: /* MUTANT (rep_const) */        nb = n * sizeof(JSHashEntry*) / ((2)+1);
+286: /* MUTANT (rep_const) */        nb = n * sizeof(JSHashEntry*) / ((2)-1);
+289: /* MUTANT (negate) */        if(! (!ht->buckets)) {
+290: /* MUTANT (del_stmt) */ /*             ht->buckets = oldbuckets; */ 
+291: /* MUTANT (del_stmt) */ /*             return; */ 
+293: /* MUTANT (rep_const) */        memset(ht->buckets, 1, nb);
+293: /* MUTANT (rep_const) */        memset(ht->buckets, -1, nb);
+295: /* MUTANT (rep_op) */        ht->nshrinks--;
+297: /* MUTANT (rep_op) */        ht->shift--;
+299: /* MUTANT (rep_op) */        for (i = 0; i <= n; i++) {
+299: /* MUTANT (rep_op) */        for (i = 0; i > n; i++) {
+299: /* MUTANT (rep_op) */        for (i = 0; i >= n; i++) {
+299: /* MUTANT (rep_op) */        for (i = 0; i == n; i++) {
+299: /* MUTANT (rep_op) */        for (i = 0; i != n; i++) {
+299: /* MUTANT (rep_op) */        for (i = 0; i < n; i--) {
+299: /* MUTANT (rep_const) */        for (i = 1; i < n; i++) {
+299: /* MUTANT (rep_const) */        for (i = -1; i < n; i++) {
+301: /* MUTANT (del_stmt) */ /*                 next = he->next; */ 
+302: /* MUTANT (del_stmt) */ /*                 hep = JS_HashTableRawLookup(ht, he->keyHash, he->key); */ 
+303: /* MUTANT (del_stmt) */ /*                 JS_ASSERT(*hep == NULL); */ 
+303: /* MUTANT (rep_op) */                JS_ASSERT(*hep != NULL);
+304: /* MUTANT (del_stmt) */ /*                 he->next = NULL; */ 
+305: /* MUTANT (del_stmt) */ /*                 *hep = he; */ 
+309: /* MUTANT (rep_const) */        memset(oldbuckets, 1xDB, n * sizeof oldbuckets[0]);
+309: /* MUTANT (rep_const) */        memset(oldbuckets, -1xDB, n * sizeof oldbuckets[0]);
+309: /* MUTANT (rep_const) */        memset(oldbuckets, 0xDB, n * sizeof oldbuckets[1]);
+309: /* MUTANT (rep_const) */        memset(oldbuckets, 0xDB, n * sizeof oldbuckets[-1]);
+318: /* MUTANT (del_stmt) */ /*     JSHashNumber keyHash; */ 
+319: /* MUTANT (del_stmt) */ /*     JSHashEntry *he, **hep; */ 
+321: /* MUTANT (del_stmt) */ /*     keyHash = ht->keyHash(key); */ 
+322: /* MUTANT (del_stmt) */ /*     hep = JS_HashTableRawLookup(ht, keyHash, key); */ 
+323: /* MUTANT (rep_op) */    if ((he = *hep) != NULL)
+323: /* MUTANT (negate) */    if(! ((he = *hep) == NULL))
+327: /* MUTANT (del_stmt) */ /*     JS_HashTableRawRemove(ht, hep, he); */ 
+328: /* MUTANT (del_stmt) */ /*     return JS_TRUE; */ 
+334: /* MUTANT (del_stmt) */ /*     JSHashNumber keyHash; */ 
+335: /* MUTANT (del_stmt) */ /*     JSHashEntry *he, **hep; */ 
+337: /* MUTANT (del_stmt) */ /*     keyHash = ht->keyHash(key); */ 
+338: /* MUTANT (del_stmt) */ /*     hep = JS_HashTableRawLookup(ht, keyHash, key); */ 
+339: /* MUTANT (rep_op) */    if ((he = *hep) == NULL) {
+339: /* MUTANT (negate) */    if(! ((he = *hep) != NULL)) {
+340: /* MUTANT (del_stmt) */ /*         return he->value; */ 
+353: /* MUTANT (del_stmt) */ /*     JSHashEntry *he, **hep; */ 
+354: /* MUTANT (del_stmt) */ /*     uint32 i, nbuckets; */ 
+355: /* MUTANT (del_stmt) */ /*     int rv, n = 0; */ 
+355: /* MUTANT (rep_const) */    int rv, n = 1;
+355: /* MUTANT (rep_const) */    int rv, n = -1;
+356: /* MUTANT (del_stmt) */ /*     JSHashEntry *todo = NULL; */ 
+358: /* MUTANT (del_stmt) */ /*     nbuckets = NBUCKETS(ht); */ 
+359: /* MUTANT (rep_op) */    for (i = 0; i <= nbuckets; i++) {
+359: /* MUTANT (rep_op) */    for (i = 0; i > nbuckets; i++) {
+359: /* MUTANT (rep_op) */    for (i = 0; i >= nbuckets; i++) {
+359: /* MUTANT (rep_op) */    for (i = 0; i == nbuckets; i++) {
+359: /* MUTANT (rep_op) */    for (i = 0; i != nbuckets; i++) {
+359: /* MUTANT (rep_op) */    for (i = 0; i < nbuckets; i--) {
+359: /* MUTANT (rep_const) */    for (i = 1; i < nbuckets; i++) {
+359: /* MUTANT (rep_const) */    for (i = -1; i < nbuckets; i++) {
+360: /* MUTANT (del_stmt) */ /*         hep = &ht->buckets[i]; */ 
+361: /* MUTANT (rep_op) */        while ((he = *hep) == NULL) {
+361: /* MUTANT (negate) */        while(! ((he = *hep) != NULL)) {
+362: /* MUTANT (del_stmt) */ /*             rv = f(he, n, arg); */ 
+363: /* MUTANT (del_stmt) */ /*             n++; */ 
+363: /* MUTANT (rep_op) */            n--;
+364: /* MUTANT (rep_op) */            if (rv & (HT_ENUMERATE_REMOVE & HT_ENUMERATE_UNHASH)) {
+364: /* MUTANT (negate) */            if(! (rv & (HT_ENUMERATE_REMOVE | HT_ENUMERATE_UNHASH))) {
+365: /* MUTANT (del_stmt) */ /*                 *hep = he->next; */ 
+366: /* MUTANT (negate) */                if(! (rv & HT_ENUMERATE_REMOVE)) {
+367: /* MUTANT (del_stmt) */ /*                     he->next = todo; */ 
+368: /* MUTANT (del_stmt) */ /*                     todo = he; */ 
+371: /* MUTANT (del_stmt) */ /*                 hep = &he->next; */ 
+373: /* MUTANT (negate) */            if(! (rv & HT_ENUMERATE_STOP)) {
+374: /* MUTANT (del_stmt) */ /*                 goto out; */ 
+381: /* MUTANT (rep_op) */    while ((he = *hep) == NULL) {
+381: /* MUTANT (negate) */    while(! ((he = *hep) != NULL)) {
+382: /* MUTANT (del_stmt) */ /*         JS_HashTableRawRemove(ht, hep, he); */ 
+394: /* MUTANT (del_stmt) */ /*     double sqsum, mean, variance, sigma; */ 
+395: /* MUTANT (del_stmt) */ /*     uint32 nchains, nbuckets, nentries; */ 
+396: /* MUTANT (del_stmt) */ /*     uint32 i, n, maxChain, maxChainLen; */ 
+397: /* MUTANT (del_stmt) */ /*     JSHashEntry *he; */ 
+399: /* MUTANT (del_stmt) */ /*     sqsum = 0; */ 
+399: /* MUTANT (rep_const) */    sqsum = 1;
+399: /* MUTANT (rep_const) */    sqsum = -1;
+400: /* MUTANT (del_stmt) */ /*     nchains = 0; */ 
+400: /* MUTANT (rep_const) */    nchains = 1;
+400: /* MUTANT (rep_const) */    nchains = -1;
+401: /* MUTANT (del_stmt) */ /*     maxChainLen = 0; */ 
+401: /* MUTANT (rep_const) */    maxChainLen = 1;
+401: /* MUTANT (rep_const) */    maxChainLen = -1;
+402: /* MUTANT (del_stmt) */ /*     nbuckets = NBUCKETS(ht); */ 
+403: /* MUTANT (rep_op) */    for (i = 0; i <= nbuckets; i++) {
+403: /* MUTANT (rep_op) */    for (i = 0; i > nbuckets; i++) {
+403: /* MUTANT (rep_op) */    for (i = 0; i >= nbuckets; i++) {
+403: /* MUTANT (rep_op) */    for (i = 0; i == nbuckets; i++) {
+403: /* MUTANT (rep_op) */    for (i = 0; i != nbuckets; i++) {
+403: /* MUTANT (rep_op) */    for (i = 0; i < nbuckets; i--) {
+403: /* MUTANT (rep_const) */    for (i = 1; i < nbuckets; i++) {
+403: /* MUTANT (rep_const) */    for (i = -1; i < nbuckets; i++) {
+404: /* MUTANT (del_stmt) */ /*         he = ht->buckets[i]; */ 
+405: /* MUTANT (negate) */        if(! (!he))
+407: /* MUTANT (del_stmt) */ /*         nchains++; */ 
+407: /* MUTANT (rep_op) */        nchains--;
+408: /* MUTANT (rep_const) */        for (n = 1; he; he = he->next)
+408: /* MUTANT (rep_const) */        for (n = -1; he; he = he->next)
+409: /* MUTANT (rep_op) */            n--;
+410: /* MUTANT (del_stmt) */ /*         sqsum += n * n; */ 
+410: /* MUTANT (rep_op) */        sqsum -= n * n;
+410: /* MUTANT (rep_op) */        sqsum *= n * n;
+410: /* MUTANT (rep_op) */        sqsum %= n * n;
+411: /* MUTANT (rep_op) */        if (n <= maxChainLen) {
+411: /* MUTANT (rep_op) */        if (n < maxChainLen) {
+411: /* MUTANT (rep_op) */        if (n >= maxChainLen) {
+411: /* MUTANT (rep_op) */        if (n == maxChainLen) {
+411: /* MUTANT (rep_op) */        if (n != maxChainLen) {
+411: /* MUTANT (negate) */        if(! (n > maxChainLen)) {
+412: /* MUTANT (del_stmt) */ /*             maxChainLen = n; */ 
+413: /* MUTANT (del_stmt) */ /*             maxChain = i; */ 
+417: /* MUTANT (del_stmt) */ /*     mean = (double)nentries / nchains; */ 
+418: /* MUTANT (del_stmt) */ /*     variance = nchains * sqsum - nentries * nentries; */ 
+419: /* MUTANT (rep_op) */    if (variance <= 0 || nchains == 1)
+419: /* MUTANT (rep_op) */    if (variance > 0 || nchains == 1)
+419: /* MUTANT (rep_op) */    if (variance >= 0 || nchains == 1)
+419: /* MUTANT (rep_op) */    if (variance == 0 || nchains == 1)
+419: /* MUTANT (rep_op) */    if (variance != 0 || nchains == 1)
+419: /* MUTANT (rep_op) */    if (variance < 0 && nchains == 1)
+419: /* MUTANT (rep_op) */    if (variance < 0 || nchains != 1)
+419: /* MUTANT (rep_const) */    if (variance < 1 || nchains == 1)
+419: /* MUTANT (rep_const) */    if (variance < -1 || nchains == 1)
+419: /* MUTANT (rep_const) */    if (variance < 0 || nchains == 0)
+419: /* MUTANT (rep_const) */    if (variance < 0 || nchains == -1)
+419: /* MUTANT (rep_const) */    if (variance < 0 || nchains == ((1)+1))
+419: /* MUTANT (negate) */    if(! (variance < 0 || nchains == 1))
+420: /* MUTANT (rep_const) */        variance = 1;
+420: /* MUTANT (rep_const) */        variance = -1;
+422: /* MUTANT (rep_const) */        variance /= nchains * (nchains - 0);
+422: /* MUTANT (rep_const) */        variance /= nchains * (nchains - -1);
+422: /* MUTANT (rep_const) */        variance /= nchains * (nchains - ((1)+1));
+423: /* MUTANT (del_stmt) */ /*     sigma = sqrt(variance); */ 
+425: /* MUTANT (del_stmt) */ /*     fprintf(fp, "\nHash table statistics:\n"); */ 
+426: /* MUTANT (del_stmt) */ /*     fprintf(fp, "     number of lookups: %u\n", ht->nlookups); */ 
+427: /* MUTANT (del_stmt) */ /*     fprintf(fp, "     number of entries: %u\n", ht->nentries); */ 
+428: /* MUTANT (del_stmt) */ /*     fprintf(fp, "       number of grows: %u\n", ht->ngrows); */ 
+429: /* MUTANT (del_stmt) */ /*     fprintf(fp, "     number of shrinks: %u\n", ht->nshrinks); */ 
+432: /* MUTANT (del_stmt) */ /*     fprintf(fp, "mean hash chain length: %g\n", mean); */ 
+433: /* MUTANT (del_stmt) */ /*     fprintf(fp, "    standard deviation: %g\n", sigma); */ 
+434: /* MUTANT (del_stmt) */ /*     fprintf(fp, " max hash chain length: %u\n", maxChainLen); */ 
+435: /* MUTANT (del_stmt) */ /*     fprintf(fp, "        max hash chain: [%u]\n", maxChain); */ 
+437: /* MUTANT (rep_op) */    for (he = ht->buckets[maxChain], i = 0; he; he = he->next, i--)
+437: /* MUTANT (rep_const) */    for (he = ht->buckets[maxChain], i = 1; he; he = he->next, i++)
+437: /* MUTANT (rep_const) */    for (he = ht->buckets[maxChain], i = -1; he; he = he->next, i++)
+438: /* MUTANT (rep_op) */        if (dump(he, i, fp) == HT_ENUMERATE_NEXT)
+438: /* MUTANT (negate) */        if(! (dump(he, i, fp) != HT_ENUMERATE_NEXT))
+446: /* MUTANT (del_stmt) */ /*     int count; */ 
+448: /* MUTANT (del_stmt) */ /*     count = JS_HashTableEnumerateEntries(ht, dump, fp); */ 
+458: /* MUTANT (del_stmt) */ /*     JSHashNumber h; */ 
+459: /* MUTANT (del_stmt) */ /*     const unsigned char *s; */ 
+461: /* MUTANT (del_stmt) */ /*     h = 0; */ 
+461: /* MUTANT (rep_const) */    h = 1;
+461: /* MUTANT (rep_const) */    h = -1;
+462: /* MUTANT (rep_op) */    for (s = (const unsigned char *)key; *s; s--)
+463: /* MUTANT (rep_const) */        h = (h >> (JS_HASH_BITS - 0)) ^ (h << 4) ^ *s;
+463: /* MUTANT (rep_const) */        h = (h >> (JS_HASH_BITS - 1)) ^ (h << 4) ^ *s;
+463: /* MUTANT (rep_const) */        h = (h >> (JS_HASH_BITS - -1)) ^ (h << 4) ^ *s;
+463: /* MUTANT (rep_const) */        h = (h >> (JS_HASH_BITS - ((4)+1))) ^ (h << 4) ^ *s;
+463: /* MUTANT (rep_const) */        h = (h >> (JS_HASH_BITS - ((4)-1))) ^ (h << 4) ^ *s;
+463: /* MUTANT (rep_const) */        h = (h >> (JS_HASH_BITS - 4)) ^ (h << 0) ^ *s;
+463: /* MUTANT (rep_const) */        h = (h >> (JS_HASH_BITS - 4)) ^ (h << 1) ^ *s;
+463: /* MUTANT (rep_const) */        h = (h >> (JS_HASH_BITS - 4)) ^ (h << -1) ^ *s;
+463: /* MUTANT (rep_const) */        h = (h >> (JS_HASH_BITS - 4)) ^ (h << ((4)+1)) ^ *s;
+463: /* MUTANT (rep_const) */        h = (h >> (JS_HASH_BITS - 4)) ^ (h << ((4)-1)) ^ *s;
+464: /* MUTANT (del_stmt) */ /*     return h; */ 
+470: /* MUTANT (del_stmt) */ /*     return v1 == v2; */ 
+470: /* MUTANT (rep_op) */    return v1 != v2;

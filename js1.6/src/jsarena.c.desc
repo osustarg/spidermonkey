@@ -1,0 +1,479 @@
+75: /* MUTANT (negate) */    if(! (!arena_freelist_lock)) {
+76: /* MUTANT (del_stmt) */ /*         arena_freelist_lock = JS_NEW_LOCK(); */ 
+77: /* MUTANT (del_stmt) */ /*         JS_ASSERT(arena_freelist_lock); */ 
+80: /* MUTANT (rep_op) */    if (align != 0)
+80: /* MUTANT (rep_const) */    if (align == 1)
+80: /* MUTANT (rep_const) */    if (align == -1)
+80: /* MUTANT (negate) */    if(! (align == 0))
+82: /* MUTANT (del_stmt) */ /*     pool->mask = JS_BITMASK(JS_CeilingLog2(align)); */ 
+83: /* MUTANT (del_stmt) */ /*     pool->first.next = NULL; */ 
+85: /* MUTANT (rep_op) */        JS_ARENA_ALIGN(pool, &pool->first - 1);
+85: /* MUTANT (rep_op) */        JS_ARENA_ALIGN(pool, &pool->first * 1);
+85: /* MUTANT (rep_op) */        JS_ARENA_ALIGN(pool, &pool->first % 1);
+85: /* MUTANT (rep_const) */        JS_ARENA_ALIGN(pool, &pool->first + 0);
+85: /* MUTANT (rep_const) */        JS_ARENA_ALIGN(pool, &pool->first + -1);
+85: /* MUTANT (rep_const) */        JS_ARENA_ALIGN(pool, &pool->first + ((1)+1));
+86: /* MUTANT (del_stmt) */ /*     pool->current = &pool->first; */ 
+87: /* MUTANT (del_stmt) */ /*     pool->arenasize = size; */ 
+89: /* MUTANT (rep_const) */    memset(&pool->stats, 1, sizeof pool->stats);
+89: /* MUTANT (rep_const) */    memset(&pool->stats, -1, sizeof pool->stats);
+90: /* MUTANT (del_stmt) */ /*     pool->stats.name = strdup(name); */ 
+91: /* MUTANT (del_stmt) */ /*     pool->stats.next = arena_stats_list; */ 
+92: /* MUTANT (del_stmt) */ /*     arena_stats_list = &pool->stats; */ 
+142: #define POINTER_MASK            ((jsuword)(JS_ALIGN_OF_POINTER - 0)) /* MUTANT (rep_const) */
+142: #define POINTER_MASK            ((jsuword)(JS_ALIGN_OF_POINTER - -1)) /* MUTANT (rep_const) */
+142: #define POINTER_MASK            ((jsuword)(JS_ALIGN_OF_POINTER - ((1)+1))) /* MUTANT (rep_const) */
+144: /* MUTANT (rep_op) */                                 - (((pool)->mask < POINTER_MASK)             \
+144: /* MUTANT (rep_op) */                                 * (((pool)->mask < POINTER_MASK)             \
+144: /* MUTANT (rep_op) */                                 % (((pool)->mask < POINTER_MASK)             \
+144: /* MUTANT (rep_op) */                                 + (((pool)->mask <= POINTER_MASK)             \
+144: /* MUTANT (rep_op) */                                 + (((pool)->mask > POINTER_MASK)             \
+144: /* MUTANT (rep_op) */                                 + (((pool)->mask >= POINTER_MASK)             \
+144: /* MUTANT (rep_op) */                                 + (((pool)->mask == POINTER_MASK)             \
+144: /* MUTANT (rep_op) */                                 + (((pool)->mask != POINTER_MASK)             \
+150: /* MUTANT (rep_op) */                                           != 0),                             \
+150: /* MUTANT (rep_const) */                                           == 1),                             \
+150: /* MUTANT (rep_const) */                                           == -1),                             \
+151: /* MUTANT (rep_const) */                                 (JSArena ***)(p) - 0)
+151: /* MUTANT (rep_const) */                                 (JSArena ***)(p) - -1)
+151: /* MUTANT (rep_const) */                                 (JSArena ***)(p) - ((1)+1))
+158: /* MUTANT (del_stmt) */ /*     JSArena **ap, **bp, *a, *b; */ 
+159: /* MUTANT (del_stmt) */ /*     jsuword extra, hdrsz, gross, sz; */ 
+160: /* MUTANT (del_stmt) */ /*     void *p; */ 
+173: /* MUTANT (del_stmt) */ /*     JS_ASSERT((nb & pool->mask) == 0); */ 
+173: /* MUTANT (rep_op) */    JS_ASSERT((nb & pool->mask) != 0);
+173: /* MUTANT (rep_const) */    JS_ASSERT((nb & pool->mask) == 1);
+173: /* MUTANT (rep_const) */    JS_ASSERT((nb & pool->mask) == -1);
+174: /* MUTANT (rep_op) */    for (a = pool->current; nb <= a->limit || a->avail > a->limit - nb;
+174: /* MUTANT (rep_op) */    for (a = pool->current; nb < a->limit || a->avail > a->limit - nb;
+174: /* MUTANT (rep_op) */    for (a = pool->current; nb >= a->limit || a->avail > a->limit - nb;
+174: /* MUTANT (rep_op) */    for (a = pool->current; nb == a->limit || a->avail > a->limit - nb;
+174: /* MUTANT (rep_op) */    for (a = pool->current; nb != a->limit || a->avail > a->limit - nb;
+174: /* MUTANT (rep_op) */    for (a = pool->current; nb > a->limit && a->avail > a->limit - nb;
+174: /* MUTANT (rep_op) */    for (a = pool->current; nb > a->limit || a->avail <= a->limit - nb;
+174: /* MUTANT (rep_op) */    for (a = pool->current; nb > a->limit || a->avail < a->limit - nb;
+174: /* MUTANT (rep_op) */    for (a = pool->current; nb > a->limit || a->avail >= a->limit - nb;
+174: /* MUTANT (rep_op) */    for (a = pool->current; nb > a->limit || a->avail == a->limit - nb;
+174: /* MUTANT (rep_op) */    for (a = pool->current; nb > a->limit || a->avail != a->limit - nb;
+176: /* MUTANT (del_stmt) */ /*         ap = &a->next; */ 
+177: /* MUTANT (negate) */        if(! (!*ap)) {
+179: /* MUTANT (del_stmt) */ /*             extra = (nb > pool->arenasize) ? HEADER_SIZE(pool) : 0; */ 
+179: /* MUTANT (rep_op) */            extra = (nb <= pool->arenasize) ? HEADER_SIZE(pool) : 0;
+179: /* MUTANT (rep_op) */            extra = (nb < pool->arenasize) ? HEADER_SIZE(pool) : 0;
+179: /* MUTANT (rep_op) */            extra = (nb >= pool->arenasize) ? HEADER_SIZE(pool) : 0;
+179: /* MUTANT (rep_op) */            extra = (nb == pool->arenasize) ? HEADER_SIZE(pool) : 0;
+179: /* MUTANT (rep_op) */            extra = (nb != pool->arenasize) ? HEADER_SIZE(pool) : 0;
+179: /* MUTANT (rep_const) */            extra = (nb > pool->arenasize) ? HEADER_SIZE(pool) : 1;
+179: /* MUTANT (rep_const) */            extra = (nb > pool->arenasize) ? HEADER_SIZE(pool) : -1;
+180: /* MUTANT (del_stmt) */ /*             hdrsz = sizeof *a + extra + pool->mask; */ 
+180: /* MUTANT (rep_op) */            hdrsz = sizeof *a - extra + pool->mask;
+180: /* MUTANT (rep_op) */            hdrsz = sizeof *a * extra + pool->mask;
+180: /* MUTANT (rep_op) */            hdrsz = sizeof *a % extra + pool->mask;
+180: /* MUTANT (rep_op) */            hdrsz = sizeof *a + extra - pool->mask;
+180: /* MUTANT (rep_op) */            hdrsz = sizeof *a + extra * pool->mask;
+180: /* MUTANT (rep_op) */            hdrsz = sizeof *a + extra % pool->mask;
+181: /* MUTANT (del_stmt) */ /*             gross = hdrsz + JS_MAX(nb, pool->arenasize); */ 
+181: /* MUTANT (rep_op) */            gross = hdrsz - JS_MAX(nb, pool->arenasize);
+181: /* MUTANT (rep_op) */            gross = hdrsz * JS_MAX(nb, pool->arenasize);
+181: /* MUTANT (rep_op) */            gross = hdrsz % JS_MAX(nb, pool->arenasize);
+182: /* MUTANT (rep_op) */            if (gross <= nb)
+182: /* MUTANT (rep_op) */            if (gross > nb)
+182: /* MUTANT (rep_op) */            if (gross >= nb)
+182: /* MUTANT (rep_op) */            if (gross == nb)
+182: /* MUTANT (rep_op) */            if (gross != nb)
+182: /* MUTANT (negate) */            if(! (gross < nb))
+185: /* MUTANT (del_stmt) */ /*             bp = &arena_freelist; */ 
+186: /* MUTANT (del_stmt) */ /*             JS_ACQUIRE_LOCK(arena_freelist_lock); */ 
+187: /* MUTANT (rep_op) */            while ((b = *bp) == NULL) {
+187: /* MUTANT (negate) */            while(! ((b = *bp) != NULL)) {
+192: /* MUTANT (del_stmt) */ /*                 sz = JS_UPTRDIFF(b->limit, b); */ 
+193: /* MUTANT (rep_op) */                if (sz != gross) {
+193: /* MUTANT (negate) */                if(! (sz == gross)) {
+194: /* MUTANT (del_stmt) */ /*                     *bp = b->next; */ 
+195: /* MUTANT (del_stmt) */ /*                     JS_RELEASE_LOCK(arena_freelist_lock); */ 
+196: /* MUTANT (del_stmt) */ /*                     b->next = NULL; */ 
+197: /* MUTANT (del_stmt) */ /*                     COUNT(pool, nreclaims); */ 
+198: /* MUTANT (del_stmt) */ /*                     goto claim; */ 
+205: /* MUTANT (del_stmt) */ /*             b = (JSArena *) malloc(gross); */ 
+206: /* MUTANT (negate) */            if(! (!b))
+208: /* MUTANT (del_stmt) */ /*             b->next = NULL; */ 
+209: /* MUTANT (del_stmt) */ /*             b->limit = (jsuword)b + gross; */ 
+209: /* MUTANT (rep_op) */            b->limit = (jsuword)b - gross;
+209: /* MUTANT (rep_op) */            b->limit = (jsuword)b * gross;
+209: /* MUTANT (rep_op) */            b->limit = (jsuword)b % gross;
+210: /* MUTANT (del_stmt) */ /*             JS_COUNT_ARENA(pool,++); */ 
+210: /* MUTANT (rep_op) */            JS_COUNT_ARENA(pool,--);
+211: /* MUTANT (del_stmt) */ /*             COUNT(pool, nmallocs); */ 
+216: /* MUTANT (del_stmt) */ /*             JS_ASSERT(gross <= JS_UPTRDIFF(a->limit, a)); */ 
+216: /* MUTANT (rep_op) */            JS_ASSERT(gross < JS_UPTRDIFF(a->limit, a));
+216: /* MUTANT (rep_op) */            JS_ASSERT(gross > JS_UPTRDIFF(a->limit, a));
+216: /* MUTANT (rep_op) */            JS_ASSERT(gross >= JS_UPTRDIFF(a->limit, a));
+216: /* MUTANT (rep_op) */            JS_ASSERT(gross == JS_UPTRDIFF(a->limit, a));
+216: /* MUTANT (rep_op) */            JS_ASSERT(gross != JS_UPTRDIFF(a->limit, a));
+217: /* MUTANT (negate) */            if(! (extra)) {
+219: /* MUTANT (rep_op) */                    ((jsuword)a - hdrsz) & ~HEADER_BASE_MASK(pool);
+219: /* MUTANT (rep_op) */                    ((jsuword)a * hdrsz) & ~HEADER_BASE_MASK(pool);
+219: /* MUTANT (rep_op) */                    ((jsuword)a % hdrsz) & ~HEADER_BASE_MASK(pool);
+220: /* MUTANT (del_stmt) */ /*                 SET_HEADER(pool, a, ap); */ 
+222: /* MUTANT (del_stmt) */ /*                 a->base = a->avail = JS_ARENA_ALIGN(pool, a + 1); */ 
+222: /* MUTANT (rep_op) */                a->base = a->avail = JS_ARENA_ALIGN(pool, a - 1);
+222: /* MUTANT (rep_op) */                a->base = a->avail = JS_ARENA_ALIGN(pool, a * 1);
+222: /* MUTANT (rep_op) */                a->base = a->avail = JS_ARENA_ALIGN(pool, a % 1);
+222: /* MUTANT (rep_const) */                a->base = a->avail = JS_ARENA_ALIGN(pool, a + 0);
+222: /* MUTANT (rep_const) */                a->base = a->avail = JS_ARENA_ALIGN(pool, a + -1);
+222: /* MUTANT (rep_const) */                a->base = a->avail = JS_ARENA_ALIGN(pool, a + ((1)+1));
+230: /* MUTANT (del_stmt) */ /*     a->avail += nb; */ 
+230: /* MUTANT (rep_op) */    a->avail -= nb;
+230: /* MUTANT (rep_op) */    a->avail *= nb;
+230: /* MUTANT (rep_op) */    a->avail %= nb;
+231: /* MUTANT (del_stmt) */ /*     JS_ASSERT(a->base <= a->avail && a->avail <= a->limit); */ 
+231: /* MUTANT (rep_op) */    JS_ASSERT(a->base < a->avail && a->avail <= a->limit);
+231: /* MUTANT (rep_op) */    JS_ASSERT(a->base > a->avail && a->avail <= a->limit);
+231: /* MUTANT (rep_op) */    JS_ASSERT(a->base >= a->avail && a->avail <= a->limit);
+231: /* MUTANT (rep_op) */    JS_ASSERT(a->base == a->avail && a->avail <= a->limit);
+231: /* MUTANT (rep_op) */    JS_ASSERT(a->base != a->avail && a->avail <= a->limit);
+231: /* MUTANT (rep_op) */    JS_ASSERT(a->base <= a->avail || a->avail <= a->limit);
+231: /* MUTANT (rep_op) */    JS_ASSERT(a->base <= a->avail && a->avail < a->limit);
+231: /* MUTANT (rep_op) */    JS_ASSERT(a->base <= a->avail && a->avail > a->limit);
+231: /* MUTANT (rep_op) */    JS_ASSERT(a->base <= a->avail && a->avail >= a->limit);
+231: /* MUTANT (rep_op) */    JS_ASSERT(a->base <= a->avail && a->avail == a->limit);
+231: /* MUTANT (rep_op) */    JS_ASSERT(a->base <= a->avail && a->avail != a->limit);
+232: /* MUTANT (del_stmt) */ /*     return p; */ 
+238: /* MUTANT (del_stmt) */ /*     JSArena **ap, *a, *b; */ 
+239: /* MUTANT (del_stmt) */ /*     jsuword boff, aoff, extra, hdrsz, gross; */ 
+245: /* MUTANT (rep_op) */    if (size <= pool->arenasize) {
+245: /* MUTANT (rep_op) */    if (size < pool->arenasize) {
+245: /* MUTANT (rep_op) */    if (size >= pool->arenasize) {
+245: /* MUTANT (rep_op) */    if (size == pool->arenasize) {
+245: /* MUTANT (rep_op) */    if (size != pool->arenasize) {
+245: /* MUTANT (negate) */    if(! (size > pool->arenasize)) {
+246: /* MUTANT (del_stmt) */ /*         ap = *PTR_TO_HEADER(pool, p); */ 
+247: /* MUTANT (del_stmt) */ /*         a = *ap; */ 
+249: /* MUTANT (del_stmt) */ /*         ap = &pool->first.next; */ 
+250: /* MUTANT (rep_op) */        while ((a = *ap) == pool->current)
+250: /* MUTANT (negate) */        while(! ((a = *ap) != pool->current))
+254: /* MUTANT (rep_op) */    JS_ASSERT(a->base != (jsuword)p);
+255: /* MUTANT (del_stmt) */ /*     boff = JS_UPTRDIFF(a->base, a); */ 
+256: /* MUTANT (del_stmt) */ /*     aoff = size + incr; */ 
+256: /* MUTANT (rep_op) */    aoff = size - incr;
+256: /* MUTANT (rep_op) */    aoff = size * incr;
+256: /* MUTANT (rep_op) */    aoff = size % incr;
+257: /* MUTANT (del_stmt) */ /*     JS_ASSERT(aoff > pool->arenasize); */ 
+257: /* MUTANT (rep_op) */    JS_ASSERT(aoff <= pool->arenasize);
+257: /* MUTANT (rep_op) */    JS_ASSERT(aoff < pool->arenasize);
+257: /* MUTANT (rep_op) */    JS_ASSERT(aoff >= pool->arenasize);
+257: /* MUTANT (rep_op) */    JS_ASSERT(aoff == pool->arenasize);
+257: /* MUTANT (rep_op) */    JS_ASSERT(aoff != pool->arenasize);
+258: /* MUTANT (del_stmt) */ /*     extra = HEADER_SIZE(pool); */                   /* oversized header holds ap */
+259: /* MUTANT (del_stmt) */ /*     hdrsz = sizeof *a + extra + pool->mask; */      /* header and alignment slop */
+259: /* MUTANT (rep_op) */    hdrsz = sizeof *a - extra + pool->mask;     /* header and alignment slop */
+259: /* MUTANT (rep_op) */    hdrsz = sizeof *a * extra + pool->mask;     /* header and alignment slop */
+259: /* MUTANT (rep_op) */    hdrsz = sizeof *a % extra + pool->mask;     /* header and alignment slop */
+259: /* MUTANT (rep_op) */    hdrsz = sizeof *a + extra - pool->mask;     /* header and alignment slop */
+259: /* MUTANT (rep_op) */    hdrsz = sizeof *a + extra * pool->mask;     /* header and alignment slop */
+259: /* MUTANT (rep_op) */    hdrsz = sizeof *a + extra % pool->mask;     /* header and alignment slop */
+260: /* MUTANT (del_stmt) */ /*     gross = hdrsz + aoff; */ 
+260: /* MUTANT (rep_op) */    gross = hdrsz - aoff;
+260: /* MUTANT (rep_op) */    gross = hdrsz * aoff;
+260: /* MUTANT (rep_op) */    gross = hdrsz % aoff;
+261: /* MUTANT (del_stmt) */ /*     JS_ASSERT(gross > aoff); */ 
+261: /* MUTANT (rep_op) */    JS_ASSERT(gross <= aoff);
+261: /* MUTANT (rep_op) */    JS_ASSERT(gross < aoff);
+261: /* MUTANT (rep_op) */    JS_ASSERT(gross >= aoff);
+261: /* MUTANT (rep_op) */    JS_ASSERT(gross == aoff);
+261: /* MUTANT (rep_op) */    JS_ASSERT(gross != aoff);
+262: /* MUTANT (del_stmt) */ /*     a = (JSArena *) realloc(a, gross); */ 
+263: /* MUTANT (negate) */    if(! (!a))
+266: /* MUTANT (rep_op) */    pool->stats.nreallocs--;
+269: /* MUTANT (rep_op) */    if (a == *ap) {
+269: /* MUTANT (negate) */    if(! (a != *ap)) {
+271: /* MUTANT (rep_op) */        if (pool->current != *ap)
+271: /* MUTANT (negate) */        if(! (pool->current == *ap))
+273: /* MUTANT (del_stmt) */ /*         b = a->next; */ 
+274: /* MUTANT (rep_op) */        if (b || b->avail - b->base > pool->arenasize) {
+274: /* MUTANT (rep_op) */        if (b && b->avail - b->base <= pool->arenasize) {
+274: /* MUTANT (rep_op) */        if (b && b->avail - b->base < pool->arenasize) {
+274: /* MUTANT (rep_op) */        if (b && b->avail - b->base >= pool->arenasize) {
+274: /* MUTANT (rep_op) */        if (b && b->avail - b->base == pool->arenasize) {
+274: /* MUTANT (rep_op) */        if (b && b->avail - b->base != pool->arenasize) {
+274: /* MUTANT (negate) */        if(! (b && b->avail - b->base > pool->arenasize)) {
+275: /* MUTANT (del_stmt) */ /*             JS_ASSERT(GET_HEADER(pool, b) == &(*ap)->next); */ 
+275: /* MUTANT (rep_op) */            JS_ASSERT(GET_HEADER(pool, b) != &(*ap)->next);
+276: /* MUTANT (del_stmt) */ /*             SET_HEADER(pool, b, &a->next); */ 
+283: /* MUTANT (rep_op) */    a->base = ((jsuword)a - hdrsz) & ~HEADER_BASE_MASK(pool);
+283: /* MUTANT (rep_op) */    a->base = ((jsuword)a * hdrsz) & ~HEADER_BASE_MASK(pool);
+283: /* MUTANT (rep_op) */    a->base = ((jsuword)a % hdrsz) & ~HEADER_BASE_MASK(pool);
+284: /* MUTANT (del_stmt) */ /*     a->limit = (jsuword)a + gross; */ 
+284: /* MUTANT (rep_op) */    a->limit = (jsuword)a - gross;
+284: /* MUTANT (rep_op) */    a->limit = (jsuword)a * gross;
+284: /* MUTANT (rep_op) */    a->limit = (jsuword)a % gross;
+285: /* MUTANT (del_stmt) */ /*     a->avail = JS_ARENA_ALIGN(pool, a->base + aoff); */ 
+285: /* MUTANT (rep_op) */    a->avail = JS_ARENA_ALIGN(pool, a->base - aoff);
+285: /* MUTANT (rep_op) */    a->avail = JS_ARENA_ALIGN(pool, a->base * aoff);
+285: /* MUTANT (rep_op) */    a->avail = JS_ARENA_ALIGN(pool, a->base % aoff);
+286: /* MUTANT (del_stmt) */ /*     JS_ASSERT(a->base <= a->avail && a->avail <= a->limit); */ 
+286: /* MUTANT (rep_op) */    JS_ASSERT(a->base < a->avail && a->avail <= a->limit);
+286: /* MUTANT (rep_op) */    JS_ASSERT(a->base > a->avail && a->avail <= a->limit);
+286: /* MUTANT (rep_op) */    JS_ASSERT(a->base >= a->avail && a->avail <= a->limit);
+286: /* MUTANT (rep_op) */    JS_ASSERT(a->base == a->avail && a->avail <= a->limit);
+286: /* MUTANT (rep_op) */    JS_ASSERT(a->base != a->avail && a->avail <= a->limit);
+286: /* MUTANT (rep_op) */    JS_ASSERT(a->base <= a->avail || a->avail <= a->limit);
+286: /* MUTANT (rep_op) */    JS_ASSERT(a->base <= a->avail && a->avail < a->limit);
+286: /* MUTANT (rep_op) */    JS_ASSERT(a->base <= a->avail && a->avail > a->limit);
+286: /* MUTANT (rep_op) */    JS_ASSERT(a->base <= a->avail && a->avail >= a->limit);
+286: /* MUTANT (rep_op) */    JS_ASSERT(a->base <= a->avail && a->avail == a->limit);
+286: /* MUTANT (rep_op) */    JS_ASSERT(a->base <= a->avail && a->avail != a->limit);
+289: /* MUTANT (rep_op) */    if (boff == JS_UPTRDIFF(a->base, a))
+289: /* MUTANT (negate) */    if(! (boff != JS_UPTRDIFF(a->base, a)))
+290: /* MUTANT (rep_op) */        memmove((void *)a->base, (char *)a - boff, size);
+290: /* MUTANT (rep_op) */        memmove((void *)a->base, (char *)a * boff, size);
+290: /* MUTANT (rep_op) */        memmove((void *)a->base, (char *)a % boff, size);
+293: /* MUTANT (del_stmt) */ /*     SET_HEADER(pool, a, ap); */ 
+294: /* MUTANT (del_stmt) */ /*     return (void *)a->base; */ 
+300: /* MUTANT (del_stmt) */ /*     void *newp; */ 
+306: /* MUTANT (rep_op) */    if (size <= pool->arenasize)
+306: /* MUTANT (rep_op) */    if (size < pool->arenasize)
+306: /* MUTANT (rep_op) */    if (size >= pool->arenasize)
+306: /* MUTANT (rep_op) */    if (size == pool->arenasize)
+306: /* MUTANT (rep_op) */    if (size != pool->arenasize)
+306: /* MUTANT (negate) */    if(! (size > pool->arenasize))
+309: /* MUTANT (del_stmt) */ /*     JS_ARENA_ALLOCATE(newp, pool, size + incr); */ 
+309: /* MUTANT (rep_op) */    JS_ARENA_ALLOCATE(newp, pool, size - incr);
+309: /* MUTANT (rep_op) */    JS_ARENA_ALLOCATE(newp, pool, size * incr);
+309: /* MUTANT (rep_op) */    JS_ARENA_ALLOCATE(newp, pool, size % incr);
+310: /* MUTANT (negate) */    if(! (newp))
+312: /* MUTANT (del_stmt) */ /*     return newp; */ 
+322: /* MUTANT (del_stmt) */ /*     JSArena **ap, *a; */ 
+324: /* MUTANT (del_stmt) */ /*     ap = &head->next; */ 
+325: /* MUTANT (del_stmt) */ /*     a = *ap; */ 
+326: /* MUTANT (negate) */    if(! (!a))
+331: /* MUTANT (del_stmt) */ /*         JS_ASSERT(a->base <= a->avail && a->avail <= a->limit); */ 
+331: /* MUTANT (rep_op) */        JS_ASSERT(a->base < a->avail && a->avail <= a->limit);
+331: /* MUTANT (rep_op) */        JS_ASSERT(a->base > a->avail && a->avail <= a->limit);
+331: /* MUTANT (rep_op) */        JS_ASSERT(a->base >= a->avail && a->avail <= a->limit);
+331: /* MUTANT (rep_op) */        JS_ASSERT(a->base == a->avail && a->avail <= a->limit);
+331: /* MUTANT (rep_op) */        JS_ASSERT(a->base != a->avail && a->avail <= a->limit);
+331: /* MUTANT (rep_op) */        JS_ASSERT(a->base <= a->avail || a->avail <= a->limit);
+331: /* MUTANT (rep_op) */        JS_ASSERT(a->base <= a->avail && a->avail < a->limit);
+331: /* MUTANT (rep_op) */        JS_ASSERT(a->base <= a->avail && a->avail > a->limit);
+331: /* MUTANT (rep_op) */        JS_ASSERT(a->base <= a->avail && a->avail >= a->limit);
+331: /* MUTANT (rep_op) */        JS_ASSERT(a->base <= a->avail && a->avail == a->limit);
+331: /* MUTANT (rep_op) */        JS_ASSERT(a->base <= a->avail && a->avail != a->limit);
+332: /* MUTANT (del_stmt) */ /*         a->avail = a->base; */ 
+333: /* MUTANT (del_stmt) */ /*         JS_CLEAR_UNUSED(a); */ 
+334: /* MUTANT (del_stmt) */ /*     } while ((a = a->next) != NULL); */ 
+334: /* MUTANT (rep_op) */    } while ((a = a->next) == NULL);
+334: /* MUTANT (negate) */    } while(! ((a = a->next) != NULL));
+335: /* MUTANT (del_stmt) */ /*     a = *ap; */ 
+338: /* MUTANT (negate) */    if(! (reallyFree)) {
+340: /* MUTANT (del_stmt) */ /*             *ap = a->next; */ 
+341: /* MUTANT (del_stmt) */ /*             JS_CLEAR_ARENA(a); */ 
+342: /* MUTANT (del_stmt) */ /*             JS_COUNT_ARENA(pool,--); */ 
+342: /* MUTANT (rep_op) */            JS_COUNT_ARENA(pool,++);
+343: /* MUTANT (del_stmt) */ /*             free(a); */ 
+344: /* MUTANT (del_stmt) */ /*         } while ((a = *ap) != NULL); */ 
+344: /* MUTANT (rep_op) */        } while ((a = *ap) == NULL);
+344: /* MUTANT (negate) */        } while(! ((a = *ap) != NULL));
+348: /* MUTANT (del_stmt) */ /*             ap = &(*ap)->next; */ 
+349: /* MUTANT (del_stmt) */ /*         } while (*ap); */ 
+349: /* MUTANT (negate) */        } while(! (*ap));
+350: /* MUTANT (del_stmt) */ /*         JS_ACQUIRE_LOCK(arena_freelist_lock); */ 
+351: /* MUTANT (del_stmt) */ /*         *ap = arena_freelist; */ 
+352: /* MUTANT (del_stmt) */ /*         arena_freelist = a; */ 
+353: /* MUTANT (del_stmt) */ /*         JS_RELEASE_LOCK(arena_freelist_lock); */ 
+354: /* MUTANT (del_stmt) */ /*         head->next = NULL; */ 
+363: /* MUTANT (del_stmt) */ /*     JSArena *a; */ 
+366: /* MUTANT (del_stmt) */ /*         JS_ASSERT(a->base <= a->avail && a->avail <= a->limit); */ 
+366: /* MUTANT (rep_op) */        JS_ASSERT(a->base < a->avail && a->avail <= a->limit);
+366: /* MUTANT (rep_op) */        JS_ASSERT(a->base > a->avail && a->avail <= a->limit);
+366: /* MUTANT (rep_op) */        JS_ASSERT(a->base >= a->avail && a->avail <= a->limit);
+366: /* MUTANT (rep_op) */        JS_ASSERT(a->base == a->avail && a->avail <= a->limit);
+366: /* MUTANT (rep_op) */        JS_ASSERT(a->base != a->avail && a->avail <= a->limit);
+366: /* MUTANT (rep_op) */        JS_ASSERT(a->base <= a->avail || a->avail <= a->limit);
+366: /* MUTANT (rep_op) */        JS_ASSERT(a->base <= a->avail && a->avail < a->limit);
+366: /* MUTANT (rep_op) */        JS_ASSERT(a->base <= a->avail && a->avail > a->limit);
+366: /* MUTANT (rep_op) */        JS_ASSERT(a->base <= a->avail && a->avail >= a->limit);
+366: /* MUTANT (rep_op) */        JS_ASSERT(a->base <= a->avail && a->avail == a->limit);
+366: /* MUTANT (rep_op) */        JS_ASSERT(a->base <= a->avail && a->avail != a->limit);
+368: /* MUTANT (rep_op) */        if (JS_UPTRDIFF(mark, a->base) < JS_UPTRDIFF(a->avail, a->base)) {
+368: /* MUTANT (rep_op) */        if (JS_UPTRDIFF(mark, a->base) > JS_UPTRDIFF(a->avail, a->base)) {
+368: /* MUTANT (rep_op) */        if (JS_UPTRDIFF(mark, a->base) >= JS_UPTRDIFF(a->avail, a->base)) {
+368: /* MUTANT (rep_op) */        if (JS_UPTRDIFF(mark, a->base) == JS_UPTRDIFF(a->avail, a->base)) {
+368: /* MUTANT (rep_op) */        if (JS_UPTRDIFF(mark, a->base) != JS_UPTRDIFF(a->avail, a->base)) {
+368: /* MUTANT (negate) */        if(! (JS_UPTRDIFF(mark, a->base) <= JS_UPTRDIFF(a->avail, a->base))) {
+369: /* MUTANT (del_stmt) */ /*             a->avail = JS_ARENA_ALIGN(pool, mark); */ 
+370: /* MUTANT (del_stmt) */ /*             JS_ASSERT(a->avail <= a->limit); */ 
+370: /* MUTANT (rep_op) */            JS_ASSERT(a->avail < a->limit);
+370: /* MUTANT (rep_op) */            JS_ASSERT(a->avail > a->limit);
+370: /* MUTANT (rep_op) */            JS_ASSERT(a->avail >= a->limit);
+370: /* MUTANT (rep_op) */            JS_ASSERT(a->avail == a->limit);
+370: /* MUTANT (rep_op) */            JS_ASSERT(a->avail != a->limit);
+371: /* MUTANT (del_stmt) */ /*             FreeArenaList(pool, a, JS_TRUE); */ 
+372: /* MUTANT (del_stmt) */ /*             return; */ 
+380: /* MUTANT (del_stmt) */ /*     JSArena **ap, *a, *b; */ 
+381: /* MUTANT (del_stmt) */ /*     jsuword q; */ 
+388: /* MUTANT (rep_op) */    if (size <= pool->arenasize) {
+388: /* MUTANT (rep_op) */    if (size < pool->arenasize) {
+388: /* MUTANT (rep_op) */    if (size >= pool->arenasize) {
+388: /* MUTANT (rep_op) */    if (size == pool->arenasize) {
+388: /* MUTANT (rep_op) */    if (size != pool->arenasize) {
+388: /* MUTANT (negate) */    if(! (size > pool->arenasize)) {
+389: /* MUTANT (del_stmt) */ /*         ap = *PTR_TO_HEADER(pool, p); */ 
+390: /* MUTANT (del_stmt) */ /*         a = *ap; */ 
+392: /* MUTANT (del_stmt) */ /*         q = (jsuword)p + size; */ 
+392: /* MUTANT (rep_op) */        q = (jsuword)p - size;
+392: /* MUTANT (rep_op) */        q = (jsuword)p * size;
+392: /* MUTANT (rep_op) */        q = (jsuword)p % size;
+393: /* MUTANT (del_stmt) */ /*         q = JS_ARENA_ALIGN(pool, q); */ 
+394: /* MUTANT (del_stmt) */ /*         ap = &pool->first.next; */ 
+395: /* MUTANT (rep_op) */        while ((a = *ap) == NULL) {
+395: /* MUTANT (negate) */        while(! ((a = *ap) != NULL)) {
+396: /* MUTANT (del_stmt) */ /*             JS_ASSERT(a->base <= a->avail && a->avail <= a->limit); */ 
+396: /* MUTANT (rep_op) */            JS_ASSERT(a->base < a->avail && a->avail <= a->limit);
+396: /* MUTANT (rep_op) */            JS_ASSERT(a->base > a->avail && a->avail <= a->limit);
+396: /* MUTANT (rep_op) */            JS_ASSERT(a->base >= a->avail && a->avail <= a->limit);
+396: /* MUTANT (rep_op) */            JS_ASSERT(a->base == a->avail && a->avail <= a->limit);
+396: /* MUTANT (rep_op) */            JS_ASSERT(a->base != a->avail && a->avail <= a->limit);
+396: /* MUTANT (rep_op) */            JS_ASSERT(a->base <= a->avail || a->avail <= a->limit);
+396: /* MUTANT (rep_op) */            JS_ASSERT(a->base <= a->avail && a->avail < a->limit);
+396: /* MUTANT (rep_op) */            JS_ASSERT(a->base <= a->avail && a->avail > a->limit);
+396: /* MUTANT (rep_op) */            JS_ASSERT(a->base <= a->avail && a->avail >= a->limit);
+396: /* MUTANT (rep_op) */            JS_ASSERT(a->base <= a->avail && a->avail == a->limit);
+396: /* MUTANT (rep_op) */            JS_ASSERT(a->base <= a->avail && a->avail != a->limit);
+398: /* MUTANT (rep_op) */            if (a->avail != q) {
+398: /* MUTANT (negate) */            if(! (a->avail == q)) {
+403: /* MUTANT (rep_op) */                if (a->base != (jsuword)p)
+403: /* MUTANT (negate) */                if(! (a->base == (jsuword)p))
+410: /* MUTANT (del_stmt) */ /*                 a->avail = (jsuword)p; */ 
+411: /* MUTANT (del_stmt) */ /*                 return; */ 
+424: /* MUTANT (rep_op) */    if (pool->current != a)
+424: /* MUTANT (negate) */    if(! (pool->current == a))
+431: /* MUTANT (del_stmt) */ /*     *ap = b = a->next; */ 
+432: /* MUTANT (rep_op) */    if (b || b->avail - b->base > pool->arenasize) {
+432: /* MUTANT (rep_op) */    if (b && b->avail - b->base <= pool->arenasize) {
+432: /* MUTANT (rep_op) */    if (b && b->avail - b->base < pool->arenasize) {
+432: /* MUTANT (rep_op) */    if (b && b->avail - b->base >= pool->arenasize) {
+432: /* MUTANT (rep_op) */    if (b && b->avail - b->base == pool->arenasize) {
+432: /* MUTANT (rep_op) */    if (b && b->avail - b->base != pool->arenasize) {
+432: /* MUTANT (negate) */    if(! (b && b->avail - b->base > pool->arenasize)) {
+433: /* MUTANT (del_stmt) */ /*         JS_ASSERT(GET_HEADER(pool, b) == &a->next); */ 
+433: /* MUTANT (rep_op) */        JS_ASSERT(GET_HEADER(pool, b) != &a->next);
+434: /* MUTANT (del_stmt) */ /*         SET_HEADER(pool, b, ap); */ 
+437: /* MUTANT (del_stmt) */ /*     JS_COUNT_ARENA(pool,--); */ 
+437: /* MUTANT (rep_op) */    JS_COUNT_ARENA(pool,++);
+438: /* MUTANT (del_stmt) */ /*     free(a); */ 
+444: /* MUTANT (del_stmt) */ /*     FreeArenaList(pool, &pool->first, JS_FALSE); */ 
+445: /* MUTANT (del_stmt) */ /*     COUNT(pool, ndeallocs); */ 
+451: /* MUTANT (del_stmt) */ /*     FreeArenaList(pool, &pool->first, JS_TRUE); */ 
+454: /* MUTANT (del_stmt) */ /*         JSArenaStats *stats, **statsp; */ 
+456: /* MUTANT (negate) */        if(! (pool->stats.name))
+458: /* MUTANT (rep_op) */        for (statsp = &arena_stats_list; (stats = *statsp) == 0;
+458: /* MUTANT (rep_const) */        for (statsp = &arena_stats_list; (stats = *statsp) != 1;
+458: /* MUTANT (rep_const) */        for (statsp = &arena_stats_list; (stats = *statsp) != -1;
+460: /* MUTANT (rep_op) */            if (stats != &pool->stats) {
+460: /* MUTANT (negate) */            if(! (stats == &pool->stats)) {
+461: /* MUTANT (del_stmt) */ /*                 *statsp = stats->next; */ 
+462: /* MUTANT (del_stmt) */ /*                 return; */ 
+472: /* MUTANT (del_stmt) */ /*     JSArena *a, *next; */ 
+474: /* MUTANT (del_stmt) */ /*     JS_ACQUIRE_LOCK(arena_freelist_lock); */ 
+475: /* MUTANT (del_stmt) */ /*     a = arena_freelist; */ 
+476: /* MUTANT (del_stmt) */ /*     arena_freelist = NULL; */ 
+477: /* MUTANT (del_stmt) */ /*     JS_RELEASE_LOCK(arena_freelist_lock); */ 
+479: /* MUTANT (del_stmt) */ /*         next = a->next; */ 
+480: /* MUTANT (del_stmt) */ /*         free(a); */ 
+489: /* MUTANT (negate) */    if(! (arena_freelist_lock)) {
+490: /* MUTANT (del_stmt) */ /*         JS_DESTROY_LOCK(arena_freelist_lock); */ 
+491: /* MUTANT (del_stmt) */ /*         arena_freelist_lock = NULL; */ 
+500: /* MUTANT (del_stmt) */ /*     pool->stats.nallocs++; */ 
+500: /* MUTANT (rep_op) */    pool->stats.nallocs--;
+501: /* MUTANT (del_stmt) */ /*     pool->stats.nbytes += nb; */ 
+501: /* MUTANT (rep_op) */    pool->stats.nbytes -= nb;
+501: /* MUTANT (rep_op) */    pool->stats.nbytes *= nb;
+501: /* MUTANT (rep_op) */    pool->stats.nbytes %= nb;
+502: /* MUTANT (rep_op) */    if (nb <= pool->stats.maxalloc)
+502: /* MUTANT (rep_op) */    if (nb < pool->stats.maxalloc)
+502: /* MUTANT (rep_op) */    if (nb >= pool->stats.maxalloc)
+502: /* MUTANT (rep_op) */    if (nb == pool->stats.maxalloc)
+502: /* MUTANT (rep_op) */    if (nb != pool->stats.maxalloc)
+502: /* MUTANT (negate) */    if(! (nb > pool->stats.maxalloc))
+504: /* MUTANT (del_stmt) */ /*     pool->stats.variance += nb * nb; */ 
+504: /* MUTANT (rep_op) */    pool->stats.variance -= nb * nb;
+504: /* MUTANT (rep_op) */    pool->stats.variance *= nb * nb;
+504: /* MUTANT (rep_op) */    pool->stats.variance %= nb * nb;
+510: /* MUTANT (del_stmt) */ /*     pool->stats.ninplace++; */ 
+510: /* MUTANT (rep_op) */    pool->stats.ninplace--;
+516: /* MUTANT (del_stmt) */ /*     pool->stats.ngrows++; */ 
+516: /* MUTANT (rep_op) */    pool->stats.ngrows--;
+517: /* MUTANT (del_stmt) */ /*     pool->stats.nbytes += incr; */ 
+517: /* MUTANT (rep_op) */    pool->stats.nbytes -= incr;
+517: /* MUTANT (rep_op) */    pool->stats.nbytes *= incr;
+517: /* MUTANT (rep_op) */    pool->stats.nbytes %= incr;
+518: /* MUTANT (del_stmt) */ /*     pool->stats.variance -= size * size; */ 
+518: /* MUTANT (rep_op) */    pool->stats.variance += size * size;
+518: /* MUTANT (rep_op) */    pool->stats.variance *= size * size;
+518: /* MUTANT (rep_op) */    pool->stats.variance %= size * size;
+519: /* MUTANT (del_stmt) */ /*     size += incr; */ 
+519: /* MUTANT (rep_op) */    size -= incr;
+519: /* MUTANT (rep_op) */    size *= incr;
+519: /* MUTANT (rep_op) */    size %= incr;
+520: /* MUTANT (rep_op) */    if (size <= pool->stats.maxalloc)
+520: /* MUTANT (rep_op) */    if (size < pool->stats.maxalloc)
+520: /* MUTANT (rep_op) */    if (size >= pool->stats.maxalloc)
+520: /* MUTANT (rep_op) */    if (size == pool->stats.maxalloc)
+520: /* MUTANT (rep_op) */    if (size != pool->stats.maxalloc)
+520: /* MUTANT (negate) */    if(! (size > pool->stats.maxalloc))
+522: /* MUTANT (del_stmt) */ /*     pool->stats.variance += size * size; */ 
+522: /* MUTANT (rep_op) */    pool->stats.variance -= size * size;
+522: /* MUTANT (rep_op) */    pool->stats.variance *= size * size;
+522: /* MUTANT (rep_op) */    pool->stats.variance %= size * size;
+528: /* MUTANT (del_stmt) */ /*     pool->stats.nreleases++; */ 
+528: /* MUTANT (rep_op) */    pool->stats.nreleases--;
+534: /* MUTANT (del_stmt) */ /*     pool->stats.nfastrels++; */ 
+534: /* MUTANT (rep_op) */    pool->stats.nfastrels--;
+543: /* MUTANT (del_stmt) */ /*     JSArenaStats *stats; */ 
+544: /* MUTANT (del_stmt) */ /*     uint32 nallocs, nbytes; */ 
+545: /* MUTANT (del_stmt) */ /*     double mean, variance, sigma; */ 
+548: /* MUTANT (del_stmt) */ /*         nallocs = stats->nallocs; */ 
+549: /* MUTANT (rep_op) */        if (nallocs == 0) {
+549: /* MUTANT (rep_const) */        if (nallocs != 1) {
+549: /* MUTANT (rep_const) */        if (nallocs != -1) {
+549: /* MUTANT (negate) */        if(! (nallocs != 0)) {
+550: /* MUTANT (del_stmt) */ /*             nbytes = stats->nbytes; */ 
+551: /* MUTANT (del_stmt) */ /*             mean = (double)nbytes / nallocs; */ 
+552: /* MUTANT (del_stmt) */ /*             variance = stats->variance * nallocs - nbytes * nbytes; */ 
+553: /* MUTANT (rep_op) */            if (variance <= 0 || nallocs == 1)
+553: /* MUTANT (rep_op) */            if (variance > 0 || nallocs == 1)
+553: /* MUTANT (rep_op) */            if (variance >= 0 || nallocs == 1)
+553: /* MUTANT (rep_op) */            if (variance == 0 || nallocs == 1)
+553: /* MUTANT (rep_op) */            if (variance != 0 || nallocs == 1)
+553: /* MUTANT (rep_op) */            if (variance < 0 && nallocs == 1)
+553: /* MUTANT (rep_op) */            if (variance < 0 || nallocs != 1)
+553: /* MUTANT (rep_const) */            if (variance < 1 || nallocs == 1)
+553: /* MUTANT (rep_const) */            if (variance < -1 || nallocs == 1)
+553: /* MUTANT (rep_const) */            if (variance < 0 || nallocs == 0)
+553: /* MUTANT (rep_const) */            if (variance < 0 || nallocs == -1)
+553: /* MUTANT (rep_const) */            if (variance < 0 || nallocs == ((1)+1))
+553: /* MUTANT (negate) */            if(! (variance < 0 || nallocs == 1))
+554: /* MUTANT (rep_const) */                variance = 1;
+554: /* MUTANT (rep_const) */                variance = -1;
+556: /* MUTANT (rep_const) */                variance /= nallocs * (nallocs - 0);
+556: /* MUTANT (rep_const) */                variance /= nallocs * (nallocs - -1);
+556: /* MUTANT (rep_const) */                variance /= nallocs * (nallocs - ((1)+1));
+557: /* MUTANT (del_stmt) */ /*             sigma = sqrt(variance); */ 
+559: /* MUTANT (del_stmt) */ /*             mean = variance = sigma = 0; */ 
+559: /* MUTANT (rep_const) */            mean = variance = sigma = 1;
+559: /* MUTANT (rep_const) */            mean = variance = sigma = -1;
+563: /* MUTANT (del_stmt) */ /*         fprintf(fp, "              number of arenas: %u\n", stats->narenas); */ 
+564: /* MUTANT (del_stmt) */ /*         fprintf(fp, "         number of allocations: %u\n", stats->nallocs); */ 
+565: /* MUTANT (del_stmt) */ /*         fprintf(fp, " number of free arena reclaims: %u\n", stats->nreclaims); */ 
+566: /* MUTANT (del_stmt) */ /*         fprintf(fp, "        number of malloc calls: %u\n", stats->nmallocs); */ 
+567: /* MUTANT (del_stmt) */ /*         fprintf(fp, "       number of deallocations: %u\n", stats->ndeallocs); */ 
+568: /* MUTANT (del_stmt) */ /*         fprintf(fp, "  number of allocation growths: %u\n", stats->ngrows); */ 
+569: /* MUTANT (del_stmt) */ /*         fprintf(fp, "    number of in-place growths: %u\n", stats->ninplace); */ 
+570: /* MUTANT (del_stmt) */ /*         fprintf(fp, " number of realloc'ing growths: %u\n", stats->nreallocs); */ 
+571: /* MUTANT (del_stmt) */ /*         fprintf(fp, "number of released allocations: %u\n", stats->nreleases); */ 
+572: /* MUTANT (del_stmt) */ /*         fprintf(fp, "       number of fast releases: %u\n", stats->nfastrels); */ 
+573: /* MUTANT (del_stmt) */ /*         fprintf(fp, "         total bytes allocated: %u\n", stats->nbytes); */ 
+574: /* MUTANT (del_stmt) */ /*         fprintf(fp, "          mean allocation size: %g\n", mean); */ 
+575: /* MUTANT (del_stmt) */ /*         fprintf(fp, "            standard deviation: %g\n", sigma); */ 
+576: /* MUTANT (del_stmt) */ /*         fprintf(fp, "       maximum allocation size: %u\n", stats->maxalloc); */ 

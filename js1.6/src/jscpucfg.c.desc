@@ -1,0 +1,593 @@
+85: /* MUTANT (del_stmt) */ /*     char c; */ 
+86: /* MUTANT (del_stmt) */ /*     short a; */ 
+87: /* MUTANT (del_stmt) */ /* }; */ 
+89: /* MUTANT (del_stmt) */ /*     char c; */ 
+90: /* MUTANT (del_stmt) */ /*     int a; */ 
+91: /* MUTANT (del_stmt) */ /* }; */ 
+93: /* MUTANT (del_stmt) */ /*     char c; */ 
+94: /* MUTANT (del_stmt) */ /*     long a; */ 
+95: /* MUTANT (del_stmt) */ /* }; */ 
+97: /* MUTANT (del_stmt) */ /*     char c; */ 
+98: /* MUTANT (del_stmt) */ /*     INT64 a; */ 
+99: /* MUTANT (del_stmt) */ /* }; */ 
+101: /* MUTANT (del_stmt) */ /*     char c; */ 
+103: /* MUTANT (del_stmt) */ /*         long hi, lo; */ 
+104: /* MUTANT (del_stmt) */ /*     } a; */ 
+105: /* MUTANT (del_stmt) */ /* }; */ 
+107: /* MUTANT (del_stmt) */ /*     char c; */ 
+108: /* MUTANT (del_stmt) */ /*     float a; */ 
+109: /* MUTANT (del_stmt) */ /* }; */ 
+111: /* MUTANT (del_stmt) */ /*     char c; */ 
+112: /* MUTANT (del_stmt) */ /*     double a; */ 
+113: /* MUTANT (del_stmt) */ /* }; */ 
+115: /* MUTANT (del_stmt) */ /*     char c; */ 
+116: /* MUTANT (del_stmt) */ /*     void *a; */ 
+117: /* MUTANT (del_stmt) */ /* }; */ 
+119: /* MUTANT (del_stmt) */ /*     char c; */ 
+120: /* MUTANT (del_stmt) */ /*     prword a; */ 
+121: /* MUTANT (del_stmt) */ /* }; */ 
+124: /* MUTANT (rep_const) */    (((char*)&(((struct align_##type *)1)->a)) - ((char*)0))
+124: /* MUTANT (rep_const) */    (((char*)&(((struct align_##type *)-1)->a)) - ((char*)0))
+124: /* MUTANT (rep_const) */    (((char*)&(((struct align_##type *)0)->a)) - ((char*)1))
+124: /* MUTANT (rep_const) */    (((char*)&(((struct align_##type *)0)->a)) - ((char*)-1))
+130: /* MUTANT (del_stmt) */ /*     int log2 = 0; */ 
+130: /* MUTANT (rep_const) */    int log2 = 1;
+130: /* MUTANT (rep_const) */    int log2 = -1;
+132: /* MUTANT (rep_const) */    if (n & (n-0))
+132: /* MUTANT (rep_const) */    if (n & (n--1))
+132: /* MUTANT (rep_const) */    if (n & (n-((1)+1)))
+132: /* MUTANT (negate) */    if(! (n & (n-1)))
+133: /* MUTANT (rep_op) */        log2--;
+134: /* MUTANT (rep_const) */    if (n >> 0)
+134: /* MUTANT (rep_const) */    if (n >> 1)
+134: /* MUTANT (rep_const) */    if (n >> -1)
+134: /* MUTANT (rep_const) */    if (n >> ((16)+1))
+134: /* MUTANT (rep_const) */    if (n >> ((16)-1))
+134: /* MUTANT (negate) */    if(! (n >> 16))
+135: /* MUTANT (rep_op) */        log2 -= 16, n >>= 16;
+135: /* MUTANT (rep_op) */        log2 *= 16, n >>= 16;
+135: /* MUTANT (rep_op) */        log2 %= 16, n >>= 16;
+135: /* MUTANT (rep_const) */        log2 += 0, n >>= 16;
+135: /* MUTANT (rep_const) */        log2 += 1, n >>= 16;
+135: /* MUTANT (rep_const) */        log2 += -1, n >>= 16;
+135: /* MUTANT (rep_const) */        log2 += ((16)+1), n >>= 16;
+135: /* MUTANT (rep_const) */        log2 += ((16)-1), n >>= 16;
+135: /* MUTANT (rep_const) */        log2 += 16, n >>= 0;
+135: /* MUTANT (rep_const) */        log2 += 16, n >>= 1;
+135: /* MUTANT (rep_const) */        log2 += 16, n >>= -1;
+135: /* MUTANT (rep_const) */        log2 += 16, n >>= ((16)+1);
+135: /* MUTANT (rep_const) */        log2 += 16, n >>= ((16)-1);
+136: /* MUTANT (rep_const) */    if (n >> 0)
+136: /* MUTANT (rep_const) */    if (n >> 1)
+136: /* MUTANT (rep_const) */    if (n >> -1)
+136: /* MUTANT (rep_const) */    if (n >> ((8)+1))
+136: /* MUTANT (rep_const) */    if (n >> ((8)-1))
+136: /* MUTANT (negate) */    if(! (n >> 8))
+137: /* MUTANT (rep_op) */        log2 -= 8, n >>= 8;
+137: /* MUTANT (rep_op) */        log2 *= 8, n >>= 8;
+137: /* MUTANT (rep_op) */        log2 %= 8, n >>= 8;
+137: /* MUTANT (rep_const) */        log2 += 0, n >>= 8;
+137: /* MUTANT (rep_const) */        log2 += 1, n >>= 8;
+137: /* MUTANT (rep_const) */        log2 += -1, n >>= 8;
+137: /* MUTANT (rep_const) */        log2 += ((8)+1), n >>= 8;
+137: /* MUTANT (rep_const) */        log2 += ((8)-1), n >>= 8;
+137: /* MUTANT (rep_const) */        log2 += 8, n >>= 0;
+137: /* MUTANT (rep_const) */        log2 += 8, n >>= 1;
+137: /* MUTANT (rep_const) */        log2 += 8, n >>= -1;
+137: /* MUTANT (rep_const) */        log2 += 8, n >>= ((8)+1);
+137: /* MUTANT (rep_const) */        log2 += 8, n >>= ((8)-1);
+138: /* MUTANT (rep_const) */    if (n >> 0)
+138: /* MUTANT (rep_const) */    if (n >> 1)
+138: /* MUTANT (rep_const) */    if (n >> -1)
+138: /* MUTANT (rep_const) */    if (n >> ((4)+1))
+138: /* MUTANT (rep_const) */    if (n >> ((4)-1))
+138: /* MUTANT (negate) */    if(! (n >> 4))
+139: /* MUTANT (rep_op) */        log2 -= 4, n >>= 4;
+139: /* MUTANT (rep_op) */        log2 *= 4, n >>= 4;
+139: /* MUTANT (rep_op) */        log2 %= 4, n >>= 4;
+139: /* MUTANT (rep_const) */        log2 += 0, n >>= 4;
+139: /* MUTANT (rep_const) */        log2 += 1, n >>= 4;
+139: /* MUTANT (rep_const) */        log2 += -1, n >>= 4;
+139: /* MUTANT (rep_const) */        log2 += ((4)+1), n >>= 4;
+139: /* MUTANT (rep_const) */        log2 += ((4)-1), n >>= 4;
+139: /* MUTANT (rep_const) */        log2 += 4, n >>= 0;
+139: /* MUTANT (rep_const) */        log2 += 4, n >>= 1;
+139: /* MUTANT (rep_const) */        log2 += 4, n >>= -1;
+139: /* MUTANT (rep_const) */        log2 += 4, n >>= ((4)+1);
+139: /* MUTANT (rep_const) */        log2 += 4, n >>= ((4)-1);
+140: /* MUTANT (rep_const) */    if (n >> 0)
+140: /* MUTANT (rep_const) */    if (n >> 1)
+140: /* MUTANT (rep_const) */    if (n >> -1)
+140: /* MUTANT (rep_const) */    if (n >> ((2)+1))
+140: /* MUTANT (rep_const) */    if (n >> ((2)-1))
+140: /* MUTANT (negate) */    if(! (n >> 2))
+141: /* MUTANT (rep_op) */        log2 -= 2, n >>= 2;
+141: /* MUTANT (rep_op) */        log2 *= 2, n >>= 2;
+141: /* MUTANT (rep_op) */        log2 %= 2, n >>= 2;
+141: /* MUTANT (rep_const) */        log2 += 0, n >>= 2;
+141: /* MUTANT (rep_const) */        log2 += 1, n >>= 2;
+141: /* MUTANT (rep_const) */        log2 += -1, n >>= 2;
+141: /* MUTANT (rep_const) */        log2 += ((2)+1), n >>= 2;
+141: /* MUTANT (rep_const) */        log2 += ((2)-1), n >>= 2;
+141: /* MUTANT (rep_const) */        log2 += 2, n >>= 0;
+141: /* MUTANT (rep_const) */        log2 += 2, n >>= 1;
+141: /* MUTANT (rep_const) */        log2 += 2, n >>= -1;
+141: /* MUTANT (rep_const) */        log2 += 2, n >>= ((2)+1);
+141: /* MUTANT (rep_const) */        log2 += 2, n >>= ((2)-1);
+142: /* MUTANT (rep_const) */    if (n >> 0)
+142: /* MUTANT (rep_const) */    if (n >> -1)
+142: /* MUTANT (rep_const) */    if (n >> ((1)+1))
+142: /* MUTANT (negate) */    if(! (n >> 1))
+143: /* MUTANT (rep_op) */        log2--;
+144: /* MUTANT (del_stmt) */ /*     return log2; */ 
+154: /* MUTANT (del_stmt) */ /*     bpb = 8; */ 
+154: /* MUTANT (rep_const) */    bpb = 0;
+154: /* MUTANT (rep_const) */    bpb = 1;
+154: /* MUTANT (rep_const) */    bpb = -1;
+154: /* MUTANT (rep_const) */    bpb = ((8)+1);
+154: /* MUTANT (rep_const) */    bpb = ((8)-1);
+159: /* MUTANT (del_stmt) */ /*     int dummy2; */ 
+161: /* MUTANT (del_stmt) */ /*     return (&dummy2 < dummy1addr) ? -1 : 1; */ 
+161: /* MUTANT (rep_op) */    return (&dummy2 <= dummy1addr) ? -1 : 1;
+161: /* MUTANT (rep_op) */    return (&dummy2 > dummy1addr) ? -1 : 1;
+161: /* MUTANT (rep_op) */    return (&dummy2 >= dummy1addr) ? -1 : 1;
+161: /* MUTANT (rep_op) */    return (&dummy2 == dummy1addr) ? -1 : 1;
+161: /* MUTANT (rep_op) */    return (&dummy2 != dummy1addr) ? -1 : 1;
+161: /* MUTANT (rep_const) */    return (&dummy2 < dummy1addr) ? 0 : 1;
+161: /* MUTANT (rep_const) */    return (&dummy2 < dummy1addr) ? 1 : 1;
+161: /* MUTANT (rep_const) */    return (&dummy2 < dummy1addr) ? ((-1)+1) : 1;
+161: /* MUTANT (rep_const) */    return (&dummy2 < dummy1addr) ? ((-1)-1) : 1;
+161: /* MUTANT (rep_const) */    return (&dummy2 < dummy1addr) ? -1 : 0;
+161: /* MUTANT (rep_const) */    return (&dummy2 < dummy1addr) ? -1 : -1;
+161: /* MUTANT (rep_const) */    return (&dummy2 < dummy1addr) ? -1 : ((1)+1);
+171: /* MUTANT (del_stmt) */ /*     int dummy1; */ 
+173: /* MUTANT (del_stmt) */ /*     BitsPerByte(); */ 
+175: /* MUTANT (del_stmt) */ /*     printf("#ifndef js_cpucfg___\n"); */ 
+176: /* MUTANT (del_stmt) */ /*     printf("#define js_cpucfg___\n\n"); */ 
+182: /* MUTANT (rep_const) */    printf("#define IS_LITTLE_ENDIAN 0\n");
+182: /* MUTANT (rep_const) */    printf("#define IS_LITTLE_ENDIAN -1\n");
+182: /* MUTANT (rep_const) */    printf("#define IS_LITTLE_ENDIAN ((1)+1)\n");
+183: /* MUTANT (del_stmt) */ /*     printf("#undef  IS_BIG_ENDIAN\n\n"); */ 
+186: /* MUTANT (del_stmt) */ /*     printf("#define IS_BIG_ENDIAN 1\n\n"); */ 
+186: /* MUTANT (rep_const) */    printf("#define IS_BIG_ENDIAN 0\n\n");
+186: /* MUTANT (rep_const) */    printf("#define IS_BIG_ENDIAN -1\n\n");
+186: /* MUTANT (rep_const) */    printf("#define IS_BIG_ENDIAN ((1)+1)\n\n");
+192: /* MUTANT (del_stmt) */ /*     sizeof_short        = PR_BYTES_PER_SHORT; */ 
+193: /* MUTANT (del_stmt) */ /*     sizeof_int          = PR_BYTES_PER_INT; */ 
+194: /* MUTANT (del_stmt) */ /*     sizeof_int64        = PR_BYTES_PER_INT64; */ 
+195: /* MUTANT (del_stmt) */ /*     sizeof_long         = PR_BYTES_PER_LONG; */ 
+196: /* MUTANT (del_stmt) */ /*     sizeof_float        = PR_BYTES_PER_FLOAT; */ 
+197: /* MUTANT (del_stmt) */ /*     sizeof_double       = PR_BYTES_PER_DOUBLE; */ 
+198: /* MUTANT (del_stmt) */ /*     sizeof_word         = PR_BYTES_PER_WORD; */ 
+199: /* MUTANT (del_stmt) */ /*     sizeof_dword        = PR_BYTES_PER_DWORD; */ 
+201: /* MUTANT (del_stmt) */ /*     bits_per_int64_log2 = PR_BITS_PER_INT64_LOG2; */ 
+203: /* MUTANT (del_stmt) */ /*     align_of_short      = PR_ALIGN_OF_SHORT; */ 
+204: /* MUTANT (del_stmt) */ /*     align_of_int        = PR_ALIGN_OF_INT; */ 
+205: /* MUTANT (del_stmt) */ /*     align_of_long       = PR_ALIGN_OF_LONG; */ 
+206: /* MUTANT (del_stmt) */ /*     align_of_int64      = PR_ALIGN_OF_INT64; */ 
+207: /* MUTANT (del_stmt) */ /*     align_of_float      = PR_ALIGN_OF_FLOAT; */ 
+208: /* MUTANT (del_stmt) */ /*     align_of_double     = PR_ALIGN_OF_DOUBLE; */ 
+209: /* MUTANT (del_stmt) */ /*     align_of_pointer    = PR_ALIGN_OF_POINTER; */ 
+210: /* MUTANT (del_stmt) */ /*     align_of_word       = PR_ALIGN_OF_WORD; */ 
+220: /* MUTANT (del_stmt) */ /*         int big_endian = 0, little_endian = 0, ntests = 0; */ 
+220: /* MUTANT (rep_const) */        int big_endian = 1, little_endian = 0, ntests = 0;
+220: /* MUTANT (rep_const) */        int big_endian = -1, little_endian = 0, ntests = 0;
+220: /* MUTANT (rep_const) */        int big_endian = 0, little_endian = 1, ntests = 0;
+220: /* MUTANT (rep_const) */        int big_endian = 0, little_endian = -1, ntests = 0;
+220: /* MUTANT (rep_const) */        int big_endian = 0, little_endian = 0, ntests = 1;
+220: /* MUTANT (rep_const) */        int big_endian = 0, little_endian = 0, ntests = -1;
+222: /* MUTANT (rep_op) */        if (sizeof(short) != 2) {
+222: /* MUTANT (rep_const) */        if (sizeof(short) == 0) {
+222: /* MUTANT (rep_const) */        if (sizeof(short) == 1) {
+222: /* MUTANT (rep_const) */        if (sizeof(short) == -1) {
+222: /* MUTANT (rep_const) */        if (sizeof(short) == ((2)+1)) {
+222: /* MUTANT (rep_const) */        if (sizeof(short) == ((2)-1)) {
+222: /* MUTANT (negate) */        if(! (sizeof(short) == 2)) {
+230: /* MUTANT (del_stmt) */ /*                 short i; */ 
+231: /* MUTANT (del_stmt) */ /*                 char c[2]; */ 
+231: /* MUTANT (rep_const) */                char c[0];
+231: /* MUTANT (rep_const) */                char c[1];
+231: /* MUTANT (rep_const) */                char c[-1];
+231: /* MUTANT (rep_const) */                char c[((2)+1)];
+231: /* MUTANT (rep_const) */                char c[((2)-1)];
+232: /* MUTANT (del_stmt) */ /*             } u; */ 
+234: /* MUTANT (del_stmt) */ /*             u.i = 0x0102; */ 
+234: /* MUTANT (rep_const) */            u.i = 1x0102;
+234: /* MUTANT (rep_const) */            u.i = -1x0102;
+235: /* MUTANT (del_stmt) */ /*             big_endian += (u.c[0] == 0x01 && u.c[1] == 0x02); */ 
+235: /* MUTANT (rep_op) */            big_endian -= (u.c[0] == 0x01 && u.c[1] == 0x02);
+235: /* MUTANT (rep_op) */            big_endian *= (u.c[0] == 0x01 && u.c[1] == 0x02);
+235: /* MUTANT (rep_op) */            big_endian %= (u.c[0] == 0x01 && u.c[1] == 0x02);
+235: /* MUTANT (rep_op) */            big_endian += (u.c[0] != 0x01 && u.c[1] == 0x02);
+235: /* MUTANT (rep_op) */            big_endian += (u.c[0] == 0x01 || u.c[1] == 0x02);
+235: /* MUTANT (rep_op) */            big_endian += (u.c[0] == 0x01 && u.c[1] != 0x02);
+235: /* MUTANT (rep_const) */            big_endian += (u.c[1] == 0x01 && u.c[1] == 0x02);
+235: /* MUTANT (rep_const) */            big_endian += (u.c[-1] == 0x01 && u.c[1] == 0x02);
+235: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 1x01 && u.c[1] == 0x02);
+235: /* MUTANT (rep_const) */            big_endian += (u.c[0] == -1x01 && u.c[1] == 0x02);
+235: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[0] == 0x02);
+235: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[-1] == 0x02);
+235: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[((1)+1)] == 0x02);
+235: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[1] == 1x02);
+235: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[1] == -1x02);
+236: /* MUTANT (del_stmt) */ /*             little_endian += (u.c[0] == 0x02 && u.c[1] == 0x01); */ 
+236: /* MUTANT (rep_op) */            little_endian -= (u.c[0] == 0x02 && u.c[1] == 0x01);
+236: /* MUTANT (rep_op) */            little_endian *= (u.c[0] == 0x02 && u.c[1] == 0x01);
+236: /* MUTANT (rep_op) */            little_endian %= (u.c[0] == 0x02 && u.c[1] == 0x01);
+236: /* MUTANT (rep_op) */            little_endian += (u.c[0] != 0x02 && u.c[1] == 0x01);
+236: /* MUTANT (rep_op) */            little_endian += (u.c[0] == 0x02 || u.c[1] == 0x01);
+236: /* MUTANT (rep_op) */            little_endian += (u.c[0] == 0x02 && u.c[1] != 0x01);
+236: /* MUTANT (rep_const) */            little_endian += (u.c[1] == 0x02 && u.c[1] == 0x01);
+236: /* MUTANT (rep_const) */            little_endian += (u.c[-1] == 0x02 && u.c[1] == 0x01);
+236: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 1x02 && u.c[1] == 0x01);
+236: /* MUTANT (rep_const) */            little_endian += (u.c[0] == -1x02 && u.c[1] == 0x01);
+236: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x02 && u.c[0] == 0x01);
+236: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x02 && u.c[-1] == 0x01);
+236: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x02 && u.c[((1)+1)] == 0x01);
+236: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x02 && u.c[1] == 1x01);
+236: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x02 && u.c[1] == -1x01);
+237: /* MUTANT (del_stmt) */ /*             ntests++; */ 
+237: /* MUTANT (rep_op) */            ntests--;
+240: /* MUTANT (rep_op) */        if (sizeof(int) != 4) {
+240: /* MUTANT (rep_const) */        if (sizeof(int) == 0) {
+240: /* MUTANT (rep_const) */        if (sizeof(int) == 1) {
+240: /* MUTANT (rep_const) */        if (sizeof(int) == -1) {
+240: /* MUTANT (rep_const) */        if (sizeof(int) == ((4)+1)) {
+240: /* MUTANT (rep_const) */        if (sizeof(int) == ((4)-1)) {
+240: /* MUTANT (negate) */        if(! (sizeof(int) == 4)) {
+243: /* MUTANT (del_stmt) */ /*                 int i; */ 
+244: /* MUTANT (del_stmt) */ /*                 char c[4]; */ 
+244: /* MUTANT (rep_const) */                char c[0];
+244: /* MUTANT (rep_const) */                char c[1];
+244: /* MUTANT (rep_const) */                char c[-1];
+244: /* MUTANT (rep_const) */                char c[((4)+1)];
+244: /* MUTANT (rep_const) */                char c[((4)-1)];
+245: /* MUTANT (del_stmt) */ /*             } u; */ 
+247: /* MUTANT (del_stmt) */ /*             u.i = 0x01020304; */ 
+247: /* MUTANT (rep_const) */            u.i = 1x01020304;
+247: /* MUTANT (rep_const) */            u.i = -1x01020304;
+248: /* MUTANT (rep_op) */            big_endian -= (u.c[0] == 0x01 && u.c[1] == 0x02 &&
+248: /* MUTANT (rep_op) */            big_endian *= (u.c[0] == 0x01 && u.c[1] == 0x02 &&
+248: /* MUTANT (rep_op) */            big_endian %= (u.c[0] == 0x01 && u.c[1] == 0x02 &&
+248: /* MUTANT (rep_op) */            big_endian += (u.c[0] != 0x01 && u.c[1] == 0x02 &&
+248: /* MUTANT (rep_op) */            big_endian += (u.c[0] == 0x01 || u.c[1] == 0x02 &&
+248: /* MUTANT (rep_op) */            big_endian += (u.c[0] == 0x01 && u.c[1] != 0x02 &&
+248: /* MUTANT (rep_op) */            big_endian += (u.c[0] == 0x01 && u.c[1] == 0x02 ||
+248: /* MUTANT (rep_const) */            big_endian += (u.c[1] == 0x01 && u.c[1] == 0x02 &&
+248: /* MUTANT (rep_const) */            big_endian += (u.c[-1] == 0x01 && u.c[1] == 0x02 &&
+248: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 1x01 && u.c[1] == 0x02 &&
+248: /* MUTANT (rep_const) */            big_endian += (u.c[0] == -1x01 && u.c[1] == 0x02 &&
+248: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[0] == 0x02 &&
+248: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[-1] == 0x02 &&
+248: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[((1)+1)] == 0x02 &&
+248: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[1] == 1x02 &&
+248: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[1] == -1x02 &&
+249: /* MUTANT (rep_op) */                           u.c[2] != 0x03 && u.c[3] == 0x04);
+249: /* MUTANT (rep_op) */                           u.c[2] == 0x03 || u.c[3] == 0x04);
+249: /* MUTANT (rep_op) */                           u.c[2] == 0x03 && u.c[3] != 0x04);
+249: /* MUTANT (rep_const) */                           u.c[0] == 0x03 && u.c[3] == 0x04);
+249: /* MUTANT (rep_const) */                           u.c[1] == 0x03 && u.c[3] == 0x04);
+249: /* MUTANT (rep_const) */                           u.c[-1] == 0x03 && u.c[3] == 0x04);
+249: /* MUTANT (rep_const) */                           u.c[((2)+1)] == 0x03 && u.c[3] == 0x04);
+249: /* MUTANT (rep_const) */                           u.c[((2)-1)] == 0x03 && u.c[3] == 0x04);
+249: /* MUTANT (rep_const) */                           u.c[2] == 1x03 && u.c[3] == 0x04);
+249: /* MUTANT (rep_const) */                           u.c[2] == -1x03 && u.c[3] == 0x04);
+249: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[0] == 0x04);
+249: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[1] == 0x04);
+249: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[-1] == 0x04);
+249: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[((3)+1)] == 0x04);
+249: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[((3)-1)] == 0x04);
+249: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[3] == 1x04);
+249: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[3] == -1x04);
+250: /* MUTANT (rep_op) */            little_endian -= (u.c[0] == 0x04 && u.c[1] == 0x03 &&
+250: /* MUTANT (rep_op) */            little_endian *= (u.c[0] == 0x04 && u.c[1] == 0x03 &&
+250: /* MUTANT (rep_op) */            little_endian %= (u.c[0] == 0x04 && u.c[1] == 0x03 &&
+250: /* MUTANT (rep_op) */            little_endian += (u.c[0] != 0x04 && u.c[1] == 0x03 &&
+250: /* MUTANT (rep_op) */            little_endian += (u.c[0] == 0x04 || u.c[1] == 0x03 &&
+250: /* MUTANT (rep_op) */            little_endian += (u.c[0] == 0x04 && u.c[1] != 0x03 &&
+250: /* MUTANT (rep_op) */            little_endian += (u.c[0] == 0x04 && u.c[1] == 0x03 ||
+250: /* MUTANT (rep_const) */            little_endian += (u.c[1] == 0x04 && u.c[1] == 0x03 &&
+250: /* MUTANT (rep_const) */            little_endian += (u.c[-1] == 0x04 && u.c[1] == 0x03 &&
+250: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 1x04 && u.c[1] == 0x03 &&
+250: /* MUTANT (rep_const) */            little_endian += (u.c[0] == -1x04 && u.c[1] == 0x03 &&
+250: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x04 && u.c[0] == 0x03 &&
+250: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x04 && u.c[-1] == 0x03 &&
+250: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x04 && u.c[((1)+1)] == 0x03 &&
+250: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x04 && u.c[1] == 1x03 &&
+250: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x04 && u.c[1] == -1x03 &&
+251: /* MUTANT (rep_op) */                              u.c[2] != 0x02 && u.c[3] == 0x01);
+251: /* MUTANT (rep_op) */                              u.c[2] == 0x02 || u.c[3] == 0x01);
+251: /* MUTANT (rep_op) */                              u.c[2] == 0x02 && u.c[3] != 0x01);
+251: /* MUTANT (rep_const) */                              u.c[0] == 0x02 && u.c[3] == 0x01);
+251: /* MUTANT (rep_const) */                              u.c[1] == 0x02 && u.c[3] == 0x01);
+251: /* MUTANT (rep_const) */                              u.c[-1] == 0x02 && u.c[3] == 0x01);
+251: /* MUTANT (rep_const) */                              u.c[((2)+1)] == 0x02 && u.c[3] == 0x01);
+251: /* MUTANT (rep_const) */                              u.c[((2)-1)] == 0x02 && u.c[3] == 0x01);
+251: /* MUTANT (rep_const) */                              u.c[2] == 1x02 && u.c[3] == 0x01);
+251: /* MUTANT (rep_const) */                              u.c[2] == -1x02 && u.c[3] == 0x01);
+251: /* MUTANT (rep_const) */                              u.c[2] == 0x02 && u.c[0] == 0x01);
+251: /* MUTANT (rep_const) */                              u.c[2] == 0x02 && u.c[1] == 0x01);
+251: /* MUTANT (rep_const) */                              u.c[2] == 0x02 && u.c[-1] == 0x01);
+251: /* MUTANT (rep_const) */                              u.c[2] == 0x02 && u.c[((3)+1)] == 0x01);
+251: /* MUTANT (rep_const) */                              u.c[2] == 0x02 && u.c[((3)-1)] == 0x01);
+251: /* MUTANT (rep_const) */                              u.c[2] == 0x02 && u.c[3] == 1x01);
+251: /* MUTANT (rep_const) */                              u.c[2] == 0x02 && u.c[3] == -1x01);
+252: /* MUTANT (del_stmt) */ /*             ntests++; */ 
+252: /* MUTANT (rep_op) */            ntests--;
+255: /* MUTANT (rep_op) */        if (sizeof(long) != 8) {
+255: /* MUTANT (rep_const) */        if (sizeof(long) == 0) {
+255: /* MUTANT (rep_const) */        if (sizeof(long) == 1) {
+255: /* MUTANT (rep_const) */        if (sizeof(long) == -1) {
+255: /* MUTANT (rep_const) */        if (sizeof(long) == ((8)+1)) {
+255: /* MUTANT (rep_const) */        if (sizeof(long) == ((8)-1)) {
+255: /* MUTANT (negate) */        if(! (sizeof(long) == 8)) {
+258: /* MUTANT (del_stmt) */ /*                 long i; */ 
+259: /* MUTANT (del_stmt) */ /*                 char c[8]; */ 
+259: /* MUTANT (rep_const) */                char c[0];
+259: /* MUTANT (rep_const) */                char c[1];
+259: /* MUTANT (rep_const) */                char c[-1];
+259: /* MUTANT (rep_const) */                char c[((8)+1)];
+259: /* MUTANT (rep_const) */                char c[((8)-1)];
+260: /* MUTANT (del_stmt) */ /*             } u; */ 
+266: /* MUTANT (del_stmt) */ /*             u.i = 0x01020304; */ 
+266: /* MUTANT (rep_const) */            u.i = 1x01020304;
+266: /* MUTANT (rep_const) */            u.i = -1x01020304;
+267: /* MUTANT (del_stmt) */ /*             u.i <<= 16, u.i <<= 16; */ 
+267: /* MUTANT (rep_const) */            u.i <<= 0, u.i <<= 16;
+267: /* MUTANT (rep_const) */            u.i <<= 1, u.i <<= 16;
+267: /* MUTANT (rep_const) */            u.i <<= -1, u.i <<= 16;
+267: /* MUTANT (rep_const) */            u.i <<= ((16)+1), u.i <<= 16;
+267: /* MUTANT (rep_const) */            u.i <<= ((16)-1), u.i <<= 16;
+267: /* MUTANT (rep_const) */            u.i <<= 16, u.i <<= 0;
+267: /* MUTANT (rep_const) */            u.i <<= 16, u.i <<= 1;
+267: /* MUTANT (rep_const) */            u.i <<= 16, u.i <<= -1;
+267: /* MUTANT (rep_const) */            u.i <<= 16, u.i <<= ((16)+1);
+267: /* MUTANT (rep_const) */            u.i <<= 16, u.i <<= ((16)-1);
+268: /* MUTANT (del_stmt) */ /*             u.i |= 0x05060708; */ 
+268: /* MUTANT (rep_const) */            u.i |= 1x05060708;
+268: /* MUTANT (rep_const) */            u.i |= -1x05060708;
+269: /* MUTANT (rep_op) */            big_endian -= (u.c[0] == 0x01 && u.c[1] == 0x02 &&
+269: /* MUTANT (rep_op) */            big_endian *= (u.c[0] == 0x01 && u.c[1] == 0x02 &&
+269: /* MUTANT (rep_op) */            big_endian %= (u.c[0] == 0x01 && u.c[1] == 0x02 &&
+269: /* MUTANT (rep_op) */            big_endian += (u.c[0] != 0x01 && u.c[1] == 0x02 &&
+269: /* MUTANT (rep_op) */            big_endian += (u.c[0] == 0x01 || u.c[1] == 0x02 &&
+269: /* MUTANT (rep_op) */            big_endian += (u.c[0] == 0x01 && u.c[1] != 0x02 &&
+269: /* MUTANT (rep_op) */            big_endian += (u.c[0] == 0x01 && u.c[1] == 0x02 ||
+269: /* MUTANT (rep_const) */            big_endian += (u.c[1] == 0x01 && u.c[1] == 0x02 &&
+269: /* MUTANT (rep_const) */            big_endian += (u.c[-1] == 0x01 && u.c[1] == 0x02 &&
+269: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 1x01 && u.c[1] == 0x02 &&
+269: /* MUTANT (rep_const) */            big_endian += (u.c[0] == -1x01 && u.c[1] == 0x02 &&
+269: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[0] == 0x02 &&
+269: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[-1] == 0x02 &&
+269: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[((1)+1)] == 0x02 &&
+269: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[1] == 1x02 &&
+269: /* MUTANT (rep_const) */            big_endian += (u.c[0] == 0x01 && u.c[1] == -1x02 &&
+270: /* MUTANT (rep_op) */                           u.c[2] != 0x03 && u.c[3] == 0x04 &&
+270: /* MUTANT (rep_op) */                           u.c[2] == 0x03 || u.c[3] == 0x04 &&
+270: /* MUTANT (rep_op) */                           u.c[2] == 0x03 && u.c[3] != 0x04 &&
+270: /* MUTANT (rep_op) */                           u.c[2] == 0x03 && u.c[3] == 0x04 ||
+270: /* MUTANT (rep_const) */                           u.c[0] == 0x03 && u.c[3] == 0x04 &&
+270: /* MUTANT (rep_const) */                           u.c[1] == 0x03 && u.c[3] == 0x04 &&
+270: /* MUTANT (rep_const) */                           u.c[-1] == 0x03 && u.c[3] == 0x04 &&
+270: /* MUTANT (rep_const) */                           u.c[((2)+1)] == 0x03 && u.c[3] == 0x04 &&
+270: /* MUTANT (rep_const) */                           u.c[((2)-1)] == 0x03 && u.c[3] == 0x04 &&
+270: /* MUTANT (rep_const) */                           u.c[2] == 1x03 && u.c[3] == 0x04 &&
+270: /* MUTANT (rep_const) */                           u.c[2] == -1x03 && u.c[3] == 0x04 &&
+270: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[0] == 0x04 &&
+270: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[1] == 0x04 &&
+270: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[-1] == 0x04 &&
+270: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[((3)+1)] == 0x04 &&
+270: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[((3)-1)] == 0x04 &&
+270: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[3] == 1x04 &&
+270: /* MUTANT (rep_const) */                           u.c[2] == 0x03 && u.c[3] == -1x04 &&
+271: /* MUTANT (rep_op) */                           u.c[4] != 0x05 && u.c[5] == 0x06 &&
+271: /* MUTANT (rep_op) */                           u.c[4] == 0x05 || u.c[5] == 0x06 &&
+271: /* MUTANT (rep_op) */                           u.c[4] == 0x05 && u.c[5] != 0x06 &&
+271: /* MUTANT (rep_op) */                           u.c[4] == 0x05 && u.c[5] == 0x06 ||
+271: /* MUTANT (rep_const) */                           u.c[0] == 0x05 && u.c[5] == 0x06 &&
+271: /* MUTANT (rep_const) */                           u.c[1] == 0x05 && u.c[5] == 0x06 &&
+271: /* MUTANT (rep_const) */                           u.c[-1] == 0x05 && u.c[5] == 0x06 &&
+271: /* MUTANT (rep_const) */                           u.c[((4)+1)] == 0x05 && u.c[5] == 0x06 &&
+271: /* MUTANT (rep_const) */                           u.c[((4)-1)] == 0x05 && u.c[5] == 0x06 &&
+271: /* MUTANT (rep_const) */                           u.c[4] == 1x05 && u.c[5] == 0x06 &&
+271: /* MUTANT (rep_const) */                           u.c[4] == -1x05 && u.c[5] == 0x06 &&
+271: /* MUTANT (rep_const) */                           u.c[4] == 0x05 && u.c[0] == 0x06 &&
+271: /* MUTANT (rep_const) */                           u.c[4] == 0x05 && u.c[1] == 0x06 &&
+271: /* MUTANT (rep_const) */                           u.c[4] == 0x05 && u.c[-1] == 0x06 &&
+271: /* MUTANT (rep_const) */                           u.c[4] == 0x05 && u.c[((5)+1)] == 0x06 &&
+271: /* MUTANT (rep_const) */                           u.c[4] == 0x05 && u.c[((5)-1)] == 0x06 &&
+271: /* MUTANT (rep_const) */                           u.c[4] == 0x05 && u.c[5] == 1x06 &&
+271: /* MUTANT (rep_const) */                           u.c[4] == 0x05 && u.c[5] == -1x06 &&
+272: /* MUTANT (rep_op) */                           u.c[6] != 0x07 && u.c[7] == 0x08);
+272: /* MUTANT (rep_op) */                           u.c[6] == 0x07 || u.c[7] == 0x08);
+272: /* MUTANT (rep_op) */                           u.c[6] == 0x07 && u.c[7] != 0x08);
+272: /* MUTANT (rep_const) */                           u.c[0] == 0x07 && u.c[7] == 0x08);
+272: /* MUTANT (rep_const) */                           u.c[1] == 0x07 && u.c[7] == 0x08);
+272: /* MUTANT (rep_const) */                           u.c[-1] == 0x07 && u.c[7] == 0x08);
+272: /* MUTANT (rep_const) */                           u.c[((6)+1)] == 0x07 && u.c[7] == 0x08);
+272: /* MUTANT (rep_const) */                           u.c[((6)-1)] == 0x07 && u.c[7] == 0x08);
+272: /* MUTANT (rep_const) */                           u.c[6] == 1x07 && u.c[7] == 0x08);
+272: /* MUTANT (rep_const) */                           u.c[6] == -1x07 && u.c[7] == 0x08);
+272: /* MUTANT (rep_const) */                           u.c[6] == 0x07 && u.c[0] == 0x08);
+272: /* MUTANT (rep_const) */                           u.c[6] == 0x07 && u.c[1] == 0x08);
+272: /* MUTANT (rep_const) */                           u.c[6] == 0x07 && u.c[-1] == 0x08);
+272: /* MUTANT (rep_const) */                           u.c[6] == 0x07 && u.c[((7)+1)] == 0x08);
+272: /* MUTANT (rep_const) */                           u.c[6] == 0x07 && u.c[((7)-1)] == 0x08);
+272: /* MUTANT (rep_const) */                           u.c[6] == 0x07 && u.c[7] == 1x08);
+272: /* MUTANT (rep_const) */                           u.c[6] == 0x07 && u.c[7] == -1x08);
+273: /* MUTANT (rep_op) */            little_endian -= (u.c[0] == 0x08 && u.c[1] == 0x07 &&
+273: /* MUTANT (rep_op) */            little_endian *= (u.c[0] == 0x08 && u.c[1] == 0x07 &&
+273: /* MUTANT (rep_op) */            little_endian %= (u.c[0] == 0x08 && u.c[1] == 0x07 &&
+273: /* MUTANT (rep_op) */            little_endian += (u.c[0] != 0x08 && u.c[1] == 0x07 &&
+273: /* MUTANT (rep_op) */            little_endian += (u.c[0] == 0x08 || u.c[1] == 0x07 &&
+273: /* MUTANT (rep_op) */            little_endian += (u.c[0] == 0x08 && u.c[1] != 0x07 &&
+273: /* MUTANT (rep_op) */            little_endian += (u.c[0] == 0x08 && u.c[1] == 0x07 ||
+273: /* MUTANT (rep_const) */            little_endian += (u.c[1] == 0x08 && u.c[1] == 0x07 &&
+273: /* MUTANT (rep_const) */            little_endian += (u.c[-1] == 0x08 && u.c[1] == 0x07 &&
+273: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 1x08 && u.c[1] == 0x07 &&
+273: /* MUTANT (rep_const) */            little_endian += (u.c[0] == -1x08 && u.c[1] == 0x07 &&
+273: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x08 && u.c[0] == 0x07 &&
+273: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x08 && u.c[-1] == 0x07 &&
+273: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x08 && u.c[((1)+1)] == 0x07 &&
+273: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x08 && u.c[1] == 1x07 &&
+273: /* MUTANT (rep_const) */            little_endian += (u.c[0] == 0x08 && u.c[1] == -1x07 &&
+274: /* MUTANT (rep_op) */                              u.c[2] != 0x06 && u.c[3] == 0x05 &&
+274: /* MUTANT (rep_op) */                              u.c[2] == 0x06 || u.c[3] == 0x05 &&
+274: /* MUTANT (rep_op) */                              u.c[2] == 0x06 && u.c[3] != 0x05 &&
+274: /* MUTANT (rep_op) */                              u.c[2] == 0x06 && u.c[3] == 0x05 ||
+274: /* MUTANT (rep_const) */                              u.c[0] == 0x06 && u.c[3] == 0x05 &&
+274: /* MUTANT (rep_const) */                              u.c[1] == 0x06 && u.c[3] == 0x05 &&
+274: /* MUTANT (rep_const) */                              u.c[-1] == 0x06 && u.c[3] == 0x05 &&
+274: /* MUTANT (rep_const) */                              u.c[((2)+1)] == 0x06 && u.c[3] == 0x05 &&
+274: /* MUTANT (rep_const) */                              u.c[((2)-1)] == 0x06 && u.c[3] == 0x05 &&
+274: /* MUTANT (rep_const) */                              u.c[2] == 1x06 && u.c[3] == 0x05 &&
+274: /* MUTANT (rep_const) */                              u.c[2] == -1x06 && u.c[3] == 0x05 &&
+274: /* MUTANT (rep_const) */                              u.c[2] == 0x06 && u.c[0] == 0x05 &&
+274: /* MUTANT (rep_const) */                              u.c[2] == 0x06 && u.c[1] == 0x05 &&
+274: /* MUTANT (rep_const) */                              u.c[2] == 0x06 && u.c[-1] == 0x05 &&
+274: /* MUTANT (rep_const) */                              u.c[2] == 0x06 && u.c[((3)+1)] == 0x05 &&
+274: /* MUTANT (rep_const) */                              u.c[2] == 0x06 && u.c[((3)-1)] == 0x05 &&
+274: /* MUTANT (rep_const) */                              u.c[2] == 0x06 && u.c[3] == 1x05 &&
+274: /* MUTANT (rep_const) */                              u.c[2] == 0x06 && u.c[3] == -1x05 &&
+275: /* MUTANT (rep_op) */                              u.c[4] != 0x04 && u.c[5] == 0x03 &&
+275: /* MUTANT (rep_op) */                              u.c[4] == 0x04 || u.c[5] == 0x03 &&
+275: /* MUTANT (rep_op) */                              u.c[4] == 0x04 && u.c[5] != 0x03 &&
+275: /* MUTANT (rep_op) */                              u.c[4] == 0x04 && u.c[5] == 0x03 ||
+275: /* MUTANT (rep_const) */                              u.c[0] == 0x04 && u.c[5] == 0x03 &&
+275: /* MUTANT (rep_const) */                              u.c[1] == 0x04 && u.c[5] == 0x03 &&
+275: /* MUTANT (rep_const) */                              u.c[-1] == 0x04 && u.c[5] == 0x03 &&
+275: /* MUTANT (rep_const) */                              u.c[((4)+1)] == 0x04 && u.c[5] == 0x03 &&
+275: /* MUTANT (rep_const) */                              u.c[((4)-1)] == 0x04 && u.c[5] == 0x03 &&
+275: /* MUTANT (rep_const) */                              u.c[4] == 1x04 && u.c[5] == 0x03 &&
+275: /* MUTANT (rep_const) */                              u.c[4] == -1x04 && u.c[5] == 0x03 &&
+275: /* MUTANT (rep_const) */                              u.c[4] == 0x04 && u.c[0] == 0x03 &&
+275: /* MUTANT (rep_const) */                              u.c[4] == 0x04 && u.c[1] == 0x03 &&
+275: /* MUTANT (rep_const) */                              u.c[4] == 0x04 && u.c[-1] == 0x03 &&
+275: /* MUTANT (rep_const) */                              u.c[4] == 0x04 && u.c[((5)+1)] == 0x03 &&
+275: /* MUTANT (rep_const) */                              u.c[4] == 0x04 && u.c[((5)-1)] == 0x03 &&
+275: /* MUTANT (rep_const) */                              u.c[4] == 0x04 && u.c[5] == 1x03 &&
+275: /* MUTANT (rep_const) */                              u.c[4] == 0x04 && u.c[5] == -1x03 &&
+276: /* MUTANT (rep_op) */                              u.c[6] != 0x02 && u.c[7] == 0x01);
+276: /* MUTANT (rep_op) */                              u.c[6] == 0x02 || u.c[7] == 0x01);
+276: /* MUTANT (rep_op) */                              u.c[6] == 0x02 && u.c[7] != 0x01);
+276: /* MUTANT (rep_const) */                              u.c[0] == 0x02 && u.c[7] == 0x01);
+276: /* MUTANT (rep_const) */                              u.c[1] == 0x02 && u.c[7] == 0x01);
+276: /* MUTANT (rep_const) */                              u.c[-1] == 0x02 && u.c[7] == 0x01);
+276: /* MUTANT (rep_const) */                              u.c[((6)+1)] == 0x02 && u.c[7] == 0x01);
+276: /* MUTANT (rep_const) */                              u.c[((6)-1)] == 0x02 && u.c[7] == 0x01);
+276: /* MUTANT (rep_const) */                              u.c[6] == 1x02 && u.c[7] == 0x01);
+276: /* MUTANT (rep_const) */                              u.c[6] == -1x02 && u.c[7] == 0x01);
+276: /* MUTANT (rep_const) */                              u.c[6] == 0x02 && u.c[0] == 0x01);
+276: /* MUTANT (rep_const) */                              u.c[6] == 0x02 && u.c[1] == 0x01);
+276: /* MUTANT (rep_const) */                              u.c[6] == 0x02 && u.c[-1] == 0x01);
+276: /* MUTANT (rep_const) */                              u.c[6] == 0x02 && u.c[((7)+1)] == 0x01);
+276: /* MUTANT (rep_const) */                              u.c[6] == 0x02 && u.c[((7)-1)] == 0x01);
+276: /* MUTANT (rep_const) */                              u.c[6] == 0x02 && u.c[7] == 1x01);
+276: /* MUTANT (rep_const) */                              u.c[6] == 0x02 && u.c[7] == -1x01);
+277: /* MUTANT (del_stmt) */ /*             ntests++; */ 
+277: /* MUTANT (rep_op) */            ntests--;
+280: /* MUTANT (rep_op) */        if (big_endian || big_endian == ntests) {
+280: /* MUTANT (rep_op) */        if (big_endian && big_endian != ntests) {
+280: /* MUTANT (negate) */        if(! (big_endian && big_endian == ntests)) {
+281: /* MUTANT (del_stmt) */ /*             printf("#undef  IS_LITTLE_ENDIAN\n"); */ 
+282: /* MUTANT (del_stmt) */ /*             printf("#define IS_BIG_ENDIAN 1\n\n"); */ 
+282: /* MUTANT (rep_const) */            printf("#define IS_BIG_ENDIAN 0\n\n");
+282: /* MUTANT (rep_const) */            printf("#define IS_BIG_ENDIAN -1\n\n");
+282: /* MUTANT (rep_const) */            printf("#define IS_BIG_ENDIAN ((1)+1)\n\n");
+283: /* MUTANT (rep_op) */        } else if (little_endian || little_endian == ntests) {
+283: /* MUTANT (rep_op) */        } else if (little_endian && little_endian != ntests) {
+283: /* MUTANT (negate) */        } else if(! (little_endian && little_endian == ntests)) {
+284: /* MUTANT (del_stmt) */ /*             printf("#define IS_LITTLE_ENDIAN 1\n"); */ 
+284: /* MUTANT (rep_const) */            printf("#define IS_LITTLE_ENDIAN 0\n");
+284: /* MUTANT (rep_const) */            printf("#define IS_LITTLE_ENDIAN -1\n");
+284: /* MUTANT (rep_const) */            printf("#define IS_LITTLE_ENDIAN ((1)+1)\n");
+285: /* MUTANT (del_stmt) */ /*             printf("#undef  IS_BIG_ENDIAN\n\n"); */ 
+289: /* MUTANT (rep_const) */                    argv[1], big_endian, little_endian, ntests);
+289: /* MUTANT (rep_const) */                    argv[-1], big_endian, little_endian, ntests);
+290: /* MUTANT (del_stmt) */ /*             return EXIT_FAILURE; */ 
+295: /* MUTANT (del_stmt) */ /*     sizeof_short        = sizeof(short); */ 
+296: /* MUTANT (del_stmt) */ /*     sizeof_int          = sizeof(int); */ 
+297: /* MUTANT (del_stmt) */ /*     sizeof_int64        = 8; */ 
+297: /* MUTANT (rep_const) */    sizeof_int64        = 0;
+297: /* MUTANT (rep_const) */    sizeof_int64        = 1;
+297: /* MUTANT (rep_const) */    sizeof_int64        = -1;
+297: /* MUTANT (rep_const) */    sizeof_int64        = ((8)+1);
+297: /* MUTANT (rep_const) */    sizeof_int64        = ((8)-1);
+298: /* MUTANT (del_stmt) */ /*     sizeof_long         = sizeof(long); */ 
+299: /* MUTANT (del_stmt) */ /*     sizeof_float        = sizeof(float); */ 
+300: /* MUTANT (del_stmt) */ /*     sizeof_double       = sizeof(double); */ 
+301: /* MUTANT (del_stmt) */ /*     sizeof_word         = sizeof(prword); */ 
+302: /* MUTANT (del_stmt) */ /*     sizeof_dword        = 8; */ 
+302: /* MUTANT (rep_const) */    sizeof_dword        = 0;
+302: /* MUTANT (rep_const) */    sizeof_dword        = 1;
+302: /* MUTANT (rep_const) */    sizeof_dword        = -1;
+302: /* MUTANT (rep_const) */    sizeof_dword        = ((8)+1);
+302: /* MUTANT (rep_const) */    sizeof_dword        = ((8)-1);
+304: /* MUTANT (del_stmt) */ /*     bits_per_int64_log2 = 6; */ 
+304: /* MUTANT (rep_const) */    bits_per_int64_log2 = 0;
+304: /* MUTANT (rep_const) */    bits_per_int64_log2 = 1;
+304: /* MUTANT (rep_const) */    bits_per_int64_log2 = -1;
+304: /* MUTANT (rep_const) */    bits_per_int64_log2 = ((6)+1);
+304: /* MUTANT (rep_const) */    bits_per_int64_log2 = ((6)-1);
+306: /* MUTANT (del_stmt) */ /*     align_of_short      = ALIGN_OF(short); */ 
+307: /* MUTANT (del_stmt) */ /*     align_of_int        = ALIGN_OF(int); */ 
+308: /* MUTANT (del_stmt) */ /*     align_of_long       = ALIGN_OF(long); */ 
+309: /* MUTANT (rep_op) */    if (sizeof(INT64) <= 8) {
+309: /* MUTANT (rep_op) */    if (sizeof(INT64) > 8) {
+309: /* MUTANT (rep_op) */    if (sizeof(INT64) >= 8) {
+309: /* MUTANT (rep_op) */    if (sizeof(INT64) == 8) {
+309: /* MUTANT (rep_op) */    if (sizeof(INT64) != 8) {
+309: /* MUTANT (rep_const) */    if (sizeof(INT64) < 0) {
+309: /* MUTANT (rep_const) */    if (sizeof(INT64) < 1) {
+309: /* MUTANT (rep_const) */    if (sizeof(INT64) < -1) {
+309: /* MUTANT (rep_const) */    if (sizeof(INT64) < ((8)+1)) {
+309: /* MUTANT (rep_const) */    if (sizeof(INT64) < ((8)-1)) {
+309: /* MUTANT (negate) */    if(! (sizeof(INT64) < 8)) {
+311: /* MUTANT (del_stmt) */ /*         align_of_int64  = ALIGN_OF(fakelonglong); */ 
+313: /* MUTANT (del_stmt) */ /*         align_of_int64  = ALIGN_OF(int64); */ 
+316: /* MUTANT (del_stmt) */ /*     align_of_double     = ALIGN_OF(double); */ 
+317: /* MUTANT (del_stmt) */ /*     align_of_pointer    = ALIGN_OF(pointer); */ 
+318: /* MUTANT (del_stmt) */ /*     align_of_word       = ALIGN_OF(prword); */ 
+323: /* MUTANT (del_stmt) */ /*     printf("#define JS_BYTES_PER_SHORT  %dL\n", sizeof_short); */ 
+324: /* MUTANT (del_stmt) */ /*     printf("#define JS_BYTES_PER_INT    %dL\n", sizeof_int); */ 
+325: /* MUTANT (del_stmt) */ /*     printf("#define JS_BYTES_PER_INT64  %dL\n", sizeof_int64); */ 
+326: /* MUTANT (del_stmt) */ /*     printf("#define JS_BYTES_PER_LONG   %dL\n", sizeof_long); */ 
+327: /* MUTANT (del_stmt) */ /*     printf("#define JS_BYTES_PER_FLOAT  %dL\n", sizeof_float); */ 
+328: /* MUTANT (del_stmt) */ /*     printf("#define JS_BYTES_PER_DOUBLE %dL\n", sizeof_double); */ 
+329: /* MUTANT (del_stmt) */ /*     printf("#define JS_BYTES_PER_WORD   %dL\n", sizeof_word); */ 
+330: /* MUTANT (del_stmt) */ /*     printf("#define JS_BYTES_PER_DWORD  %dL\n", sizeof_dword); */ 
+331: /* MUTANT (del_stmt) */ /*     printf("\n"); */ 
+333: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_BYTE    %dL\n", bpb); */ 
+334: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_SHORT   %dL\n", bpb * sizeof_short); */ 
+335: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_INT     %dL\n", bpb * sizeof_int); */ 
+336: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_INT64   %dL\n", bpb * sizeof_int64); */ 
+337: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_LONG    %dL\n", bpb * sizeof_long); */ 
+338: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_FLOAT   %dL\n", bpb * sizeof_float); */ 
+339: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_DOUBLE  %dL\n", bpb * sizeof_double); */ 
+340: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_WORD    %dL\n", bpb * sizeof_word); */ 
+341: /* MUTANT (del_stmt) */ /*     printf("\n"); */ 
+343: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_BYTE_LOG2   %dL\n", Log2(bpb)); */ 
+344: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_SHORT_LOG2  %dL\n", Log2(bpb * sizeof_short)); */ 
+345: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_INT_LOG2    %dL\n", Log2(bpb * sizeof_int)); */ 
+346: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_INT64_LOG2  %dL\n", bits_per_int64_log2); */ 
+347: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_LONG_LOG2   %dL\n", Log2(bpb * sizeof_long)); */ 
+348: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_FLOAT_LOG2  %dL\n", Log2(bpb * sizeof_float)); */ 
+349: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_DOUBLE_LOG2 %dL\n", Log2(bpb * sizeof_double)); */ 
+350: /* MUTANT (del_stmt) */ /*     printf("#define JS_BITS_PER_WORD_LOG2   %dL\n", Log2(bpb * sizeof_word)); */ 
+351: /* MUTANT (del_stmt) */ /*     printf("\n"); */ 
+353: /* MUTANT (del_stmt) */ /*     printf("#define JS_ALIGN_OF_SHORT   %dL\n", align_of_short); */ 
+354: /* MUTANT (del_stmt) */ /*     printf("#define JS_ALIGN_OF_INT     %dL\n", align_of_int); */ 
+355: /* MUTANT (del_stmt) */ /*     printf("#define JS_ALIGN_OF_LONG    %dL\n", align_of_long); */ 
+356: /* MUTANT (del_stmt) */ /*     printf("#define JS_ALIGN_OF_INT64   %dL\n", align_of_int64); */ 
+357: /* MUTANT (del_stmt) */ /*     printf("#define JS_ALIGN_OF_FLOAT   %dL\n", align_of_float); */ 
+358: /* MUTANT (del_stmt) */ /*     printf("#define JS_ALIGN_OF_DOUBLE  %dL\n", align_of_double); */ 
+359: /* MUTANT (del_stmt) */ /*     printf("#define JS_ALIGN_OF_POINTER %dL\n", align_of_pointer); */ 
+360: /* MUTANT (del_stmt) */ /*     printf("#define JS_ALIGN_OF_WORD    %dL\n", align_of_word); */ 
+361: /* MUTANT (del_stmt) */ /*     printf("\n"); */ 
+363: /* MUTANT (del_stmt) */ /*     printf("#define JS_BYTES_PER_WORD_LOG2   %dL\n", Log2(sizeof_word)); */ 
+364: /* MUTANT (del_stmt) */ /*     printf("#define JS_BYTES_PER_DWORD_LOG2  %dL\n", Log2(sizeof_dword)); */ 
+365: /* MUTANT (del_stmt) */ /*     printf("#define JS_WORDS_PER_DWORD_LOG2  %dL\n", Log2(sizeof_dword/sizeof_word)); */ 
+366: /* MUTANT (del_stmt) */ /*     printf("\n"); */ 
+368: /* MUTANT (del_stmt) */ /*     printf("#define JS_STACK_GROWTH_DIRECTION (%d)\n", StackGrowthDirection(&dummy1)); */ 
+369: /* MUTANT (del_stmt) */ /*     printf("\n"); */ 
+373: /* MUTANT (del_stmt) */ /*     return EXIT_SUCCESS; */ 
