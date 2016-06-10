@@ -1,3 +1,4 @@
+import random
 import sys
 import os
 import runtestcase as RT
@@ -39,7 +40,7 @@ abstractstaticmethod = abc.abstractmethod
 
 
 class TESTRESULT:
-    FAIL = 0;
+    FAIL = 0
     PASS = 1
 
 
@@ -49,10 +50,9 @@ class DD(object):
         """ what should be done to deltas"""
         pass
 
-    @abstractstaticmethod
-    def post(partition, deltas):
-        """what should happens after delta"""
-
+    # @abstractstaticmethod
+    # def post(partition, deltas):
+    #     """what should happens after delta"""
 
 class CLASSICDD(DD):
     @staticmethod
@@ -64,10 +64,10 @@ class CLASSICDD(DD):
         pass
 
 
-
 class RANDOMDD(DD):
     @staticmethod
     def pre(deltas):
+        # print 'DELTA:', deltas
         newlist = deltas[:]
         random.shuffle(newlist)
         return newlist
@@ -76,22 +76,41 @@ class RANDOMDD(DD):
     def post(partition, deltas):
         pass
 
-
-
 def test(deltas):
+    import tempfile
     fd, tmp_filename = tempfile.mkstemp()
     tempF = open(tmp_filename, 'w')
-    test_text  = '\n'.join(deltas)
+    strippeddeltas = map(lambda s: s.strip(), deltas)
+    test_text  = '\n'.join(strippeddeltas)
     tempF.write(test_text)
     tempF.flush()
     tempF.close()
     os.close(fd)
-    status, out = RT.runtestcase(tempF, executable)
-    os.remove(temp_filename)
+    (status, out) = RT.execute_testcase(tmp_filename, executable)
+    print "result status", status
+    os.remove(tmp_filename)
     if status != 0:
         return TESTRESULT.FAIL
     else:
         return TESTRESULT.PASS
+
+def split(deltas, n):
+    delta_ln = len(deltas)
+    if n > delta_ln:
+        raise ArithmeticError
+    binsize = delta_ln / n
+    newdelta = []
+    i = 0
+    while i < delta_ln:
+        bi = 0
+        newbin = []
+        while bi < binsize and i < delta_ln:
+            newbin.append(deltas[i])
+            bi += 1
+            i += 1
+        newdelta.append(newbin[:])
+    return newdelta
+
 
 
 
@@ -101,51 +120,43 @@ def ddmin(deltas, DD):
     secondCondition = False
     while True:
         ln = len(deltas)
-        pre_deltas = DD.pre(deltas)
-
+        print("delta size: {0}, n: {1}, delte: ".format(ln, n, deltas))
+        deltas = DD.pre(deltas)
         if n > ln:
             return deltas
-        for temp_delta in pre_deltas:
+        for temp_delta in split(deltas,n):
             if test(temp_delta) == TESTRESULT.FAIL:
                 n = 2
-                deltas = DD.post(temp_delta)
+                deltas = temp_delta
                 firstCondition = True
                 break
 
         if not firstCondition:
-            for d in pre_deltas:
+            for d in split(deltas, n):
                 inverse_delta = filter(lambda s: s != d, deltas)
-                if test(inverse_delta) == TESTRESULT.FAIL:
+                inverse_delta_list = reduce(lambda x,y: x+y, inverse_delta)
+                if test(inverse_delta_list) == TESTRESULT.FAIL:
                     n = max(n-1, 2)
-                    deltas = DD.post(inverse_delta)
+                    deltas = inverse_delta_list
                     secondCondition = True
                     break
 
         if not (firstCondition or secondCondition):
             if n >= ln:
-                return delta
+                return deltas
             if n < ln:
                 n = min(ln, 2*n)
 
 
-
-
-parser = argparse.ArgumentParser(description='Slipage analysis.')
-parser.add_argument('--compare_out',
-                      help='compares the output of reduced and unreduced test cases')
-parser.add_argument('--classic',
-                     help='Runs classic delta debugging')
-
-parser.add_argument('--random',
-                     help='Runs randomized delta debugging')
-
-parser.add_argument('--testcase', help='path to thet SpiderMonkey test case.')
+import argparse
 
 
 
 
 
-def main():
+
+
+def main1():
     reduced_dir = sys.argv[1]
     unreduced_dir = sys.argv[2]
     executable = sys.argv[3]
@@ -153,12 +164,50 @@ def main():
 
 
 
+def to_testcase(reduced_delta, testcase_basename,  method):
+    testcase_text = '\n'.join(reduced_delta)
+    filename = testcase_basename + '.' + method
+    with open(filename, 'w') as newfile:
+        newfile.write(testcase_text)
+        newfile.close()
+
+
 
 def slippage():
-    unreduced_dir = sys.argv[2]
+    unreduced_files = [f for f in os.listdir(unreduced_dir) if os.path.isfile(os.path.join(unreduced_dir, f)) and f.endswith('full')]
+    unreduced_files =["/tmp/unreduced/tests/tc96123.full"]
+    for unred in unreduced_files[:100]:
+        unred_file = os.path.join(unreduced_dir, unred)
+        print unred_file
+        deltas = open(unred_file).readlines()
+        for m in ['classic', 'random']:
+            if m == 'classic':
+                reduced_delta = ddmin(deltas, CLASSICDD)
+            if m == 'random':
+                reduced_delta = ddmin(deltas, RANDOMDD)
+            testcase_basename = unred
+            reduced_tc = to_testcase( reduced_delta, testcase_basename, m)
+
+
 
 
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description='Slippage analysis.')
+    # parser.add_argument('--compare_out',
+    #                       help='compares the output of reduced and unreduced test cases')
+    # parser.add_argument('--classic',
+    #                      help='Runs classic delta debugging')
+
+    # parser.add_argument('--random',
+    #                      help='Runs randomized delta debugging')
+    #
+    # parser.add_argument('--testcase', help='path to thet SpiderMonkey test case.')
+    parser.add_argument('--unreduced', help='path to thet SpiderMonkey unreduced test case.')
+    parser.add_argument('--exe', help='path to thet SpiderMonkey executable ("js").')
+    args  = parser.parse_args()
+    unreduced_dir = args.unreduced
+    executable = args.exe
+
+    slippage()
