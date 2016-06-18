@@ -20,13 +20,11 @@ def execute_testcase(testcase, executable, jsfunrun = "jsfunrun.js"):
     tempF.close()
     os.close(fd)
     cmd = 'timeout 1 {0} -f {1}'.format(executable, tmpfile_name)
+    # print 'cmd', cmd
     status, out_lines = commands.getstatusoutput(cmd)
     pattern = re.compile(r"\n+")
     out =  re.sub(pattern, "\n", out_lines)
     os.remove(tmpfile_name)
-
-    # os.system(cmd)
-
     return (status, out)
 
 
@@ -37,7 +35,7 @@ def main():
     executable = sys.argv[3]
     (status, out) = execute_testcase(testcase, executable, jsfunrun)
     print('status = {0} '.format(status))
-    # print('out = {0}'.format(out))
+    print('out = {0}'.format(out))
 
 if __name__ == '__main__':
     main()

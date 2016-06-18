@@ -1,3 +1,4 @@
+import itertools
 import random
 import sys
 import os
@@ -33,6 +34,28 @@ def compare_dirs(reduced_dir, unreduced_dir,executable):
             pass
 
             # print('not found')
+
+
+
+
+def compare_redundancy(reduced_dir, unreduced_dir):
+    reduced_files   = [f for f in os.listdir(reduced_dir)   if os.path.isfile(os.path.join(reduced_dir, f)) and f.endswith('fmin')]
+    unreduced_files = [f for f in os.listdir(unreduced_dir) if os.path.isfile(os.path.join(unreduced_dir, f)) and f.endswith('full')]
+    print(len(reduced_files), len(unreduced_files))
+
+    for unred in unreduced_files:
+        red = unred.replace('.full', '.fmin')
+        if red in reduced_files:
+            print (red, unred)
+            red_file = os.path.join(reduced_dir, red)
+            unred_file = os.path.join(unreduced_dir, unred)
+            reduced_content = open(red_file).read()
+            unreduced_content = open(unred_file).read()
+            # TODO
+
+
+        else:
+            pass
 
 
 import abc
@@ -87,7 +110,11 @@ def test(deltas):
     tempF.close()
     os.close(fd)
     (status, out) = RT.execute_testcase(tmp_filename, executable)
-    print "result status", status
+    # print "delta:", deltas
+    # print "result status", status
+
+    # print "out", out
+
     os.remove(tmp_filename)
     if status != 0:
         return TESTRESULT.FAIL
@@ -120,11 +147,15 @@ def ddmin(deltas, DD):
     secondCondition = False
     while True:
         ln = len(deltas)
-        print("delta size: {0}, n: {1}, delte: ".format(ln, n, deltas))
-        deltas = DD.pre(deltas)
+        firstCondition  = False
+        secondCondition = False
         if n > ln:
             return deltas
-        for temp_delta in split(deltas,n):
+        deltalist = DD.pre(split(deltas, n))
+        print("delta size: {0}, n: {1}, deltas: ".format(ln, n, deltas))
+        # print 'deltas:', deltas
+
+        for temp_delta in deltalist:
             if test(temp_delta) == TESTRESULT.FAIL:
                 n = 2
                 deltas = temp_delta
@@ -132,8 +163,8 @@ def ddmin(deltas, DD):
                 break
 
         if not firstCondition:
-            for d in split(deltas, n):
-                inverse_delta = filter(lambda s: s != d, deltas)
+            for d in deltalist:
+                inverse_delta = filter(lambda s: s != d, deltalist)
                 inverse_delta_list = reduce(lambda x,y: x+y, inverse_delta)
                 if test(inverse_delta_list) == TESTRESULT.FAIL:
                     n = max(n-1, 2)
@@ -165,28 +196,50 @@ def main1():
 
 
 def to_testcase(reduced_delta, testcase_basename,  method):
-    testcase_text = '\n'.join(reduced_delta)
+    testcase_text = ''.join(reduced_delta)
     filename = testcase_basename + '.' + method
+    print filename
     with open(filename, 'w') as newfile:
         newfile.write(testcase_text)
         newfile.close()
+    return filename
 
 
 
 def slippage():
-    unreduced_files = [f for f in os.listdir(unreduced_dir) if os.path.isfile(os.path.join(unreduced_dir, f)) and f.endswith('full')]
-    unreduced_files =["/tmp/unreduced/tests/tc96123.full"]
+    unreduced_files = [f for f in sorted(os.listdir(unreduced_dir)) if os.path.isfile(os.path.join(unreduced_dir, f)) and f.endswith('full')]
+    # unreduced_files =["/tmp/unreduced/tests/tc96123.full"]
     for unred in unreduced_files[:100]:
         unred_file = os.path.join(unreduced_dir, unred)
-        print unred_file
-        deltas = open(unred_file).readlines()
-        for m in ['classic', 'random']:
-            if m == 'classic':
-                reduced_delta = ddmin(deltas, CLASSICDD)
-            if m == 'random':
-                reduced_delta = ddmin(deltas, RANDOMDD)
-            testcase_basename = unred
-            reduced_tc = to_testcase( reduced_delta, testcase_basename, m)
+        (status, out) = RT.execute_testcase(unred_file, executable)
+        print "unreduced testcase output:", status, out
+        if status != 0:
+            print unred_file
+            deltas = open(unred_file).readlines()
+            for m in ['classic', 'random']:
+                if m == 'classic':
+                    reduced_delta = ddmin(deltas, CLASSICDD)
+                if m == 'random':
+                    reduced_delta = ddmin(deltas, RANDOMDD)
+                testcase_basename = unred
+                reduced_tc = to_testcase( reduced_delta, testcase_basename, m)
+                (status, out) = RT.execute_testcase(reduced_tc, executable)
+                print "reduced testcase output:", status, out
+                # doing the combinatorial removal:
+                print 'size of reduced test case:{0}'.format(len(reduced_delta))
+                if m == 'classic' and len(reduced_delta) < 3:
+                    new_bug = 0
+                    for i in range(len(reduced_delta)):
+                        for toremove in itertools.combinations(reduced_delta, i):
+                            new_deltas = filter(lambda s: not s in toremove, deltas)
+                            reduced_delta = ddmin(new_deltas, CLASSICDD)
+                            if len(reduced_delta) > 0:
+                                new_bug += 1
+                                print 'slippage happened'
+                                reduced_tc = to_testcase( reduced_delta, testcase_basename,
+                                'potentialslippage.'+ m + '.' + str(new_bug))
+
+
 
 
 
