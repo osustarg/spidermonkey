@@ -3,6 +3,12 @@ import random
 import sys
 import os
 import runtestcase as RT
+import logging
+logging.basicConfig(filename='slippage.log', level=logging.INFO, filemode='w')
+
+def log(msg):
+    print msg
+    logging.info(msg)
 
 
 
@@ -100,9 +106,11 @@ class RANDOMDD(DD):
         pass
 
 def test(deltas):
+
     import tempfile
     fd, tmp_filename = tempfile.mkstemp()
     tempF = open(tmp_filename, 'w')
+#    print deltas
     strippeddeltas = map(lambda s: s.strip(), deltas)
     test_text  = '\n'.join(strippeddeltas)
     tempF.write(test_text)
@@ -110,6 +118,7 @@ def test(deltas):
     tempF.close()
     os.close(fd)
     (status, out) = RT.execute_testcase(tmp_filename, executable)
+
     # print "delta:", deltas
     # print "result status", status
 
@@ -117,6 +126,7 @@ def test(deltas):
 
     os.remove(tmp_filename)
     if status != 0:
+        log('|delta|: {0} , return-code: {1}'.format(len(deltas), status))
         return TESTRESULT.FAIL
     else:
         return TESTRESULT.PASS
@@ -146,13 +156,18 @@ def ddmin(deltas, DD):
     firstCondition  = False
     secondCondition = False
     while True:
+        assert test(deltas) == TESTRESULT.FAIL
         ln = len(deltas)
         firstCondition  = False
         secondCondition = False
         if n > ln:
             return deltas
+
         deltalist = DD.pre(split(deltas, n))
-        print("delta size: {0}, n: {1}, deltas: ".format(ln, n, deltas))
+
+
+
+        # print("delta size: {0}, n: {1}, deltas: ".format(ln, n, deltas))
         # print 'deltas:', deltas
 
         for temp_delta in deltalist:
@@ -211,15 +226,16 @@ def slippage():
     # unreduced_files =["/tmp/unreduced/tests/tc96123.full"]
     for unred in unreduced_files[:100]:
         unred_file = os.path.join(unreduced_dir, unred)
-        (status, out) = RT.execute_testcase(unred_file, executable)
-        print "unreduced testcase output:", status, out
-        if status != 0:
-            print unred_file
-            deltas = open(unred_file).readlines()
+        deltas = open(unred_file).readlines()
+        if test(deltas) == TESTRESULT.FAIL:
+            log('New file started')
+            log(unred_file)
             for m in ['classic', 'random']:
                 if m == 'classic':
+                    log('classic ddmin started')
                     reduced_delta = ddmin(deltas, CLASSICDD)
                 if m == 'random':
+                    log('randomized ddmin started')
                     reduced_delta = ddmin(deltas, RANDOMDD)
                 testcase_basename = unred
                 reduced_tc = to_testcase( reduced_delta, testcase_basename, m)
@@ -232,12 +248,14 @@ def slippage():
                     for i in range(len(reduced_delta)):
                         for toremove in itertools.combinations(reduced_delta, i):
                             new_deltas = filter(lambda s: not s in toremove, deltas)
-                            reduced_delta = ddmin(new_deltas, CLASSICDD)
-                            if len(reduced_delta) > 0:
-                                new_bug += 1
-                                print 'slippage happened'
-                                reduced_tc = to_testcase( reduced_delta, testcase_basename,
-                                'potentialslippage.'+ m + '.' + str(new_bug))
+                            if test(new_deltas) == TESTRESULT.FAIL:
+                                log('combinatorial slippage started')
+                                reduced_delta = ddmin(new_deltas, CLASSICDD)
+                                if len(reduced_delta) > 0:
+                                    new_bug += 1
+                                    print 'slippage happened'
+                                    reduced_tc = to_testcase( reduced_delta, testcase_basename,
+                                    'potentialslippage.'+ m + '.' + str(new_bug))
 
 
 
